@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELI5 - VM Concepts Simply Explained | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="layout">
+        <main class="main-content" style="max-width: 900px; margin: 0 auto;">
+            <div class="page-header">
+                <h1>👶 ELI5 - Explain Like I'm 5</h1>
+                <p class="page-description">Complex VM concepts explained in the simplest possible terms.</p>
+            </div>
+
+            <div class="content-body">
+
+                <div class="eli5-box">
+                    <strong>What is a Vulnerability?</strong><br><br>
+                    A vulnerability is like a broken lock on your door. It's not a burglar - it's just a way a burglar COULD get in if they find it.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is an Exploit?</strong><br><br>
+                    If the vulnerability is a broken lock, the exploit is the technique the burglar uses to open it. Sometimes they jiggle it a certain way, sometimes they use a special tool. The exploit is the "how to break in" instructions.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is a Patch?</strong><br><br>
+                    A patch is like getting a locksmith to come fix your broken lock. It's the official repair from the lock company (software vendor) that makes the lock work properly again.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is CVSS?</strong><br><br>
+                    CVSS is like a danger rating for vulnerabilities, from 0 to 10. Think of it like a weather warning:<br>
+                    🟢 1-3 = Nice weather, no rush<br>
+                    🟡 4-6 = Rain coming, bring an umbrella<br>
+                    🟠 7-8 = Big storm, prepare your house<br>
+                    🔴 9-10 = Hurricane! Take shelter NOW!
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is EPSS?</strong><br><br>
+                    CVSS tells you how bad a vulnerability COULD be. EPSS tells you how likely bad guys will ACTUALLY use it soon. It's like knowing a hurricane is possible (CVSS) vs knowing one is heading your way right now (EPSS).
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is a Zero-Day?</strong><br><br>
+                    A zero-day is like finding out burglars discovered a secret entrance to houses that nobody knew about - and they're already using it! There's no fix yet because nobody knew it existed. You have "zero days" to prepare.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is Scanning?</strong><br><br>
+                    Scanning is like a security guard walking through your whole building, checking every door and window to see if any locks are broken. They make a list of everything they find wrong.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>Authenticated vs Unauthenticated Scan?</strong><br><br>
+                    <strong>Unauthenticated</strong> = Looking at a house from the street. You can see the outside, but not what's inside.<br>
+                    <strong>Authenticated</strong> = Going inside with a key. You can open closets, check the basement, see everything!<br><br>
+                    Authenticated finds 5-10x more problems!
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is Remediation?</strong><br><br>
+                    Remediation just means "fixing the problem." You found a broken lock? Fix it! That's remediation. You can fix it properly (patch), board up the door (workaround), or add extra security cameras (compensating control).
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is a Compensating Control?</strong><br><br>
+                    Can't fix the broken lock right away? Add extra protection instead! Put a doorstop, add a camera, get a guard dog. These don't fix the lock, but they make it much harder for burglars. That's a compensating control.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is Risk Acceptance?</strong><br><br>
+                    Sometimes you know about a broken lock but decide: "This door leads to an empty closet, it's fine for now." You write it down, get your boss to agree, and accept the small risk. That's risk acceptance - knowingly living with a vulnerability.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is an SLA?</strong><br><br>
+                    SLA (Service Level Agreement) is like promising "we'll fix any broken locks within 24 hours." It's your promise for how fast you'll fix things. Critical locks = faster. Closet locks = can wait longer.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is Crown Jewels?</strong><br><br>
+                    Crown jewels are your most important things - your safe with money, your family photos, your irreplaceable stuff. In IT, it's your payment systems, customer data, domain controllers. Protect these FIRST!
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is CMDB?</strong><br><br>
+                    CMDB (Configuration Management Database) is like a master list of everything you own - every computer, every server, who owns it, where it is, what it does. You need this list to know what to protect!
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is Shadow IT?</strong><br><br>
+                    Shadow IT is like finding out someone in your family installed a doggy door you didn't know about. It's technology people set up without telling IT. Surprise! Now there's another way in that nobody was protecting.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is Attack Surface?</strong><br><br>
+                    Your attack surface is every possible way someone could try to break in - every door, window, doggy door, chimney, air vent. The bigger your house (network), the more entry points (attack surface) you have to watch.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is MTTR?</strong><br><br>
+                    MTTR (Mean Time To Remediate) = "On average, how long does it take us to fix a broken lock after we find it?" Lower is better! If your MTTR is 30 days, you're leaving locks broken for a month on average.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is False Positive?</strong><br><br>
+                    A false positive is when the security guard says "this lock is broken!" but actually it's fine - they made a mistake. You check it, it works perfectly. False alarm!
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is CVE?</strong><br><br>
+                    CVE is like a unique ID for every discovered vulnerability. "CVE-2021-44228" is the official name for Log4Shell, like how every person has a Social Security Number. When someone says a CVE number, everyone knows exactly which vulnerability they mean.
+                </div>
+
+                <div class="eli5-box">
+                    <strong>What is CISA KEV?</strong><br><br>
+                    CISA KEV is the government's "Most Wanted" list for vulnerabilities. If a vulnerability is on this list, it means bad guys are DEFINITELY using it right now. Fix these first - no excuses!
+                </div>
+
+                <a href="index.html" class="page-nav-link" style="display: inline-block; margin-top: 30px;">
+                    ← Back to Documentation Home
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

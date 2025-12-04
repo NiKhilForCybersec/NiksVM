@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scoring Systems - CVSS, EPSS, VPR | VM Docs</title>
+    <title>Zero-Day Response Procedures | VM Docs</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
                 </a>
             </div>
             <nav class="sidebar-nav">
-                <div class="nav-section" data-section="1">
+                <div class="nav-section collapsed" data-section="1">
                     <div class="nav-section-header">
                         <span class="nav-section-icon">📚</span>
                         <span>1. Fundamentals</span>
@@ -25,7 +25,7 @@
                     <div class="nav-section-items">
                         <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
                         <a href="1-2-program-framework.html" class="nav-item">1.2 Framework</a>
-                        <a href="1-3-scoring-systems.html" class="nav-item active">1.3 Scoring</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring</a>
                         <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
                         <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics</a>
                     </div>
@@ -65,7 +65,7 @@
                         <a href="3-7-attack-surface.html" class="nav-item">3.7 Attack Surface</a>
                     </div>
                 </div>
-                <div class="nav-section collapsed" data-section="4">
+                <div class="nav-section" data-section="4">
                     <div class="nav-section-header">
                         <span class="nav-section-icon">🎯</span>
                         <span>4. Analysis</span>
@@ -79,7 +79,7 @@
                         <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
                         <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
                         <a href="4-7-risk-acceptance.html" class="nav-item">4.7 Risk Acceptance</a>
-                        <a href="4-8-zero-day-response.html" class="nav-item">4.8 Zero-Day</a>
+                        <a href="4-8-zero-day-response.html" class="nav-item active">4.8 Zero-Day</a>
                     </div>
                 </div>
                 <div class="nav-section collapsed" data-section="5">
@@ -180,207 +180,212 @@
 
         <main class="main-content">
             <div class="page-header">
-                <div class="page-meta"><span class="page-section">Section 1: Fundamentals</span></div>
-                <h1>Vulnerability Scoring Systems</h1>
-                <p class="page-description">Master CVSS, EPSS, VPR, and TruRisk with easy-to-remember frameworks.</p>
+                <div class="page-meta"><span class="page-section">Section 4: Analysis</span></div>
+                <h1>Zero-Day Response Procedures</h1>
+                <p class="page-description">How to respond when a new critical vulnerability drops with no patch available.</p>
             </div>
 
             <div class="content-body">
                 
                 <div class="eli5-box">
-                    <strong>Why Do We Need Scoring Systems?</strong><br><br>
-                    Imagine you're a doctor with 1000 patients. You can't treat everyone at once. You need a way to know:<br>
-                    🏥 <strong>CVSS</strong> = How severe is the disease? (1-10 severity)<br>
-                    📈 <strong>EPSS</strong> = How likely will it get worse? (exploitation probability)<br>
-                    🎯 <strong>VPR/TruRisk</strong> = What should I treat first? (real-world priority)
+                    <strong>What is a Zero-Day?</strong><br><br>
+                    A zero-day is a vulnerability that:<br>
+                    🆕 Is newly discovered (or newly public)<br>
+                    ⚠️ Has NO patch available yet<br>
+                    🔥 May already be exploited in the wild<br><br>
+                    <em>Called "zero-day" because defenders have had ZERO DAYS to prepare!</em>
                 </div>
 
-                <h2>CVSS - The Foundation</h2>
+                <h2>The Zero-Day Response Framework: "DICAS"</h2>
 
                 <div class="memory-box">
-                    <div class="memory-box-title">🧠 CVSS Score Ranges - "9-7-4-0"</div>
-                    <table>
-                        <tr><td style="color: #ff4444;">🔴 <strong>Critical</strong></td><td>9.0 - 10.0</td><td>Fix within hours/days</td></tr>
-                        <tr><td style="color: #ff8c00;">🟠 <strong>High</strong></td><td>7.0 - 8.9</td><td>Fix within days/week</td></tr>
-                        <tr><td style="color: #ffd700;">🟡 <strong>Medium</strong></td><td>4.0 - 6.9</td><td>Fix within weeks</td></tr>
-                        <tr><td style="color: #00ff9f;">🟢 <strong>Low</strong></td><td>0.1 - 3.9</td><td>Fix when convenient</td></tr>
-                    </table>
-                    <p style="margin-top: 10px; color: #a0a0a0;">Memory: "9-7-4" are the breakpoints. Everything starts with these numbers.</p>
-                </div>
-
-                <h3>CVSS v3.1 Base Metrics</h3>
-
-                <div class="memory-box">
-                    <div class="memory-box-title">🧠 Attack Vector: "NALP" (severity decreases)</div>
+                    <div class="memory-box-title">🧠 Zero-Day Response: "DICAS"</div>
                     <div class="mnemonic">
-                        <div class="mnemonic-letters">N A L P</div>
+                        <div class="mnemonic-letters">D I C A S</div>
                         <div class="mnemonic-meaning">
-                            <span>N</span>etwork → <span>A</span>djacent → <span>L</span>ocal → <span>P</span>hysical
+                            <span>D</span>etect → <span>I</span>dentify Scope → <span>C</span>ontain → <span>A</span>ct → <span>S</span>ustain
+                        </div>
+                    </div>
+                    <p style="color: #a0a0a0;">"Did I Contain All Systems?"</p>
+                </div>
+
+                <div class="visual-timeline">
+                    <div class="timeline-step"><div class="step-num">1</div><div class="step-name">DETECT</div></div>
+                    <span class="timeline-arrow">→</span>
+                    <div class="timeline-step"><div class="step-num">2</div><div class="step-name">IDENTIFY</div></div>
+                    <span class="timeline-arrow">→</span>
+                    <div class="timeline-step"><div class="step-num">3</div><div class="step-name">CONTAIN</div></div>
+                    <span class="timeline-arrow">→</span>
+                    <div class="timeline-step"><div class="step-num">4</div><div class="step-name">ACT</div></div>
+                    <span class="timeline-arrow">→</span>
+                    <div class="timeline-step"><div class="step-num">5</div><div class="step-name">SUSTAIN</div></div>
+                </div>
+
+                <h3>Phase 1: DETECT (Hour 0-1)</h3>
+                <div class="info-box warning">
+                    <div class="info-box-title">⚡ First Hour Actions</div>
+                    <ul>
+                        <li>Monitor threat intel feeds (Twitter/X, vendor advisories, CISA)</li>
+                        <li>Receive alert from security vendors, news, or internal detection</li>
+                        <li>Verify the vulnerability is real (not a false alarm)</li>
+                        <li>Determine if it affects your environment</li>
+                        <li>Alert the incident response team</li>
+                    </ul>
+                </div>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">Key Intel Sources for Zero-Days</div>
+                    <ul>
+                        <li><strong>CISA Alerts:</strong> cisa.gov/uscert</li>
+                        <li><strong>Vendor Security Blogs:</strong> Microsoft, Cisco, VMware</li>
+                        <li><strong>Twitter/X:</strong> @CISAgov, @TheRecord_Media, @BleepinComputer</li>
+                        <li><strong>NVD:</strong> nvd.nist.gov</li>
+                        <li><strong>Your Scanner Vendor:</strong> Tenable, Qualys, Rapid7 alerts</li>
+                    </ul>
+                </div>
+
+                <h3>Phase 2: IDENTIFY SCOPE (Hours 1-4)</h3>
+                <div class="info-box">
+                    <div class="info-box-title">🔍 Scoping Questions</div>
+                    <ul>
+                        <li><strong>What's affected?</strong> Which products, versions, configurations?</li>
+                        <li><strong>How many assets?</strong> Run emergency scan or query CMDB</li>
+                        <li><strong>Where are they?</strong> Internet-facing? Internal? Cloud?</li>
+                        <li><strong>Who owns them?</strong> Identify asset owners for communication</li>
+                        <li><strong>What's the criticality?</strong> Crown jewels or standard assets?</li>
+                    </ul>
+                </div>
+
+                <div class="story-scenario">
+                    <div class="story-scenario-header">Example: Log4Shell Scoping</div>
+                    <p>
+                        When Log4Shell dropped, teams had to answer:<br><br>
+                        ❓ "Which apps use Log4j?" → Searched for log4j*.jar files<br>
+                        ❓ "What versions?" → 2.0-beta9 to 2.14.1 vulnerable<br>
+                        ❓ "Internet-facing?" → Web apps, APIs, load balancers<br>
+                        ❓ "Can we detect exploitation?" → Search logs for "${jndi:"<br><br>
+                        <em>Many discovered Log4j in apps they didn't know had it!</em>
+                    </p>
+                </div>
+
+                <h3>Phase 3: CONTAIN (Hours 4-24)</h3>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 Containment Options: "BIND"</div>
+                    <div class="mnemonic">
+                        <div class="mnemonic-letters">B I N D</div>
+                        <div class="mnemonic-meaning">
+                            <span>B</span>lock → <span>I</span>solate → <span>N</span>eutralize → <span>D</span>isable
                         </div>
                     </div>
                 </div>
 
-                <div class="analogy-box">
-                    <p><strong>Attack Vector as House Burglary:</strong></p>
-                    <ul>
-                        <li><strong>Network (N)</strong> = Burglar breaks in remotely from anywhere (worst)</li>
-                        <li><strong>Adjacent (A)</strong> = Burglar must be on your street (same network)</li>
-                        <li><strong>Local (L)</strong> = Burglar needs to be inside your house first</li>
-                        <li><strong>Physical (P)</strong> = Burglar needs to touch your safe (least severe)</li>
-                    </ul>
-                </div>
+                <table>
+                    <thead>
+                        <tr><th>Option</th><th>Description</th><th>Example</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Block</strong></td>
+                            <td>Block attack traffic at perimeter</td>
+                            <td>WAF rule, firewall block, IPS signature</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Isolate</strong></td>
+                            <td>Network segment affected systems</td>
+                            <td>Move to quarantine VLAN, block lateral movement</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Neutralize</strong></td>
+                            <td>Remove vulnerable component</td>
+                            <td>Delete JndiLookup class, uninstall service</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Disable</strong></td>
+                            <td>Turn off the vulnerable service</td>
+                            <td>Disable Print Spooler, stop Apache</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                <div class="memory-box">
-                    <div class="memory-box-title">🧠 Other CVSS Metrics Quick Reference</div>
-                    <table>
-                        <tr><td><strong>Attack Complexity</strong></td><td>Low (easy) or High (requires special conditions)</td></tr>
-                        <tr><td><strong>Privileges Required</strong></td><td>None → Low → High (more privs = less severe)</td></tr>
-                        <tr><td><strong>User Interaction</strong></td><td>None (auto) or Required (needs click)</td></tr>
-                        <tr><td><strong>Scope</strong></td><td>Unchanged or Changed (can it escape the component?)</td></tr>
-                        <tr><td><strong>CIA Impact</strong></td><td>None → Low → High for each of C, I, A</td></tr>
-                    </table>
-                </div>
-
-                <div class="quick-recall">
-                    <div class="quick-recall-title">CVSS v3.1 String Example</div>
-                    <code>CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H = 10.0</code><br><br>
-                    Translation: Network attack, Low complexity, No privileges, No user interaction, Changed scope, High impact on all CIA = <strong>WORST CASE</strong>
-                </div>
-
-                <h2>EPSS - Exploit Prediction</h2>
-
-                <div class="eli5-box">
-                    <strong>What is EPSS?</strong><br><br>
-                    EPSS = Exploit Prediction Scoring System<br><br>
-                    It answers: "<em>What's the probability this vulnerability will be exploited in the next 30 days?</em>"<br><br>
-                    Scale: 0.0 (0%) to 1.0 (100%)<br><br>
-                    <strong>Think of it like weather forecasting:</strong> CVSS says "this storm could be a Category 5" but EPSS says "there's a 70% chance it will hit your city."
-                </div>
-
-                <div class="memory-box">
-                    <div class="memory-box-title">🧠 EPSS Thresholds to Remember</div>
-                    <table>
-                        <tr><td style="color: #ff4444;"><strong>> 0.7 (70%)</strong></td><td>🔥 Actively exploited - FIX NOW</td></tr>
-                        <tr><td style="color: #ff8c00;"><strong>0.4 - 0.7</strong></td><td>⚠️ High priority - this week</td></tr>
-                        <tr><td style="color: #ffd700;"><strong>0.1 - 0.4</strong></td><td>📋 Medium priority - schedule it</td></tr>
-                        <tr><td style="color: #00ff9f;"><strong>< 0.1 (10%)</strong></td><td>📝 Lower priority - but don't ignore</td></tr>
-                    </table>
-                </div>
-
-                <div class="story-scenario">
-                    <div class="story-scenario-header">Why EPSS Matters: Real Scenario</div>
-                    <p>
-                        <strong>Two vulnerabilities on your payment server:</strong><br><br>
-                        
-                        <strong>Vuln A:</strong> CVSS 9.8, EPSS 0.02 (2%)<br>
-                        → High severity, but no known exploits, hard to weaponize<br><br>
-                        
-                        <strong>Vuln B:</strong> CVSS 7.5, EPSS 0.85 (85%)<br>
-                        → Lower severity, but Metasploit module exists, being actively used<br><br>
-                        
-                        <strong>Which to fix first?</strong> Vuln B! Attackers are already using it.<br><br>
-                        <em>EPSS + CVSS together > CVSS alone</em>
-                    </p>
-                </div>
-
-                <h2>CISA KEV - The "Fix Now" List</h2>
-
-                <div class="memory-box">
-                    <div class="memory-box-title">🧠 KEV = Known Exploited Vulnerabilities</div>
-                    <p>
-                        <strong>What is it?</strong> CISA's list of vulnerabilities with confirmed active exploitation<br><br>
-                        <strong>Rule of thumb:</strong> If a vuln is on KEV, it should be your TOP priority regardless of CVSS.<br><br>
-                        <strong>Why?</strong> These aren't theoretical - attackers are using them RIGHT NOW.
-                    </p>
+                <h3>Phase 4: ACT - Remediate (Days 1-7)</h3>
+                <div class="info-box">
+                    <div class="info-box-title">🔧 Remediation Priority Order</div>
+                    <ol>
+                        <li><strong>Internet-facing + Crown Jewels</strong> → Fix within 24-48 hours</li>
+                        <li><strong>Internet-facing + Standard</strong> → Fix within 72 hours</li>
+                        <li><strong>Internal + Crown Jewels</strong> → Fix within 7 days</li>
+                        <li><strong>Internal + Standard</strong> → Fix within 14 days</li>
+                    </ol>
                 </div>
 
                 <div class="quick-recall">
-                    <div class="quick-recall-title">KEV Quick Facts</div>
+                    <div class="quick-recall-title">When No Patch Exists</div>
                     <ul>
-                        <li>Maintained by CISA (US Cybersecurity Agency)</li>
-                        <li>Federal agencies MUST remediate within specified timeframes</li>
-                        <li>Private sector should treat as high priority</li>
-                        <li>Updated regularly (check weekly)</li>
-                        <li>URL: <code>cisa.gov/known-exploited-vulnerabilities-catalog</code></li>
+                        <li>Apply vendor workarounds (registry keys, config changes)</li>
+                        <li>Implement WAF rules to block exploit patterns</li>
+                        <li>Enable enhanced monitoring/detection</li>
+                        <li>Consider taking service offline if critical enough</li>
+                        <li>Document risk acceptance if must remain online</li>
                     </ul>
                 </div>
 
-                <h2>VPR & TruRisk - Vendor Scores</h2>
-
-                <div class="analogy-box">
-                    <p><strong>Think of it like car safety ratings:</strong></p>
+                <h3>Phase 5: SUSTAIN (Ongoing)</h3>
+                <div class="info-box overview">
+                    <div class="info-box-title">📋 Post-Zero-Day Actions</div>
                     <ul>
-                        <li><strong>CVSS</strong> = Government crash test rating (standard, basic)</li>
-                        <li><strong>VPR (Tenable)</strong> = Consumer Reports rating (adds real-world data)</li>
-                        <li><strong>TruRisk (Qualys)</strong> = Insurance company rating (considers your specific situation)</li>
+                        <li>Monitor for patch release from vendor</li>
+                        <li>Schedule patch deployment when available</li>
+                        <li>Hunt for indicators of compromise (IOCs)</li>
+                        <li>Update detection rules as new IOCs emerge</li>
+                        <li>Conduct lessons learned / retrospective</li>
+                        <li>Update runbooks based on experience</li>
                     </ul>
                 </div>
 
-                <h3>VPR (Tenable)</h3>
+                <h2>Zero-Day Communication Template</h2>
 
-                <div class="memory-box">
-                    <div class="memory-box-title">🧠 VPR = Vulnerability Priority Rating</div>
-                    <p>
-                        <strong>Range:</strong> 0.1 - 10.0 (same as CVSS)<br><br>
-                        <strong>What it adds to CVSS:</strong>
-                        <ul>
-                            <li>✓ Exploit code availability (Metasploit, ExploitDB)</li>
-                            <li>✓ Dark web chatter</li>
-                            <li>✓ Threat actor activity</li>
-                            <li>✓ Social media mentions</li>
-                            <li>✓ Age of vulnerability</li>
-                        </ul>
-                    </p>
+                <div class="code-block">
+                    <div class="code-header">Executive Communication Template</div>
+                    <pre><code>SUBJECT: [URGENT] Zero-Day Vulnerability Alert - [CVE-XXXX-XXXXX]
+
+SUMMARY:
+- Vulnerability: [Name] ([CVE])
+- Severity: [CVSS Score] - [Critical/High]
+- Affected: [Product/Service]
+- Patch Available: [Yes/No]
+- Active Exploitation: [Yes/No/Unknown]
+
+OUR EXPOSURE:
+- Affected Systems: [Count]
+- Internet-Facing: [Count]
+- Crown Jewels Affected: [Yes/No]
+
+ACTIONS TAKEN:
+1. [Containment measure 1]
+2. [Containment measure 2]
+3. [Detection rule deployed]
+
+NEXT STEPS:
+- [Patch deployment planned for X]
+- [Risk accepted for Y systems until Z]
+
+RISK LEVEL: [High/Medium/Low]
+BUSINESS IMPACT: [Description]</code></pre>
                 </div>
 
-                <h3>TruRisk (Qualys)</h3>
-
-                <div class="memory-box">
-                    <div class="memory-box-title">🧠 TruRisk = True Risk Score</div>
-                    <p>
-                        <strong>Components:</strong><br>
-                        <strong>QDS</strong> (Qualys Detection Score) = Vuln severity + threat intel (1-100)<br>
-                        <strong>ARS</strong> (Asset Risk Score) = Asset criticality + exposure<br>
-                        <strong>TruRisk</strong> = QDS × ARS = Overall risk score<br><br>
-                        <em>Remember: QDS is about the vuln, ARS is about the asset, TruRisk combines both.</em>
-                    </p>
-                </div>
-
-                <h2>Comparison Chart - Which Score When?</h2>
-
-                <div class="quick-recall">
-                    <div class="quick-recall-title">Scoring System Comparison</div>
-                    <table>
-                        <thead>
-                            <tr><th>Score</th><th>What It Measures</th><th>Use When</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr><td><strong>CVSS</strong></td><td>Intrinsic severity</td><td>Standard baseline, compliance</td></tr>
-                            <tr><td><strong>EPSS</strong></td><td>Exploitation likelihood</td><td>Prioritizing among similar CVSS</td></tr>
-                            <tr><td><strong>KEV</strong></td><td>Active exploitation</td><td>Immediate priority list</td></tr>
-                            <tr><td><strong>VPR</strong></td><td>Tenable's risk context</td><td>Tenable.io/sc environments</td></tr>
-                            <tr><td><strong>TruRisk</strong></td><td>Qualys' risk context</td><td>Qualys VMDR environments</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h2>The Ultimate Prioritization Formula</h2>
-
-                <div class="formula-box">
-                    <strong>Risk Priority Order</strong>
-                    <div class="formula">
-                        1. On KEV? → Fix IMMEDIATELY<br>
-                        2. EPSS > 0.7? → Fix this week<br>
-                        3. CVSS ≥ 9 + Tier 1 Asset? → Fix within SLA<br>
-                        4. Everything else → Standard SLA process
-                    </div>
-                </div>
+                <h2>Interview Questions</h2>
 
                 <div class="info-box interview">
-                    <div class="info-box-title">💼 Interview Question</div>
+                    <div class="info-box-title">💼 Common Interview Questions</div>
                     <p>
-                        <strong>"How do you prioritize vulnerabilities?"</strong><br><br>
-                        "I use a layered approach. First, I check CISA KEV - if it's actively exploited, it's top priority regardless of CVSS. Then I look at EPSS for exploitation probability - high EPSS vulns get prioritized even if CVSS is lower. Finally, I factor in asset criticality - a CVSS 7 on a crown jewel beats a CVSS 9 on a test server. CVSS is the starting point, not the final answer."
+                        <strong>Q: "How would you respond to a zero-day like Log4Shell?"</strong><br><br>
+                        "I'd follow a structured response: First, DETECT - verify the vulnerability through trusted sources like CISA and vendor advisories. Second, IDENTIFY scope - query our asset inventory for affected products, prioritizing internet-facing and crown jewels. Third, CONTAIN - implement immediate mitigations like WAF rules blocking the JNDI pattern and removing the vulnerable JndiLookup class. Fourth, ACT - coordinate emergency patching starting with the highest-risk systems. Finally, SUSTAIN - hunt for IOCs, monitor for new exploit variants, and conduct a lessons learned."
+                    </p>
+                    <br>
+                    <p>
+                        <strong>Q: "What do you do when there's no patch?"</strong><br><br>
+                        "Without a patch, I focus on compensating controls: network segmentation to limit exposure, WAF/IPS rules to block known exploit patterns, enhanced monitoring to detect exploitation attempts, and if necessary, taking the service offline temporarily. All decisions are documented with risk acceptance from appropriate stakeholders."
                     </p>
                 </div>
 
@@ -389,23 +394,22 @@
                 <div class="info-box overview">
                     <div class="info-box-title">📝 Key Takeaways</div>
                     <table>
-                        <tr><td><strong>CVSS Ranges</strong></td><td>9-7-4-0 (Critical/High/Medium/Low)</td></tr>
-                        <tr><td><strong>Attack Vector</strong></td><td>NALP - Network worst, Physical least</td></tr>
-                        <tr><td><strong>EPSS</strong></td><td>Probability of exploit in 30 days (0-1)</td></tr>
-                        <tr><td><strong>KEV</strong></td><td>CISA's "actively exploited" list = top priority</td></tr>
-                        <tr><td><strong>VPR/TruRisk</strong></td><td>Vendor scores adding threat context</td></tr>
-                        <tr><td><strong>Golden Rule</strong></td><td>KEV > High EPSS > High CVSS + Crown Jewel</td></tr>
+                        <tr><td><strong>Response Framework</strong></td><td>DICAS - Detect, Identify, Contain, Act, Sustain</td></tr>
+                        <tr><td><strong>Containment Options</strong></td><td>BIND - Block, Isolate, Neutralize, Disable</td></tr>
+                        <tr><td><strong>Priority</strong></td><td>Internet-facing + Crown Jewels = first</td></tr>
+                        <tr><td><strong>No Patch?</strong></td><td>WAF rules, segmentation, enhanced monitoring</td></tr>
+                        <tr><td><strong>Communication</strong></td><td>Clear, concise, action-oriented updates</td></tr>
                     </table>
                 </div>
 
                 <div class="page-navigation">
-                    <a href="1-2-program-framework.html" class="page-nav-link prev">
+                    <a href="4-6-exceptions.html" class="page-nav-link prev">
                         <span class="page-nav-label">← Previous</span>
-                        <span class="page-nav-title">Program Framework</span>
+                        <span class="page-nav-title">Exception Management</span>
                     </a>
-                    <a href="1-4-compliance.html" class="page-nav-link next">
+                    <a href="5-1-remediation-strategies.html" class="page-nav-link next">
                         <span class="page-nav-label">Next →</span>
-                        <span class="page-nav-title">Compliance Requirements</span>
+                        <span class="page-nav-title">Remediation Strategies</span>
                     </a>
                 </div>
             </div>

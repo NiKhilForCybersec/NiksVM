@@ -3,412 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Comprehensive Vulnerability Management documentation for Security Engineers and SOC Analysts. Operational reference and interview preparation resource.">
-    <title>Vulnerability Management | Ultimate Guide</title>
+    <title>Vulnerability Management Documentation | VM Docs</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <style>
+        .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 30px 0; }
+        .quick-link { background: linear-gradient(135deg, #1a1a3e 0%, #2d1f4e 100%); border: 2px solid #9d4edd; border-radius: 12px; padding: 20px; text-align: center; text-decoration: none; transition: all 0.3s; }
+        .quick-link:hover { border-color: #00ff9f; transform: translateY(-3px); }
+        .quick-link-icon { font-size: 2rem; margin-bottom: 10px; }
+        .quick-link-title { color: #00ff9f; font-weight: 600; }
+        .section-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px 0; }
+        .section-card { background: #1a1a2e; border: 1px solid #333; border-radius: 10px; padding: 25px; }
+        .section-card h3 { color: #00ff9f; margin-top: 0; display: flex; align-items: center; gap: 10px; }
+        .section-card ul { list-style: none; padding: 0; margin: 0; }
+        .section-card li { margin: 8px 0; }
+        .section-card a { color: #e0e0e0; text-decoration: none; transition: color 0.2s; }
+        .section-card a:hover { color: #00ff9f; }
+    </style>
 </head>
 <body>
-    <div class="reading-progress">
-        <div class="reading-progress-bar"></div>
-    </div>
-    
-    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
-    
     <div class="layout">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <a href="index.html" class="sidebar-logo">
-                    <div class="sidebar-logo-icon">🛡️</div>
-                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+        <main class="main-content" style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
+            <div class="page-header" style="text-align: center; margin-bottom: 40px;">
+                <div style="font-size: 4rem; margin-bottom: 20px;">🛡️</div>
+                <h1 style="font-size: 2.5rem;">Vulnerability Management Documentation</h1>
+                <p class="page-description" style="font-size: 1.2rem;">Comprehensive guide with memory aids, analogies, and interview preparation</p>
+            </div>
+
+            <!-- Quick Reference Links -->
+            <h2 style="text-align: center; color: #9d4edd;">⚡ Quick Reference</h2>
+            <div class="quick-links">
+                <a href="0-memory-cheatsheet.html" class="quick-link">
+                    <div class="quick-link-icon">🧠</div>
+                    <div class="quick-link-title">Memory Cheatsheet</div>
                 </a>
-                <div class="sidebar-search">
-                    <span class="sidebar-search-icon">🔍</span>
-                    <input type="text" placeholder="Search documentation...">
-                    <div class="search-results"></div>
+                <a href="0-quick-cards.html" class="quick-link">
+                    <div class="quick-link-icon">📋</div>
+                    <div class="quick-link-title">Quick Reference Cards</div>
+                </a>
+                <a href="0-famous-cves.html" class="quick-link">
+                    <div class="quick-link-icon">🔥</div>
+                    <div class="quick-link-title">Famous CVEs</div>
+                </a>
+                <a href="0-analogies.html" class="quick-link">
+                    <div class="quick-link-icon">💡</div>
+                    <div class="quick-link-title">All Analogies</div>
+                </a>
+                <a href="0-eli5-guide.html" class="quick-link">
+                    <div class="quick-link-icon">👶</div>
+                    <div class="quick-link-title">ELI5 Explanations</div>
+                </a>
+            </div>
+
+            <!-- Main Documentation Sections -->
+            <h2 style="text-align: center; color: #4cc9f0; margin-top: 50px;">📚 Documentation Sections</h2>
+            
+            <div class="section-grid">
+                <!-- Section 1: Fundamentals -->
+                <div class="section-card">
+                    <h3>📚 1. Fundamentals</h3>
+                    <ul>
+                        <li><a href="1-1-introduction.html">1.1 Introduction to VM</a></li>
+                        <li><a href="1-2-program-framework.html">1.2 Program Framework</a></li>
+                        <li><a href="1-3-scoring-systems.html">1.3 CVSS, EPSS & Scoring</a></li>
+                        <li><a href="1-4-compliance.html">1.4 Compliance Requirements</a></li>
+                        <li><a href="1-5-metrics-kpis.html">1.5 Metrics & KPIs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 2: Scanning -->
+                <div class="section-card">
+                    <h3>🔍 2. Scanning</h3>
+                    <ul>
+                        <li><a href="2-1-scanner-types.html">2.1 Scanner Types</a></li>
+                        <li><a href="2-2-nessus.html">2.2 Nessus</a></li>
+                        <li><a href="2-3-qualys.html">2.3 Qualys</a></li>
+                        <li><a href="2-4-rapid7.html">2.4 Rapid7 InsightVM</a></li>
+                        <li><a href="2-5-defender.html">2.5 Microsoft Defender VM</a></li>
+                        <li><a href="2-6-opensource.html">2.6 Open Source Tools</a></li>
+                        <li><a href="2-7-best-practices.html">2.7 Scanning Best Practices</a></li>
+                        <li><a href="2-8-authenticated.html">2.8 Authenticated Scanning</a></li>
+                        <li><a href="2-9-cloud-container.html">2.9 Cloud & Container Scanning</a></li>
+                        <li><a href="2-10-webapp.html">2.10 Web Application Scanning</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 3: Asset Discovery -->
+                <div class="section-card">
+                    <h3>📦 3. Asset Discovery</h3>
+                    <ul>
+                        <li><a href="3-1-discovery-methods.html">3.1 Discovery Methods</a></li>
+                        <li><a href="3-2-inventory-management.html">3.2 Inventory Management</a></li>
+                        <li><a href="3-3-cmdb-integration.html">3.3 CMDB Integration</a></li>
+                        <li><a href="3-4-cloud-discovery.html">3.4 Cloud Asset Discovery</a></li>
+                        <li><a href="3-5-shadow-it.html">3.5 Shadow IT Detection</a></li>
+                        <li><a href="3-6-classification.html">3.6 Asset Classification</a></li>
+                        <li><a href="3-7-attack-surface.html">3.7 Attack Surface Management</a> 🆕</li>
+                    </ul>
+                </div>
+
+                <!-- Section 4: Analysis -->
+                <div class="section-card">
+                    <h3>🎯 4. Analysis & Prioritization</h3>
+                    <ul>
+                        <li><a href="4-1-prioritization.html">4.1 Vulnerability Prioritization</a></li>
+                        <li><a href="4-2-risk-scoring.html">4.2 Risk Scoring Models</a></li>
+                        <li><a href="4-3-threat-intel.html">4.3 Threat Intelligence</a></li>
+                        <li><a href="4-4-exploit-prediction.html">4.4 EPSS & Exploit Prediction</a></li>
+                        <li><a href="4-5-business-context.html">4.5 Business Context</a></li>
+                        <li><a href="4-6-exceptions.html">4.6 Exception Management</a></li>
+                        <li><a href="4-8-zero-day-response.html">4.8 Zero-Day Response</a> 🆕</li>
+                    </ul>
+                </div>
+
+                <!-- Section 5: Remediation -->
+                <div class="section-card">
+                    <h3>🔧 5. Remediation</h3>
+                    <ul>
+                        <li><a href="5-1-remediation-strategies.html">5.1 Remediation Strategies</a></li>
+                        <li><a href="5-2-patch-management.html">5.2 Patch Management</a></li>
+                        <li><a href="5-3-change-management.html">5.3 Change Management</a></li>
+                        <li><a href="5-4-ticket-workflows.html">5.4 Ticket Workflows</a></li>
+                        <li><a href="5-5-sla-management.html">5.5 SLA Management</a></li>
+                        <li><a href="5-6-verification.html">5.6 Remediation Verification</a></li>
+                        <li><a href="5-7-rollback.html">5.7 Rollback Procedures</a></li>
+                        <li><a href="5-8-metrics.html">5.8 Remediation Metrics</a></li>
+                        <li><a href="5-9-compensating-controls.html">5.9 Compensating Controls</a> 🆕</li>
+                    </ul>
+                </div>
+
+                <!-- Section 6: Automation -->
+                <div class="section-card">
+                    <h3>⚡ 6. Automation</h3>
+                    <ul>
+                        <li><a href="6-1-soar-integration.html">6.1 SOAR Integration</a></li>
+                        <li><a href="6-2-ticketing-integration.html">6.2 Ticketing Integration</a></li>
+                        <li><a href="6-3-api-integration.html">6.3 API Integration</a></li>
+                        <li><a href="6-4-workflow-automation.html">6.4 Workflow Automation</a></li>
+                        <li><a href="6-5-reporting-automation.html">6.5 Reporting Automation</a></li>
+                        <li><a href="6-6-notifications.html">6.6 Notification Systems</a></li>
+                        <li><a href="6-7-cicd-integration.html">6.7 CI/CD Integration</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 7: Vulnerability Types -->
+                <div class="section-card">
+                    <h3>🐛 7. Vulnerability Types</h3>
+                    <ul>
+                        <li><a href="7-1-os-vulnerabilities.html">7.1 OS Vulnerabilities</a></li>
+                        <li><a href="7-2-application-vulns.html">7.2 Application Vulnerabilities</a></li>
+                        <li><a href="7-3-network-device-vulns.html">7.3 Network Device Vulns</a></li>
+                        <li><a href="7-4-web-application-vulns.html">7.4 Web Application Vulns</a></li>
+                        <li><a href="7-5-container-vulns.html">7.5 Container Vulnerabilities</a></li>
+                        <li><a href="7-6-cloud-vulns.html">7.6 Cloud Misconfigurations</a></li>
+                        <li><a href="7-7-database-vulns.html">7.7 Database Vulnerabilities</a></li>
+                        <li><a href="7-8-iot-ot-vulns.html">7.8 IoT/OT Vulnerabilities</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 8: Reporting -->
+                <div class="section-card">
+                    <h3>📊 8. Reporting</h3>
+                    <ul>
+                        <li><a href="8-1-dashboards.html">8.1 Dashboard Design</a></li>
+                        <li><a href="8-2-executive-reporting.html">8.2 Executive Reporting</a></li>
+                        <li><a href="8-3-operational-reporting.html">8.3 Operational Reporting</a></li>
+                        <li><a href="8-4-compliance-reporting.html">8.4 Compliance Reporting</a></li>
+                        <li><a href="8-5-kpis-metrics.html">8.5 KPIs & Metrics</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 9: Tools Deep Dive -->
+                <div class="section-card">
+                    <h3>🔌 9. Tools Deep Dive</h3>
+                    <ul>
+                        <li><a href="9-1-splunk-vm.html">9.1 Splunk for VM</a></li>
+                        <li><a href="9-2-sentinel-vm.html">9.2 Microsoft Sentinel</a></li>
+                        <li><a href="9-3-cortex-xsoar.html">9.3 Cortex XSOAR</a></li>
+                        <li><a href="9-4-tenable.html">9.4 Tenable Deep Dive</a></li>
+                        <li><a href="9-5-qualys.html">9.5 Qualys Deep Dive</a></li>
+                    </ul>
+                </div>
+
+                <!-- Section 10: Interview Prep -->
+                <div class="section-card">
+                    <h3>🎓 10. Interview Preparation</h3>
+                    <ul>
+                        <li><a href="10-1-common-questions.html">10.1 Common Questions</a></li>
+                        <li><a href="10-2-scenario-questions.html">10.2 Scenario Questions</a></li>
+                        <li><a href="10-3-technical-deep-dive.html">10.3 Technical Deep Dive</a></li>
+                        <li><a href="10-4-study-guide.html">10.4 Study Guide</a></li>
+                        <li><a href="10-5-interview-scenarios.html">10.5 Scenario Deep Dives</a> 🆕</li>
+                    </ul>
                 </div>
             </div>
-            
-            <nav class="sidebar-nav">
-                <!-- Section 1 -->
-                <div class="nav-section" data-section="1">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">📚</span>
-                        <span>1. Fundamentals</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction to VM</a>
-                        <a href="1-2-program-framework.html" class="nav-item">1.2 VM Program Framework</a>
-                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
-                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance Requirements</a>
-                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
-                    </div>
-                </div>
-                
-                <!-- Section 2 -->
-                <div class="nav-section collapsed" data-section="2">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">🔍</span>
-                        <span>2. Scanning</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
-                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus Deep Dive</a>
-                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys Platform</a>
-                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7 InsightVM</a>
-                        <a href="2-5-defender.html" class="nav-item">2.5 Microsoft Defender VM</a>
-                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source Scanners</a>
-                        <a href="2-7-best-practices.html" class="nav-item">2.7 Scan Best Practices</a>
-                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated Scanning</a>
-                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud & Container</a>
-                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App Scanning</a>
-                    </div>
-                </div>
-                
-                <!-- Section 3 -->
-                <div class="nav-section collapsed" data-section="3">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">📦</span>
-                        <span>3. Asset Discovery</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
-                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
-                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
-                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
-                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
-                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
-                    </div>
-                </div>
-                
-                <!-- Section 4 -->
-                <div class="nav-section collapsed" data-section="4">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">🎯</span>
-                        <span>4. Analysis & Priority</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
-                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
-                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
-                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
-                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
-                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exception Management</a>
-                    </div>
-                </div>
-                
-                <!-- Section 5 -->
-                <div class="nav-section collapsed" data-section="5">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">🔧</span>
-                        <span>5. Remediation</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Remediation Strategies</a>
-                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Management</a>
-                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Management</a>
-                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
-                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Management</a>
-                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
-                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
-                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
-                    </div>
-                </div>
-                
-                <!-- Section 6 -->
-                <div class="nav-section collapsed" data-section="6">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">⚡</span>
-                        <span>6. Automation</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="6-1-soar-integration.html" class="nav-item">6.1 Scanner APIs</a>
-                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing Integration</a>
-                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
-                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflow Automation</a>
-                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 CI/CD Pipeline</a>
-                        <a href="6-6-notifications.html" class="nav-item">6.6 Custom Reporting</a>
-                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 Script Library</a>
-                    </div>
-                </div>
-                
-                <!-- Section 7 -->
-                <div class="nav-section collapsed" data-section="7">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">🐛</span>
-                        <span>7. Vuln Types</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulnerabilities</a>
-                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Web App Vulns</a>
-                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Infra</a>
-                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Cloud Misconfigs</a>
-                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Container & K8s</a>
-                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Active Directory</a>
-                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Certificates & Crypto</a>
-                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 Zero-Day Response</a>
-                    </div>
-                </div>
-                
-                <!-- Section 8 -->
-                <div class="nav-section collapsed" data-section="8">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">📊</span>
-                        <span>8. Reporting</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
-                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive Reports</a>
-                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Stakeholder Comms</a>
-                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Audit & Compliance</a>
-                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 Metrics Visualization</a>
-                    </div>
-                </div>
-                
-                <!-- Section 9 -->
-                <div class="nav-section collapsed" data-section="9">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">🛠️</span>
-                        <span>9. Tools Deep Dive</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Tenable Suite</a>
-                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
-                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
-                        <a href="9-4-tenable.html" class="nav-item">9.4 Microsoft Stack</a>
-                        <a href="9-5-qualys.html" class="nav-item">9.5 Open Source Toolkit</a>
-                    </div>
-                </div>
-                
-                <!-- Section 10 -->
-                <div class="nav-section collapsed" data-section="10">
-                    <div class="nav-section-header">
-                        <span class="nav-section-icon">🎓</span>
-                        <span>10. Interview Prep</span>
-                        <span class="nav-section-toggle">▼</span>
-                    </div>
-                    <div class="nav-section-items">
-                        <a href="10-1-common-questions.html" class="nav-item">10.1 VM Concepts</a>
-                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Technical Scenarios</a>
-                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Metrics & Programs</a>
-                        <a href="10-4-study-guide.html" class="nav-item">10.4 Hands-On Challenges</a>
-                    </div>
-                </div>
-            </nav>
-        </aside>
-        
-        <!-- Main Content -->
-        <main class="main-content">
-            <div class="content-wrapper">
-                <!-- Hero Section -->
-                <section class="hero">
-                    <span class="hero-badge">Enterprise Security Documentation</span>
-                    <h1>Vulnerability Management</h1>
-                    <p class="hero-subtitle">
-                        The complete operational reference for Security Engineers and SOC Analysts. 
-                        From fundamentals to advanced automation.
-                    </p>
-                    <div class="hero-stats">
-                        <div class="hero-stat">
-                            <div class="hero-stat-value">60+</div>
-                            <div class="hero-stat-label">Pages</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-value">10</div>
-                            <div class="hero-stat-label">Sections</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-value">100+</div>
-                            <div class="hero-stat-label">Code Examples</div>
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Overview -->
-                <div class="info-box overview" data-label="Overview">
-                    <div class="info-box-title">📘 What's Inside</div>
-                    <p>
-                        This documentation covers the complete vulnerability management lifecycle from program 
-                        development to advanced automation. Each section includes real-world configurations, 
-                        copy-paste ready scripts, and practical day-to-day operational procedures. 
-                        Special interview preparation sections help you articulate your expertise.
-                    </p>
-                </div>
-                
-                <!-- Sections Grid -->
-                <h2>Documentation Sections</h2>
-                <div class="sections-grid">
-                    <!-- Section 1 -->
-                    <a href="1-1-introduction.html" class="feature-card">
-                        <div class="feature-card-number">01</div>
-                        <div class="feature-card-title">VM Fundamentals</div>
-                        <div class="feature-card-description">
-                            Core concepts, program frameworks, scoring systems (CVSS, EPSS, SSVC), 
-                            compliance requirements, and key metrics.
-                        </div>
-                        <div class="feature-card-pages">5 pages</div>
-                    </a>
-                    
-                    <!-- Section 2 -->
-                    <a href="2-1-scanner-types.html" class="feature-card">
-                        <div class="feature-card-number">02</div>
-                        <div class="feature-card-title">Vulnerability Scanning</div>
-                        <div class="feature-card-description">
-                            Deep dives into Nessus, Qualys, Rapid7, Microsoft Defender, open source tools, 
-                            and scanning best practices.
-                        </div>
-                        <div class="feature-card-pages">10 pages</div>
-                    </a>
-                    
-                    <!-- Section 3 -->
-                    <a href="3-1-discovery-methods.html" class="feature-card">
-                        <div class="feature-card-number">03</div>
-                        <div class="feature-card-title">Asset Discovery</div>
-                        <div class="feature-card-description">
-                            Discovery methods, inventory management, cloud assets, network mapping, 
-                            SBOM creation, and criticality assessment.
-                        </div>
-                        <div class="feature-card-pages">6 pages</div>
-                    </a>
-                    
-                    <!-- Section 4 -->
-                    <a href="4-1-prioritization.html" class="feature-card">
-                        <div class="feature-card-number">04</div>
-                        <div class="feature-card-title">Analysis & Prioritization</div>
-                        <div class="feature-card-description">
-                            Triage processes, threat intelligence integration, risk-based prioritization, 
-                            exploit research, and exception management.
-                        </div>
-                        <div class="feature-card-pages">6 pages</div>
-                    </a>
-                    
-                    <!-- Section 5 -->
-                    <a href="5-1-remediation-strategies.html" class="feature-card">
-                        <div class="feature-card-number">05</div>
-                        <div class="feature-card-title">Remediation & Patching</div>
-                        <div class="feature-card-description">
-                            Windows, Linux, third-party, database, and network device patching. 
-                            Configuration remediation and SLA tracking.
-                        </div>
-                        <div class="feature-card-pages">8 pages</div>
-                    </a>
-                    
-                    <!-- Section 6 -->
-                    <a href="6-1-soar-integration.html" class="feature-card">
-                        <div class="feature-card-number">06</div>
-                        <div class="feature-card-title">Automation & Integration</div>
-                        <div class="feature-card-description">
-                            Scanner APIs, SIEM/SOAR integration, ticketing automation, CI/CD pipelines, 
-                            and custom reporting scripts.
-                        </div>
-                        <div class="feature-card-pages">7 pages</div>
-                    </a>
-                    
-                    <!-- Section 7 -->
-                    <a href="7-1-os-vulnerabilities.html" class="feature-card">
-                        <div class="feature-card-number">07</div>
-                        <div class="feature-card-title">Vulnerability Types</div>
-                        <div class="feature-card-description">
-                            OS, web app, network, cloud, container, Active Directory, cryptographic 
-                            vulnerabilities, and zero-day response.
-                        </div>
-                        <div class="feature-card-pages">8 pages</div>
-                    </a>
-                    
-                    <!-- Section 8 -->
-                    <a href="8-1-dashboards.html" class="feature-card">
-                        <div class="feature-card-number">08</div>
-                        <div class="feature-card-title">Reporting & Communication</div>
-                        <div class="feature-card-description">
-                            Executive dashboards, technical reports, stakeholder communication, 
-                            audit evidence, and metrics visualization.
-                        </div>
-                        <div class="feature-card-pages">5 pages</div>
-                    </a>
-                    
-                    <!-- Section 9 -->
-                    <a href="9-1-splunk-vm.html" class="feature-card">
-                        <div class="feature-card-number">09</div>
-                        <div class="feature-card-title">Tools Deep Dive</div>
-                        <div class="feature-card-description">
-                            Complete platform guides for Tenable, Qualys, Rapid7, Microsoft security stack, 
-                            and building a free VM program.
-                        </div>
-                        <div class="feature-card-pages">5 pages</div>
-                    </a>
-                    
-                    <!-- Section 10 -->
-                    <a href="10-1-common-questions.html" class="feature-card">
-                        <div class="feature-card-number">10</div>
-                        <div class="feature-card-title">Interview Preparation</div>
-                        <div class="feature-card-description">
-                            Common questions, technical scenarios, metrics discussions, 
-                            and hands-on challenge walkthroughs.
-                        </div>
-                        <div class="feature-card-pages">4 pages</div>
-                    </a>
-                </div>
-                
-                <!-- Quick Start -->
-                <h2>Quick Start</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <div class="card-icon">🚀</div>
-                        <div class="card-title">New to VM?</div>
-                        <div class="card-description">
-                            Start with the fundamentals section to understand core concepts and build a solid foundation.
-                        </div>
-                        <a href="1-1-introduction.html" class="card-link">
-                            Start Learning →
-                        </a>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-icon">🔧</div>
-                        <div class="card-title">Tool Setup</div>
-                        <div class="card-description">
-                            Jump straight to scanner configuration guides for Nessus, Qualys, or Rapid7.
-                        </div>
-                        <a href="2-2-nessus.html" class="card-link">
-                            Configure Scanners →
-                        </a>
-                    </div>
-                    
-                    <div class="card">
-                        <div class="card-icon">🎯</div>
-                        <div class="card-title">Interview Prep</div>
-                        <div class="card-description">
-                            Review common questions and practice scenarios to ace your security interview.
-                        </div>
-                        <a href="10-1-common-questions.html" class="card-link">
-                            Prepare Now →
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Interview Tip -->
-                <div class="info-box interview" data-label="Interview">
-                    <div class="info-box-title">💡 Interview Tip</div>
-                    <p>
-                        Throughout this documentation, look for cyan interview boxes like this one. 
-                        They highlight key talking points, common questions, and how to articulate 
-                        your expertise during security interviews.
-                    </p>
-                </div>
+
+            <!-- Footer -->
+            <div style="text-align: center; margin-top: 50px; padding: 30px; border-top: 1px solid #333;">
+                <p style="color: #a0a0a0;">
+                    Created for interview preparation and daily reference.<br>
+                    Features: Memory aids, mnemonics, analogies, and ELI5 explanations throughout.
+                </p>
             </div>
         </main>
     </div>
-    
     <script src="main.js"></script>
 </body>
 </html>

@@ -1290,3 +1290,538 @@ ul li::before {
         background: #f5f5f5;
     }
 }
+
+/* ==================== MEMORY AIDS STYLES ==================== */
+
+.memory-box {
+    background: linear-gradient(135deg, #1a1a3e 0%, #2d1f4e 100%);
+    border: 2px solid #9d4edd;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+    position: relative;
+}
+
+.memory-box::before {
+    content: "🧠";
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    background: #0a0e27;
+    padding: 0 10px;
+    font-size: 24px;
+}
+
+.memory-box-title {
+    color: #9d4edd;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mnemonic {
+    background: linear-gradient(135deg, #0f3460 0%, #1a1a3e 100%);
+    border-left: 4px solid #00ff9f;
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 0 8px 8px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.mnemonic-letters {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00ff9f;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+}
+
+.mnemonic-meaning {
+    color: #a0a0a0;
+}
+
+.mnemonic-meaning span {
+    color: #00ff9f;
+    font-weight: bold;
+}
+
+.analogy-box {
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f3460 100%);
+    border: 1px solid #4cc9f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.analogy-box::before {
+    content: "💡 Think of it like...";
+    position: absolute;
+    top: -12px;
+    left: 15px;
+    background: #0a0e27;
+    padding: 0 10px;
+    color: #4cc9f0;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.analogy-box p {
+    margin: 10px 0 0 0;
+    line-height: 1.7;
+}
+
+.eli5-box {
+    background: linear-gradient(135deg, #2d4a22 0%, #1a3d1a 100%);
+    border: 2px dashed #00ff9f;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.eli5-box::before {
+    content: "👶 ELI5 (Explain Like I'm 5)";
+    display: block;
+    color: #00ff9f;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.quick-recall {
+    background: #1a1a2e;
+    border: 1px solid #ff6b6b;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+.quick-recall-title {
+    color: #ff6b6b;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quick-recall-title::before {
+    content: "⚡";
+}
+
+.story-scenario {
+    background: linear-gradient(135deg, #3d2c4e 0%, #2a1f3d 100%);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    border: 1px solid #b388ff;
+}
+
+.story-scenario-header {
+    color: #b388ff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.story-scenario-header::before {
+    content: "📖";
+    font-size: 1.3rem;
+}
+
+.comparison-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.comparison-card {
+    background: #1a1a2e;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #333;
+}
+
+.comparison-card.good {
+    border-color: #00ff9f;
+}
+
+.comparison-card.bad {
+    border-color: #ff6b6b;
+}
+
+.comparison-card-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.comparison-card.good .comparison-card-title {
+    color: #00ff9f;
+}
+
+.comparison-card.bad .comparison-card-title {
+    color: #ff6b6b;
+}
+
+.number-highlight {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #00ff9f 0%, #00cc7a 100%);
+    color: #0a0e27;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin: 0 5px;
+}
+
+.formula-box {
+    background: #0f0f23;
+    border: 1px solid #00ff9f;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+}
+
+.formula-box .formula {
+    font-size: 1.3rem;
+    color: #00ff9f;
+    margin: 10px 0;
+}
+
+.acronym-breakdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.acronym-letter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #1a1a2e;
+    border: 1px solid #00ff9f;
+    border-radius: 8px;
+    padding: 10px 15px;
+    min-width: 80px;
+}
+
+.acronym-letter .letter {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00ff9f;
+}
+
+.acronym-letter .word {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    margin-top: 5px;
+}
+
+.visual-timeline {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.timeline-step {
+    background: #1a1a2e;
+    border: 1px solid #4cc9f0;
+    border-radius: 8px;
+    padding: 10px 15px;
+    text-align: center;
+    flex: 1;
+    min-width: 100px;
+}
+
+.timeline-step .step-num {
+    color: #4cc9f0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.timeline-step .step-name {
+    font-size: 0.85rem;
+    color: #e0e0e0;
+    margin-top: 5px;
+}
+
+.timeline-arrow {
+    color: #4cc9f0;
+    font-size: 1.5rem;
+}
+
+
+/* ============================================
+   SOFTER FONT & STYLING OVERRIDES
+   ============================================ */
+
+/* Softer body text */
+body {
+    font-weight: 400;
+    letter-spacing: 0.01em;
+}
+
+/* Softer headings - less aggressive */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #e0e0e0;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #d0d0d0;
+}
+
+/* Softer text colors */
+.content-body {
+    color: #d8d8d8;
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.content-body p {
+    margin-bottom: 1rem;
+    color: #d0d0d0;
+}
+
+/* Softer accent colors */
+.eli5-box {
+    border-color: #40a060;
+    background: linear-gradient(135deg, #1a2e1a 0%, #152015 100%);
+}
+
+.memory-box {
+    border-color: #7a5cad;
+    background: linear-gradient(135deg, #1a1530 0%, #201535 100%);
+}
+
+.memory-box-title {
+    color: #a080d0;
+    font-weight: 500;
+}
+
+.quick-recall {
+    border-color: #cc6060;
+    background: #1a1520;
+}
+
+.quick-recall-title {
+    color: #e08080;
+    font-weight: 500;
+}
+
+/* Softer mnemonic styling */
+.mnemonic {
+    background: linear-gradient(135deg, #152530 0%, #101820 100%);
+    border-left-color: #50b080;
+}
+
+.mnemonic-letters {
+    font-size: 1.3rem;
+    letter-spacing: 6px;
+    color: #60c090;
+}
+
+.mnemonic-meaning span {
+    color: #60c090;
+    font-weight: 500;
+}
+
+/* Softer analogy box */
+.analogy-box {
+    background: linear-gradient(135deg, #152535 0%, #102025 100%);
+    border-color: #5090b0;
+}
+
+.analogy-box::before {
+    color: #70a8c8;
+    font-weight: 500;
+}
+
+/* Softer formula box */
+.formula-box {
+    border-color: #50a080;
+}
+
+.formula-box .formula {
+    color: #60c090;
+    font-size: 1.1rem;
+}
+
+/* Softer sidebar */
+.sidebar {
+    background: #0d0d12;
+}
+
+.nav-item {
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: #b0b0b8;
+}
+
+.nav-item:hover {
+    color: #e0e0e0;
+}
+
+.nav-item.active {
+    color: #70c0a0;
+    font-weight: 500;
+}
+
+.nav-section-header {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* Softer tables */
+table {
+    font-size: 0.9rem;
+}
+
+th {
+    font-weight: 600;
+    background: #1a1a25;
+    color: #c0c0c8;
+}
+
+td {
+    color: #c8c8d0;
+}
+
+/* Softer code blocks */
+code {
+    font-size: 0.85rem;
+    background: #12121a;
+    color: #80c0e0;
+}
+
+pre code {
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+/* Softer info boxes */
+.info-box {
+    background: #12121a;
+    border-left: 3px solid #5080a0;
+}
+
+.info-box-title {
+    font-weight: 500;
+    color: #80b0d0;
+}
+
+/* Softer number highlights */
+.number-highlight {
+    background: linear-gradient(135deg, #50a080 0%, #408060 100%);
+    font-weight: 600;
+}
+
+/* Softer timeline */
+.timeline-step {
+    background: #15151f;
+    border-color: #4080a0;
+}
+
+.timeline-step .step-num {
+    color: #60a0c0;
+    font-weight: 600;
+}
+
+.timeline-arrow {
+    color: #4080a0;
+}
+
+/* Softer page navigation */
+.page-nav-link {
+    background: #12121a;
+    border-color: #2a2a3a;
+}
+
+.page-nav-link:hover {
+    border-color: #50a080;
+}
+
+/* Softer story scenario */
+.story-scenario {
+    background: linear-gradient(135deg, #1a1525 0%, #151020 100%);
+    border-color: #8070a0;
+}
+
+.story-scenario-header {
+    color: #a090c0;
+    font-weight: 500;
+}
+
+/* Softer comparison cards */
+.comparison-card {
+    background: #12121a;
+}
+
+.comparison-card.good {
+    border-color: #50a080;
+}
+
+.comparison-card.bad {
+    border-color: #a06060;
+}
+
+.comparison-card.good .comparison-card-title {
+    color: #60b090;
+}
+
+.comparison-card.bad .comparison-card-title {
+    color: #c08080;
+}
+
+/* Interview box softer */
+.info-box.interview {
+    border-left-color: #5090a0;
+    background: #101520;
+}
+
+/* Acronym breakdown softer */
+.acronym-letter {
+    background: #15151f;
+    border-color: #408060;
+}
+
+.acronym-letter .letter {
+    color: #60a080;
+    font-weight: 600;
+}
+
+/* Reading progress bar softer */
+.reading-progress-bar {
+    background: linear-gradient(90deg, #408060, #306050);
+}
+

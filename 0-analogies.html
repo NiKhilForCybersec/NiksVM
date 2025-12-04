@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VM Analogies & Easy Explanations | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="layout">
+        <main class="main-content" style="max-width: 900px; margin: 0 auto;">
+            <div class="page-header">
+                <h1>💡 VM Analogies & Easy Explanations</h1>
+                <p class="page-description">Understand complex concepts through simple everyday analogies.</p>
+            </div>
+
+            <div class="content-body">
+
+                <h2>🏥 The Hospital Analogy</h2>
+                <div class="analogy-box">
+                    <p><strong>Vulnerability Management = Running a Hospital</strong></p>
+                    <table>
+                        <tr><td><strong>Discovery</strong></td><td>Patient registration - know who's in the hospital</td></tr>
+                        <tr><td><strong>Scanning</strong></td><td>Running diagnostic tests on each patient</td></tr>
+                        <tr><td><strong>Prioritization</strong></td><td>Triage - heart attack before hangnail</td></tr>
+                        <tr><td><strong>Remediation</strong></td><td>Treatment - surgery, medication, or observation</td></tr>
+                        <tr><td><strong>Verification</strong></td><td>Follow-up checkup to confirm cure</td></tr>
+                        <tr><td><strong>CVSS Score</strong></td><td>How severe is the disease?</td></tr>
+                        <tr><td><strong>EPSS Score</strong></td><td>How likely will it get worse?</td></tr>
+                        <tr><td><strong>Asset Criticality</strong></td><td>Is this patient a VIP or regular?</td></tr>
+                    </table>
+                </div>
+
+                <h2>🏠 The House Security Analogy</h2>
+                <div class="analogy-box">
+                    <p><strong>Your Network = Your House</strong></p>
+                    <table>
+                        <tr><td><strong>Vulnerabilities</strong></td><td>Broken locks, open windows, weak doors</td></tr>
+                        <tr><td><strong>Scanning</strong></td><td>Security guard checking all entry points</td></tr>
+                        <tr><td><strong>Crown Jewels (Tier 1)</strong></td><td>Your safe with valuables</td></tr>
+                        <tr><td><strong>Standard Assets (Tier 3)</strong></td><td>Regular furniture</td></tr>
+                        <tr><td><strong>Patch</strong></td><td>Fix the broken lock</td></tr>
+                        <tr><td><strong>Workaround</strong></td><td>Board up the broken window temporarily</td></tr>
+                        <tr><td><strong>Compensating Control</strong></td><td>Add extra deadbolt until lock is fixed</td></tr>
+                        <tr><td><strong>Accept Risk</strong></td><td>Know the attic window is unlocked but accept it</td></tr>
+                    </table>
+                </div>
+
+                <h2>🔍 Scanning Analogies</h2>
+                <div class="analogy-box">
+                    <p><strong>Types of Scanning</strong></p>
+                    <table>
+                        <tr><td><strong>Unauthenticated Scan</strong></td><td>Looking at a house from the street - you see the outside only</td></tr>
+                        <tr><td><strong>Authenticated Scan</strong></td><td>Walking inside with a key - you see everything inside</td></tr>
+                        <tr><td><strong>Agent-based</strong></td><td>Having a security guard live in each house</td></tr>
+                        <tr><td><strong>Agentless</strong></td><td>Security patrol that visits periodically</td></tr>
+                    </table>
+                    <p style="margin-top: 15px;"><em>Authenticated scans find 5-10x more vulnerabilities because they can see inside!</em></p>
+                </div>
+
+                <h2>📊 Scoring System Analogies</h2>
+                <div class="analogy-box">
+                    <p><strong>Different Scores = Different Perspectives</strong></p>
+                    <table>
+                        <tr><td><strong>CVSS</strong></td><td>Government crash test rating - standard, objective severity</td></tr>
+                        <tr><td><strong>EPSS</strong></td><td>Weather forecast - probability the storm will hit YOU</td></tr>
+                        <tr><td><strong>VPR (Tenable)</strong></td><td>Consumer Reports - adds real-world experience data</td></tr>
+                        <tr><td><strong>TruRisk (Qualys)</strong></td><td>Insurance company rating - YOUR specific risk</td></tr>
+                        <tr><td><strong>CISA KEV</strong></td><td>Active crime alert - burglars ARE hitting houses like yours NOW</td></tr>
+                    </table>
+                </div>
+
+                <h2>🚗 The Car Repair Analogy</h2>
+                <div class="analogy-box">
+                    <p><strong>Remediation Options = Car Problems</strong></p>
+                    <table>
+                        <tr><td><strong>PATCH</strong></td><td>Replace the broken part with a new one (best fix)</td></tr>
+                        <tr><td><strong>WORKAROUND</strong></td><td>Avoid highways until the brake is fixed</td></tr>
+                        <tr><td><strong>COMPENSATING CONTROL</strong></td><td>Add extra airbags while waiting for the repair</td></tr>
+                        <tr><td><strong>ACCEPT RISK</strong></td><td>Know about the issue, drive carefully, document everything</td></tr>
+                        <tr><td><strong>Exception Request</strong></td><td>Getting management to sign off on driving with the known issue</td></tr>
+                        <tr><td><strong>SLA</strong></td><td>The mechanic's promise to fix it within X days</td></tr>
+                    </table>
+                </div>
+
+                <h2>🏰 Asset Criticality as a Castle</h2>
+                <div class="analogy-box">
+                    <p><strong>CISL Tiers = Castle Zones</strong></p>
+                    <table>
+                        <tr><td style="color: #ff4444;"><strong>C - Crown Jewels (Tier 1)</strong></td><td>The King's treasury - protect at all costs</td></tr>
+                        <tr><td style="color: #ff8c00;"><strong>I - Important (Tier 2)</strong></td><td>The armory and kitchens - very important</td></tr>
+                        <tr><td style="color: #ffd700;"><strong>S - Standard (Tier 3)</strong></td><td>Servants' quarters - need protection</td></tr>
+                        <tr><td style="color: #00ff9f;"><strong>L - Low (Tier 4)</strong></td><td>The stables - nice to protect, not critical</td></tr>
+                    </table>
+                </div>
+
+                <h2>📈 Metrics as Business Health</h2>
+                <div class="analogy-box">
+                    <p><strong>VM Metrics = Company Health Metrics</strong></p>
+                    <table>
+                        <tr><td><strong>MTTR</strong></td><td>How fast can we respond to customer complaints?</td></tr>
+                        <tr><td><strong>Vulnerability Age</strong></td><td>How long do problems sit unresolved?</td></tr>
+                        <tr><td><strong>SLA Compliance</strong></td><td>Are we keeping our promises?</td></tr>
+                        <tr><td><strong>Risk Score Trend</strong></td><td>Is our overall health improving or declining?</td></tr>
+                    </table>
+                </div>
+
+                <h2>🌐 Attack Vector as Physical Access</h2>
+                <div class="analogy-box">
+                    <p><strong>NALP = How Close Must the Attacker Get?</strong></p>
+                    <table>
+                        <tr><td style="color: #ff4444;"><strong>N - Network</strong></td><td>Attacker can be anywhere in the world (most dangerous)</td></tr>
+                        <tr><td style="color: #ff8c00;"><strong>A - Adjacent</strong></td><td>Attacker must be on your street (same network)</td></tr>
+                        <tr><td style="color: #ffd700;"><strong>L - Local</strong></td><td>Attacker must already be inside your house</td></tr>
+                        <tr><td style="color: #00ff9f;"><strong>P - Physical</strong></td><td>Attacker must physically touch the computer (least dangerous)</td></tr>
+                    </table>
+                </div>
+
+                <h2>🔐 CVE vs CWE vs CPE</h2>
+                <div class="analogy-box">
+                    <p><strong>The Medical Record Analogy</strong></p>
+                    <table>
+                        <tr><td><strong>CVE</strong></td><td>"Patient John has the flu" - specific incident/instance</td></tr>
+                        <tr><td><strong>CWE</strong></td><td>"Respiratory infection" - category of illness</td></tr>
+                        <tr><td><strong>CPE</strong></td><td>"John Smith, Age 35, Room 401" - identifying information</td></tr>
+                    </table>
+                    <p style="margin-top: 15px;">
+                        <em>CVE-2021-44228 (Log4Shell) is a CVE (specific instance) of CWE-502 (Deserialization) affecting CPE:a:apache:log4j (the product).</em>
+                    </p>
+                </div>
+
+                <a href="index.html" class="page-nav-link" style="display: inline-block; margin-top: 30px;">
+                    ← Back to Documentation Home
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

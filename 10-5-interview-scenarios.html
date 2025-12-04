@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Scenario Deep Dives | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Assets</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                        <a href="3-7-attack-surface.html" class="nav-item">3.7 Attack Surface</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 EPSS</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                        <a href="4-7-risk-acceptance.html" class="nav-item">4.7 Risk Acceptance</a>
+                        <a href="4-8-zero-day-response.html" class="nav-item">4.8 Zero-Day</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patching</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Tickets</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLAs</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                        <a href="5-9-compensating-controls.html" class="nav-item">5.9 Compensating</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 APIs</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Reports</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Alerts</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Apps</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Database</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                <div class="nav-section" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎓</span>
+                        <span>10. Interview</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Q&A</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                        <a href="10-5-interview-scenarios.html" class="nav-item active">10.5 Deep Dives</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <div class="page-meta"><span class="page-section">Section 10: Interview Prep</span></div>
+                <h1>Interview Scenario Deep Dives</h1>
+                <p class="page-description">Practice with detailed scenarios interviewers love to ask.</p>
+            </div>
+
+            <div class="content-body">
+                
+                <div class="eli5-box">
+                    <strong>How to Answer Scenario Questions</strong><br><br>
+                    Use the <strong>STAR Method</strong>:<br>
+                    ⭐ <strong>S</strong>ituation - Set the context<br>
+                    ⭐ <strong>T</strong>ask - What was your responsibility<br>
+                    ⭐ <strong>A</strong>ction - What you did (be specific!)<br>
+                    ⭐ <strong>R</strong>esult - What happened, metrics if possible
+                </div>
+
+                <h2>Scenario 1: Zero-Day Response</h2>
+
+                <div class="story-scenario">
+                    <div class="story-scenario-header">📋 The Scenario</div>
+                    <p>
+                        "It's Tuesday morning. A critical zero-day vulnerability (CVSS 10.0) in a widely-used library has been announced. Your company uses this library in several production applications. No patch is available yet. Walk me through your response."
+                    </p>
+                </div>
+
+                <div class="info-box interview">
+                    <div class="info-box-title">✅ Strong Answer Framework</div>
+                    <p>
+                        <strong>Hour 0-1 (Detection & Alerting):</strong><br>
+                        "First, I'd verify the vulnerability through trusted sources - CISA, vendor advisories, and NVD. I'd immediately alert our incident response team and schedule an emergency bridge call."<br><br>
+                        
+                        <strong>Hours 1-4 (Scoping):</strong><br>
+                        "I'd query our asset inventory and CMDB to identify affected systems. I'd prioritize by asking: Which are internet-facing? Which are crown jewels? I'd use our scanner to run an emergency detection scan if a signature is available."<br><br>
+                        
+                        <strong>Hours 4-24 (Containment):</strong><br>
+                        "Without a patch, I'd implement compensating controls: WAF rules to block known exploit patterns, network segmentation to isolate affected systems, enhanced monitoring via SIEM alerts, and potentially disabling the vulnerable component if feasible. For internet-facing crown jewels, we might consider taking them offline temporarily."<br><br>
+                        
+                        <strong>Days 1-7 (Remediation Planning):</strong><br>
+                        "I'd coordinate with application teams to apply any vendor workarounds, schedule emergency maintenance windows for patching when available, and document all compensating controls with risk acceptance from asset owners."<br><br>
+                        
+                        <strong>Ongoing:</strong><br>
+                        "Monitor for patch release, hunt for IOCs in historical logs, and conduct a lessons learned after resolution."
+                    </p>
+                </div>
+
+                <h2>Scenario 2: Prioritization Conflict</h2>
+
+                <div class="story-scenario">
+                    <div class="story-scenario-header">📋 The Scenario</div>
+                    <p>
+                        "You have 500 critical vulnerabilities and only resources to remediate 50 this week. The security team wants to fix all CVSS 10.0 first. The business wants to fix the customer-facing app vulnerabilities first. How do you prioritize?"
+                    </p>
+                </div>
+
+                <div class="info-box interview">
+                    <div class="info-box-title">✅ Strong Answer Framework</div>
+                    <p>
+                        "I'd use a risk-based prioritization framework that balances technical severity with business context:<br><br>
+                        
+                        <strong>1. Apply the CEAT Model:</strong><br>
+                        Risk = CVSS + Exploitability + Asset Value + Threat Intel<br><br>
+                        
+                        <strong>2. Create Priority Buckets:</strong><br>
+                        • <strong>Bucket 1 (Fix This Week):</strong> High CVSS + Internet-facing + Crown Jewel + Active exploitation (CISA KEV or high EPSS)<br>
+                        • <strong>Bucket 2 (Next Week):</strong> High CVSS + Internal + Crown Jewel<br>
+                        • <strong>Bucket 3 (This Month):</strong> High CVSS + Standard assets<br><br>
+                        
+                        <strong>3. Present Data-Driven Case:</strong><br>
+                        I'd show both teams that the customer-facing app with CVSS 9.0 + active exploitation + revenue impact scores higher risk than an internal test server with CVSS 10.0 but no exploitation and no data.<br><br>
+                        
+                        <strong>4. Get Consensus:</strong><br>
+                        Present the prioritized list with justification to both teams, get agreement, and document the decision."
+                    </p>
+                </div>
+
+                <h2>Scenario 3: Scanner Disagreement</h2>
+
+                <div class="story-scenario">
+                    <div class="story-scenario-header">📋 The Scenario</div>
+                    <p>
+                        "Your vulnerability scanner reports a critical SQL injection vulnerability on a production web application. The development team insists it's a false positive. How do you handle this?"
+                    </p>
+                </div>
+
+                <div class="info-box interview">
+                    <div class="info-box-title">✅ Strong Answer Framework</div>
+                    <p>
+                        <strong>Step 1: Verify the Finding</strong><br>
+                        "First, I'd review the scanner's evidence - the exact request/response, the injection point, and why it flagged it. I'd try to manually reproduce the finding in a safe way, or use a different scanner for a second opinion."<br><br>
+                        
+                        <strong>Step 2: Collaborate, Don't Dictate</strong><br>
+                        "I'd schedule a call with the developer, share the scanner output, and ask them to explain why they believe it's a false positive. They might know about input validation or WAF rules not visible to the scanner."<br><br>
+                        
+                        <strong>Step 3: Technical Deep Dive</strong><br>
+                        "If they have a good explanation, I'd document it and mark as false positive with their justification. If I'm still uncertain, I'd involve our application security team or request a manual pentest of that specific endpoint."<br><br>
+                        
+                        <strong>Step 4: Document Everything</strong><br>
+                        "Either way, I'd document the finding, the developer's response, any testing performed, and the final determination. If it's a true positive and they refuse to fix it, I'd escalate to management with the evidence and business risk."
+                    </p>
+                </div>
+
+                <h2>Scenario 4: Metrics Challenge</h2>
+
+                <div class="story-scenario">
+                    <div class="story-scenario-header">📋 The Scenario</div>
+                    <p>
+                        "The CISO asks why our vulnerability count keeps going up despite all our remediation efforts. How do you explain this and what metrics would you present?"
+                    </p>
+                </div>
+
+                <div class="info-box interview">
+                    <div class="info-box-title">✅ Strong Answer Framework</div>
+                    <p>
+                        <strong>Reframe the Conversation:</strong><br>
+                        "Raw vulnerability count is misleading because it grows with: new assets being discovered, improved scanning coverage, and new CVEs published daily. I'd reframe the discussion around risk reduction, not count reduction."<br><br>
+                        
+                        <strong>Present Better Metrics:</strong><br>
+                        • <strong>MTTR (Mean Time to Remediate)</strong> - Are we fixing faster?<br>
+                        • <strong>Age Distribution</strong> - Are old vulns decreasing?<br>
+                        • <strong>SLA Compliance %</strong> - Are we meeting our targets?<br>
+                        • <strong>Risk Score Trend</strong> - Is overall risk decreasing?<br>
+                        • <strong>Crown Jewel Exposure</strong> - Are critical assets getting safer?<br><br>
+                        
+                        <strong>Provide Context:</strong><br>
+                        "I'd show that while total count increased by 20%, our MTTR improved by 30%, SLA compliance went from 75% to 92%, and we have zero critical vulnerabilities on internet-facing crown jewels."
+                    </p>
+                </div>
+
+                <h2>Scenario 5: Legacy System</h2>
+
+                <div class="story-scenario">
+                    <div class="story-scenario-header">📋 The Scenario</div>
+                    <p>
+                        "You discover a Windows Server 2008 system with 50 critical vulnerabilities. It's running a legacy application critical to manufacturing. It cannot be patched or upgraded. What do you do?"
+                    </p>
+                </div>
+
+                <div class="info-box interview">
+                    <div class="info-box-title">✅ Strong Answer Framework</div>
+                    <p>
+                        <strong>Immediate Containment:</strong><br>
+                        "First, I'd implement immediate network isolation - move it to a dedicated VLAN with strict firewall rules allowing only necessary traffic. Block all inbound from the internet and limit internal access to only required systems."<br><br>
+                        
+                        <strong>Compensating Controls:</strong><br>
+                        • Network: ACLs, microsegmentation, block SMB/RDP<br>
+                        • Endpoint: Disable unnecessary services, application whitelisting<br>
+                        • Monitoring: Enhanced logging, SIEM alerts for any anomalies<br>
+                        • Access: Jump host required, MFA for any access<br><br>
+                        
+                        <strong>Documentation:</strong><br>
+                        "Document all compensating controls, get risk acceptance signed by the business owner, and set a 90-day review cycle. Also create an incident response playbook specific to this system."<br><br>
+                        
+                        <strong>Long-term Plan:</strong><br>
+                        "Work with the business to create a migration plan - even if it's 2-3 years out, there needs to be a path to decommission."
+                    </p>
+                </div>
+
+                <h2>Scenario 6: Third-Party Risk</h2>
+
+                <div class="story-scenario">
+                    <div class="story-scenario-header">📋 The Scenario</div>
+                    <p>
+                        "A critical vulnerability is discovered in a SaaS application your company uses for HR data. You don't control the infrastructure. What's your response?"
+                    </p>
+                </div>
+
+                <div class="info-box interview">
+                    <div class="info-box-title">✅ Strong Answer Framework</div>
+                    <p>
+                        <strong>Verify & Assess:</strong><br>
+                        "First, confirm the vulnerability affects the version/configuration we use. Assess what data is at risk - PII, financials, etc."<br><br>
+                        
+                        <strong>Vendor Communication:</strong><br>
+                        "Contact the vendor immediately: Are they aware? What's their remediation timeline? What compensating controls do they recommend? Get this in writing."<br><br>
+                        
+                        <strong>Our Side Controls:</strong><br>
+                        • Review access - disable unused accounts<br>
+                        • Enable additional logging if available<br>
+                        • Consider restricting access to VPN-only if possible<br>
+                        • Monitor for suspicious activity in our logs<br><br>
+                        
+                        <strong>Business Decision:</strong><br>
+                        "If the vendor can't remediate quickly and data is sensitive, escalate to leadership with options: accept the risk with compensating controls, temporarily disable the integration, or consider an alternative vendor."
+                    </p>
+                </div>
+
+                <h2>Quick Answer Templates</h2>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">One-Liner Answers</div>
+                    <table>
+                        <tr><td><strong>Why VM matters?</strong></td><td>"You can't protect what you don't know, and you can't fix what you haven't found."</td></tr>
+                        <tr><td><strong>CVSS limitations?</strong></td><td>"CVSS measures severity, not risk. A 9.8 on a test box matters less than a 7.0 on your payment gateway."</td></tr>
+                        <tr><td><strong>How to handle 10,000 vulns?</strong></td><td>"Prioritize using EPSS + asset criticality + threat intel. Fix the 100 that matter most first."</td></tr>
+                        <tr><td><strong>Patch vs Compensating control?</strong></td><td>"Patch is ideal. Compensating controls are temporary when patching isn't immediately possible."</td></tr>
+                        <tr><td><strong>How to prove VM value?</strong></td><td>"Show risk reduction trends, MTTR improvements, and SLA compliance - not raw vulnerability counts."</td></tr>
+                    </table>
+                </div>
+
+                <div class="page-navigation">
+                    <a href="10-4-study-guide.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Study Guide</span>
+                    </a>
+                    <a href="index.html" class="page-nav-link next">
+                        <span class="page-nav-label">Home →</span>
+                        <span class="page-nav-title">Documentation Index</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

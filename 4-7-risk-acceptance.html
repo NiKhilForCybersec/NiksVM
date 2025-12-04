@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Acceptance & Exception Management | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Assets</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                        <a href="3-7-attack-surface.html" class="nav-item">3.7 Attack Surface</a>
+                    </div>
+                </div>
+                <div class="nav-section" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 EPSS</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                        <a href="4-7-risk-acceptance.html" class="nav-item active">4.7 Risk Acceptance</a>
+                        <a href="4-8-zero-day-response.html" class="nav-item">4.8 Zero-Day</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patching</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Tickets</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLAs</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                        <a href="5-9-compensating-controls.html" class="nav-item">5.9 Compensating</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 APIs</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Reports</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Alerts</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Apps</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Database</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                <div class="nav-section collapsed" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎓</span>
+                        <span>10. Interview</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Q&A</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                        <a href="10-5-interview-scenarios.html" class="nav-item">10.5 Deep Dives</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <div class="page-meta"><span class="page-section">Section 4: Analysis</span></div>
+                <h1>Risk Acceptance & Exception Management</h1>
+                <p class="page-description">When you can't patch, document it properly. The art of accepting risk responsibly.</p>
+            </div>
+
+            <div class="content-body">
+                
+                <div class="eli5-box">
+                    <strong>What is Risk Acceptance?</strong><br><br>
+                    Sometimes you CAN'T fix a vulnerability:<br>
+                    🏭 Legacy system with no patch available<br>
+                    💰 Fix would cost more than the risk is worth<br>
+                    ⏰ Business-critical system can't have downtime<br>
+                    🔧 Patch breaks critical functionality<br><br>
+                    <strong>Risk Acceptance = "We know about this risk, we've evaluated it, and we're choosing to accept it with proper documentation and approval."</strong>
+                </div>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 Risk Acceptance vs Exception - Know the Difference!</div>
+                    <table>
+                        <tr><td><strong>Risk Acceptance</strong></td><td>Permanent or long-term decision to live with the risk</td></tr>
+                        <tr><td><strong>Exception</strong></td><td>Temporary delay in remediation (has an end date)</td></tr>
+                        <tr><td><strong>False Positive</strong></td><td>Scanner was wrong - not actually vulnerable</td></tr>
+                        <tr><td><strong>Compensating Control</strong></td><td>Alternative protection in place of the patch</td></tr>
+                    </table>
+                </div>
+
+                <h2>The Risk Acceptance Process - "DEJAV"</h2>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 DEJAV Process</div>
+                    <div class="mnemonic">
+                        <div class="mnemonic-letters">D E J A V</div>
+                        <div class="mnemonic-meaning">
+                            <span>D</span>ocument → <span>E</span>valuate → <span>J</span>ustify → <span>A</span>pprove → <span>V</span>alidate
+                        </div>
+                    </div>
+                    <p style="color: #a0a0a0;">"Déjà vu - you'll see this risk again if you don't document it properly!"</p>
+                </div>
+
+                <h3>Step 1: Document the Risk</h3>
+                <div class="info-box">
+                    <div class="info-box-title">📋 Required Documentation</div>
+                    <ul>
+                        <li><strong>Vulnerability Details:</strong> CVE, CVSS, affected systems</li>
+                        <li><strong>Business Justification:</strong> Why can't we patch?</li>
+                        <li><strong>Impact Analysis:</strong> What happens if exploited?</li>
+                        <li><strong>Compensating Controls:</strong> What mitigations are in place?</li>
+                        <li><strong>Residual Risk:</strong> What risk remains after mitigations?</li>
+                        <li><strong>Review Date:</strong> When will we reassess?</li>
+                    </ul>
+                </div>
+
+                <h3>Step 2: Evaluate True Risk</h3>
+                <div class="formula-box">
+                    <strong>Risk Evaluation Formula</strong>
+                    <div class="formula">
+                        Residual Risk = (Likelihood × Impact) - Compensating Controls Effectiveness
+                    </div>
+                </div>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">Questions to Ask</div>
+                    <ul>
+                        <li>Is this system internet-facing or internal only?</li>
+                        <li>What data does it process? (PII, financial, public)</li>
+                        <li>Is there active exploitation in the wild? (Check KEV)</li>
+                        <li>What compensating controls exist?</li>
+                        <li>What's the potential business impact?</li>
+                    </ul>
+                </div>
+
+                <h3>Step 3: Justify the Decision</h3>
+                <div class="analogy-box">
+                    <p><strong>Think of it like insurance:</strong></p>
+                    <p>
+                        You're deciding whether to pay for full coverage or accept the risk of a smaller policy. You need to explain WHY you're making that choice and what you'll do if something goes wrong.
+                    </p>
+                </div>
+
+                <div class="story-scenario">
+                    <div class="story-scenario-header">Example Justification</div>
+                    <p>
+                        <strong>Vulnerability:</strong> CVE-2023-XXXX (CVSS 7.5) on legacy ERP system<br><br>
+                        <strong>Justification:</strong><br>
+                        "The affected system runs a legacy ERP that's scheduled for decommission in Q2 2025. The vendor no longer provides patches. Applying the recommended workaround would break critical payroll functionality.<br><br>
+                        <strong>Mitigations in place:</strong><br>
+                        - System isolated to dedicated VLAN<br>
+                        - Access restricted to 5 authorized users via jump host<br>
+                        - EDR monitoring with custom detection rule<br>
+                        - Daily backup with 4-hour RPO<br><br>
+                        <strong>Residual risk:</strong> LOW - system is not internet-facing, requires authenticated access, and has detection/recovery capabilities."
+                    </p>
+                </div>
+
+                <h3>Step 4: Get Proper Approval</h3>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 Approval Authority by CVSS</div>
+                    <table>
+                        <tr><td style="color: #ff4444;"><strong>Critical (9.0+)</strong></td><td>CISO or VP-level approval required</td></tr>
+                        <tr><td style="color: #ff8c00;"><strong>High (7.0-8.9)</strong></td><td>Security Director + Business Owner</td></tr>
+                        <tr><td style="color: #ffd700;"><strong>Medium (4.0-6.9)</strong></td><td>Security Manager + System Owner</td></tr>
+                        <tr><td style="color: #00ff9f;"><strong>Low (0.1-3.9)</strong></td><td>Security Team Lead</td></tr>
+                    </table>
+                    <p style="color: #a0a0a0; margin-top: 10px;"><em>Higher risk = Higher approval authority. The person approving OWNS the risk!</em></p>
+                </div>
+
+                <h3>Step 5: Validate and Monitor</h3>
+                <div class="quick-recall">
+                    <div class="quick-recall-title">Ongoing Requirements</div>
+                    <ul>
+                        <li>📅 <strong>Review Date:</strong> Re-evaluate at least quarterly</li>
+                        <li>🔍 <strong>Monitoring:</strong> Ensure compensating controls remain effective</li>
+                        <li>📊 <strong>Reporting:</strong> Include in risk reports to leadership</li>
+                        <li>🔄 <strong>Re-assessment:</strong> If threat landscape changes, re-evaluate</li>
+                    </ul>
+                </div>
+
+                <h2>Risk Acceptance Template</h2>
+
+                <div class="code-block">
+                    <div class="code-header">📄 Risk Acceptance Form Template</div>
+<pre><code>═══════════════════════════════════════════════════════════════
+                    RISK ACCEPTANCE REQUEST
+═══════════════════════════════════════════════════════════════
+
+REQUEST ID: RA-2024-XXX
+DATE: YYYY-MM-DD
+REQUESTOR: [Name, Title]
+
+─────────────────────────────────────────────────────────────
+VULNERABILITY DETAILS
+─────────────────────────────────────────────────────────────
+CVE ID:             CVE-XXXX-XXXXX
+CVSS Score:         X.X (Critical/High/Medium/Low)
+Affected Systems:   [Hostname, IP, Asset Tag]
+Asset Criticality:  Tier 1/2/3/4
+Discovery Date:     YYYY-MM-DD
+
+─────────────────────────────────────────────────────────────
+BUSINESS JUSTIFICATION
+─────────────────────────────────────────────────────────────
+Reason for Acceptance:
+☐ No patch available
+☐ Patch breaks functionality
+☐ System scheduled for decommission
+☐ Cost exceeds risk
+☐ Other: _______________
+
+Detailed Explanation:
+[Explain why remediation is not possible/practical]
+
+─────────────────────────────────────────────────────────────
+RISK ANALYSIS
+─────────────────────────────────────────────────────────────
+Exploitation Likelihood:    High / Medium / Low
+Business Impact if Exploited: High / Medium / Low
+Data at Risk:               [Type of data]
+Regulatory Implications:    [PCI, HIPAA, SOX, etc.]
+
+─────────────────────────────────────────────────────────────
+COMPENSATING CONTROLS
+─────────────────────────────────────────────────────────────
+☐ Network segmentation/isolation
+☐ Enhanced monitoring/alerting
+☐ Access restrictions
+☐ Additional authentication
+☐ Application-level controls
+☐ Other: _______________
+
+Control Details:
+[Describe specific controls implemented]
+
+─────────────────────────────────────────────────────────────
+ACCEPTANCE TERMS
+─────────────────────────────────────────────────────────────
+Acceptance Type:    ☐ Permanent  ☐ Temporary
+Review Date:        YYYY-MM-DD (max 12 months)
+Decommission Date:  YYYY-MM-DD (if applicable)
+
+─────────────────────────────────────────────────────────────
+APPROVALS
+─────────────────────────────────────────────────────────────
+System Owner:       _________________ Date: _________
+Security Manager:   _________________ Date: _________
+CISO (if required): _________________ Date: _________
+
+═══════════════════════════════════════════════════════════════</code></pre>
+                </div>
+
+                <h2>Common Mistakes to Avoid</h2>
+
+                <div class="comparison-table">
+                    <div class="comparison-card bad">
+                        <div class="comparison-card-title">❌ Wrong Way</div>
+                        <ul>
+                            <li>"We've always done it this way"</li>
+                            <li>Verbal approval only</li>
+                            <li>No compensating controls</li>
+                            <li>No review date set</li>
+                            <li>IT accepts risk for business</li>
+                            <li>Ignoring after acceptance</li>
+                        </ul>
+                    </div>
+                    <div class="comparison-card good">
+                        <div class="comparison-card-title">✅ Right Way</div>
+                        <ul>
+                            <li>Documented business justification</li>
+                            <li>Written approval with signatures</li>
+                            <li>Compensating controls in place</li>
+                            <li>Quarterly review scheduled</li>
+                            <li>Business owner accepts risk</li>
+                            <li>Ongoing monitoring and reporting</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2>Interview Questions</h2>
+
+                <div class="info-box interview">
+                    <div class="info-box-title">💼 Interview Q&A</div>
+                    <p>
+                        <strong>Q: "When is risk acceptance appropriate?"</strong><br>
+                        "Risk acceptance is appropriate when remediation is impossible, impractical, or costs exceed the risk value. Examples include legacy systems with no patches, systems scheduled for decommission, or when patches break critical functionality. It must always include proper documentation, compensating controls, business owner approval, and a review date."<br><br>
+                        
+                        <strong>Q: "Who should approve risk acceptances?"</strong><br>
+                        "The approval authority should match the risk level. Critical vulnerabilities need CISO-level approval. The key principle is that the BUSINESS owner - not IT - accepts the risk, because they're accountable for business outcomes."<br><br>
+                        
+                        <strong>Q: "How do you handle a risk acceptance that's been in place for 2 years?"</strong><br>
+                        "I'd review it immediately. Risk acceptances should be reassessed at least annually. After 2 years, the threat landscape, system criticality, or business context may have changed. I'd verify the justification is still valid, compensating controls are still effective, and determine if new remediation options exist."
+                    </p>
+                </div>
+
+                <div class="page-navigation">
+                    <a href="4-6-exceptions.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Exceptions</span>
+                    </a>
+                    <a href="5-9-compensating-controls.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Compensating Controls</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

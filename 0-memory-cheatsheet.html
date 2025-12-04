@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Cheatsheet - All Mnemonics | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section" data-section="0">
+                    <div class="nav-section-header"><span class="nav-section-icon">🧠</span><span>Quick Reference</span></div>
+                    <div class="nav-section-items">
+                        <a href="0-memory-cheatsheet.html" class="nav-item active">Memory Cheatsheet</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>🧠 Master Memory Cheatsheet</h1>
+                <p class="page-description">All mnemonics, analogies, and memory tricks in one place. Print this page!</p>
+            </div>
+
+            <div class="content-body">
+                
+                <h2>🎯 Core VM Mnemonics</h2>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">VM Lifecycle: DSAPRV</div>
+                    <div class="mnemonic">
+                        <div class="mnemonic-letters">D S A P R V</div>
+                        <div class="mnemonic-meaning">
+                            <span>D</span>iscover → <span>S</span>can → <span>A</span>nalyze → <span>P</span>rioritize → <span>R</span>emediate → <span>V</span>erify
+                        </div>
+                    </div>
+                    <p>"<strong>D</strong>on't <strong>S</strong>kip <strong>A</strong>ny <strong>P</strong>riority, <strong>R</strong>eally <strong>V</strong>erify!"</p>
+                </div>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">Risk Prioritization: CEAT</div>
+                    <div class="mnemonic">
+                        <div class="mnemonic-letters">C E A T</div>
+                        <div class="mnemonic-meaning">
+                            <span>C</span>VSS + <span>E</span>xploitability + <span>A</span>sset Value + <span>T</span>hreat Intel
+                        </div>
+                    </div>
+                    <p>"<strong>C</strong>ats <strong>E</strong>at <strong>A</strong>ll <strong>T</strong>reats" - CVSS alone is NOT enough!</p>
+                </div>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">Asset Tiers: CISL</div>
+                    <div class="mnemonic">
+                        <div class="mnemonic-letters">C I S L</div>
+                        <div class="mnemonic-meaning">
+                            <span>C</span>rown Jewels → <span>I</span>mportant → <span>S</span>tandard → <span>L</span>ow
+                        </div>
+                    </div>
+                    <p>Castle → Inner Keep → Servants' Quarters → Livestock</p>
+                </div>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">Key Metrics: MARS</div>
+                    <div class="mnemonic">
+                        <div class="mnemonic-letters">M A R S</div>
+                        <div class="mnemonic-meaning">
+                            <span>M</span>TTR + <span>A</span>ge + <span>R</span>isk Score + <span>S</span>LA%
+                        </div>
+                    </div>
+                    <p>"We're going to MARS with our VM program!"</p>
+                </div>
+
+                <h2>📊 CVSS Mnemonics</h2>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">CVSS Attack Vector: NALP</div>
+                    <div class="mnemonic">
+                        <div class="mnemonic-letters">N A L P</div>
+                        <div class="mnemonic-meaning">
+                            <span>N</span>etwork → <span>A</span>djacent → <span>L</span>ocal → <span>P</span>hysical
+                        </div>
+                    </div>
+                    <p>Severity decreases: N (worst) → P (least severe). "NALPing the threat!"</p>
+                </div>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">CVSS Ranges</div>
+                    <div class="mnemonic">
+                        <div class="mnemonic-meaning" style="font-size: 1.2rem;">
+                            🔴 9.0-10.0 = <span>C</span>ritical<br>
+                            🟠 7.0-8.9 = <span>H</span>igh<br>
+                            🟡 4.0-6.9 = <span>M</span>edium<br>
+                            🟢 0.1-3.9 = <span>L</span>ow
+                        </div>
+                    </div>
+                    <p>"<strong>9-7-4-0</strong>" - Remember the starting points!</p>
+                </div>
+
+                <h2>⏰ SLA Numbers</h2>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">The "1-7-30-90" Rule</div>
+                    <table>
+                        <tr><td><strong>Tier 1 (Crown Jewels)</strong></td><td>1 day (24-72 hours)</td></tr>
+                        <tr><td><strong>Tier 2 (Important)</strong></td><td>7 days</td></tr>
+                        <tr><td><strong>Tier 3 (Standard)</strong></td><td>30 days</td></tr>
+                        <tr><td><strong>Tier 4 (Low)</strong></td><td>90 days</td></tr>
+                    </table>
+                    <p style="margin-top: 10px;"><em>Above is for CRITICAL vulns. Multiply by ~2 for High, ~3 for Medium, ~4 for Low severity.</em></p>
+                </div>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">PCI DSS Numbers</div>
+                    <ul>
+                        <li><strong>30 days</strong> - Fix Critical/High vulns</li>
+                        <li><strong>Quarterly</strong> - ASV scans required</li>
+                        <li><strong>Annual</strong> - Pentest required</li>
+                    </ul>
+                </div>
+
+                <h2>🔍 Scanning Mnemonics</h2>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">Authenticated vs Unauthenticated: "Inside vs Outside"</div>
+                    <p>
+                        <strong>Unauthenticated</strong> = Looking through the window (sees surface only)<br>
+                        <strong>Authenticated</strong> = Walking inside the house (sees everything)<br><br>
+                        <em>Authenticated finds 5-10x more vulnerabilities!</em>
+                    </p>
+                </div>
+
+                <div class="memory-box">
+                    <div class="memory-box-title">Agent vs Agentless: "Resident vs Visitor"</div>
+                    <p>
+                        <strong>Agent</strong> = Lives on the endpoint (always watching)<br>
+                        <strong>Agentless</strong> = Visits periodically (scheduled checks)<br><br>
+                        <em>Agents for endpoints, Agentless for network devices</em>
+                    </p>
+                </div>
+
+                <h2>🐛 Famous CVEs - Know These!</h2>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">The "Big 5" CVEs</div>
+                    <table>
+                        <tr>
+                            <td><strong>Log4Shell</strong></td>
+                            <td>CVE-2021-44228</td>
+                            <td>Java logging RCE - "${jndi:ldap://evil}"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>EternalBlue</strong></td>
+                            <td>CVE-2017-0144</td>
+                            <td>SMBv1 worm (WannaCry) - Port 445</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zerologon</strong></td>
+                            <td>CVE-2020-1472</td>
+                            <td>Netlogon → Instant DC compromise</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ProxyLogon</strong></td>
+                            <td>CVE-2021-26855</td>
+                            <td>Exchange SSRF → Full compromise</td>
+                        </tr>
+                        <tr>
+                            <td><strong>PrintNightmare</strong></td>
+                            <td>CVE-2021-34527</td>
+                            <td>Print Spooler RCE - Disable spooler!</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2>🔢 Key Numbers to Memorize</h2>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">Port Numbers</div>
+                    <table>
+                        <tr><td>22</td><td>SSH</td><td>445</td><td>SMB</td></tr>
+                        <tr><td>80/443</td><td>HTTP/S</td><td>3389</td><td>RDP</td></tr>
+                        <tr><td>1433</td><td>MSSQL</td><td>3306</td><td>MySQL</td></tr>
+                        <tr><td>5432</td><td>PostgreSQL</td><td>27017</td><td>MongoDB</td></tr>
+                    </table>
+                </div>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">EPSS Thresholds</div>
+                    <ul>
+                        <li><strong>> 0.7 (70%)</strong> - Critical priority (actively exploited)</li>
+                        <li><strong>0.4 - 0.7</strong> - High priority</li>
+                        <li><strong>0.1 - 0.4</strong> - Medium priority</li>
+                        <li><strong>< 0.1</strong> - Lower priority</li>
+                    </ul>
+                </div>
+
+                <h2>💡 Key Analogies</h2>
+
+                <div class="analogy-box">
+                    <p><strong>VM Program = Hospital</strong></p>
+                    <ul>
+                        <li>Discovery = Patient registration</li>
+                        <li>Scanning = Running tests</li>
+                        <li>Prioritization = Triage</li>
+                        <li>Remediation = Treatment</li>
+                        <li>Verification = Follow-up checkup</li>
+                    </ul>
+                </div>
+
+                <div class="analogy-box">
+                    <p><strong>Vulnerability Scoring</strong></p>
+                    <ul>
+                        <li><strong>CVSS</strong> = How bad is the disease (severity)</li>
+                        <li><strong>EPSS</strong> = How likely to catch it (exploitability)</li>
+                        <li><strong>VPR/TruRisk</strong> = Doctor's recommendation (contextual risk)</li>
+                    </ul>
+                </div>
+
+                <div class="analogy-box">
+                    <p><strong>Remediation Options = Car Repair</strong></p>
+                    <ul>
+                        <li><strong>Patch</strong> = Fix the engine</li>
+                        <li><strong>Workaround</strong> = Avoid the highway</li>
+                        <li><strong>Compensating Control</strong> = Add extra airbags</li>
+                        <li><strong>Accept Risk</strong> = Drive carefully (documented!)</li>
+                    </ul>
+                </div>
+
+                <h2>📋 Interview One-Liners</h2>
+
+                <div class="info-box interview">
+                    <div class="info-box-title">Quick Answers</div>
+                    <p>
+                        <strong>"What is VM?"</strong><br>
+                        "Continuous process to find, prioritize, and fix security weaknesses before attackers exploit them."<br><br>
+                        
+                        <strong>"VA vs Pentest?"</strong><br>
+                        "VA is the health checkup; pentesting is the surgery. VA finds what's vulnerable; pentest proves what's exploitable."<br><br>
+                        
+                        <strong>"Why not just use CVSS?"</strong><br>
+                        "CVSS measures severity, not risk. A CVSS 9.8 on an isolated lab box matters less than a CVSS 7.0 on your payment gateway."<br><br>
+                        
+                        <strong>"What's EPSS?"</strong><br>
+                        "Predicts likelihood a vuln will be exploited in the next 30 days. Helps prioritize real threats over theoretical ones."<br><br>
+                        
+                        <strong>"What's CISA KEV?"</strong><br>
+                        "List of vulnerabilities actively exploited in the wild. If it's on KEV, fix it NOW - attackers are already using it."
+                    </p>
+                </div>
+
+                <h2>🎓 Formulas to Know</h2>
+
+                <div class="formula-box">
+                    <strong>Risk Priority</strong>
+                    <div class="formula">Risk = CVSS × Asset_Criticality × Exposure × (1 + EPSS)</div>
+                </div>
+
+                <div class="formula-box">
+                    <strong>MTTR Calculation</strong>
+                    <div class="formula">MTTR = Σ(Remediation_Time) / Total_Vulns_Fixed</div>
+                </div>
+
+                <div class="formula-box">
+                    <strong>SLA Compliance</strong>
+                    <div class="formula">SLA% = (Vulns_Fixed_Within_SLA / Total_Vulns) × 100</div>
+                </div>
+
+                <a href="index.html" class="page-nav-link" style="display: inline-block; margin-top: 30px;">
+                    ← Back to Documentation Home
+                </a>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

