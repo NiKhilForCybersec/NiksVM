@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vulnerability Remediation Strategies - Patching, workarounds, compensating controls, and remediation decision frameworks.">
+    <title>Remediation Strategies | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item active">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="5-1-remediation-strategies.html">Section 5: Remediation</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Remediation Strategies</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Remediation Strategies</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 5.1</span>
+                        <span class="page-meta-item">⏱️ 16 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers vulnerability remediation approaches including patching, 
+                        configuration changes, workarounds, compensating controls, and risk acceptance 
+                        decision frameworks.
+                    </p>
+                </div>
+                
+                <h2>Remediation Options</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VULNERABILITY REMEDIATION OPTIONS
+═══════════════════════════════════════════════════════════════════════
+
+1. PATCH / UPDATE
+─────────────────────────────────────────────────────────────────────
+   Apply vendor-provided security patch or version upgrade.
+   
+   Pros: Eliminates vulnerability, supported solution
+   Cons: Requires testing, potential downtime, compatibility issues
+   
+   Best for: Most vulnerabilities with available patches
+
+2. CONFIGURATION CHANGE
+─────────────────────────────────────────────────────────────────────
+   Modify settings to disable vulnerable feature or harden system.
+   
+   Pros: No software change, often immediate
+   Cons: May reduce functionality, not always possible
+   
+   Examples:
+   • Disable SMBv1, TLS 1.0/1.1
+   • Remove unnecessary services
+   • Restrict network access
+   • Enable security features
+
+3. WORKAROUND
+─────────────────────────────────────────────────────────────────────
+   Vendor-provided temporary mitigation (not full fix).
+   
+   Pros: Faster than patch, reduces immediate risk
+   Cons: Temporary, may impact functionality
+   
+   Examples:
+   • Microsoft's Log4j mitigation scripts
+   • Registry modifications
+   • Feature disablement
+
+4. COMPENSATING CONTROL
+─────────────────────────────────────────────────────────────────────
+   Implement alternative security measure to reduce risk.
+   
+   Pros: Addresses risk when patching not possible
+   Cons: Doesn't eliminate vulnerability, requires monitoring
+   
+   Examples:
+   • WAF rules blocking exploit
+   • Network segmentation
+   • Enhanced monitoring/detection
+   • IPS signatures
+
+5. ACCEPT RISK
+─────────────────────────────────────────────────────────────────────
+   Formally accept residual risk (with documentation).
+   
+   Pros: Acknowledges reality when remediation not feasible
+   Cons: Risk remains, requires governance
+   
+   Requirements:
+   • Business owner approval
+   • Documented justification
+   • Compensating controls
+   • Review timeline</code></pre>
+                </div>
+                
+                <h2>Remediation Decision Framework</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>REMEDIATION DECISION FLOW
+═══════════════════════════════════════════════════════════════════════
+
+                    NEW VULNERABILITY
+                          │
+                          ▼
+              ┌───────────────────────┐
+              │  Is patch available?  │
+              └───────────┬───────────┘
+                          │
+                 ┌────────┴────────┐
+                 │ YES             │ NO
+                 ▼                 ▼
+        ┌───────────────┐  ┌───────────────────┐
+        │ Can patch be  │  │ Workaround        │
+        │ applied?      │  │ available?        │
+        └───────┬───────┘  └─────────┬─────────┘
+                │                    │
+         ┌──────┴──────┐      ┌──────┴──────┐
+         │ YES         │ NO   │ YES         │ NO
+         ▼             ▼      ▼             ▼
+    ┌─────────┐  ┌─────────┐ ┌─────────┐ ┌─────────────┐
+    │ PATCH   │  │ WHY?    │ │ APPLY   │ │ COMPENSATING│
+    │ (Plan)  │  └────┬────┘ │ WORK-   │ │ CONTROLS    │
+    └─────────┘       │      │ AROUND  │ │ + ACCEPT    │
+                      │      └─────────┘ │ RISK        │
+              ┌───────┴───────┐          └─────────────┘
+              │               │
+              ▼               ▼
+       ┌───────────┐   ┌───────────────┐
+       │ TECHNICAL │   │ BUSINESS      │
+       │ CONSTRAINT│   │ CONSTRAINT    │
+       └─────┬─────┘   └───────┬───────┘
+             │                 │
+             ▼                 ▼
+       ┌───────────┐   ┌───────────────┐
+       │ WORKAROUND│   │ SCHEDULE FOR  │
+       │ + ESCALATE│   │ NEXT WINDOW   │
+       │ TO VENDOR │   │ + COMPENSATE  │
+       └───────────┘   └───────────────┘</code></pre>
+                </div>
+                
+                <h2>Strategy by Vulnerability Type</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>REMEDIATION BY VULNERABILITY CATEGORY
+═══════════════════════════════════════════════════════════════════════
+
+OPERATING SYSTEM VULNERABILITIES:
+─────────────────────────────────────────────────────────────────────
+Primary: OS vendor patches (Windows Update, yum/apt)
+Secondary: Configuration hardening, disable services
+Compensating: Network segmentation, EDR, host firewall
+
+Tools: WSUS, SCCM, Ansible, Puppet, Chef
+
+APPLICATION VULNERABILITIES:
+─────────────────────────────────────────────────────────────────────
+Primary: Application updates, library updates
+Secondary: WAF rules, input validation improvements
+Compensating: Application firewall, code sandboxing
+
+Tools: Package managers, Dependabot, Snyk
+
+NETWORK DEVICE VULNERABILITIES:
+─────────────────────────────────────────────────────────────────────
+Primary: Firmware updates
+Secondary: ACLs, disable vulnerable protocols
+Compensating: Segment management network, enhanced logging
+
+Tools: Vendor management platforms, Ansible
+
+DATABASE VULNERABILITIES:
+─────────────────────────────────────────────────────────────────────
+Primary: Database patches (CPU/PSU for Oracle)
+Secondary: Disable unused features, encrypt data
+Compensating: Database firewall, query monitoring, least privilege
+
+Tools: Vendor patch utilities, DBA procedures
+
+CONTAINER/CLOUD VULNERABILITIES:
+─────────────────────────────────────────────────────────────────────
+Primary: Rebuild with updated base image
+Secondary: Implement pod security policies
+Compensating: Runtime protection, network policies
+
+Tools: Trivy, ECR/ACR scanning, Kubernetes admission controllers</code></pre>
+                </div>
+                
+                <h2>Remediation Planning</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Remediation Planning Engine
+Generate remediation plans based on vulnerability and asset context.
+"""
+
+from typing import Dict, List
+from dataclasses import dataclass
+from enum import Enum
+from datetime import datetime, timedelta
+
+
+class RemediationType(Enum):
+    PATCH = "patch"
+    CONFIG_CHANGE = "config_change"
+    WORKAROUND = "workaround"
+    COMPENSATING_CONTROL = "compensating_control"
+    RISK_ACCEPTANCE = "risk_acceptance"
+
+
+@dataclass
+class RemediationPlan:
+    vulnerability_id: str
+    asset_id: str
+    remediation_type: RemediationType
+    description: str
+    steps: List[str]
+    estimated_effort: str
+    requires_downtime: bool
+    requires_change_approval: bool
+    target_date: datetime
+    owner: str
+    fallback_plan: str
+
+
+class RemediationPlanner:
+    """Generate remediation plans for vulnerabilities."""
+    
+    # SLA by priority
+    SLA_DAYS = {
+        'P1': 2,
+        'P2': 7,
+        'P3': 30,
+        'P4': 90,
+        'P5': 180
+    }
+    
+    def generate_plan(self, vuln: Dict, asset: Dict, 
+                      priority: str) -> RemediationPlan:
+        """
+        Generate remediation plan based on context.
+        
+        Args:
+            vuln: Vulnerability details
+            asset: Asset details
+            priority: Priority level (P1-P5)
+        """
+        # Determine remediation type
+        rem_type = self._determine_type(vuln, asset)
+        
+        # Generate steps based on type
+        steps = self._generate_steps(rem_type, vuln, asset)
+        
+        # Calculate target date
+        sla_days = self.SLA_DAYS.get(priority, 30)
+        target_date = datetime.now() + timedelta(days=sla_days)
+        
+        # Determine if downtime needed
+        requires_downtime = self._requires_downtime(rem_type, asset)
+        
+        # Determine owner
+        owner = asset.get('owner', 'IT Operations')
+        
+        return RemediationPlan(
+            vulnerability_id=vuln.get('id'),
+            asset_id=asset.get('id'),
+            remediation_type=rem_type,
+            description=self._generate_description(rem_type, vuln),
+            steps=steps,
+            estimated_effort=self._estimate_effort(rem_type, asset),
+            requires_downtime=requires_downtime,
+            requires_change_approval=priority in ['P1', 'P2'] or requires_downtime,
+            target_date=target_date,
+            owner=owner,
+            fallback_plan=self._generate_fallback(rem_type)
+        )
+    
+    def _determine_type(self, vuln: Dict, asset: Dict) -> RemediationType:
+        """Determine best remediation approach."""
+        # Check if patch available
+        if vuln.get('patch_available', True):
+            # Check if asset can be patched
+            if not asset.get('patch_restricted', False):
+                return RemediationType.PATCH
+        
+        # Check for workaround
+        if vuln.get('workaround_available'):
+            return RemediationType.WORKAROUND
+        
+        # Check if config change possible
+        if vuln.get('config_mitigation'):
+            return RemediationType.CONFIG_CHANGE
+        
+        # Default to compensating control
+        return RemediationType.COMPENSATING_CONTROL
+    
+    def _generate_steps(self, rem_type: RemediationType, 
+                        vuln: Dict, asset: Dict) -> List[str]:
+        """Generate remediation steps."""
+        if rem_type == RemediationType.PATCH:
+            return [
+                f"1. Obtain patch: {vuln.get('patch_id', 'See vendor advisory')}",
+                "2. Review patch notes and known issues",
+                "3. Test in non-production environment",
+                "4. Schedule maintenance window",
+                "5. Create system backup/snapshot",
+                "6. Apply patch",
+                "7. Verify system functionality",
+                "8. Rescan to confirm remediation"
+            ]
+        
+        elif rem_type == RemediationType.CONFIG_CHANGE:
+            return [
+                f"1. Document current configuration",
+                f"2. Apply configuration: {vuln.get('config_mitigation', 'See advisory')}",
+                "3. Test system functionality",
+                "4. Update configuration management",
+                "5. Rescan to confirm remediation"
+            ]
+        
+        elif rem_type == RemediationType.WORKAROUND:
+            return [
+                f"1. Review vendor workaround documentation",
+                "2. Assess impact on functionality",
+                "3. Apply workaround",
+                "4. Document temporary state",
+                "5. Schedule full remediation when available",
+                "6. Rescan to confirm risk reduction"
+            ]
+        
+        elif rem_type == RemediationType.COMPENSATING_CONTROL:
+            return [
+                "1. Document why patching is not possible",
+                "2. Identify compensating controls",
+                "3. Implement network restrictions/segmentation",
+                "4. Deploy monitoring/detection rules",
+                "5. Request risk acceptance approval",
+                "6. Set review date for reassessment"
+            ]
+        
+        return ["1. Review vulnerability and determine approach"]
+    
+    def _requires_downtime(self, rem_type: RemediationType, 
+                           asset: Dict) -> bool:
+        """Determine if remediation requires downtime."""
+        if rem_type == RemediationType.COMPENSATING_CONTROL:
+            return False
+        
+        # Check asset type
+        asset_type = asset.get('type', '').lower()
+        if asset_type in ['server', 'database', 'network_device']:
+            return True
+        
+        return False
+    
+    def _estimate_effort(self, rem_type: RemediationType, 
+                         asset: Dict) -> str:
+        """Estimate remediation effort."""
+        estimates = {
+            RemediationType.PATCH: "1-4 hours",
+            RemediationType.CONFIG_CHANGE: "30 min - 2 hours",
+            RemediationType.WORKAROUND: "1-2 hours",
+            RemediationType.COMPENSATING_CONTROL: "4-8 hours",
+            RemediationType.RISK_ACCEPTANCE: "2-4 hours (documentation)"
+        }
+        return estimates.get(rem_type, "Unknown")
+    
+    def _generate_description(self, rem_type: RemediationType, 
+                              vuln: Dict) -> str:
+        """Generate remediation description."""
+        descriptions = {
+            RemediationType.PATCH: f"Apply vendor patch for {vuln.get('cve_id', 'vulnerability')}",
+            RemediationType.CONFIG_CHANGE: "Apply configuration mitigation",
+            RemediationType.WORKAROUND: "Implement vendor-provided workaround",
+            RemediationType.COMPENSATING_CONTROL: "Implement compensating controls",
+            RemediationType.RISK_ACCEPTANCE: "Document and accept residual risk"
+        }
+        return descriptions.get(rem_type, "Remediate vulnerability")
+    
+    def _generate_fallback(self, rem_type: RemediationType) -> str:
+        """Generate fallback plan."""
+        if rem_type == RemediationType.PATCH:
+            return "If patch fails: Restore from backup, implement compensating controls"
+        return "If primary approach fails: Escalate to security team"
+
+
+# Example usage
+planner = RemediationPlanner()
+
+vuln = {
+    'id': 'vuln-001',
+    'cve_id': 'CVE-2024-1234',
+    'patch_available': True,
+    'patch_id': 'KB5001234'
+}
+
+asset = {
+    'id': 'srv-web-01',
+    'type': 'server',
+    'owner': 'Web Team',
+    'patch_restricted': False
+}
+
+plan = planner.generate_plan(vuln, asset, 'P2')
+print(f"Remediation: {plan.remediation_type.value}")
+print(f"Target: {plan.target_date.date()}")
+print(f"Steps:")
+for step in plan.steps:
+    print(f"  {step}")</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"What remediation options do you consider when patching isn't possible?"</strong><br><br>
+                        Sample answer: "When patching isn't immediately possible, I follow a hierarchy: First, 
+                        check for vendor-provided workarounds—these are tested mitigations. Second, look for 
+                        configuration changes that can disable or protect the vulnerable component. Third, 
+                        implement compensating controls like WAF rules, network segmentation, or enhanced 
+                        monitoring. Finally, if none of these are viable, I document the risk and get formal 
+                        acceptance from the business owner with a clear timeline for remediation. I never just 
+                        leave vulnerabilities unaddressed."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Effective remediation requires choosing the right approach for each situation. 
+                    Patching is preferred when available, but workarounds, configuration changes, 
+                    and compensating controls provide alternatives when immediate patching isn't feasible. 
+                    Always have a plan, even if that plan is documented risk acceptance.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="4-6-exceptions.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Exception Management</span>
+                    </a>
+                    <a href="5-2-patch-management.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Patch Management</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

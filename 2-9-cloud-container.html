@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cloud & Container Vulnerability Scanning - AWS Inspector, Azure Defender, GCP Security Command Center, Kubernetes scanning, and CI/CD integration.">
+    <title>Cloud & Container Scanning | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item active">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Cloud & Container Scanning</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Cloud & Container Vulnerability Scanning</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.9</span>
+                        <span class="page-meta-item">⏱️ 22 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers vulnerability scanning for cloud environments and containers including 
+                        AWS Inspector, Azure Defender for Cloud, GCP Security Command Center, Kubernetes 
+                        security scanning, container image scanning in CI/CD, and Infrastructure as Code scanning.
+                    </p>
+                </div>
+                
+                <h2>Cloud-Native Scanning Landscape</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CLOUD VULNERABILITY SCANNING ARCHITECTURE
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                        CI/CD PIPELINE                               │
+│  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐               │
+│  │ Source  │─▶│ Build   │─▶│ Image   │─▶│ Deploy  │               │
+│  │ Code    │  │ App     │  │ Scan    │  │ to K8s  │               │
+│  └─────────┘  └─────────┘  └────┬────┘  └─────────┘               │
+│                                  │                                  │
+│              ┌───────────────────┼───────────────────┐             │
+│              │                   │                   │             │
+│              ▼                   ▼                   ▼             │
+│       ┌───────────┐       ┌───────────┐       ┌───────────┐       │
+│       │  IaC      │       │ Container │       │ Registry  │       │
+│       │  Scan     │       │ Image     │       │  Scan     │       │
+│       │ (Trivy)   │       │ Scan      │       │ (ECR/ACR) │       │
+│       └───────────┘       └───────────┘       └───────────┘       │
+└─────────────────────────────────────────────────────────────────────┘
+                                   │
+                                   ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                     RUNTIME ENVIRONMENT                             │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐    │
+│  │  AWS Inspector  │  │ Azure Defender  │  │  GCP SCC        │    │
+│  │  • EC2 scanning │  │ • VM scanning   │  │ • VM scanning   │    │
+│  │  • ECR scanning │  │ • ACR scanning  │  │ • GCR scanning  │    │
+│  │  • Lambda       │  │ • AKS           │  │ • GKE           │    │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘    │
+│                                                                     │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │              KUBERNETES RUNTIME SECURITY                     │   │
+│  │  • Pod security scanning    • Network policy analysis       │   │
+│  │  • Runtime vulnerability    • Configuration audit           │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘</code></pre>
+                </div>
+                
+                <h2>AWS Inspector</h2>
+                
+                <p>
+                    Amazon Inspector provides automated vulnerability assessment for EC2 instances, 
+                    Lambda functions, and container images in ECR.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# AWS Inspector CLI Operations
+
+# Enable Inspector for the account
+aws inspector2 enable --resource-types EC2 ECR LAMBDA
+
+# Check Inspector status
+aws inspector2 get-status
+
+# List findings with filters
+aws inspector2 list-findings \
+  --filter-criteria '{
+    "severity": [{"comparison": "EQUALS", "value": "CRITICAL"}],
+    "findingStatus": [{"comparison": "EQUALS", "value": "ACTIVE"}]
+  }' \
+  --max-results 100
+
+# Get finding details
+aws inspector2 get-findings-report-status \
+  --report-id "report-id-here"
+
+# List coverage (what's being scanned)
+aws inspector2 list-coverage \
+  --filter-criteria '{
+    "resourceType": [{"comparison": "EQUALS", "value": "AWS_EC2_INSTANCE"}]
+  }'
+
+# Suppress a finding (create suppression rule)
+aws inspector2 create-filter \
+  --name "Suppress-NonProd-Low" \
+  --description "Suppress low findings in non-prod" \
+  --action SUPPRESS \
+  --filter-criteria '{
+    "severity": [{"comparison": "EQUALS", "value": "LOW"}],
+    "resourceTags": [{"comparison": "EQUALS", "key": "Environment", "value": "NonProd"}]
+  }'
+
+# Export findings to S3
+aws inspector2 create-findings-report \
+  --report-format CSV \
+  --s3-destination '{
+    "bucketName": "my-security-bucket",
+    "keyPrefix": "inspector-findings/"
+  }'</code></pre>
+                </div>
+                
+                <h3>Inspector Python Automation</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+AWS Inspector Vulnerability Report Generator
+"""
+
+import boto3
+from datetime import datetime, timedelta
+from typing import Dict, List
+
+
+class AWSInspectorClient:
+    def __init__(self, region: str = 'us-east-1'):
+        self.client = boto3.client('inspector2', region_name=region)
+    
+    def get_critical_findings(self, days: int = 7) -> List[Dict]:
+        """Get critical findings from the last N days."""
+        cutoff = datetime.utcnow() - timedelta(days=days)
+        
+        paginator = self.client.get_paginator('list_findings')
+        findings = []
+        
+        for page in paginator.paginate(
+            filterCriteria={
+                'severity': [{'comparison': 'EQUALS', 'value': 'CRITICAL'}],
+                'findingStatus': [{'comparison': 'EQUALS', 'value': 'ACTIVE'}],
+                'updatedAt': [{
+                    'startInclusive': cutoff,
+                    'endInclusive': datetime.utcnow()
+                }]
+            }
+        ):
+            findings.extend(page['findings'])
+        
+        return findings
+    
+    def get_ecr_findings(self, repository: str = None) -> List[Dict]:
+        """Get container image vulnerabilities."""
+        filter_criteria = {
+            'resourceType': [{'comparison': 'EQUALS', 'value': 'AWS_ECR_CONTAINER_IMAGE'}],
+            'findingStatus': [{'comparison': 'EQUALS', 'value': 'ACTIVE'}]
+        }
+        
+        if repository:
+            filter_criteria['ecrImageRepositoryName'] = [{
+                'comparison': 'EQUALS',
+                'value': repository
+            }]
+        
+        paginator = self.client.get_paginator('list_findings')
+        findings = []
+        
+        for page in paginator.paginate(filterCriteria=filter_criteria):
+            findings.extend(page['findings'])
+        
+        return findings
+    
+    def get_coverage_summary(self) -> Dict:
+        """Get scan coverage summary."""
+        response = self.client.list_coverage_statistics(
+            filterCriteria={},
+            groupBy='RESOURCE_TYPE'
+        )
+        
+        return {
+            stat['groupKey']: {
+                'activeResources': stat['counts'].get('ACTIVE', 0),
+                'scanningFailed': stat['counts'].get('INACTIVE', 0)
+            }
+            for stat in response['countsByGroup']
+        }
+    
+    def generate_summary_report(self) -> Dict:
+        """Generate vulnerability summary report."""
+        # Get findings by severity
+        severity_counts = {}
+        for severity in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']:
+            response = self.client.list_findings(
+                filterCriteria={
+                    'severity': [{'comparison': 'EQUALS', 'value': severity}],
+                    'findingStatus': [{'comparison': 'EQUALS', 'value': 'ACTIVE'}]
+                },
+                maxResults=1
+            )
+            # Get total count from API
+            severity_counts[severity] = len(response.get('findings', []))
+        
+        return {
+            'generated_at': datetime.utcnow().isoformat(),
+            'findings_by_severity': severity_counts,
+            'coverage': self.get_coverage_summary()
+        }
+
+
+# Example usage
+if __name__ == '__main__':
+    inspector = AWSInspectorClient()
+    
+    # Get critical findings
+    critical = inspector.get_critical_findings(days=30)
+    print(f"Critical findings (last 30 days): {len(critical)}")
+    
+    # Get ECR findings
+    ecr_findings = inspector.get_ecr_findings()
+    print(f"Container image vulnerabilities: {len(ecr_findings)}")
+    
+    # Generate summary
+    summary = inspector.generate_summary_report()
+    print(f"Summary: {summary}")</code></pre>
+                </div>
+                
+                <h2>Azure Defender for Cloud</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">PowerShell</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Azure Defender for Cloud - Vulnerability Assessment
+
+# Install Azure PowerShell module
+Install-Module -Name Az.Security -Force
+
+# Connect to Azure
+Connect-AzAccount
+
+# Enable Defender for Servers (includes Qualys VA)
+Set-AzSecurityPricing -Name "VirtualMachines" -PricingTier "Standard"
+
+# Enable Defender for Containers
+Set-AzSecurityPricing -Name "Containers" -PricingTier "Standard"
+
+# Get security recommendations
+Get-AzSecurityTask | Where-Object {
+    $_.RecommendationType -like "*vulnerability*"
+} | Select-Object Name, State, ResourceId
+
+# Get vulnerability assessment findings
+$findings = Get-AzSecuritySubAssessment -AssessedResourceId "/subscriptions/{sub-id}"
+
+# Filter for high severity
+$highFindings = $findings | Where-Object { 
+    $_.Status.Severity -eq "High" 
+}
+
+# Export findings
+$highFindings | Export-Csv -Path "azure_vulnerabilities.csv" -NoTypeInformation
+
+# Get container vulnerabilities from ACR
+$acrFindings = Get-AzSecuritySubAssessment | Where-Object {
+    $_.Category -eq "ContainerRegistryVulnerability"
+}
+
+# KQL Query for Log Analytics (Defender data)
+@"
+SecurityRecommendation
+| where RecommendationType contains "vulnerability"
+| where RecommendationState == "Unhealthy"
+| summarize count() by RecommendationType, RecommendationSeverity
+| order by count_ desc
+"@</code></pre>
+                </div>
+                
+                <h2>Container Image Scanning</h2>
+                
+                <h3>Registry Scanning</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# Container Registry Vulnerability Scanning
+
+# ═══════════════════════════════════════════════════════════════════
+# AWS ECR SCANNING
+# ═══════════════════════════════════════════════════════════════════
+
+# Enable scan on push for repository
+aws ecr put-image-scanning-configuration \
+  --repository-name my-app \
+  --image-scanning-configuration scanOnPush=true
+
+# Trigger manual scan
+aws ecr start-image-scan \
+  --repository-name my-app \
+  --image-id imageTag=latest
+
+# Get scan findings
+aws ecr describe-image-scan-findings \
+  --repository-name my-app \
+  --image-id imageTag=latest
+
+# ═══════════════════════════════════════════════════════════════════
+# AZURE ACR SCANNING
+# ═══════════════════════════════════════════════════════════════════
+
+# Enable Microsoft Defender for Containers (does ACR scanning)
+az security pricing create \
+  --name Containers \
+  --tier Standard
+
+# Query container vulnerabilities
+az security sub-assessment list \
+  --assessed-resource-id "/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.ContainerRegistry/registries/{acr}"
+
+# ═══════════════════════════════════════════════════════════════════
+# GCP ARTIFACT REGISTRY / CONTAINER ANALYSIS
+# ═══════════════════════════════════════════════════════════════════
+
+# Enable Container Analysis API
+gcloud services enable containeranalysis.googleapis.com
+
+# List vulnerabilities for an image
+gcloud artifacts docker images list-vulnerabilities \
+  us-docker.pkg.dev/PROJECT/REPO/IMAGE:TAG \
+  --format="table(vulnerability.effectiveSeverity,vulnerability.cvssScore,packageIssue.affectedPackage)"
+
+# Filter critical vulnerabilities
+gcloud artifacts docker images list-vulnerabilities \
+  us-docker.pkg.dev/PROJECT/REPO/IMAGE:TAG \
+  --filter="vulnerability.effectiveSeverity=CRITICAL"</code></pre>
+                </div>
+                
+                <h3>CI/CD Pipeline Integration</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">YAML</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># GitHub Actions - Complete Container Security Pipeline
+name: Container Security Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Scan IaC files (Terraform, Kubernetes manifests)
+      - name: IaC Security Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-iac-results.sarif'
+
+      # Scan Dockerfile for misconfigurations
+      - name: Dockerfile Scan
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+          failure-threshold: error
+
+      # Build container image
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ env.IMAGE_NAME }}:${{ github.sha }} .
+
+      # Scan container image for vulnerabilities
+      - name: Container Image Vulnerability Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: '${{ env.IMAGE_NAME }}:${{ github.sha }}'
+          format: 'sarif'
+          output: 'trivy-image-results.sarif'
+          severity: 'CRITICAL,HIGH'
+          vuln-type: 'os,library'
+
+      # Generate SBOM
+      - name: Generate SBOM
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: '${{ env.IMAGE_NAME }}:${{ github.sha }}'
+          format: 'cyclonedx'
+          output: 'sbom.json'
+
+      # Upload scan results to GitHub Security
+      - name: Upload Trivy scan results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-image-results.sarif'
+
+      # Fail pipeline if critical vulnerabilities found
+      - name: Check for Critical Vulnerabilities
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: '${{ env.IMAGE_NAME }}:${{ github.sha }}'
+          exit-code: '1'
+          severity: 'CRITICAL'
+
+      # Push to registry if scans pass
+      - name: Push to Registry
+        if: github.event_name != 'pull_request'
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}</code></pre>
+                </div>
+                
+                <h2>Kubernetes Security Scanning</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# Kubernetes Security Scanning Tools
+
+# ═══════════════════════════════════════════════════════════════════
+# TRIVY KUBERNETES SCANNING
+# ═══════════════════════════════════════════════════════════════════
+
+# Scan entire cluster
+trivy k8s --report summary cluster
+
+# Scan specific namespace
+trivy k8s -n production --report all
+
+# Scan with vulnerabilities and misconfigurations
+trivy k8s --scanners vuln,misconfig cluster
+
+# Output as JSON
+trivy k8s --format json -o k8s-scan.json cluster
+
+# ═══════════════════════════════════════════════════════════════════
+# KUBESCAPE (ARMO)
+# ═══════════════════════════════════════════════════════════════════
+
+# Install Kubescape
+curl -s https://raw.githubusercontent.com/kubescape/kubescape/master/install.sh | /bin/bash
+
+# Scan cluster against NSA/CISA framework
+kubescape scan framework nsa
+
+# Scan against CIS Kubernetes Benchmark
+kubescape scan framework cis-v1.23-t1.0.1
+
+# Scan specific namespace
+kubescape scan framework nsa --include-namespaces production
+
+# Output as JSON
+kubescape scan framework nsa -f json -o kubescape-results.json
+
+# ═══════════════════════════════════════════════════════════════════
+# KUBE-BENCH (CIS Benchmark)
+# ═══════════════════════════════════════════════════════════════════
+
+# Run as a Kubernetes job
+kubectl apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/main/job.yaml
+
+# Get results
+kubectl logs job/kube-bench
+
+# Run locally
+kube-bench run --targets node,controlplane,policies
+
+# ═══════════════════════════════════════════════════════════════════
+# KUBE-HUNTER (Penetration Testing)
+# ═══════════════════════════════════════════════════════════════════
+
+# Run inside cluster (as a pod)
+kubectl run kube-hunter --image=aquasec/kube-hunter --restart=Never -- --pod
+
+# Run from outside (network scan)
+kube-hunter --remote 10.0.0.1
+
+# Active hunting mode (more intrusive)
+kube-hunter --active --remote 10.0.0.1</code></pre>
+                </div>
+                
+                <div class="info-box best-practice" data-label="Best Practice">
+                    <div class="info-box-title">✅ Container Security Pipeline</div>
+                    <p>
+                        Implement defense in depth: scan IaC before deployment, scan images in CI/CD before 
+                        pushing to registry, enable registry scanning, and continuously scan running containers 
+                        in production. Block deployments with critical vulnerabilities but have an exception 
+                        process for time-sensitive releases.
+                    </p>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you implement vulnerability scanning in a containerized environment?"</strong><br><br>
+                        Sample answer: "I implement scanning at multiple stages: IaC scanning with Trivy in the 
+                        IDE and CI, container image scanning in the build pipeline before pushing to registry, 
+                        registry-level scanning in ECR/ACR with scan-on-push enabled, and runtime scanning in 
+                        Kubernetes with tools like Trivy Operator. I configure pipelines to fail on critical 
+                        vulnerabilities, with an exception workflow for emergencies. I also generate SBOMs for 
+                        each image and track base image vulnerabilities separately from application dependencies."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Cloud and container vulnerability management requires a shift-left approach with scanning 
+                    integrated throughout the CI/CD pipeline. Leverage cloud-native tools like AWS Inspector, 
+                    Azure Defender, and GCP Security Command Center alongside specialized container scanners. 
+                    Implement scanning at build, registry, and runtime stages for comprehensive coverage.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="2-8-authenticated.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Authenticated Scanning</span>
+                    </a>
+                    <a href="2-10-webapp.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Web App Scanning</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

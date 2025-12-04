@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vulnerability Management Dashboards - Building effective dashboards for different audiences with key visualizations.">
+    <title>VM Dashboards | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item active">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="8-1-dashboards.html">Section 8: Reporting</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Dashboards</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Vulnerability Management Dashboards</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 8.1</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers building effective VM dashboards including key visualizations, 
+                        audience-appropriate views, and dashboard design principles.
+                    </p>
+                </div>
+                
+                <h2>Dashboard Types by Audience</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>DASHBOARD TYPES FOR VM
+═══════════════════════════════════════════════════════════════════════
+
+EXECUTIVE DASHBOARD
+─────────────────────────────────────────────────────────────────────
+Audience: CISO, VP, Board
+Refresh: Weekly/Monthly
+Focus: Risk posture, trends, compliance
+
+Key Metrics:
+• Overall risk score trend
+• SLA compliance %
+• Critical/High vulnerability count
+• Comparison to previous period
+• Top risks requiring attention
+
+SOC/SECURITY OPERATIONS DASHBOARD
+─────────────────────────────────────────────────────────────────────
+Audience: Security analysts, SOC team
+Refresh: Real-time/Daily
+Focus: Active threats, prioritization
+
+Key Metrics:
+• New vulnerabilities (last 24h)
+• CISA KEV count
+• P1/P2 ticket status
+• Assets awaiting remediation
+• Exploitability indicators
+
+TEAM/BUSINESS UNIT DASHBOARD
+─────────────────────────────────────────────────────────────────────
+Audience: IT teams, application owners
+Refresh: Daily/Weekly
+Focus: Their assets, their SLAs
+
+Key Metrics:
+• Vulnerabilities assigned to team
+• SLA status (on track/at risk/breached)
+• Remediation progress
+• Upcoming deadlines
+
+TECHNICAL/OPERATIONAL DASHBOARD
+─────────────────────────────────────────────────────────────────────
+Audience: VM analysts, patch teams
+Refresh: Real-time
+Focus: Detailed operational data
+
+Key Metrics:
+• Scan completion status
+• Agent deployment coverage
+• Vulnerability breakdown by type
+• Remediation velocity</code></pre>
+                </div>
+                
+                <h2>Key Visualizations</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>EFFECTIVE VM VISUALIZATIONS
+═══════════════════════════════════════════════════════════════════════
+
+SINGLE NUMBER (BIG NUMBER)
+─────────────────────────────────────────────────────────────────────
+Use for: Key metrics at a glance
+Examples:
+  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐
+  │    247      │  │   94.2%     │  │     12      │
+  │ Critical    │  │ SLA Compl.  │  │ CISA KEV    │
+  │ Vulns       │  │             │  │ Open        │
+  └─────────────┘  └─────────────┘  └─────────────┘
+
+TREND LINE
+─────────────────────────────────────────────────────────────────────
+Use for: Progress over time
+Examples: Vulnerability count trend, MTTR trend
+    │
+1000├──╮
+    │   ╲
+ 800├    ╲────╮
+    │         ╲
+ 600├──────────╲───
+    └──────────────
+     Jan Feb Mar Apr
+
+STACKED BAR
+─────────────────────────────────────────────────────────────────────
+Use for: Breakdown by category
+Examples: Vulns by severity, by team
+    
+    ████████████████ Critical
+    ██████████       High  
+    ████             Medium
+    ██               Low
+
+PIE/DONUT CHART
+─────────────────────────────────────────────────────────────────────
+Use for: Proportions (limit to 5 segments)
+Examples: Vulnerability distribution
+Caution: Avoid for comparing similar values
+
+TABLE/LIST
+─────────────────────────────────────────────────────────────────────
+Use for: Detailed data, drill-down
+Examples: Top 10 vulnerable assets, CVE list
+
+HEAT MAP
+─────────────────────────────────────────────────────────────────────
+Use for: Risk matrix, coverage
+Examples: Asset criticality vs severity matrix</code></pre>
+                </div>
+                
+                <h2>Splunk Dashboard Example</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SPL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code><!-- Splunk Dashboard XML: VM Executive Dashboard -->
+
+<dashboard>
+  <label>Vulnerability Management - Executive View</label>
+  
+  <row>
+    <panel>
+      <title>Critical Vulnerabilities</title>
+      <single>
+        <search>
+          <query>
+            index=vuln_data severity="Critical" status="Open"
+            | stats dc(asset_id) as critical_count
+          </query>
+        </search>
+        <option name="colorBy">value</option>
+        <option name="rangeColors">["0x53A051","0xF8BE34","0xDC4E41"]</option>
+        <option name="rangeValues">[50,100]</option>
+      </single>
+    </panel>
+    
+    <panel>
+      <title>SLA Compliance</title>
+      <single>
+        <search>
+          <query>
+            index=vuln_data status="Open"
+            | eval sla_status=if(now() &lt; sla_due_date, "Compliant", "Breached")
+            | stats count(eval(sla_status="Compliant")) as compliant, 
+                    count as total
+            | eval compliance_pct=round((compliant/total)*100,1)
+            | fields compliance_pct
+          </query>
+        </search>
+        <option name="unit">%</option>
+      </single>
+    </panel>
+  </row>
+  
+  <row>
+    <panel>
+      <title>Vulnerability Trend (90 Days)</title>
+      <chart>
+        <search>
+          <query>
+            index=vuln_data status="Open"
+            | timechart span=1d dc(vuln_id) as open_vulns by severity
+          </query>
+        </search>
+        <option name="charting.chart">line</option>
+      </chart>
+    </panel>
+  </row>
+  
+</dashboard></code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"What metrics do you put on a VM executive dashboard?"</strong><br><br>
+                        Sample answer: "Executive dashboards need high-level risk indicators, not technical 
+                        details. I include: overall vulnerability count with severity breakdown, trend over 
+                        time showing if we're improving, SLA compliance percentage, CISA KEV count for 
+                        regulatory attention, and comparison to last month/quarter. I keep it to 5-7 metrics 
+                        maximum. Executives want to know: 'Are we getting better or worse?' and 'What needs 
+                        my attention?' Everything else is operational detail."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Effective dashboards match the audience—executives need trends and risk posture, 
+                    operations needs real-time data, teams need their specific SLAs. Less is more; 
+                    focus on actionable metrics rather than data dumps.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="7-8-iot-ot-vulns.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">IoT/OT Vulnerabilities</span>
+                    </a>
+                    <a href="8-2-executive-reporting.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Executive Reporting</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vulnerability Scanning Best Practices - Scan scheduling, performance tuning, scan windows, reducing false positives, and operational procedures.">
+    <title>Scan Best Practices | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item active">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Scan Best Practices</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Vulnerability Scanning Best Practices</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.7</span>
+                        <span class="page-meta-item">⏱️ 18 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers operational best practices for vulnerability scanning including 
+                        scan scheduling strategies, performance optimization, defining scan windows, 
+                        reducing false positives, and establishing standard operating procedures.
+                    </p>
+                </div>
+                
+                <h2>Scan Scheduling Strategy</h2>
+                
+                <p>
+                    Effective scan scheduling balances comprehensive coverage with operational impact. 
+                    Different asset types require different frequencies.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>RECOMMENDED SCAN FREQUENCY BY ASSET TYPE
+═══════════════════════════════════════════════════════════════════════
+
+INTERNET-FACING ASSETS:
+─────────────────────────────────────────────────────────────────────
+Frequency: Weekly (minimum)
+Rationale: Highest attack surface, first target for attackers
+Assets:
+  • Web servers
+  • Mail servers (external)
+  • VPN gateways
+  • API endpoints
+  • Cloud-hosted services
+
+CRITICAL INTERNAL SYSTEMS (TIER 1):
+─────────────────────────────────────────────────────────────────────
+Frequency: Weekly
+Rationale: High business impact if compromised
+Assets:
+  • Domain controllers
+  • Database servers with sensitive data
+  • Financial systems
+  • HR/payroll systems
+  • Authentication infrastructure
+
+STANDARD SERVERS (TIER 2-3):
+─────────────────────────────────────────────────────────────────────
+Frequency: Monthly
+Rationale: Balance coverage with resource usage
+Assets:
+  • Application servers
+  • File servers
+  • Print servers
+  • Development servers
+
+WORKSTATIONS/ENDPOINTS:
+─────────────────────────────────────────────────────────────────────
+Frequency: Monthly (agent-based continuous preferred)
+Rationale: Large volume, frequent changes
+Method: Agent-based scanning preferred for continuous visibility
+
+NETWORK DEVICES:
+─────────────────────────────────────────────────────────────────────
+Frequency: Monthly
+Rationale: Less frequent changes, firmware updates
+Assets:
+  • Routers and switches
+  • Firewalls
+  • Load balancers
+  • Wireless controllers
+
+NON-PRODUCTION:
+─────────────────────────────────────────────────────────────────────
+Frequency: Quarterly
+Rationale: Lower risk, limited resources
+Assets:
+  • Test environments
+  • Development systems
+  • Training systems</code></pre>
+                </div>
+                
+                <h2>Scan Window Definition</h2>
+                
+                <p>
+                    Defining appropriate scan windows prevents operational disruptions while ensuring 
+                    comprehensive coverage.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SCAN WINDOW PLANNING
+═══════════════════════════════════════════════════════════════════════
+
+TYPICAL ENTERPRISE SCAN SCHEDULE:
+─────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────┐
+│                         WEEKLY SCHEDULE                             │
+├────────────┬────────────────────────────────────────────────────────┤
+│ SUNDAY     │ 00:00-06:00: Internet-facing systems                  │
+│            │ 06:00-12:00: Tier 1 critical servers                  │
+├────────────┼────────────────────────────────────────────────────────┤
+│ MONDAY     │ Business hours: Agent-based continuous                │
+├────────────┼────────────────────────────────────────────────────────┤
+│ TUESDAY    │ 22:00-06:00: Database servers                         │
+├────────────┼────────────────────────────────────────────────────────┤
+│ WEDNESDAY  │ 22:00-06:00: Application servers                      │
+├────────────┼────────────────────────────────────────────────────────┤
+│ THURSDAY   │ 22:00-06:00: Network devices                          │
+├────────────┼────────────────────────────────────────────────────────┤
+│ FRIDAY     │ 22:00-06:00: Workstations (catch-up)                  │
+├────────────┼────────────────────────────────────────────────────────┤
+│ SATURDAY   │ 00:00-06:00: Non-production environments              │
+└────────────┴────────────────────────────────────────────────────────┘
+
+CONSIDERATIONS:
+─────────────────────────────────────────────────────────────────────
+• Avoid scanning during batch processing windows
+• Avoid scanning during backup windows
+• Coordinate with change management calendar
+• Account for global time zones
+• Allow time for scan completion before business hours
+
+BLACKOUT PERIODS:
+─────────────────────────────────────────────────────────────────────
+• Month-end/quarter-end financial processing
+• Major release deployments
+• Critical business events (elections, product launches)
+• Holidays with reduced support staff</code></pre>
+                </div>
+                
+                <h2>Performance Optimization</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SCAN PERFORMANCE TUNING
+═══════════════════════════════════════════════════════════════════════
+
+SCANNER SETTINGS:
+─────────────────────────────────────────────────────────────────────
+Concurrent Hosts:
+  Conservative: 10-20 hosts  (low-bandwidth, sensitive systems)
+  Standard:     30-50 hosts  (typical networks)
+  Aggressive:   75-100 hosts (high-bandwidth, robust systems)
+
+Concurrent Checks per Host:
+  Conservative: 2-4    (fragile systems, limited bandwidth)
+  Standard:     4-8    (typical systems)
+  Aggressive:   10-15  (high-performance systems)
+
+Network Timeout:
+  Standard:     5 seconds
+  Slow network: 10-15 seconds
+  Fast network: 2-3 seconds
+
+SCAN EFFICIENCY TECHNIQUES:
+─────────────────────────────────────────────────────────────────────
+1. Use Discovery Scans First
+   - Quick scan to identify live hosts
+   - Full scan only on confirmed assets
+   - Reduces time scanning dead IPs
+
+2. Segment by Network Zone
+   - Place scan engines in each zone
+   - Reduces traffic crossing firewalls
+   - Improves credential handling
+
+3. Prioritize Plugin Families
+   - Enable only relevant plugins
+   - Disable checks for platforms not in use
+   - Example: Disable Solaris checks if no Solaris
+
+4. Use Scan Templates
+   - "Quick" for discovery
+   - "Full" for detailed assessment
+   - "Compliance" for policy audits
+
+NETWORK IMPACT MITIGATION:
+─────────────────────────────────────────────────────────────────────
+• Rate limit scan traffic
+• Use network quality of service (QoS)
+• Scan during off-peak hours
+• Split large scans into segments
+• Monitor network utilization during scans</code></pre>
+                </div>
+                
+                <h2>False Positive Management</h2>
+                
+                <p>
+                    False positives waste remediation effort and erode confidence in the VM program. 
+                    Systematic validation and tuning are essential.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>FALSE POSITIVE REDUCTION STRATEGIES
+═══════════════════════════════════════════════════════════════════════
+
+1. USE AUTHENTICATED SCANNING
+─────────────────────────────────────────────────────────────────────
+   Unauthenticated: Banner grabbing only → high FP rate
+   Authenticated: Actual version verification → low FP rate
+   
+   Example: Apache banner shows 2.4.6, but patches backported
+   - Unauthenticated: Reports CVE based on banner (FP)
+   - Authenticated: Checks actual patch level (accurate)
+
+2. VALIDATE BEFORE CREATING TICKETS
+─────────────────────────────────────────────────────────────────────
+   For new/unusual findings:
+   □ Manual verification on sample systems
+   □ Check scanner plugin documentation
+   □ Verify with second scanner if available
+   □ Consult vendor security advisories
+
+3. MAINTAIN EXCEPTION DATABASE
+─────────────────────────────────────────────────────────────────────
+   Document known false positives:
+   • Plugin ID / QID
+   • Affected assets or patterns
+   • Reason for false positive
+   • Evidence / verification
+   • Review date
+
+4. TUNE SCANNER PLUGINS
+─────────────────────────────────────────────────────────────────────
+   • Disable plugins for absent platforms
+   • Configure accurate OS detection
+   • Use informational-only mode for experimental checks
+   • Report FPs to scanner vendor
+
+5. IMPLEMENT FP FEEDBACK LOOP
+─────────────────────────────────────────────────────────────────────
+   Remediation Team → Reports FP → VM Team Validates →
+   → If Confirmed FP: Add to exception list
+   → If Valid: Educate and remediate
+   → Track FP rate metric over time
+
+FALSE POSITIVE RATE TARGETS:
+─────────────────────────────────────────────────────────────────────
+   Excellent: < 2%
+   Good:      2-5%
+   Acceptable: 5-10%
+   Needs Work: > 10%</code></pre>
+                </div>
+                
+                <h2>Standard Operating Procedures</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VULNERABILITY SCANNING SOP TEMPLATE
+═══════════════════════════════════════════════════════════════════════
+
+1. PRE-SCAN CHECKLIST
+─────────────────────────────────────────────────────────────────────
+   □ Verify scan schedule doesn't conflict with:
+     - Maintenance windows
+     - Backup jobs
+     - Critical business operations
+   □ Confirm scan credentials are valid
+   □ Verify scanner plugins are updated
+   □ Review any new assets added since last scan
+   □ Check scanner engine health
+
+2. SCAN EXECUTION
+─────────────────────────────────────────────────────────────────────
+   □ Launch scan at scheduled time
+   □ Monitor scan progress (first 30 minutes)
+   □ Watch for:
+     - Authentication failures
+     - Unusual scan duration
+     - High network impact
+   □ Document any issues encountered
+
+3. POST-SCAN ANALYSIS
+─────────────────────────────────────────────────────────────────────
+   □ Verify scan completion
+   □ Check scan coverage (all targets reached?)
+   □ Review authentication success rate
+   □ Identify new vulnerabilities
+   □ Compare to previous scan baseline
+   □ Flag potential false positives for review
+
+4. REPORTING AND TICKETING
+─────────────────────────────────────────────────────────────────────
+   □ Generate standard reports
+   □ Create tickets for new critical/high findings
+   □ Update vulnerability tracking system
+   □ Notify asset owners of new findings
+   □ Update dashboards and metrics
+
+5. VERIFICATION SCANNING
+─────────────────────────────────────────────────────────────────────
+   □ Rescan remediated assets within 48 hours
+   □ Confirm vulnerability resolution
+   □ Close tickets for resolved issues
+   □ Document failed remediations for follow-up</code></pre>
+                </div>
+                
+                <div class="info-box best-practice" data-label="Best Practice">
+                    <div class="info-box-title">✅ Scan Configuration Checklist</div>
+                    <p>
+                        Before every scan: Credentials tested? Plugins updated? Blackout periods checked? 
+                        Firewall rules in place? Notification sent to operations? After every scan: 
+                        Coverage verified? Auth success &gt;95%? New assets discovered? False positives reviewed?
+                    </p>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you handle scan performance issues affecting production systems?"</strong><br><br>
+                        Sample answer: "Prevention is key—I schedule aggressive scans outside business hours 
+                        and use conservative settings during production windows. If issues occur, I first 
+                        reduce concurrent hosts and checks per host. I segment large scans across multiple 
+                        nights rather than one long scan. For sensitive systems like databases, I coordinate 
+                        with DBAs on optimal windows and may use read-replica scanning. I also monitor 
+                        network utilization during scans and implement QoS policies to prioritize production 
+                        traffic over scan traffic."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Effective vulnerability scanning requires careful planning of schedules, scan windows, 
+                    and performance settings. Systematic false positive management builds credibility with 
+                    remediation teams. Standard operating procedures ensure consistent, reliable scanning 
+                    operations.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="2-6-opensource.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Open Source Scanners</span>
+                    </a>
+                    <a href="2-8-authenticated.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Authenticated Scanning</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

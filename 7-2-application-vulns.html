@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Application Vulnerabilities - Third-party software, dependency vulnerabilities, SCA, and application patching strategies.">
+    <title>Application Vulnerabilities | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item active">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="7-1-os-vulnerabilities.html">Section 7: Vulnerability Types</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Application Vulnerabilities</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Application Vulnerabilities</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 7.2</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers application-level vulnerabilities including third-party 
+                        software, libraries and dependencies, Software Composition Analysis (SCA), 
+                        and patching strategies.
+                    </p>
+                </div>
+                
+                <h2>Application Vulnerability Types</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>APPLICATION VULNERABILITY CATEGORIES
+═══════════════════════════════════════════════════════════════════════
+
+THIRD-PARTY SOFTWARE
+─────────────────────────────────────────────────────────────────────
+• Commercial applications (Adobe, Java, browsers)
+• Open source software (Apache, nginx, OpenSSL)
+• Development tools (IDEs, compilers)
+• Productivity software (Office, PDF readers)
+
+LIBRARIES AND DEPENDENCIES
+─────────────────────────────────────────────────────────────────────
+• Direct dependencies (packages you explicitly use)
+• Transitive dependencies (packages your packages use)
+• Language runtimes (Java, .NET, Python, Node.js)
+• Frameworks (Spring, Django, React)
+
+CUSTOM/IN-HOUSE APPLICATIONS
+─────────────────────────────────────────────────────────────────────
+• Code vulnerabilities (OWASP Top 10)
+• Configuration issues
+• Outdated framework versions
+• Hardcoded credentials
+
+COMMONLY VULNERABLE APPLICATIONS:
+─────────────────────────────────────────────────────────────────────
+High-Risk:
+• Java/JRE - Frequently targeted (Log4j, etc.)
+• Adobe products (Reader, Flash legacy, Acrobat)
+• Web browsers (Chrome, Firefox, Edge)
+• Apache/Tomcat - Web servers
+• Microsoft Office - Macro/document exploits
+
+Medium-Risk:
+• 7-Zip, WinRAR - Archive handling
+• VLC, media players - Media parsing
+• FTP/SSH clients - Protocol handling</code></pre>
+                </div>
+                
+                <h2>Notable Application CVEs</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CRITICAL APPLICATION VULNERABILITIES (Study These)
+═══════════════════════════════════════════════════════════════════════
+
+CVE-2021-44228 (Log4Shell)
+─────────────────────────────────────────────────────────────────────
+Component: Apache Log4j 2.x
+Type: Remote Code Execution via JNDI lookup
+CVSS: 10.0
+Impact: Massive - affected thousands of applications
+Detection: String "${jndi:" in logs, network traffic
+Fix: Update Log4j to 2.17.0+, remove JndiLookup class
+
+CVE-2024-3094 (XZ Utils Backdoor)
+─────────────────────────────────────────────────────────────────────
+Component: XZ Utils (liblzma)
+Type: Supply chain backdoor
+Impact: SSH authentication bypass
+Detection: Check xz --version (5.6.0/5.6.1 affected)
+Fix: Downgrade to 5.4.x or upgrade to 5.6.2+
+
+CVE-2023-44487 (HTTP/2 Rapid Reset)
+─────────────────────────────────────────────────────────────────────
+Component: HTTP/2 implementations
+Type: Denial of Service
+Impact: Resource exhaustion on web servers
+Affected: nginx, Apache, Node.js, Go, many others
+Fix: Update web server/framework
+
+CVE-2022-22965 (Spring4Shell)
+─────────────────────────────────────────────────────────────────────
+Component: Spring Framework
+Type: Remote Code Execution
+CVSS: 9.8
+Impact: RCE in Spring MVC/WebFlux applications
+Fix: Update Spring Framework to 5.3.18+/5.2.20+
+
+CVE-2021-26084 (Confluence RCE)
+─────────────────────────────────────────────────────────────────────
+Component: Atlassian Confluence
+Type: OGNL injection RCE
+CVSS: 9.8
+Impact: Pre-auth RCE, actively exploited
+Fix: Update Confluence, restrict network access</code></pre>
+                </div>
+                
+                <h2>Software Composition Analysis</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Dependency Vulnerability Checking
+Using safety (Python) and npm audit (Node.js).
+"""
+
+import subprocess
+import json
+from typing import List, Dict
+
+
+def check_python_dependencies() -> List[Dict]:
+    """Check Python dependencies for vulnerabilities using safety."""
+    
+    # Generate requirements
+    subprocess.run(['pip', 'freeze', '>', 'requirements.txt'], shell=True)
+    
+    # Run safety check
+    result = subprocess.run(
+        ['safety', 'check', '--json', '-r', 'requirements.txt'],
+        capture_output=True,
+        text=True
+    )
+    
+    if result.returncode != 0:
+        vulns = json.loads(result.stdout)
+        return [{
+            'package': v[0],
+            'installed_version': v[2],
+            'vulnerability': v[3],
+            'cve': v[4] if len(v) > 4 else None
+        } for v in vulns]
+    
+    return []
+
+
+def check_npm_dependencies(project_dir: str) -> List[Dict]:
+    """Check Node.js dependencies for vulnerabilities."""
+    
+    result = subprocess.run(
+        ['npm', 'audit', '--json'],
+        capture_output=True,
+        text=True,
+        cwd=project_dir
+    )
+    
+    audit_data = json.loads(result.stdout)
+    vulns = []
+    
+    for advisory_id, advisory in audit_data.get('advisories', {}).items():
+        vulns.append({
+            'package': advisory['module_name'],
+            'severity': advisory['severity'],
+            'title': advisory['title'],
+            'cve': advisory.get('cves', [None])[0],
+            'patched_versions': advisory['patched_versions'],
+            'recommendation': advisory['recommendation']
+        })
+    
+    return vulns
+
+
+# SCA Tool Comparison
+SCA_TOOLS = """
+SOFTWARE COMPOSITION ANALYSIS TOOLS
+═══════════════════════════════════════════════════════════════════════
+
+Open Source:
+• OWASP Dependency-Check - Java, .NET, Python, Ruby, Node.js
+• Trivy - Containers, filesystems, git repos
+• Grype - Container and filesystem scanning
+• OSV-Scanner - Google's vulnerability scanner
+
+Commercial:
+• Snyk - SCA + container + IaC + code
+• Sonatype Nexus - Repository management + SCA
+• WhiteSource (Mend) - Comprehensive SCA
+• Black Duck - Enterprise SCA
+• JFrog Xray - Artifact analysis
+
+Language-Specific:
+• npm audit - Node.js built-in
+• pip-audit / safety - Python
+• bundler-audit - Ruby
+• cargo audit - Rust
+"""</code></pre>
+                </div>
+                
+                <h2>Dependency Management</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">YAML</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># GitHub Dependabot Configuration
+# .github/dependabot.yml
+
+version: 2
+updates:
+  # Python dependencies
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "security"
+    
+  # Node.js dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    
+  # Docker base images
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you handle dependency vulnerabilities in applications?"</strong><br><br>
+                        Sample answer: "I use Software Composition Analysis tools integrated into CI/CD. 
+                        Snyk or Dependabot scans on every PR, blocking merges for critical vulnerabilities. 
+                        For production, I maintain a software inventory that maps applications to their 
+                        dependencies so when something like Log4Shell hits, I can quickly identify affected 
+                        systems. The challenge is transitive dependencies—your code might be fine but a 
+                        library three levels deep is vulnerable. That's why automated scanning is essential."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Application vulnerabilities, especially in dependencies, are a massive attack surface. 
+                    Implement Software Composition Analysis in your development pipeline, maintain a 
+                    software inventory for rapid response, and prioritize widely-used libraries when 
+                    critical CVEs emerge.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="7-1-os-vulnerabilities.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">OS Vulnerabilities</span>
+                    </a>
+                    <a href="7-3-network-device-vulns.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Network Device Vulnerabilities</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

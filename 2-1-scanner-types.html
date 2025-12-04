@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scanner Types & Selection - Network vs Agent-based vs Passive scanning, commercial vs open source comparison, and scanner selection criteria.">
+    <title>Scanner Types & Selection | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+                <div class="sidebar-search">
+                    <span class="sidebar-search-icon">🔍</span>
+                    <input type="text" placeholder="Search documentation...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item active">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Scanner Types & Selection</span>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header">
+                    <h1>Scanner Types & Selection</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.1</span>
+                        <span class="page-meta-item">⏱️ 15 min read</span>
+                        <span class="page-meta-item">📅 Last updated: 2025</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers the different types of vulnerability scanners including network-based, 
+                        agent-based, and passive scanning approaches. You'll learn when to use each type, 
+                        compare commercial vs. open source options, and understand key selection criteria.
+                    </p>
+                </div>
+                
+                <h2>Scanner Architecture Types</h2>
+                
+                <p>
+                    Vulnerability scanners come in several architectural flavors, each with distinct advantages 
+                    and trade-offs. Understanding these differences is crucial for selecting the right tool 
+                    and deployment model for your environment.
+                </p>
+                
+                <h3>Network-Based Scanners</h3>
+                
+                <p>
+                    Network scanners operate from a central location and probe target systems over the network. 
+                    They send specially crafted packets, analyze responses, and identify vulnerabilities based 
+                    on service banners, version information, and behavioral analysis.
+                </p>
+                
+                <h4>How Network Scanning Works</h4>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NETWORK SCANNER OPERATION FLOW
+═══════════════════════════════════════════════════════════════════════
+
+                    ┌─────────────────┐
+                    │  SCAN ENGINE    │
+                    │  (Central)      │
+                    └────────┬────────┘
+                             │
+            ┌────────────────┼────────────────┐
+            │                │                │
+            ▼                ▼                ▼
+    ┌───────────────┐ ┌───────────────┐ ┌───────────────┐
+    │   TARGET 1    │ │   TARGET 2    │ │   TARGET 3    │
+    │ 192.168.1.10  │ │ 192.168.1.20  │ │ 192.168.1.30  │
+    └───────────────┘ └───────────────┘ └───────────────┘
+
+SCAN PHASES:
+─────────────────────────────────────────────────────────────────────
+1. HOST DISCOVERY
+   - ICMP ping, TCP SYN to common ports
+   - ARP requests on local segments
+   - Identify live hosts
+
+2. PORT SCANNING
+   - TCP connect/SYN scans
+   - UDP service probes
+   - Identify open ports and services
+
+3. SERVICE ENUMERATION
+   - Banner grabbing
+   - Version detection
+   - Service fingerprinting
+
+4. VULNERABILITY DETECTION
+   - Version-based checks (known vulnerable versions)
+   - Behavioral checks (send probes, analyze responses)
+   - Configuration checks (weak settings, defaults)
+
+5. REPORTING
+   - Aggregate findings
+   - Assign severity scores
+   - Generate remediation guidance</code></pre>
+                </div>
+                
+                <h4>Network Scanner Advantages</h4>
+                
+                <ul>
+                    <li>No software installation required on targets</li>
+                    <li>Can scan any IP-reachable system regardless of OS</li>
+                    <li>Discovers unknown/unmanaged assets</li>
+                    <li>Tests actual network exposure</li>
+                    <li>Works across different environments from a single point</li>
+                </ul>
+                
+                <h4>Network Scanner Limitations</h4>
+                
+                <ul>
+                    <li>Limited visibility without credentials (surface-level checks only)</li>
+                    <li>Firewalls and network segmentation can block scans</li>
+                    <li>Generates network traffic that may impact performance</li>
+                    <li>Cannot assess systems behind NAT or in isolated networks</li>
+                    <li>Point-in-time assessment (misses intermittent issues)</li>
+                </ul>
+                
+                <h3>Agent-Based Scanners</h3>
+                
+                <p>
+                    Agent-based scanners deploy lightweight software agents on target systems. These agents 
+                    continuously collect system information and report to a central management console, 
+                    enabling real-time vulnerability visibility without network-based probing.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>AGENT-BASED SCANNER ARCHITECTURE
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                    CLOUD / MANAGEMENT CONSOLE                        │
+│                   ┌─────────────────────────┐                       │
+│                   │   Analysis Engine       │                       │
+│                   │   Vulnerability DB      │                       │
+│                   │   Reporting/Dashboards  │                       │
+│                   └────────────┬────────────┘                       │
+└────────────────────────────────┼────────────────────────────────────┘
+                                 │ HTTPS (Outbound only)
+                    ┌────────────┴────────────┐
+                    │                         │
+            ┌───────┴───────┐         ┌───────┴───────┐
+            │   AGENT       │         │   AGENT       │
+            │   ┌───────┐   │         │   ┌───────┐   │
+            │   │Collect│   │         │   │Collect│   │
+            │   │Process│   │         │   │Process│   │
+            │   │Report │   │         │   │Report │   │
+            │   └───────┘   │         │   └───────┘   │
+            │   Windows     │         │   Linux       │
+            │   Server      │         │   Server      │
+            └───────────────┘         └───────────────┘
+
+AGENT COLLECTION CAPABILITIES:
+─────────────────────────────────────────────────────────────────────
+• Installed software inventory (name, version, vendor)
+• Operating system patches and hotfixes
+• Running services and processes
+• User accounts and privileges
+• Registry/configuration settings
+• File system analysis
+• Network connections
+• Security software status</code></pre>
+                </div>
+                
+                <h4>Agent Advantages</h4>
+                
+                <ul>
+                    <li>Deep visibility into system configuration and installed software</li>
+                    <li>Works regardless of network location (cloud, VPN, roaming)</li>
+                    <li>No network traffic for scanning (only reporting)</li>
+                    <li>Continuous monitoring vs. point-in-time scans</li>
+                    <li>Better detection of local privilege escalation vulnerabilities</li>
+                    <li>Works through firewalls (outbound HTTPS only)</li>
+                </ul>
+                
+                <h4>Agent Limitations</h4>
+                
+                <ul>
+                    <li>Requires agent deployment and management</li>
+                    <li>Agent software must be compatible with target OS</li>
+                    <li>Adds software footprint to systems</li>
+                    <li>Cannot discover unknown assets (must be deployed first)</li>
+                    <li>May have performance impact on endpoints</li>
+                    <li>Requires agent health monitoring</li>
+                </ul>
+                
+                <h3>Passive Scanners</h3>
+                
+                <p>
+                    Passive scanners monitor network traffic without actively probing targets. They analyze 
+                    packet captures to identify services, versions, and potential vulnerabilities based on 
+                    observed traffic patterns.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>PASSIVE SCANNER DEPLOYMENT
+═══════════════════════════════════════════════════════════════════════
+
+                    ┌─────────────────┐
+                    │  Core Switch    │
+                    │  (SPAN Port)    │
+                    └───────┬─────────┘
+                            │ Mirror Traffic
+                            ▼
+                    ┌─────────────────┐
+                    │ PASSIVE SCANNER │
+                    │ ┌─────────────┐ │
+                    │ │Traffic      │ │
+                    │ │Analysis     │ │
+                    │ │Engine       │ │
+                    │ └─────────────┘ │
+                    └─────────────────┘
+                            │
+            ┌───────────────┼───────────────┐
+            ▼               ▼               ▼
+    ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+    │Asset        │ │Service      │ │Vulnerability│
+    │Discovery    │ │Detection    │ │Correlation  │
+    └─────────────┘ └─────────────┘ └─────────────┘
+
+PASSIVE DETECTION METHODS:
+─────────────────────────────────────────────────────────────────────
+• Banner extraction from unencrypted protocols
+• TLS certificate analysis
+• Protocol fingerprinting
+• Traffic pattern analysis
+• Known exploit traffic detection</code></pre>
+                </div>
+                
+                <h4>Passive Scanner Use Cases</h4>
+                
+                <ul>
+                    <li>OT/ICS environments where active scanning is risky</li>
+                    <li>Continuous asset discovery without probing</li>
+                    <li>Supplementing active scanning with additional visibility</li>
+                    <li>Detecting unauthorized services and shadow IT</li>
+                    <li>Real-time vulnerability detection for new connections</li>
+                </ul>
+                
+                <div class="info-box tip" data-label="Tip">
+                    <div class="info-box-title">💜 Hybrid Approach</div>
+                    <p>
+                        Most enterprise VM programs use a combination: network scanners for comprehensive 
+                        coverage of known assets, agents for deep endpoint visibility and roaming devices, 
+                        and passive scanning for OT environments or continuous discovery.
+                    </p>
+                </div>
+                
+                <h2>Authenticated vs. Unauthenticated Scans</h2>
+                
+                <p>
+                    The depth of vulnerability detection depends heavily on whether the scanner can 
+                    authenticate to target systems.
+                </p>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Unauthenticated</th>
+                                <th>Authenticated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Detection Depth</strong></td>
+                                <td>Surface-level (banners, exposed services)</td>
+                                <td>Deep (installed software, configs, patches)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Accuracy</strong></td>
+                                <td>Higher false positives</td>
+                                <td>Higher accuracy, fewer false positives</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Coverage</strong></td>
+                                <td>~30-40% of vulnerabilities</td>
+                                <td>~90%+ of vulnerabilities</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Setup Complexity</strong></td>
+                                <td>Simple (no credentials needed)</td>
+                                <td>Complex (credential management)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Use Case</strong></td>
+                                <td>External scans, discovery, quick assessments</td>
+                                <td>Internal scans, compliance, detailed inventory</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ Unauthenticated Scan Limitations</div>
+                    <p>
+                        Unauthenticated scans miss the majority of vulnerabilities. A scan showing "no 
+                        vulnerabilities" without credentials is almost certainly incomplete. Always use 
+                        authenticated scanning for compliance and accurate risk assessment.
+                    </p>
+                </div>
+                
+                <h2>Commercial vs. Open Source Scanners</h2>
+                
+                <p>
+                    Both commercial and open source scanners have their place in a VM program. The choice 
+                    depends on budget, requirements, and organizational maturity.
+                </p>
+                
+                <h3>Commercial Scanner Leaders</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vendor</th>
+                                <th>Products</th>
+                                <th>Strengths</th>
+                                <th>Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tenable</strong></td>
+                                <td>Nessus, Tenable.io, Tenable.sc</td>
+                                <td>Most plugins, compliance auditing, established</td>
+                                <td>Licensing complexity, cost at scale</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Qualys</strong></td>
+                                <td>VMDR, Cloud Agent, WAS</td>
+                                <td>Cloud-native, TruRisk scoring, unified platform</td>
+                                <td>Learning curve, cloud dependency</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rapid7</strong></td>
+                                <td>InsightVM, Nexpose</td>
+                                <td>Real Risk scoring, live dashboards, SOAR integration</td>
+                                <td>Scan performance, agent resource usage</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Microsoft</strong></td>
+                                <td>Defender Vulnerability Management</td>
+                                <td>Integrated with Defender ecosystem, no extra cost</td>
+                                <td>Windows-centric, requires Defender deployment</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Open Source Options</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Type</th>
+                                <th>Best For</th>
+                                <th>Limitations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>OpenVAS/Greenbone</strong></td>
+                                <td>Network scanner</td>
+                                <td>General vulnerability scanning, budget-conscious</td>
+                                <td>Slower updates, less polished UI</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nuclei</strong></td>
+                                <td>Template-based scanner</td>
+                                <td>Web/API scanning, custom checks</td>
+                                <td>Requires template knowledge</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Trivy</strong></td>
+                                <td>Container/IaC scanner</td>
+                                <td>Container images, Kubernetes, IaC</td>
+                                <td>Limited to containers/cloud</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nmap + Scripts</strong></td>
+                                <td>Network scanner</td>
+                                <td>Discovery, service detection, NSE scripts</td>
+                                <td>Limited vuln checks, manual effort</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OWASP ZAP</strong></td>
+                                <td>Web app scanner</td>
+                                <td>DAST, API testing, CI/CD integration</td>
+                                <td>Web-only, requires tuning</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"When would you choose an open source scanner over commercial?"</strong><br><br>
+                        Sample answer: "Open source scanners work well for specific use cases: Trivy is 
+                        excellent for container scanning in CI/CD pipelines, Nuclei is powerful for custom 
+                        web application checks, and OpenVAS can serve small organizations with limited budgets. 
+                        However, for enterprise VM programs, I'd choose commercial scanners for their broader 
+                        coverage, faster plugin updates, compliance templates, professional support, and 
+                        integrated reporting. I often use open source tools to supplement commercial scanners 
+                        for specific needs."
+                    </p>
+                </div>
+                
+                <h2>Scanner Selection Criteria</h2>
+                
+                <p>
+                    Selecting a vulnerability scanner requires evaluating multiple factors beyond just 
+                    detection capabilities.
+                </p>
+                
+                <h3>Technical Requirements</h3>
+                
+                <ul>
+                    <li><strong>Coverage:</strong> Does it support all your platforms (Windows, Linux, Mac, network devices, cloud, containers)?</li>
+                    <li><strong>Detection Quality:</strong> Plugin count, update frequency, false positive rates</li>
+                    <li><strong>Authentication:</strong> Supported protocols (SMB, SSH, WinRM, SNMP, APIs)</li>
+                    <li><strong>Compliance:</strong> Built-in compliance checks for PCI DSS, CIS, HIPAA, etc.</li>
+                    <li><strong>Scalability:</strong> Can it handle your asset count and scan frequency?</li>
+                    <li><strong>API:</strong> REST API for automation and integration</li>
+                </ul>
+                
+                <h3>Operational Requirements</h3>
+                
+                <ul>
+                    <li><strong>Deployment Model:</strong> On-premises, cloud, hybrid?</li>
+                    <li><strong>Ease of Use:</strong> Learning curve, UI quality, documentation</li>
+                    <li><strong>Reporting:</strong> Built-in reports, customization, export formats</li>
+                    <li><strong>Integration:</strong> SIEM, ticketing, CMDB, SOAR connectors</li>
+                    <li><strong>Support:</strong> Vendor support quality, community resources</li>
+                </ul>
+                
+                <h3>Business Requirements</h3>
+                
+                <ul>
+                    <li><strong>Budget:</strong> License cost, infrastructure costs, FTE requirements</li>
+                    <li><strong>Vendor Stability:</strong> Market position, financial health, roadmap</li>
+                    <li><strong>Compliance:</strong> Approved Scanning Vendor (ASV) certification for PCI</li>
+                    <li><strong>Contracts:</strong> Licensing model (per-asset, per-IP, subscription)</li>
+                </ul>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SCANNER EVALUATION SCORECARD
+═══════════════════════════════════════════════════════════════════════
+
+CATEGORY                    │ WEIGHT │ VENDOR A │ VENDOR B │ VENDOR C
+────────────────────────────┼────────┼──────────┼──────────┼──────────
+DETECTION CAPABILITY        │  25%   │          │          │
+  Plugin count/coverage     │        │   ___    │   ___    │   ___
+  Update frequency          │        │   ___    │   ___    │   ___
+  False positive rate       │        │   ___    │   ___    │   ___
+  Compliance templates      │        │   ___    │   ___    │   ___
+────────────────────────────┼────────┼──────────┼──────────┼──────────
+PLATFORM SUPPORT            │  20%   │          │          │
+  Windows/Linux/Mac         │        │   ___    │   ___    │   ___
+  Network devices           │        │   ___    │   ___    │   ___
+  Cloud (AWS/Azure/GCP)     │        │   ___    │   ___    │   ___
+  Containers/Kubernetes     │        │   ___    │   ___    │   ___
+────────────────────────────┼────────┼──────────┼──────────┼──────────
+USABILITY                   │  15%   │          │          │
+  User interface            │        │   ___    │   ___    │   ___
+  Documentation             │        │   ___    │   ___    │   ___
+  Reporting                 │        │   ___    │   ___    │   ___
+────────────────────────────┼────────┼──────────┼──────────┼──────────
+INTEGRATION                 │  15%   │          │          │
+  API capabilities          │        │   ___    │   ___    │   ___
+  SIEM integration          │        │   ___    │   ___    │   ___
+  Ticketing integration     │        │   ___    │   ___    │   ___
+────────────────────────────┼────────┼──────────┼──────────┼──────────
+SCALABILITY/PERFORMANCE     │  10%   │          │          │
+  Scan speed                │        │   ___    │   ___    │   ___
+  Large environment support │        │   ___    │   ___    │   ___
+────────────────────────────┼────────┼──────────┼──────────┼──────────
+COST                        │  10%   │          │          │
+  License cost              │        │   ___    │   ___    │   ___
+  Infrastructure cost       │        │   ___    │   ___    │   ___
+  TCO (3-year)              │        │   ___    │   ___    │   ___
+────────────────────────────┼────────┼──────────┼──────────┼──────────
+VENDOR/SUPPORT              │   5%   │          │          │
+  Vendor stability          │        │   ___    │   ___    │   ___
+  Support quality           │        │   ___    │   ___    │   ___
+════════════════════════════╧════════╧══════════╧══════════╧══════════
+WEIGHTED TOTAL                       │   ___    │   ___    │   ___</code></pre>
+                </div>
+                
+                <h2>Deployment Architectures</h2>
+                
+                <h3>On-Premises Deployment</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>ON-PREMISES SCANNER ARCHITECTURE
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                     MANAGEMENT NETWORK                              │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │              VULNERABILITY MANAGEMENT CONSOLE                │   │
+│  │  ┌───────────┐  ┌───────────┐  ┌───────────┐               │   │
+│  │  │  Scanner  │  │ Database  │  │ Reporting │               │   │
+│  │  │  Manager  │  │  Server   │  │  Server   │               │   │
+│  │  └───────────┘  └───────────┘  └───────────┘               │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└────────────────────────────────┬────────────────────────────────────┘
+                                 │
+        ┌────────────────────────┼────────────────────────────┐
+        │                        │                            │
+        ▼                        ▼                            ▼
+┌───────────────┐      ┌───────────────┐            ┌───────────────┐
+│ SCAN ENGINE 1 │      │ SCAN ENGINE 2 │            │ SCAN ENGINE 3 │
+│ (Corporate)   │      │ (DMZ)         │            │ (Data Center) │
+└───────┬───────┘      └───────┬───────┘            └───────┬───────┘
+        │                      │                            │
+        ▼                      ▼                            ▼
+┌───────────────┐      ┌───────────────┐            ┌───────────────┐
+│  Corporate    │      │     DMZ       │            │  Data Center  │
+│  Network      │      │   Network     │            │   Network     │
+│  (Targets)    │      │  (Targets)    │            │  (Targets)    │
+└───────────────┘      └───────────────┘            └───────────────┘
+
+CONSIDERATIONS:
+─────────────────────────────────────────────────────────────────────
+• Place scan engines in each network segment
+• Ensure firewall rules allow scanner traffic
+• Size console for asset count and scan concurrency
+• Plan for HA/DR of management console
+• Regular backups of scan data and configurations</code></pre>
+                </div>
+                
+                <h3>Cloud/SaaS Deployment</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CLOUD SCANNER ARCHITECTURE
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                    VENDOR CLOUD (SaaS)                              │
+│  ┌─────────────────────────────────────────────────────────────┐   │
+│  │         VULNERABILITY MANAGEMENT PLATFORM                    │   │
+│  │  • Web Console    • Vulnerability Database                   │   │
+│  │  • API Gateway    • Reporting Engine                         │   │
+│  │  • Threat Intel   • Integrations                             │   │
+│  └─────────────────────────────────────────────────────────────┘   │
+└────────────────────────────────┬────────────────────────────────────┘
+                                 │ HTTPS
+        ┌────────────────────────┼────────────────────────────────┐
+        │                        │                                │
+        ▼                        ▼                                ▼
+┌───────────────┐      ┌───────────────┐            ┌───────────────┐
+│ ON-PREM       │      │ CLOUD         │            │ ENDPOINT      │
+│ SCAN APPLIANCE│      │ CONNECTORS    │            │ AGENTS        │
+│               │      │               │            │               │
+│ ┌───────────┐ │      │ AWS Account   │            │ ┌───────────┐ │
+│ │Virtual    │ │      │ Azure Sub     │            │ │ Agent     │ │
+│ │Appliance  │ │      │ GCP Project   │            │ │ Software  │ │
+│ └───────────┘ │      │               │            │ └───────────┘ │
+└───────┬───────┘      └───────────────┘            └───────────────┘
+        │                                                    │
+        ▼                                                    ▼
+┌───────────────┐                                  ┌───────────────┐
+│  Internal     │                                  │  Endpoints    │
+│  Network      │                                  │  (Anywhere)   │
+└───────────────┘                                  └───────────────┘
+
+BENEFITS:
+─────────────────────────────────────────────────────────────────────
+• No infrastructure to manage
+• Always up-to-date platform and plugins
+• Global access to console
+• Elastic scaling
+• Lower upfront cost</code></pre>
+                </div>
+                
+                <div class="info-box best-practice" data-label="Best Practice">
+                    <div class="info-box-title">✅ Deployment Recommendation</div>
+                    <p>
+                        For most organizations, a hybrid approach works best: cloud-hosted management console 
+                        for reduced infrastructure burden, on-premises scan appliances for internal network 
+                        scanning, cloud connectors for AWS/Azure/GCP, and agents for endpoints that travel 
+                        outside the network.
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Scanner selection and architecture decisions have long-term implications for your VM 
+                    program. Consider all factors—technical capabilities, deployment model, integration 
+                    requirements, and total cost—before committing. Most enterprise programs benefit from 
+                    a combination of network scanning, agent-based coverage, and specialized tools for 
+                    containers and web applications. In the next pages, we'll deep-dive into specific 
+                    scanner platforms starting with Nessus.
+                </p>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation">
+                    <a href="1-5-metrics-kpis.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Metrics & KPIs</span>
+                    </a>
+                    <a href="2-2-nessus.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Nessus Deep Dive</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

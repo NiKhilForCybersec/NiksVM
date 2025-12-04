@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introduction to Vulnerability Management - Understanding VM, lifecycle, risk-based approaches, and key metrics.">
+    <title>Introduction to Vulnerability Management | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+                <div class="sidebar-search">
+                    <span class="sidebar-search-icon">🔍</span>
+                    <input type="text" placeholder="Search documentation...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            
+                                    <nav class="sidebar-nav">
+                <div class="nav-section " data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item active">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section 0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="1-1-introduction.html">Section 1: Fundamentals</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Introduction to VM</span>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header">
+                    <h1>Introduction to Vulnerability Management</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 1.1</span>
+                        <span class="page-meta-item">⏱️ 15 min read</span>
+                        <span class="page-meta-item">📅 Last updated: 2025</span>
+                    </div>
+                </header>
+                
+                <!-- Content -->
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers the foundational concepts of Vulnerability Management including what VM is, 
+                        how it differs from penetration testing, the vulnerability lifecycle, risk-based approaches, 
+                        and the key metrics that define program success.
+                    </p>
+                </div>
+                
+                <h2>What is Vulnerability Management?</h2>
+                
+                <p>
+                    Vulnerability Management (VM) is the continuous, cyclical practice of identifying, classifying, 
+                    prioritizing, remediating, and mitigating security vulnerabilities in systems, applications, 
+                    and network infrastructure. Unlike one-time security assessments, VM is an ongoing program 
+                    that provides continuous visibility into an organization's security posture.
+                </p>
+                
+                <p>
+                    A mature VM program integrates with other security functions including threat intelligence, 
+                    incident response, and security operations to provide a holistic view of organizational risk. 
+                    The goal is not just to find vulnerabilities, but to systematically reduce risk exposure 
+                    within business-acceptable timelines.
+                </p>
+                
+                <div class="info-box best-practice" data-label="Best Practice">
+                    <div class="info-box-title">✅ Key Success Factor</div>
+                    <p>
+                        Effective VM programs focus on <strong>risk reduction</strong>, not vulnerability count reduction. 
+                        A single critical vulnerability on an internet-facing crown jewel system matters more than 
+                        100 low-severity findings on isolated test servers.
+                    </p>
+                </div>
+                
+                <h2>VM vs Penetration Testing vs Red Teaming</h2>
+                
+                <p>
+                    Security teams often confuse these three disciplines. Understanding their differences is crucial 
+                    for building a comprehensive security program:
+                </p>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Vulnerability Management</th>
+                                <th>Penetration Testing</th>
+                                <th>Red Teaming</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Frequency</strong></td>
+                                <td>Continuous (daily/weekly scans)</td>
+                                <td>Periodic (quarterly/annually)</td>
+                                <td>Annual or on-demand</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scope</strong></td>
+                                <td>All assets, broad coverage</td>
+                                <td>Defined scope, specific systems</td>
+                                <td>Goal-oriented, entire organization</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Approach</strong></td>
+                                <td>Automated scanning + manual triage</td>
+                                <td>Manual testing with tools</td>
+                                <td>Adversary simulation, TTPs</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Goal</strong></td>
+                                <td>Identify known vulnerabilities</td>
+                                <td>Exploit vulnerabilities, prove impact</td>
+                                <td>Test detection & response capabilities</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Output</strong></td>
+                                <td>Vulnerability inventory, metrics</td>
+                                <td>Exploitation evidence, risk rating</td>
+                                <td>Attack narrative, detection gaps</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Team</strong></td>
+                                <td>Internal security/IT teams</td>
+                                <td>Internal or external testers</td>
+                                <td>Specialized red team (often external)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How does vulnerability management differ from penetration testing?"</strong><br><br>
+                        Sample answer: "VM is a continuous program focused on broad coverage and systematic risk reduction 
+                        through identification and remediation of known vulnerabilities across all assets. Penetration testing 
+                        is a point-in-time assessment that attempts to exploit vulnerabilities to prove business impact. 
+                        They're complementary—VM ensures baseline hygiene while pentests validate defenses against skilled attackers."
+                    </p>
+                </div>
+                
+                <h2>The Vulnerability Lifecycle</h2>
+                
+                <p>
+                    Every vulnerability follows a predictable lifecycle from discovery to resolution. Understanding this 
+                    lifecycle helps teams optimize their processes and set realistic expectations:
+                </p>
+                
+                <h3>1. Discovery</h3>
+                <p>
+                    Vulnerabilities are identified through automated scanning, manual assessment, vendor advisories, 
+                    threat intelligence feeds, or bug bounty programs. The discovery phase should capture comprehensive 
+                    metadata including affected systems, services, versions, and network exposure.
+                </p>
+                
+                <h3>2. Assessment</h3>
+                <p>
+                    Raw scan results are validated to eliminate false positives, duplicates, and informational findings. 
+                    Each confirmed vulnerability is assessed for technical severity and mapped to business context 
+                    including asset criticality and data sensitivity.
+                </p>
+                
+                <h3>3. Prioritization</h3>
+                <p>
+                    Validated vulnerabilities are prioritized using a combination of severity scores (CVSS), 
+                    exploit availability (EPSS), threat intelligence, asset criticality, and business context. 
+                    This phase determines remediation order and resource allocation.
+                </p>
+                
+                <h3>4. Remediation</h3>
+                <p>
+                    Vulnerabilities are addressed through patching, configuration changes, compensating controls, 
+                    or risk acceptance. Remediation tickets are assigned to asset owners with defined SLAs and 
+                    tracked through completion.
+                </p>
+                
+                <h3>5. Verification</h3>
+                <p>
+                    Remediated vulnerabilities are rescanned to confirm successful resolution. Failed remediations 
+                    are escalated and recycled through the remediation phase. Successful closures update the 
+                    vulnerability inventory and metrics.
+                </p>
+                
+                <h3>6. Reporting</h3>
+                <p>
+                    Program metrics, trends, and risk posture are reported to stakeholders at appropriate levels 
+                    (technical teams, management, executives). Reports drive continuous improvement and demonstrate 
+                    program value.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>┌─────────────────────────────────────────────────────────────────────┐
+│                    VULNERABILITY LIFECYCLE                          │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│    ┌──────────┐    ┌──────────┐    ┌──────────────┐                │
+│    │ DISCOVER │───▶│ ASSESS   │───▶│ PRIORITIZE   │                │
+│    └──────────┘    └──────────┘    └──────────────┘                │
+│         │                                  │                        │
+│         │                                  ▼                        │
+│         │                          ┌──────────────┐                 │
+│         │                          │  REMEDIATE   │                 │
+│         │                          └──────────────┘                 │
+│         │                                  │                        │
+│         │              ┌───────────────────┼───────────────────┐   │
+│         │              │ Failed            │ Success           │   │
+│         │              ▼                   ▼                   │   │
+│         │      ┌──────────────┐    ┌──────────────┐           │   │
+│         │      │   ESCALATE   │    │   VERIFY     │           │   │
+│         │      └──────────────┘    └──────────────┘           │   │
+│         │              │                   │                   │   │
+│         │              └─────────┐         ▼                   │   │
+│         │                        │  ┌──────────────┐           │   │
+│         │                        │  │   REPORT     │           │   │
+│         │                        │  └──────────────┘           │   │
+│         │                        │         │                   │   │
+│         └────────────────────────┴─────────┴───────────────────┘   │
+│                          CONTINUOUS CYCLE                           │
+└─────────────────────────────────────────────────────────────────────┘</code></pre>
+                </div>
+                
+                <h2>Risk-Based Vulnerability Management (RBVM)</h2>
+                
+                <p>
+                    Traditional VM programs focused on remediating vulnerabilities based solely on CVSS scores—patch all 
+                    criticals first, then highs, etc. This approach fails to account for business context and threat 
+                    intelligence, often leading to wasted effort on low-risk findings while high-risk exposures persist.
+                </p>
+                
+                <p>
+                    Risk-Based Vulnerability Management (RBVM) shifts the focus from vulnerability severity to actual 
+                    business risk. RBVM considers multiple factors to calculate a contextual risk score:
+                </p>
+                
+                <ul>
+                    <li><strong>Vulnerability Severity:</strong> CVSS base score as a starting point</li>
+                    <li><strong>Exploit Availability:</strong> Is there a public exploit? Is it weaponized?</li>
+                    <li><strong>Active Exploitation:</strong> Is this vulnerability being exploited in the wild?</li>
+                    <li><strong>Asset Criticality:</strong> Crown jewel vs. test system</li>
+                    <li><strong>Network Exposure:</strong> Internet-facing vs. isolated network segment</li>
+                    <li><strong>Data Sensitivity:</strong> PII, PHI, financial data, intellectual property</li>
+                    <li><strong>Compensating Controls:</strong> WAF, EDR, network segmentation in place?</li>
+                </ul>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Simple Risk Score Calculation Example
+def calculate_risk_score(vuln):
+    """
+    Calculate contextual risk score for a vulnerability.
+    Returns score from 0-100 where higher = more risk.
+    """
+    # Base score from CVSS (0-10, normalize to 0-40)
+    base_score = vuln['cvss_score'] * 4
+    
+    # Exploit availability modifier (0-20)
+    exploit_modifier = {
+        'none': 0,
+        'poc': 10,
+        'weaponized': 20
+    }.get(vuln['exploit_status'], 0)
+    
+    # Asset criticality modifier (0-20)
+    criticality_modifier = {
+        'low': 5,
+        'medium': 10,
+        'high': 15,
+        'critical': 20
+    }.get(vuln['asset_criticality'], 5)
+    
+    # Exposure modifier (0-15)
+    exposure_modifier = {
+        'internal_only': 5,
+        'dmz': 10,
+        'internet_facing': 15
+    }.get(vuln['network_exposure'], 5)
+    
+    # Active exploitation bonus (0 or 15)
+    active_exploit_bonus = 15 if vuln['actively_exploited'] else 0
+    
+    # Calculate final score (cap at 100)
+    risk_score = min(100, 
+        base_score + 
+        exploit_modifier + 
+        criticality_modifier + 
+        exposure_modifier + 
+        active_exploit_bonus
+    )
+    
+    return risk_score
+
+# Example usage
+vulnerability = {
+    'cvss_score': 9.8,
+    'exploit_status': 'weaponized',
+    'asset_criticality': 'critical',
+    'network_exposure': 'internet_facing',
+    'actively_exploited': True
+}
+
+score = calculate_risk_score(vulnerability)
+print(f"Risk Score: {score}/100")  # Output: Risk Score: 100/100</code></pre>
+                </div>
+                
+                <div class="info-box tip" data-label="Tip">
+                    <div class="info-box-title">💜 Remember</div>
+                    <p>
+                        RBVM isn't about ignoring CVSS scores—it's about contextualizing them. A CVSS 10.0 on an 
+                        air-gapped test server might score lower risk than a CVSS 7.5 on an internet-facing payment system 
+                        with a public exploit.
+                    </p>
+                </div>
+                
+                <h2>Key VM Metrics</h2>
+                
+                <p>
+                    Effective VM programs track metrics that demonstrate risk reduction and program maturity. 
+                    These metrics should align with business objectives and be communicated at appropriate levels.
+                </p>
+                
+                <h3>Mean Time to Remediate (MTTR)</h3>
+                <p>
+                    The average time from vulnerability discovery to verified remediation. Track MTTR by severity 
+                    level and compare against SLA targets. Decreasing MTTR over time indicates improving program efficiency.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>-- Calculate MTTR by Severity
+SELECT 
+    severity,
+    COUNT(*) as total_remediated,
+    AVG(DATEDIFF(day, discovered_date, remediated_date)) as avg_mttr_days,
+    MIN(DATEDIFF(day, discovered_date, remediated_date)) as min_mttr_days,
+    MAX(DATEDIFF(day, discovered_date, remediated_date)) as max_mttr_days
+FROM vulnerabilities
+WHERE status = 'Remediated'
+    AND remediated_date >= DATEADD(month, -3, GETDATE())
+GROUP BY severity
+ORDER BY 
+    CASE severity 
+        WHEN 'Critical' THEN 1 
+        WHEN 'High' THEN 2 
+        WHEN 'Medium' THEN 3 
+        WHEN 'Low' THEN 4 
+    END;</code></pre>
+                </div>
+                
+                <h3>SLA Compliance Rate</h3>
+                <p>
+                    Percentage of vulnerabilities remediated within defined SLA windows. Common SLA targets 
+                    are 7 days for critical, 30 days for high, 90 days for medium, and 180 days for low severity.
+                </p>
+                
+                <h3>Vulnerability Age Distribution</h3>
+                <p>
+                    Distribution of open vulnerabilities by age (days since discovery). Aging vulnerabilities 
+                    indicate remediation bottlenecks or exception abuse. Healthy programs show minimal findings 
+                    older than 90 days.
+                </p>
+                
+                <h3>Scan Coverage</h3>
+                <p>
+                    Percentage of assets successfully scanned within the reporting period. Coverage gaps 
+                    represent blind spots where vulnerabilities may exist undetected. Target 95%+ coverage 
+                    for critical assets.
+                </p>
+                
+                <h3>Risk Score Trend</h3>
+                <p>
+                    Aggregate risk score across the organization tracked over time. A decreasing trend indicates 
+                    the VM program is effectively reducing risk. Spikes may indicate new threats or remediation 
+                    slowdowns.
+                </p>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"What metrics do you use to measure VM program success?"</strong><br><br>
+                        Sample answer: "I focus on risk reduction metrics rather than just vulnerability counts. 
+                        Key metrics include MTTR by severity to measure remediation speed, SLA compliance rates 
+                        to ensure accountability, vulnerability age distribution to identify bottlenecks, 
+                        and overall risk score trends to demonstrate business impact. I present technical metrics 
+                        to ops teams and translate them to risk reduction percentages for executive reporting."
+                    </p>
+                </div>
+                
+                <h2>VM Program Challenges</h2>
+                
+                <p>
+                    Security teams commonly face these challenges when building or maturing VM programs:
+                </p>
+                
+                <h3>Asset Visibility Gaps</h3>
+                <p>
+                    You can't secure what you can't see. Shadow IT, cloud sprawl, BYOD devices, and poor 
+                    CMDB hygiene create blind spots. Implement multiple discovery methods and integrate 
+                    with IT asset management processes.
+                </p>
+                
+                <h3>Alert Fatigue</h3>
+                <p>
+                    Large organizations may have millions of vulnerability findings. Without effective 
+                    prioritization, teams become overwhelmed and critical findings get lost in the noise. 
+                    RBVM and automation are essential.
+                </p>
+                
+                <h3>Remediation Ownership</h3>
+                <p>
+                    Security teams find vulnerabilities but often don't own the systems. Establishing 
+                    clear ownership, accountability, and escalation paths is critical for timely remediation.
+                </p>
+                
+                <h3>Balancing Speed and Stability</h3>
+                <p>
+                    IT operations teams resist rapid patching due to stability concerns. Build trust through 
+                    proper testing processes, change management integration, and demonstrating the risk of 
+                    delayed remediation.
+                </p>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ Common Pitfall</div>
+                    <p>
+                        Don't measure success by "vulnerabilities found" or "patches deployed." These metrics 
+                        incentivize finding more problems rather than reducing actual risk. Focus on risk 
+                        reduction, MTTR improvement, and SLA compliance.
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Vulnerability Management is a continuous program, not a project. Success requires understanding 
+                    the vulnerability lifecycle, implementing risk-based prioritization, tracking meaningful metrics, 
+                    and addressing organizational challenges. In the next section, we'll explore how to build a 
+                    VM program framework from the ground up.
+                </p>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation">
+                    <a href="index.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Documentation Home</span>
+                    </a>
+                    <a href="1-2-program-framework.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">VM Program Framework</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

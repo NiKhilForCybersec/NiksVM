@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compliance & Regulatory Requirements - PCI DSS, HIPAA, SOX, NIST 800-53, CIS Controls, and ISO 27001 vulnerability management requirements.">
+    <title>Compliance & Regulatory Requirements | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+                <div class="sidebar-search">
+                    <span class="sidebar-search-icon">🔍</span>
+                    <input type="text" placeholder="Search documentation...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            
+                                    <nav class="sidebar-nav">
+                <div class="nav-section " data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item active">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section 0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="1-1-introduction.html">Section 1: Fundamentals</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Compliance Requirements</span>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header">
+                    <h1>Compliance & Regulatory Requirements</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 1.4</span>
+                        <span class="page-meta-item">⏱️ 18 min read</span>
+                        <span class="page-meta-item">📅 Last updated: 2025</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers vulnerability management requirements from major compliance frameworks 
+                        including PCI DSS v4.0, HIPAA, SOX, NIST 800-53, CIS Controls v8, and ISO 27001. 
+                        Understanding these requirements helps build a compliant VM program.
+                    </p>
+                </div>
+                
+                <h2>PCI DSS v4.0</h2>
+                
+                <p>
+                    The Payment Card Industry Data Security Standard (PCI DSS) applies to any organization that 
+                    stores, processes, or transmits cardholder data. PCI DSS v4.0, released in March 2022, 
+                    includes significant vulnerability management requirements.
+                </p>
+                
+                <h3>Key Vulnerability Requirements</h3>
+                
+                <h4>Requirement 6: Develop and Maintain Secure Systems</h4>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Requirement</th>
+                                <th>Description</th>
+                                <th>VM Implication</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>6.3.1</strong></td>
+                                <td>Identify security vulnerabilities using reputable sources</td>
+                                <td>Subscribe to vendor advisories, NVD, threat intel feeds</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6.3.2</strong></td>
+                                <td>Inventory of custom and third-party software</td>
+                                <td>Maintain software inventory, track versions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6.3.3</strong></td>
+                                <td>Install critical patches within one month</td>
+                                <td>30-day SLA for critical/high severity patches</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h4>Requirement 11: Test Security Regularly</h4>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Requirement</th>
+                                <th>Description</th>
+                                <th>VM Implication</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>11.3.1</strong></td>
+                                <td>Internal vulnerability scans at least quarterly</td>
+                                <td>Quarterly authenticated internal scans minimum</td>
+                            </tr>
+                            <tr>
+                                <td><strong>11.3.1.1</strong></td>
+                                <td>Rescan until high-risk vulnerabilities resolved</td>
+                                <td>Verification scans after remediation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>11.3.1.2</strong></td>
+                                <td>Scans via authenticated scanning</td>
+                                <td>Credentialed scanning required</td>
+                            </tr>
+                            <tr>
+                                <td><strong>11.3.2</strong></td>
+                                <td>External vulnerability scans quarterly by ASV</td>
+                                <td>Approved Scanning Vendor (ASV) quarterly scans</td>
+                            </tr>
+                            <tr>
+                                <td><strong>11.3.2.1</strong></td>
+                                <td>Rescan until passing scan obtained</td>
+                                <td>No CVSS 4.0+ vulnerabilities for passing ASV scan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>PCI DSS v4.0 VULNERABILITY SCANNING TIMELINE
+═══════════════════════════════════════════════════════════════════════
+
+QUARTERLY REQUIREMENTS:
+─────────────────────────────────────────────────────────────────────
+Month 1   │ Month 2   │ Month 3   │ Quarter End
+──────────┼───────────┼───────────┼─────────────────────────────────
+Week 1:   │ Ongoing   │ Week 1:   │ ASV scan must be PASSING
+Internal  │ remediation│ Rescan &  │ Internal scan with no
+scan      │ of high-  │ verify    │ high-risk vulns unresolved
+          │ risk vulns│           │
+
+PASSING ASV SCAN CRITERIA:
+─────────────────────────────────────────────────────────────────────
+✓ No vulnerabilities with CVSS >= 4.0 (unless disputed/excepted)
+✓ No SSL/TLS issues (weak ciphers, expired certs)
+✓ No default credentials
+✓ PCI compliance checks passed
+
+INTERNAL SCAN REQUIREMENTS:
+─────────────────────────────────────────────────────────────────────
+✓ Cover all in-scope systems (CDE + connected systems)
+✓ Authenticated/credentialed scanning
+✓ High-risk vulnerabilities addressed or risk accepted
+✓ Documented remediation timeline for remaining findings</code></pre>
+                </div>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ PCI DSS v4.0 Changes</div>
+                    <p>
+                        PCI DSS v4.0 introduces customized approach options and new requirements becoming mandatory 
+                        March 31, 2025. Requirement 11.3.1.2 (authenticated internal scanning) is a new requirement. 
+                        Ensure your VM program is updated for v4.0 compliance.
+                    </p>
+                </div>
+                
+                <h2>HIPAA Security Rule</h2>
+                
+                <p>
+                    The Health Insurance Portability and Accountability Act (HIPAA) Security Rule requires 
+                    covered entities and business associates to implement safeguards protecting electronic 
+                    Protected Health Information (ePHI). While HIPAA doesn't prescribe specific scanning 
+                    frequencies, it requires risk management processes.
+                </p>
+                
+                <h3>Relevant HIPAA Safeguards</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Safeguard</th>
+                                <th>Section</th>
+                                <th>VM Relevance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Risk Analysis</strong></td>
+                                <td>§164.308(a)(1)(ii)(A)</td>
+                                <td>Identify vulnerabilities to ePHI systems</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Risk Management</strong></td>
+                                <td>§164.308(a)(1)(ii)(B)</td>
+                                <td>Implement measures to reduce risks to reasonable level</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Protection from Malware</strong></td>
+                                <td>§164.308(a)(5)(ii)(B)</td>
+                                <td>Guard against malicious software including exploits</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Technical Evaluation</strong></td>
+                                <td>§164.308(a)(8)</td>
+                                <td>Periodic technical/non-technical evaluation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Transmission Security</strong></td>
+                                <td>§164.312(e)(1)</td>
+                                <td>Encryption vulnerabilities, SSL/TLS issues</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>HIPAA VM Best Practices</h3>
+                
+                <ul>
+                    <li>Conduct annual risk analysis including vulnerability assessment of ePHI systems</li>
+                    <li>Implement vulnerability scanning as part of ongoing risk management</li>
+                    <li>Document vulnerability remediation as evidence of risk reduction</li>
+                    <li>Prioritize vulnerabilities affecting systems with ePHI</li>
+                    <li>Include vulnerability findings in periodic technical evaluations</li>
+                </ul>
+                
+                <div class="info-box tip" data-label="Tip">
+                    <div class="info-box-title">💜 HIPAA Tip</div>
+                    <p>
+                        HIPAA is intentionally flexible and doesn't mandate specific scanning frequencies. 
+                        However, OCR (Office for Civil Rights) expects organizations to implement "reasonable 
+                        and appropriate" measures. Most healthcare organizations scan monthly and remediate 
+                        critical vulnerabilities within 30 days to demonstrate reasonable security.
+                    </p>
+                </div>
+                
+                <h2>SOX (Sarbanes-Oxley)</h2>
+                
+                <p>
+                    The Sarbanes-Oxley Act requires public companies to maintain internal controls over 
+                    financial reporting. Section 404 requires management assessment and auditor attestation 
+                    of these controls. IT general controls (ITGCs) including vulnerability management are 
+                    often in scope.
+                </p>
+                
+                <h3>SOX IT General Controls</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Control Area</th>
+                                <th>VM Relevance</th>
+                                <th>Evidence Required</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Change Management</strong></td>
+                                <td>Patch deployment as system changes</td>
+                                <td>Change tickets, approval records, testing evidence</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Computer Operations</strong></td>
+                                <td>System maintenance including patching</td>
+                                <td>Patch schedules, scan reports, remediation logs</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Access Controls</strong></td>
+                                <td>Vulnerabilities exposing access controls</td>
+                                <td>Scan results for auth/access vulns, remediation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Program Development</strong></td>
+                                <td>Application security vulnerabilities</td>
+                                <td>SAST/DAST scan results, secure SDLC evidence</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>SOX Audit Evidence</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SOX VULNERABILITY MANAGEMENT AUDIT EVIDENCE
+═══════════════════════════════════════════════════════════════════════
+
+CONTROL: Vulnerability Management Program
+OBJECTIVE: Ensure security vulnerabilities are identified and 
+           addressed in a timely manner for financially significant systems.
+
+EVIDENCE PACKAGE:
+─────────────────────────────────────────────────────────────────────
+1. POLICY & PROCEDURES
+   □ VM policy document (approved, current)
+   □ Scanning procedures
+   □ Remediation SLAs by severity
+   □ Exception/risk acceptance process
+
+2. SCANNING EVIDENCE (sample period)
+   □ Scan schedules showing regular execution
+   □ Scan reports for in-scope systems
+   □ Evidence of authenticated scanning
+   □ Asset coverage reports
+
+3. REMEDIATION EVIDENCE (sample period)
+   □ Tickets created for vulnerabilities
+   □ Remediation completion records
+   □ SLA compliance metrics
+   □ Exception/waiver approvals
+
+4. MANAGEMENT REVIEW
+   □ Periodic VM reports to management
+   □ Meeting minutes discussing VM status
+   □ Escalation records for overdue items
+
+5. TESTING EVIDENCE
+   □ Verification scan results post-remediation
+   □ Patch testing records
+   □ Rollback procedures (if applicable)</code></pre>
+                </div>
+                
+                <h2>NIST 800-53</h2>
+                
+                <p>
+                    NIST Special Publication 800-53 provides a comprehensive catalog of security controls 
+                    for federal information systems. It's also widely adopted by private sector organizations 
+                    and forms the basis for FedRAMP. Revision 5 is the current version.
+                </p>
+                
+                <h3>Vulnerability Management Controls</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Control ID</th>
+                                <th>Control Name</th>
+                                <th>Requirements Summary</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>RA-5</strong></td>
+                                <td>Vulnerability Monitoring and Scanning</td>
+                                <td>Scan systems, analyze results, remediate, share info</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA-5(1)</strong></td>
+                                <td>Update Tool Capability</td>
+                                <td>Keep scanner plugins/signatures current</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA-5(2)</strong></td>
+                                <td>Update Vulnerabilities to Be Scanned</td>
+                                <td>Update scanned vulnerability list before each scan</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA-5(3)</strong></td>
+                                <td>Breadth and Depth of Coverage</td>
+                                <td>Define scan scope and depth requirements</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA-5(4)</strong></td>
+                                <td>Discoverable Information</td>
+                                <td>Determine what info is discoverable by adversary</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA-5(5)</strong></td>
+                                <td>Privileged Access</td>
+                                <td>Authenticate scans with appropriate privileges</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA-5(6)</strong></td>
+                                <td>Automated Trend Analysis</td>
+                                <td>Compare scans over time for trends</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA-5(10)</strong></td>
+                                <td>Correlate Scanning Information</td>
+                                <td>Correlate scan results for multi-vuln analysis</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SI-2</strong></td>
+                                <td>Flaw Remediation</td>
+                                <td>Identify, report, and correct system flaws</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SI-2(2)</strong></td>
+                                <td>Automated Flaw Remediation Status</td>
+                                <td>Automated mechanisms for remediation status</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SI-2(3)</strong></td>
+                                <td>Time to Remediate Flaws</td>
+                                <td>Establish benchmarks for remediation time</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SI-5</strong></td>
+                                <td>Security Alerts and Advisories</td>
+                                <td>Receive, generate, disseminate security alerts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NIST 800-53 RA-5 CONTROL IMPLEMENTATION
+═══════════════════════════════════════════════════════════════════════
+
+CONTROL: RA-5 VULNERABILITY MONITORING AND SCANNING
+
+a. Monitor and scan for vulnerabilities in the system and hosted 
+   applications [Assignment: organization-defined frequency and/or 
+   randomly in accordance with organization-defined process] and when 
+   new vulnerabilities potentially affecting the system are identified;
+
+IMPLEMENTATION:
+─────────────────────────────────────────────────────────────────────
+Frequency Definition:
+  - High/Moderate Impact: Monthly authenticated scans
+  - Low Impact: Quarterly authenticated scans
+  - Internet-facing: Weekly scans
+  - After significant changes: Within 72 hours
+  - New vulnerability disclosure: Risk-based immediate assessment
+
+b. Employ vulnerability monitoring tools that include the capability 
+   to readily update the vulnerabilities to be scanned;
+
+IMPLEMENTATION:
+─────────────────────────────────────────────────────────────────────
+  - Scanner plugin updates: Daily automatic updates
+  - Custom checks updated: Within 48 hours of new advisory
+  - Scanner capability verified monthly
+
+c. Analyze vulnerability scan reports and results;
+
+IMPLEMENTATION:
+─────────────────────────────────────────────────────────────────────
+  - Security team review: Within 5 business days of scan
+  - False positive validation: Prior to ticket creation
+  - Risk-based prioritization: CVSS + asset criticality
+  - Trend analysis: Monthly comparison reports
+
+d. Remediate legitimate vulnerabilities [Assignment: response times] 
+   in accordance with an organizational assessment of risk;
+
+IMPLEMENTATION:
+─────────────────────────────────────────────────────────────────────
+  Remediation SLAs (from discovery):
+    - Critical (CVSS 9.0+): 15 days
+    - High (CVSS 7.0-8.9): 30 days
+    - Moderate (CVSS 4.0-6.9): 90 days
+    - Low (CVSS < 4.0): 180 days
+
+e. Share information obtained from vulnerability monitoring with 
+   [Assignment: personnel or roles]
+
+IMPLEMENTATION:
+─────────────────────────────────────────────────────────────────────
+  - Asset owners: Tickets and remediation guidance
+  - IT Operations: Weekly remediation status
+  - CISO: Monthly executive dashboard
+  - SOC: Real-time feed for high-severity findings</code></pre>
+                </div>
+                
+                <h2>CIS Controls v8</h2>
+                
+                <p>
+                    The Center for Internet Security (CIS) Controls provide prioritized security best practices. 
+                    Version 8 reorganizes controls into 18 control areas with Implementation Groups (IGs) for 
+                    different organizational sizes and resources.
+                </p>
+                
+                <h3>Relevant CIS Controls</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Control</th>
+                                <th>Safeguard</th>
+                                <th>Description</th>
+                                <th>IG</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>7.1</strong></td>
+                                <td>Establish Vulnerability Management Process</td>
+                                <td>Document and maintain a VM program</td>
+                                <td>IG1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7.2</strong></td>
+                                <td>Establish Remediation Process</td>
+                                <td>Document remediation process and timelines</td>
+                                <td>IG1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7.3</strong></td>
+                                <td>Perform Automated OS Patch Management</td>
+                                <td>Automate OS patching on enterprise assets</td>
+                                <td>IG1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7.4</strong></td>
+                                <td>Perform Automated Application Patch Management</td>
+                                <td>Automate application patching</td>
+                                <td>IG1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7.5</strong></td>
+                                <td>Perform Automated Vulnerability Scans</td>
+                                <td>Automated internal scanning</td>
+                                <td>IG2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7.6</strong></td>
+                                <td>Perform Authenticated Vulnerability Scans</td>
+                                <td>Use credentials for deeper scanning</td>
+                                <td>IG2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7.7</strong></td>
+                                <td>Remediate Detected Vulnerabilities</td>
+                                <td>Remediate per risk-based prioritization</td>
+                                <td>IG2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box best-practice" data-label="Best Practice">
+                    <div class="info-box-title">✅ CIS Implementation Groups</div>
+                    <p>
+                        <strong>IG1 (Essential):</strong> Small organizations with limited resources. Focus on basic VM processes.<br>
+                        <strong>IG2 (Foundational):</strong> Mid-size with dedicated IT. Add authenticated scanning and automation.<br>
+                        <strong>IG3 (Organizational):</strong> Large enterprises. Full VM program with advanced capabilities.
+                    </p>
+                </div>
+                
+                <h2>ISO 27001:2022</h2>
+                
+                <p>
+                    ISO/IEC 27001 is an international standard for information security management systems (ISMS). 
+                    The 2022 revision includes updated controls in Annex A addressing vulnerability management.
+                </p>
+                
+                <h3>Relevant ISO 27001 Controls</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Control</th>
+                                <th>Title</th>
+                                <th>VM Requirements</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>A.8.8</strong></td>
+                                <td>Management of Technical Vulnerabilities</td>
+                                <td>Obtain vuln info, evaluate exposure, take action</td>
+                            </tr>
+                            <tr>
+                                <td><strong>A.8.9</strong></td>
+                                <td>Configuration Management</td>
+                                <td>Secure configurations, baseline management</td>
+                            </tr>
+                            <tr>
+                                <td><strong>A.8.19</strong></td>
+                                <td>Installation of Software on Operational Systems</td>
+                                <td>Controlled software installation and updates</td>
+                            </tr>
+                            <tr>
+                                <td><strong>A.8.32</strong></td>
+                                <td>Change Management</td>
+                                <td>Controlled changes including patches</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>ISO 27001 Implementation Guidance</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>ISO 27001 A.8.8 TECHNICAL VULNERABILITY MANAGEMENT
+═══════════════════════════════════════════════════════════════════════
+
+CONTROL OBJECTIVE:
+Prevent exploitation of technical vulnerabilities.
+
+IMPLEMENTATION GUIDANCE:
+─────────────────────────────────────────────────────────────────────
+
+1. VULNERABILITY IDENTIFICATION
+   □ Maintain inventory of information assets
+   □ Identify sources for vulnerability information
+   □ Subscribe to vendor security advisories
+   □ Define scanning frequency based on risk
+
+2. VULNERABILITY ASSESSMENT
+   □ Evaluate potential impact of vulnerabilities
+   □ Consider likelihood of exploitation
+   □ Assess risk in context of existing controls
+   □ Prioritize based on criticality
+
+3. REMEDIATION ACTIONS
+   □ Apply patches according to priority
+   □ Test patches before production deployment
+   □ Document compensating controls when patching not feasible
+   □ Track remediation to completion
+
+4. MONITORING AND REVIEW
+   □ Review effectiveness of VM process
+   □ Maintain records for audit evidence
+   □ Report on VM performance to management
+   □ Continuously improve based on lessons learned
+
+DOCUMENTATION REQUIREMENTS:
+─────────────────────────────────────────────────────────────────────
+✓ Vulnerability management policy
+✓ Roles and responsibilities
+✓ Risk assessment methodology
+✓ Remediation timelines and SLAs
+✓ Exception handling procedures
+✓ Performance metrics and reporting</code></pre>
+                </div>
+                
+                <h2>Compliance Mapping Matrix</h2>
+                
+                <p>
+                    Organizations subject to multiple frameworks can map VM controls to satisfy overlapping requirements:
+                </p>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>VM Activity</th>
+                                <th>PCI DSS</th>
+                                <th>HIPAA</th>
+                                <th>NIST 800-53</th>
+                                <th>CIS v8</th>
+                                <th>ISO 27001</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>VM Policy</strong></td>
+                                <td>6.3</td>
+                                <td>§164.308(a)(1)</td>
+                                <td>RA-5</td>
+                                <td>7.1</td>
+                                <td>A.8.8</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Asset Inventory</strong></td>
+                                <td>6.3.2</td>
+                                <td>§164.310(d)</td>
+                                <td>CM-8</td>
+                                <td>1.1, 2.1</td>
+                                <td>A.8.9</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vulnerability Scanning</strong></td>
+                                <td>11.3.1</td>
+                                <td>§164.308(a)(8)</td>
+                                <td>RA-5</td>
+                                <td>7.5, 7.6</td>
+                                <td>A.8.8</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Patch Management</strong></td>
+                                <td>6.3.3</td>
+                                <td>§164.308(a)(5)</td>
+                                <td>SI-2</td>
+                                <td>7.3, 7.4</td>
+                                <td>A.8.19</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Remediation SLAs</strong></td>
+                                <td>6.3.3</td>
+                                <td>§164.308(a)(1)</td>
+                                <td>SI-2(3)</td>
+                                <td>7.2</td>
+                                <td>A.8.8</td>
+                            </tr>
+                            <tr>
+                                <td><strong>External Scanning</strong></td>
+                                <td>11.3.2</td>
+                                <td>—</td>
+                                <td>RA-5(4)</td>
+                                <td>—</td>
+                                <td>A.8.8</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you ensure VM compliance with regulatory requirements?"</strong><br><br>
+                        Sample answer: "I start by identifying applicable frameworks—PCI DSS for payment systems, 
+                        HIPAA for healthcare data, SOX for financial systems. I then map VM activities to specific 
+                        control requirements and ensure our scanning frequency, remediation SLAs, and documentation 
+                        meet or exceed each framework's requirements. I maintain a compliance matrix showing how 
+                        our VM program satisfies overlapping requirements. For audit readiness, I keep evidence 
+                        packages including scan reports, remediation tickets, and management reviews."
+                    </p>
+                </div>
+                
+                <h2>Compliance Reporting</h2>
+                
+                <p>
+                    Auditors and compliance teams need specific evidence to validate VM controls:
+                </p>
+                
+                <h3>Essential Compliance Documentation</h3>
+                
+                <ul>
+                    <li><strong>VM Policy:</strong> Approved policy document with current effective date</li>
+                    <li><strong>Procedures:</strong> Documented scanning and remediation procedures</li>
+                    <li><strong>Scan Reports:</strong> Evidence of regular scanning per required frequency</li>
+                    <li><strong>Remediation Evidence:</strong> Tickets, patch records, verification scans</li>
+                    <li><strong>SLA Compliance:</strong> Metrics showing adherence to remediation timelines</li>
+                    <li><strong>Exception Records:</strong> Approved exceptions with compensating controls</li>
+                    <li><strong>Management Reviews:</strong> Evidence of oversight and governance</li>
+                </ul>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Compliance requirements vary by industry and framework but share common themes: establish a 
+                    formal VM program, scan regularly with appropriate coverage, remediate within defined timelines, 
+                    and maintain documentation for auditors. Building a strong VM program that exceeds minimum 
+                    compliance requirements positions you for success across multiple frameworks. In the next 
+                    section, we'll explore VM metrics and KPIs in detail.
+                </p>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation">
+                    <a href="1-3-scoring-systems.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Vulnerability Scoring Systems</span>
+                    </a>
+                    <a href="1-5-metrics-kpis.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Metrics & KPIs</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

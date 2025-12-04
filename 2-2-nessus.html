@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nessus Deep Dive - Installation, configuration, scan policies, credential management, plugins, CLI, and API integration.">
+    <title>Nessus Deep Dive | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+                <div class="sidebar-search">
+                    <span class="sidebar-search-icon">🔍</span>
+                    <input type="text" placeholder="Search documentation...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item active">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Nessus Deep Dive</span>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header">
+                    <h1>Nessus Deep Dive</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.2</span>
+                        <span class="page-meta-item">⏱️ 25 min read</span>
+                        <span class="page-meta-item">📅 Last updated: 2025</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page provides a comprehensive guide to Tenable Nessus including installation, 
+                        configuration, scan policies, credential management, plugin families, CLI operations, 
+                        API integration with Python, and compliance auditing capabilities.
+                    </p>
+                </div>
+                
+                <h2>Nessus Product Family</h2>
+                
+                <p>
+                    Tenable offers several Nessus-based products for different use cases and organizational sizes:
+                </p>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Use Case</th>
+                                <th>Key Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nessus Essentials</strong></td>
+                                <td>Learning, small environments (16 IPs)</td>
+                                <td>Free, full scanning capability, limited targets</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nessus Professional</strong></td>
+                                <td>Consultants, small business</td>
+                                <td>Unlimited IPs, compliance templates, live results</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tenable.io</strong></td>
+                                <td>Cloud-managed enterprise VM</td>
+                                <td>SaaS platform, cloud scanners, agents, web app scanning</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tenable.sc (SecurityCenter)</strong></td>
+                                <td>On-premises enterprise VM</td>
+                                <td>Centralized management, dashboards, Assurance Report Cards</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Installation and Setup</h2>
+                
+                <h3>Linux Installation</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Download Nessus for your distribution
+# Ubuntu/Debian
+curl -o Nessus-10.x.x-ubuntu1404_amd64.deb \
+  "https://www.tenable.com/downloads/api/v1/public/pages/nessus/downloads/xxxxx/download?i_agree_to_tenable_license_agreement=true"
+
+# Install the package
+sudo dpkg -i Nessus-10.x.x-ubuntu1404_amd64.deb
+
+# Start Nessus service
+sudo systemctl start nessusd
+sudo systemctl enable nessusd
+
+# Check service status
+sudo systemctl status nessusd
+
+# Access web interface (default port 8834)
+# https://localhost:8834
+
+# RHEL/CentOS
+sudo yum install Nessus-10.x.x-es7.x86_64.rpm
+sudo systemctl start nessusd</code></pre>
+                </div>
+                
+                <h3>Initial Configuration</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Nessus CLI location
+export NESSUS_CLI="/opt/nessus/sbin/nessuscli"
+
+# Register Nessus with activation code
+sudo $NESSUS_CLI fetch --register XXXX-XXXX-XXXX-XXXX
+
+# Update plugins (can take 10-30 minutes)
+sudo $NESSUS_CLI update --plugins-only
+
+# Check plugin update status
+sudo $NESSUS_CLI update --check
+
+# Create admin user via CLI
+sudo $NESSUS_CLI adduser admin
+
+# Reset admin password if forgotten
+sudo $NESSUS_CLI chpasswd admin
+
+# View license info
+sudo $NESSUS_CLI fetch --check
+
+# Backup Nessus configuration
+sudo $NESSUS_CLI backup --create /backup/nessus_backup.tar.gz
+
+# Restore from backup
+sudo $NESSUS_CLI backup --restore /backup/nessus_backup.tar.gz</code></pre>
+                </div>
+                
+                <div class="info-box tip" data-label="Tip">
+                    <div class="info-box-title">💜 Performance Tuning</div>
+                    <p>
+                        For large-scale scanning, increase system resources: minimum 8GB RAM, SSD storage, 
+                        and multiple CPU cores. The default nessusd process limits may need adjustment 
+                        for concurrent scan performance.
+                    </p>
+                </div>
+                
+                <h2>Scan Policies and Templates</h2>
+                
+                <p>
+                    Scan policies define what checks Nessus performs. Understanding policy configuration 
+                    is essential for effective scanning.
+                </p>
+                
+                <h3>Built-in Scan Templates</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Template</th>
+                                <th>Use Case</th>
+                                <th>Characteristics</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Basic Network Scan</strong></td>
+                                <td>General-purpose scanning</td>
+                                <td>Full port scan, service detection, vulnerability checks</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Advanced Scan</strong></td>
+                                <td>Customized assessments</td>
+                                <td>Full control over all scan settings</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Credentialed Patch Audit</strong></td>
+                                <td>Patch compliance</td>
+                                <td>Requires credentials, checks installed patches</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Web Application Tests</strong></td>
+                                <td>Web vulnerability scanning</td>
+                                <td>OWASP checks, SQL injection, XSS</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PCI DSS Compliance</strong></td>
+                                <td>PCI quarterly scans</td>
+                                <td>ASV-approved checks, PCI requirements</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SCADA</strong></td>
+                                <td>OT/ICS environments</td>
+                                <td>Safe checks for industrial systems</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>Key Policy Settings</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NESSUS SCAN POLICY CONFIGURATION
+═══════════════════════════════════════════════════════════════════════
+
+DISCOVERY SETTINGS
+─────────────────────────────────────────────────────────────────────
+Host Discovery:
+  □ Ping the remote host (ICMP, TCP, ARP)
+  □ TCP ping destination ports: 21,22,23,25,80,443,3389
+  □ Treat unscanned hosts as dead: [Enabled/Disabled]
+
+Port Scanning:
+  □ Port scan range: default (common ports) | 1-65535 (all)
+  □ Network port scanners: TCP SYN, TCP Connect, UDP
+  □ Local port enumerators: SSH, WMI, SNMP
+
+ASSESSMENT SETTINGS
+─────────────────────────────────────────────────────────────────────
+General:
+  □ Accuracy: Show potential false alarms
+  □ Override normal accuracy: [More accurate | Faster]
+
+Brute Force:
+  □ Perform thorough tests (slow)
+  □ Only use credentials provided (disable brute force)
+
+Web Applications:
+  □ Scan web applications: [Enabled/Disabled]
+  □ Maximum depth: 3-6 levels
+  □ Follow dynamically generated pages
+
+ADVANCED SETTINGS
+─────────────────────────────────────────────────────────────────────
+Performance:
+  □ Max simultaneous hosts: 30-100 (depends on scanner capacity)
+  □ Max simultaneous checks per host: 4-8
+  □ Network timeout (seconds): 5
+  □ Max TCP sessions per host: 20
+  □ Max TCP sessions per scan: 200
+
+Safe Checks:
+  □ Safe checks: [Enabled] - Won't crash systems
+  □ Stop scanning host on disconnect
+  □ Slow down scan if network congestion detected</code></pre>
+                </div>
+                
+                <h2>Credential Management</h2>
+                
+                <p>
+                    Authenticated scanning requires secure credential storage and management. Nessus supports 
+                    multiple authentication methods.
+                </p>
+                
+                <h3>Windows Credentials</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>WINDOWS AUTHENTICATION CONFIGURATION
+═══════════════════════════════════════════════════════════════════════
+
+CREDENTIAL TYPES:
+─────────────────────────────────────────────────────────────────────
+1. SMB (Server Message Block)
+   Domain:   CORP
+   Username: svc_nessus
+   Password: [Stored securely]
+   Auth Method: NTLMv2 | Kerberos
+
+2. WMI (Windows Management Instrumentation)
+   Same credentials as SMB
+   More detailed system information
+   Requires DCOM/RPC ports
+
+3. PowerShell/WinRM
+   Uses HTTP(S) on ports 5985/5986
+   Requires WinRM service enabled
+   Good for modern Windows systems
+
+WINDOWS TARGET REQUIREMENTS:
+─────────────────────────────────────────────────────────────────────
+□ Remote Registry service enabled
+□ File and Printer Sharing enabled
+□ Administrative shares accessible (C$, ADMIN$)
+□ Windows Firewall allows:
+  - TCP 135 (RPC)
+  - TCP 139 (NetBIOS)
+  - TCP 445 (SMB)
+  - TCP 5985/5986 (WinRM)
+□ Local Administrator or domain admin rights
+□ UAC configured for remote access:
+  
+  Registry key for remote admin access:
+  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+  LocalAccountTokenFilterPolicy = 1</code></pre>
+                </div>
+                
+                <h3>Linux/Unix Credentials</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>LINUX/UNIX AUTHENTICATION CONFIGURATION
+═══════════════════════════════════════════════════════════════════════
+
+SSH AUTHENTICATION METHODS:
+─────────────────────────────────────────────────────────────────────
+1. Password Authentication
+   Username: nessus_scan
+   Password: [Stored securely]
+   
+2. SSH Key Authentication (Recommended)
+   Username: nessus_scan
+   Private Key: [RSA/DSA/ECDSA key file]
+   Passphrase: [If key is encrypted]
+
+3. SSH Key + Sudo
+   Username: nessus_scan (non-root)
+   Privilege Escalation: sudo
+   Sudo Password: [If required]
+
+CREATING SCAN ACCOUNT:
+─────────────────────────────────────────────────────────────────────
+# Create service account
+sudo useradd -m -s /bin/bash nessus_scan
+sudo passwd nessus_scan
+
+# Generate SSH key pair (on Nessus scanner)
+ssh-keygen -t rsa -b 4096 -f nessus_scan_key -N ""
+
+# Copy public key to target
+ssh-copy-id -i nessus_scan_key.pub nessus_scan@target
+
+# Configure sudoers for privilege escalation
+sudo visudo
+# Add line:
+nessus_scan ALL=(ALL) NOPASSWD: ALL
+
+# Or more restrictive:
+nessus_scan ALL=(root) NOPASSWD: /usr/bin/cat, /usr/bin/ls, /usr/bin/rpm, \
+    /usr/bin/dpkg, /usr/sbin/dmidecode, /usr/bin/find</code></pre>
+                </div>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ Credential Security</div>
+                    <p>
+                        Scan credentials provide elevated access to many systems. Treat them like privileged 
+                        accounts: use dedicated service accounts, implement password rotation, restrict network 
+                        access to scanner IPs, and monitor for misuse. Consider CyberArk or HashiCorp Vault 
+                        integration for credential management.
+                    </p>
+                </div>
+                
+                <h2>Plugin Families</h2>
+                
+                <p>
+                    Nessus plugins are organized into families based on functionality and target type. 
+                    Understanding plugin families helps configure efficient scans.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NESSUS PLUGIN FAMILIES (Key Categories)
+═══════════════════════════════════════════════════════════════════════
+
+OPERATING SYSTEM PLUGINS:
+─────────────────────────────────────────────────────────────────────
+• Windows                    ~25,000 plugins
+• Ubuntu Local Checks        ~10,000 plugins
+• Red Hat Local Checks       ~15,000 plugins
+• Debian Local Checks        ~12,000 plugins
+• macOS Local Checks         ~2,000 plugins
+• AIX/HP-UX/Solaris         ~3,000 plugins each
+
+NETWORK DEVICE PLUGINS:
+─────────────────────────────────────────────────────────────────────
+• Cisco                      ~3,000 plugins
+• Juniper Networks           ~500 plugins
+• Palo Alto Networks         ~200 plugins
+• F5 Networks                ~300 plugins
+• Fortinet                   ~400 plugins
+
+APPLICATION PLUGINS:
+─────────────────────────────────────────────────────────────────────
+• Web Servers                ~2,000 plugins (Apache, Nginx, IIS)
+• Databases                  ~2,500 plugins (Oracle, SQL, MySQL, Postgres)
+• Middleware                 ~1,500 plugins (Tomcat, WebLogic, JBoss)
+• Virtualization             ~800 plugins (VMware, Hyper-V, Xen)
+
+COMPLIANCE PLUGINS:
+─────────────────────────────────────────────────────────────────────
+• Policy Compliance Auditing
+• SCAP and OVAL
+• CIS Benchmarks
+• DISA STIGs
+• PCI DSS
+
+SPECIAL PLUGINS:
+─────────────────────────────────────────────────────────────────────
+• Service Detection          Identify running services
+• Firewalls                  Check firewall configurations
+• Backdoors                  Detect known backdoors/malware
+• DNS                        DNS security issues
+• Default Accounts           Default credential checks</code></pre>
+                </div>
+                
+                <h3>Enabling/Disabling Plugin Families</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Example: Configure plugin families via API
+import requests
+import json
+
+class NessusAPI:
+    def __init__(self, url, access_key, secret_key):
+        self.url = url
+        self.headers = {
+            'X-ApiKeys': f'accessKey={access_key}; secretKey={secret_key}',
+            'Content-Type': 'application/json'
+        }
+    
+    def get_plugin_families(self):
+        """Get all plugin families."""
+        response = requests.get(
+            f'{self.url}/plugins/families',
+            headers=self.headers,
+            verify=False  # Set True in production with valid cert
+        )
+        return response.json()
+    
+    def get_family_plugins(self, family_id):
+        """Get plugins in a specific family."""
+        response = requests.get(
+            f'{self.url}/plugins/families/{family_id}',
+            headers=self.headers,
+            verify=False
+        )
+        return response.json()
+
+# Example: List Windows plugin families
+nessus = NessusAPI(
+    'https://nessus.company.com:8834',
+    'your-access-key',
+    'your-secret-key'
+)
+
+families = nessus.get_plugin_families()
+for family in families['families']:
+    if 'Windows' in family['name']:
+        print(f"ID: {family['id']}, Name: {family['name']}, Count: {family['count']}")</code></pre>
+                </div>
+                
+                <h2>Nessus CLI (nessuscli)</h2>
+                
+                <p>
+                    The Nessus command-line interface provides administrative functions not available in the 
+                    web UI.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# Nessus CLI Reference
+
+NESSUS_CLI="/opt/nessus/sbin/nessuscli"
+
+# ═══════════════════════════════════════════════════════════════════════
+# USER MANAGEMENT
+# ═══════════════════════════════════════════════════════════════════════
+
+# List users
+sudo $NESSUS_CLI lsuser
+
+# Add user
+sudo $NESSUS_CLI adduser username
+# Follow prompts for password and role (admin/system admin)
+
+# Change password
+sudo $NESSUS_CLI chpasswd username
+
+# Remove user
+sudo $NESSUS_CLI rmuser username
+
+# ═══════════════════════════════════════════════════════════════════════
+# LICENSE AND UPDATES
+# ═══════════════════════════════════════════════════════════════════════
+
+# Check current license
+sudo $NESSUS_CLI fetch --check
+
+# Register with activation code
+sudo $NESSUS_CLI fetch --register XXXX-XXXX-XXXX-XXXX
+
+# Update plugins
+sudo $NESSUS_CLI update --plugins-only
+
+# Update all (Nessus + plugins)
+sudo $NESSUS_CLI update --all
+
+# Force plugin compile
+sudo $NESSUS_CLI update --force
+
+# Offline plugin update
+# 1. Download plugin tarball from Tenable
+# 2. Copy to Nessus server
+sudo $NESSUS_CLI update /path/to/nessus_updates.tar.gz
+
+# ═══════════════════════════════════════════════════════════════════════
+# BACKUP AND RESTORE
+# ═══════════════════════════════════════════════════════════════════════
+
+# Create backup
+sudo $NESSUS_CLI backup --create /backup/nessus_$(date +%Y%m%d).tar.gz
+
+# List backup contents
+sudo $NESSUS_CLI backup --list /backup/nessus_backup.tar.gz
+
+# Restore backup
+sudo systemctl stop nessusd
+sudo $NESSUS_CLI backup --restore /backup/nessus_backup.tar.gz
+sudo systemctl start nessusd
+
+# ═══════════════════════════════════════════════════════════════════════
+# TROUBLESHOOTING
+# ═══════════════════════════════════════════════════════════════════════
+
+# Fix corrupted database
+sudo $NESSUS_CLI fix --secure
+
+# Reset web server
+sudo $NESSUS_CLI fix --reset
+
+# View Nessus version
+sudo $NESSUS_CLI --version
+
+# Check plugin compilation status
+sudo $NESSUS_CLI update --check
+
+# Clear all data and start fresh (destructive!)
+sudo $NESSUS_CLI fix --reset-all</code></pre>
+                </div>
+                
+                <h2>API Integration</h2>
+                
+                <p>
+                    Nessus provides a REST API for automation. Here's a comprehensive Python wrapper for 
+                    common operations:
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Nessus API Integration Module
+Provides comprehensive scanning automation capabilities.
+"""
+
+import requests
+import time
+import json
+from typing import Dict, List, Optional
+import urllib3
+
+# Disable SSL warnings for self-signed certs (not for production)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+
+class NessusScanner:
+    """
+    Nessus API client for vulnerability scanning automation.
+    
+    Usage:
+        scanner = NessusScanner('https://nessus:8834', 'access_key', 'secret_key')
+        scan_id = scanner.create_scan('Weekly Scan', '192.168.1.0/24', policy_id=1)
+        scanner.launch_scan(scan_id)
+        scanner.wait_for_scan(scan_id)
+        results = scanner.get_scan_results(scan_id)
+    """
+    
+    def __init__(self, url: str, access_key: str, secret_key: str, verify_ssl: bool = False):
+        self.url = url.rstrip('/')
+        self.verify_ssl = verify_ssl
+        self.headers = {
+            'X-ApiKeys': f'accessKey={access_key}; secretKey={secret_key}',
+            'Content-Type': 'application/json'
+        }
+    
+    def _request(self, method: str, endpoint: str, data: Dict = None) -> Dict:
+        """Make API request with error handling."""
+        url = f'{self.url}{endpoint}'
+        
+        try:
+            if method == 'GET':
+                response = requests.get(url, headers=self.headers, verify=self.verify_ssl)
+            elif method == 'POST':
+                response = requests.post(url, headers=self.headers, 
+                                        json=data, verify=self.verify_ssl)
+            elif method == 'PUT':
+                response = requests.put(url, headers=self.headers,
+                                       json=data, verify=self.verify_ssl)
+            elif method == 'DELETE':
+                response = requests.delete(url, headers=self.headers, verify=self.verify_ssl)
+            
+            response.raise_for_status()
+            return response.json() if response.content else {}
+            
+        except requests.exceptions.RequestException as e:
+            raise Exception(f"API request failed: {e}")
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # SCAN MANAGEMENT
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def list_scans(self) -> List[Dict]:
+        """List all scans."""
+        result = self._request('GET', '/scans')
+        return result.get('scans', [])
+    
+    def create_scan(self, name: str, targets: str, policy_id: int = None,
+                    folder_id: int = None, description: str = '') -> int:
+        """
+        Create a new scan.
+        
+        Args:
+            name: Scan name
+            targets: Comma-separated IPs, ranges, or hostnames
+            policy_id: Policy template ID
+            folder_id: Folder to store scan
+            description: Scan description
+            
+        Returns:
+            Scan ID
+        """
+        settings = {
+            'name': name,
+            'text_targets': targets,
+            'description': description
+        }
+        
+        if policy_id:
+            settings['policy_id'] = policy_id
+        if folder_id:
+            settings['folder_id'] = folder_id
+        
+        # Use basic network scan template if no policy specified
+        data = {
+            'uuid': 'ab4bacd2-05f6-425c-9d79-3b5f8e84f2b0',  # Basic Network Scan
+            'settings': settings
+        }
+        
+        result = self._request('POST', '/scans', data)
+        return result['scan']['id']
+    
+    def launch_scan(self, scan_id: int) -> str:
+        """Launch a scan and return scan UUID."""
+        result = self._request('POST', f'/scans/{scan_id}/launch')
+        return result.get('scan_uuid')
+    
+    def pause_scan(self, scan_id: int) -> None:
+        """Pause a running scan."""
+        self._request('POST', f'/scans/{scan_id}/pause')
+    
+    def resume_scan(self, scan_id: int) -> None:
+        """Resume a paused scan."""
+        self._request('POST', f'/scans/{scan_id}/resume')
+    
+    def stop_scan(self, scan_id: int) -> None:
+        """Stop a running scan."""
+        self._request('POST', f'/scans/{scan_id}/stop')
+    
+    def delete_scan(self, scan_id: int) -> None:
+        """Delete a scan."""
+        self._request('DELETE', f'/scans/{scan_id}')
+    
+    def get_scan_status(self, scan_id: int) -> str:
+        """Get current scan status."""
+        result = self._request('GET', f'/scans/{scan_id}')
+        return result['info']['status']
+    
+    def wait_for_scan(self, scan_id: int, poll_interval: int = 30, 
+                      timeout: int = 3600) -> bool:
+        """
+        Wait for scan to complete.
+        
+        Args:
+            scan_id: Scan ID to monitor
+            poll_interval: Seconds between status checks
+            timeout: Maximum wait time in seconds
+            
+        Returns:
+            True if scan completed, False if timed out
+        """
+        start_time = time.time()
+        
+        while time.time() - start_time < timeout:
+            status = self.get_scan_status(scan_id)
+            
+            if status == 'completed':
+                return True
+            elif status in ['canceled', 'aborted']:
+                raise Exception(f"Scan {scan_id} was {status}")
+            
+            print(f"Scan status: {status}, waiting...")
+            time.sleep(poll_interval)
+        
+        return False
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # RESULTS AND REPORTING
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def get_scan_results(self, scan_id: int) -> Dict:
+        """Get detailed scan results."""
+        return self._request('GET', f'/scans/{scan_id}')
+    
+    def get_host_vulnerabilities(self, scan_id: int, host_id: int) -> List[Dict]:
+        """Get vulnerabilities for a specific host."""
+        result = self._request('GET', f'/scans/{scan_id}/hosts/{host_id}')
+        return result.get('vulnerabilities', [])
+    
+    def get_vulnerability_details(self, scan_id: int, host_id: int, 
+                                   plugin_id: int) -> Dict:
+        """Get detailed info about a specific vulnerability."""
+        return self._request('GET', 
+            f'/scans/{scan_id}/hosts/{host_id}/plugins/{plugin_id}')
+    
+    def export_scan(self, scan_id: int, format: str = 'nessus') -> bytes:
+        """
+        Export scan results.
+        
+        Args:
+            scan_id: Scan ID
+            format: 'nessus', 'csv', 'pdf', 'html', 'db'
+            
+        Returns:
+            Exported file content as bytes
+        """
+        # Initiate export
+        data = {'format': format}
+        result = self._request('POST', f'/scans/{scan_id}/export', data)
+        file_id = result['file']
+        
+        # Wait for export to complete
+        while True:
+            status = self._request('GET', f'/scans/{scan_id}/export/{file_id}/status')
+            if status['status'] == 'ready':
+                break
+            time.sleep(2)
+        
+        # Download export
+        download_url = f'{self.url}/scans/{scan_id}/export/{file_id}/download'
+        response = requests.get(download_url, headers=self.headers, 
+                               verify=self.verify_ssl)
+        return response.content
+    
+    def get_vulnerability_summary(self, scan_id: int) -> Dict:
+        """Get vulnerability count summary by severity."""
+        results = self.get_scan_results(scan_id)
+        
+        summary = {
+            'critical': 0,
+            'high': 0,
+            'medium': 0,
+            'low': 0,
+            'info': 0,
+            'hosts_scanned': len(results.get('hosts', []))
+        }
+        
+        for host in results.get('hosts', []):
+            summary['critical'] += host.get('critical', 0)
+            summary['high'] += host.get('high', 0)
+            summary['medium'] += host.get('medium', 0)
+            summary['low'] += host.get('low', 0)
+            summary['info'] += host.get('info', 0)
+        
+        return summary
+
+
+# ═══════════════════════════════════════════════════════════════════════
+# EXAMPLE USAGE
+# ═══════════════════════════════════════════════════════════════════════
+
+if __name__ == '__main__':
+    # Initialize scanner
+    scanner = NessusScanner(
+        url='https://nessus.company.com:8834',
+        access_key='your-access-key',
+        secret_key='your-secret-key'
+    )
+    
+    # Create and run scan
+    scan_id = scanner.create_scan(
+        name='Weekly Network Scan',
+        targets='192.168.1.0/24,192.168.2.0/24',
+        description='Automated weekly vulnerability scan'
+    )
+    print(f"Created scan ID: {scan_id}")
+    
+    # Launch scan
+    scanner.launch_scan(scan_id)
+    print("Scan launched, waiting for completion...")
+    
+    # Wait for completion
+    if scanner.wait_for_scan(scan_id, timeout=7200):
+        # Get summary
+        summary = scanner.get_vulnerability_summary(scan_id)
+        print(f"\nScan Complete!")
+        print(f"Hosts scanned: {summary['hosts_scanned']}")
+        print(f"Critical: {summary['critical']}")
+        print(f"High: {summary['high']}")
+        print(f"Medium: {summary['medium']}")
+        print(f"Low: {summary['low']}")
+        
+        # Export results
+        csv_data = scanner.export_scan(scan_id, 'csv')
+        with open('scan_results.csv', 'wb') as f:
+            f.write(csv_data)
+        print("Results exported to scan_results.csv")</code></pre>
+                </div>
+                
+                <h2>Compliance Auditing</h2>
+                
+                <p>
+                    Nessus includes compliance audit files for checking system configurations against 
+                    security benchmarks.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NESSUS COMPLIANCE AUDIT CAPABILITIES
+═══════════════════════════════════════════════════════════════════════
+
+BUILT-IN AUDIT FILES:
+─────────────────────────────────────────────────────────────────────
+CIS Benchmarks:
+  • CIS Microsoft Windows Server 2019/2022
+  • CIS Red Hat Enterprise Linux 7/8/9
+  • CIS Ubuntu 20.04/22.04
+  • CIS Cisco IOS
+  • CIS Microsoft 365
+  • CIS Amazon Web Services Foundations
+
+DISA STIGs:
+  • Windows Server STIG
+  • Red Hat STIG
+  • Cisco IOS STIG
+  • Oracle Database STIG
+  • Apache STIG
+
+Vendor Best Practices:
+  • Microsoft Security Baselines
+  • AWS Security Best Practices
+  • VMware vSphere Hardening Guide
+
+CUSTOM AUDIT FILE EXAMPLE:
+─────────────────────────────────────────────────────────────────────
+# Custom audit check for password policy
+# File: custom_password_audit.audit
+
+&lt;custom_item&gt;
+  type        : REGISTRY_SETTING
+  description : "Minimum password length should be 14 characters"
+  info        : "CIS recommends minimum 14 character passwords"
+  solution    : "Set minimum password length via Group Policy"
+  reference   : "CIS Windows Server 2019 v1.2.1, 1.1.4"
+  see_also    : "https://benchmarks.cisecurity.org"
+  value_type  : POLICY_DWORD
+  value_data  : [14..MAX]
+  reg_key     : "HKLM\System\CurrentControlSet\Services\Netlogon\Parameters"
+  reg_item    : "MinimumPasswordLength"
+  reg_option  : CAN_NOT_BE_NULL
+  severity    : MEDIUM
+&lt;/custom_item&gt;</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"Describe your experience with Nessus. How do you configure authenticated scans?"</strong><br><br>
+                        Sample answer: "I've extensively used Nessus Professional and Tenable.io for enterprise 
+                        scanning. For authenticated scans, I configure dedicated service accounts with 
+                        appropriate privileges—local admin for Windows via SMB/WMI, SSH with sudo for Linux. 
+                        I use SSH key authentication for Linux to avoid password storage. For Windows, I ensure 
+                        Remote Registry is enabled and UAC is configured for remote admin. I organize scans 
+                        by network zone with separate credentials per segment, and I integrate with CyberArk 
+                        for credential management. I also tune scan policies to balance thoroughness with 
+                        performance—adjusting concurrent hosts and checks based on network capacity."
+                    </p>
+                </div>
+                
+                <h2>Troubleshooting Common Issues</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NESSUS TROUBLESHOOTING GUIDE
+═══════════════════════════════════════════════════════════════════════
+
+AUTHENTICATION FAILURES:
+─────────────────────────────────────────────────────────────────────
+Windows SMB:
+  □ Plugin 10394 - Check for "Credentialed checks: no"
+  □ Verify Remote Registry service is running
+  □ Check Windows Firewall for ports 135, 139, 445
+  □ Verify admin share access: net use \\target\c$
+  □ UAC remote restrictions: check LocalAccountTokenFilterPolicy
+
+Linux SSH:
+  □ Plugin 10394 - SSH authentication status
+  □ Verify SSH service is running: systemctl status sshd
+  □ Check SSH config: PermitRootLogin, AllowUsers
+  □ Test manually: ssh -i key user@target
+  □ Check sudo access: sudo -l
+
+SCAN PERFORMANCE ISSUES:
+─────────────────────────────────────────────────────────────────────
+Slow Scans:
+  □ Reduce max simultaneous hosts
+  □ Reduce max checks per host
+  □ Exclude unnecessary plugin families
+  □ Verify scanner resources (CPU, RAM, network)
+  □ Check for network congestion
+
+Incomplete Scans:
+  □ Increase network timeout
+  □ Check host discovery settings
+  □ Verify firewall rules
+  □ Check scan logs: /opt/nessus/var/nessus/logs/
+
+PLUGIN UPDATE FAILURES:
+─────────────────────────────────────────────────────────────────────
+□ Check internet connectivity from scanner
+□ Verify activation code: nessuscli fetch --check
+□ Check proxy settings if applicable
+□ Manual update: download and apply offline
+
+LOG LOCATIONS:
+─────────────────────────────────────────────────────────────────────
+/opt/nessus/var/nessus/logs/nessusd.messages   # Main log
+/opt/nessus/var/nessus/logs/nessusd.dump       # Debug info
+/opt/nessus/var/nessus/logs/www_server.log     # Web interface</code></pre>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Nessus remains an industry-leading vulnerability scanner with extensive plugin coverage, 
+                    compliance auditing, and flexible deployment options. Mastering credential configuration, 
+                    policy tuning, and API automation enables efficient enterprise scanning. In the next 
+                    section, we'll explore the Qualys platform and its cloud-native approach to vulnerability 
+                    management.
+                </p>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation">
+                    <a href="2-1-scanner-types.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Scanner Types & Selection</span>
+                    </a>
+                    <a href="2-3-qualys.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Qualys Platform</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

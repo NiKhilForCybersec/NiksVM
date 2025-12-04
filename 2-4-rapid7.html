@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rapid7 InsightVM - Scan engine deployment, dynamic asset groups, remediation projects, Real Risk prioritization, and InsightConnect integration.">
+    <title>Rapid7 InsightVM | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+                <div class="sidebar-search">
+                    <span class="sidebar-search-icon">🔍</span>
+                    <input type="text" placeholder="Search documentation...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item active">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Rapid7 InsightVM</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Rapid7 InsightVM</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.4</span>
+                        <span class="page-meta-item">⏱️ 20 min read</span>
+                        <span class="page-meta-item">📅 Last updated: 2025</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers Rapid7 InsightVM including scan engine deployment, dynamic asset groups, 
+                        remediation projects with goals and SLAs, InsightVM API automation, Real Risk prioritization, 
+                        and integration with InsightConnect SOAR.
+                    </p>
+                </div>
+                
+                <h2>InsightVM Platform Overview</h2>
+                
+                <p>
+                    Rapid7 InsightVM (formerly Nexpose) is a cloud-managed vulnerability management solution 
+                    that combines on-premises scan engines with cloud-based analysis, dashboards, and integrations.
+                </p>
+                
+                <h3>Key Components</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Function</th>
+                                <th>Deployment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Insight Platform</strong></td>
+                                <td>Cloud console, dashboards, analytics</td>
+                                <td>Rapid7 cloud (insight.rapid7.com)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Scan Engine</strong></td>
+                                <td>Performs vulnerability scanning</td>
+                                <td>On-premises or cloud-hosted</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Insight Agent</strong></td>
+                                <td>Endpoint agent for continuous assessment</td>
+                                <td>Installed on endpoints</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Security Console</strong></td>
+                                <td>On-prem management (Nexpose mode)</td>
+                                <td>On-premises server</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Scan Engine Deployment</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># InsightVM Scan Engine Installation (Linux)
+
+# Download installer from Rapid7 portal
+wget https://download2.rapid7.com/download/InsightVM/Rapid7Setup-Linux64.bin
+
+# Make executable
+chmod +x Rapid7Setup-Linux64.bin
+
+# Run installer (interactive)
+sudo ./Rapid7Setup-Linux64.bin
+
+# Silent installation with response file
+sudo ./Rapid7Setup-Linux64.bin -q -varfile response.varfile
+
+# Example response.varfile:
+# installdir=/opt/rapid7/nexpose
+# sys.adminRights$Boolean=true
+# sys.languageId=en
+# sys.installationTypeId=engine
+
+# Pair scan engine with console
+# From the engine server:
+sudo /opt/rapid7/nexpose/nse/nse.sh --pair \
+  --host console.company.com \
+  --port 40815 \
+  --enginename "datacenter-engine-01"
+
+# Check engine status
+sudo systemctl status nexposeengine
+
+# Engine logs
+tail -f /opt/rapid7/nexpose/nse/logs/nse.log
+
+# Windows Scan Engine
+# Run installer as Administrator
+# Rapid7Setup-Windows64.exe -q -varfile response.varfile</code></pre>
+                </div>
+                
+                <h3>Engine Sizing Guidelines</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Environment Size</th>
+                                <th>Assets</th>
+                                <th>CPU</th>
+                                <th>RAM</th>
+                                <th>Disk</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Small</strong></td>
+                                <td>&lt; 500</td>
+                                <td>4 cores</td>
+                                <td>16 GB</td>
+                                <td>100 GB SSD</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Medium</strong></td>
+                                <td>500-2,000</td>
+                                <td>8 cores</td>
+                                <td>32 GB</td>
+                                <td>200 GB SSD</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Large</strong></td>
+                                <td>2,000-10,000</td>
+                                <td>16 cores</td>
+                                <td>64 GB</td>
+                                <td>500 GB SSD</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Enterprise</strong></td>
+                                <td>10,000+</td>
+                                <td>Multiple engines</td>
+                                <td>Scale horizontally</td>
+                                <td>Distributed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Dynamic Asset Groups</h2>
+                
+                <p>
+                    InsightVM's dynamic asset groups automatically organize assets based on criteria, 
+                    enabling targeted scanning and reporting.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>DYNAMIC ASSET GROUP FILTERS
+═══════════════════════════════════════════════════════════════════════
+
+COMMON FILTER CRITERIA:
+─────────────────────────────────────────────────────────────────────
+IP Address:
+  asset.ipaddress IN RANGE 192.168.1.1-192.168.1.254
+  asset.ipaddress STARTS WITH 10.10.
+  asset.ipaddress IN 192.168.0.0/16
+
+Operating System:
+  asset.os.name CONTAINS "Windows Server 2019"
+  asset.os.family = "Linux"
+  asset.os.vendor = "Microsoft"
+
+Software:
+  asset.software.name CONTAINS "Apache"
+  asset.software.version LIKE "2.4.%"
+
+Tags:
+  asset.tags INCLUDE "Production"
+  asset.tags EXCLUDE "Decommissioned"
+
+Vulnerabilities:
+  asset.vulnerability.cvssScore >= 9.0
+  asset.vulnerability.exploitAvailable = true
+  asset.vulnerability.malwareKit = true
+
+Last Scan:
+  asset.lastScanDate < NOW - 7d
+  asset.lastScanDate IS NULL
+
+EXAMPLE DYNAMIC GROUPS:
+─────────────────────────────────────────────────────────────────────
+Name: "Critical Windows Servers"
+Filter: asset.os.name CONTAINS "Windows Server" AND
+        asset.tags INCLUDE "Critical"
+
+Name: "Unscanned Assets (7+ days)"
+Filter: asset.lastScanDate < NOW - 7d OR
+        asset.lastScanDate IS NULL
+
+Name: "Internet-Facing with Exploitable Vulns"
+Filter: asset.tags INCLUDE "Internet-Facing" AND
+        asset.vulnerability.exploitAvailable = true
+
+Name: "Assets with Critical Vulns"
+Filter: asset.vulnerability.cvssScore >= 9.0 AND
+        asset.vulnerability.status = "Vulnerable"</code></pre>
+                </div>
+                
+                <h2>Real Risk Prioritization</h2>
+                
+                <p>
+                    InsightVM's Real Risk score combines CVSS with threat intelligence and exposure context 
+                    to provide actionable prioritization.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>REAL RISK SCORE COMPONENTS
+═══════════════════════════════════════════════════════════════════════
+
+VULNERABILITY FACTORS (0-1000 scale):
+─────────────────────────────────────────────────────────────────────
+Base CVSS Score:
+  • Severity foundation from NVD
+
+Exploit Exposure:
+  • Public exploit available (+200-300)
+  • Metasploit module (+150)
+  • Exploit kit integration (+250)
+  • Active exploitation in wild (+300)
+
+Malware Correlation:
+  • Known malware family (+200)
+  • Ransomware association (+250)
+
+Temporal Factors:
+  • Age of vulnerability
+  • Trending in threat feeds
+  • Recent weaponization
+
+ASSET CONTEXT:
+─────────────────────────────────────────────────────────────────────
+Exposure:
+  • Internet-accessible (highest weight)
+  • DMZ/perimeter
+  • Internal network
+  • Isolated segment
+
+Asset Criticality (Tags):
+  • Business Critical (+multiplier)
+  • Contains sensitive data
+  • Compliance scope
+
+REAL RISK INTERPRETATION:
+─────────────────────────────────────────────────────────────────────
+900-1000  │  Critical  │  Active exploit, immediate action
+700-899   │  High      │  Exploit available, prioritize
+500-699   │  Medium    │  Monitor, scheduled remediation
+0-499     │  Low       │  Normal patch cycle</code></pre>
+                </div>
+                
+                <h2>Remediation Projects</h2>
+                
+                <p>
+                    InsightVM's remediation projects enable tracking, assignment, and SLA management for 
+                    vulnerability remediation efforts.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>REMEDIATION PROJECT CONFIGURATION
+═══════════════════════════════════════════════════════════════════════
+
+PROJECT TYPES:
+─────────────────────────────────────────────────────────────────────
+1. Solution-Based
+   • Groups vulnerabilities by remediation action
+   • "Install KB5012170" fixes 50 vulnerabilities
+   • Efficient for patch-based remediation
+
+2. Asset-Based
+   • Focus on specific assets or asset groups
+   • "Remediate Finance Servers"
+   • Good for targeted cleanup
+
+3. Vulnerability-Based
+   • Track specific CVEs across environment
+   • "Log4Shell Remediation Campaign"
+   • Critical vulnerability response
+
+GOALS AND SLAs:
+─────────────────────────────────────────────────────────────────────
+Goal Configuration:
+  Name: "Q1 Critical Remediation"
+  Target: Reduce critical vulnerabilities by 90%
+  Deadline: 2025-03-31
+  Scope: All production assets
+  
+SLA Rules:
+  Critical (Real Risk 900+):  7 days
+  High (Real Risk 700-899):   30 days
+  Medium (Real Risk 500-699): 90 days
+  
+Progress Tracking:
+  • Vulnerabilities at start: 1,250
+  • Current remaining: 312
+  • Progress: 75%
+  • Days remaining: 45
+  • On track: Yes ✓
+
+ASSIGNMENT OPTIONS:
+─────────────────────────────────────────────────────────────────────
+• Assign to user/team
+• Create tickets in ServiceNow/Jira
+• Email notifications on status change
+• Automatic reassignment on failure</code></pre>
+                </div>
+                
+                <h2>InsightVM API</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Rapid7 InsightVM API Integration
+"""
+
+import requests
+from typing import Dict, List, Optional
+from base64 import b64encode
+
+
+class InsightVMAPI:
+    """
+    InsightVM API client for vulnerability management automation.
+    """
+    
+    def __init__(self, console_url: str, username: str, password: str):
+        """
+        Initialize InsightVM API client.
+        
+        Args:
+            console_url: Security Console URL (e.g., https://console:3780)
+            username: API username
+            password: API password
+        """
+        self.base_url = f'{console_url}/api/3'
+        self.auth = b64encode(f'{username}:{password}'.encode()).decode()
+        self.headers = {
+            'Authorization': f'Basic {self.auth}',
+            'Content-Type': 'application/json'
+        }
+        self.session = requests.Session()
+        self.session.verify = False  # Set True with valid cert
+    
+    def _request(self, method: str, endpoint: str, **kwargs) -> Dict:
+        """Make API request."""
+        url = f'{self.base_url}{endpoint}'
+        response = self.session.request(
+            method, url, headers=self.headers, **kwargs
+        )
+        response.raise_for_status()
+        return response.json() if response.content else {}
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # ASSETS
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def get_assets(self, page: int = 0, size: int = 100) -> Dict:
+        """Get all assets with pagination."""
+        return self._request('GET', '/assets', params={
+            'page': page, 'size': size
+        })
+    
+    def get_asset(self, asset_id: int) -> Dict:
+        """Get specific asset details."""
+        return self._request('GET', f'/assets/{asset_id}')
+    
+    def get_asset_vulnerabilities(self, asset_id: int) -> Dict:
+        """Get vulnerabilities for an asset."""
+        return self._request('GET', f'/assets/{asset_id}/vulnerabilities')
+    
+    def search_assets(self, filters: List[Dict]) -> Dict:
+        """
+        Search assets with filters.
+        
+        Example filters:
+        [{"field": "ip-address", "operator": "in-range", 
+          "values": ["192.168.1.1-192.168.1.254"]}]
+        """
+        return self._request('POST', '/assets/search', json={
+            'filters': filters
+        })
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # VULNERABILITIES
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def get_vulnerabilities(self, page: int = 0, size: int = 100) -> Dict:
+        """Get all vulnerability definitions."""
+        return self._request('GET', '/vulnerabilities', params={
+            'page': page, 'size': size
+        })
+    
+    def get_vulnerability(self, vuln_id: str) -> Dict:
+        """Get specific vulnerability details."""
+        return self._request('GET', f'/vulnerabilities/{vuln_id}')
+    
+    def get_vulnerability_affected_assets(self, vuln_id: str) -> Dict:
+        """Get assets affected by a vulnerability."""
+        return self._request('GET', f'/vulnerabilities/{vuln_id}/assets')
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # SCANS
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def get_sites(self) -> Dict:
+        """Get all scan sites."""
+        return self._request('GET', '/sites')
+    
+    def get_site(self, site_id: int) -> Dict:
+        """Get specific site details."""
+        return self._request('GET', f'/sites/{site_id}')
+    
+    def start_site_scan(self, site_id: int) -> Dict:
+        """Start a scan for a site."""
+        return self._request('POST', f'/sites/{site_id}/scans')
+    
+    def get_scan_status(self, scan_id: int) -> Dict:
+        """Get scan status."""
+        return self._request('GET', f'/scans/{scan_id}')
+    
+    def create_adhoc_scan(self, name: str, targets: List[str], 
+                          template_id: str = 'full-audit-without-web-spider') -> Dict:
+        """
+        Create and start an ad-hoc scan.
+        
+        Args:
+            name: Scan name
+            targets: List of IP addresses or ranges
+            template_id: Scan template ID
+        """
+        return self._request('POST', '/scans', json={
+            'name': name,
+            'assets': {'addresses': targets},
+            'templateId': template_id
+        })
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # REPORTS
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def create_report(self, name: str, template_id: int, 
+                      scope: Dict, format: str = 'pdf') -> Dict:
+        """
+        Create a report.
+        
+        Args:
+            name: Report name
+            template_id: Report template ID
+            scope: Report scope (sites, assets, or asset groups)
+            format: Output format (pdf, rtf, xml, html, csv)
+        """
+        return self._request('POST', '/reports', json={
+            'name': name,
+            'template': template_id,
+            'scope': scope,
+            'format': format
+        })
+    
+    def get_report_status(self, report_id: int) -> Dict:
+        """Get report generation status."""
+        return self._request('GET', f'/reports/{report_id}/history/latest')
+    
+    def download_report(self, report_id: int, instance_id: int) -> bytes:
+        """Download generated report."""
+        response = self.session.get(
+            f'{self.base_url}/reports/{report_id}/history/{instance_id}/output',
+            headers=self.headers
+        )
+        return response.content
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # REMEDIATION
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def get_solutions(self) -> Dict:
+        """Get remediation solutions."""
+        return self._request('GET', '/solutions')
+    
+    def get_solution_assets(self, solution_id: str) -> Dict:
+        """Get assets requiring a specific solution."""
+        return self._request('GET', f'/solutions/{solution_id}/assets')
+
+
+# Example Usage
+if __name__ == '__main__':
+    ivm = InsightVMAPI(
+        console_url='https://insightvm-console:3780',
+        username='api_user',
+        password='api_password'
+    )
+    
+    # Get all assets
+    assets = ivm.get_assets(size=50)
+    print(f"Total assets: {assets['page']['totalResources']}")
+    
+    # Search for Windows servers
+    windows_servers = ivm.search_assets([
+        {'field': 'os-name', 'operator': 'contains', 'value': 'Windows Server'}
+    ])
+    
+    # Start site scan
+    scan = ivm.start_site_scan(site_id=1)
+    print(f"Scan started: {scan['id']}")</code></pre>
+                </div>
+                
+                <h2>InsightConnect Integration</h2>
+                
+                <p>
+                    InsightConnect is Rapid7's SOAR platform that integrates with InsightVM for automated 
+                    vulnerability response workflows.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>INSIGHTCONNECT WORKFLOW EXAMPLES
+═══════════════════════════════════════════════════════════════════════
+
+WORKFLOW 1: Auto-Create Tickets for Critical Vulns
+─────────────────────────────────────────────────────────────────────
+Trigger: New vulnerability detected
+Conditions:
+  - Real Risk Score >= 900
+  - Asset tag = "Production"
+Actions:
+  1. Enrich vulnerability with threat intel
+  2. Get asset owner from CMDB
+  3. Create ServiceNow incident
+  4. Send Slack notification to security team
+  5. Add to remediation project
+
+WORKFLOW 2: Verify Remediation
+─────────────────────────────────────────────────────────────────────
+Trigger: Ticket closed
+Actions:
+  1. Wait 24 hours
+  2. Trigger targeted rescan
+  3. Check if vulnerability resolved
+  4. If still present:
+     - Reopen ticket
+     - Escalate to manager
+  5. If resolved:
+     - Update remediation project
+     - Send confirmation email
+
+WORKFLOW 3: Emergency Vulnerability Response
+─────────────────────────────────────────────────────────────────────
+Trigger: CISA KEV addition OR Security team manual trigger
+Actions:
+  1. Search for vulnerability across environment
+  2. Identify affected assets
+  3. Generate impact report
+  4. Create P1 incident
+  5. Page on-call team
+  6. Schedule emergency scan
+  7. Track remediation progress
+
+WORKFLOW 4: Compliance Scan Automation
+─────────────────────────────────────────────────────────────────────
+Trigger: Scheduled (Monthly)
+Actions:
+  1. Start PCI scope scan
+  2. Wait for completion
+  3. Generate compliance report
+  4. Check for new failures
+  5. Create tickets for findings
+  6. Email report to compliance team</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How does InsightVM's Real Risk scoring differ from CVSS?"</strong><br><br>
+                        Sample answer: "Real Risk goes beyond CVSS by incorporating real-world threat context. 
+                        While CVSS measures theoretical severity, Real Risk adds exploit availability from 
+                        Metasploit and exploit-db, active exploitation in the wild, malware and ransomware 
+                        correlations, and asset exposure context. A CVSS 7.5 with a Metasploit module on an 
+                        internet-facing server might score higher Real Risk than a CVSS 9.8 with no public 
+                        exploit on an isolated system. This helps prioritize vulnerabilities that attackers 
+                        are actually exploiting."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    InsightVM provides a modern vulnerability management platform with cloud-based analytics, 
+                    Real Risk prioritization, and strong SOAR integration. Dynamic asset groups and remediation 
+                    projects enable efficient workflow management. The API enables extensive automation for 
+                    enterprise operations.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="2-3-qualys.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Qualys Platform</span>
+                    </a>
+                    <a href="2-5-defender.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Microsoft Defender VM</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

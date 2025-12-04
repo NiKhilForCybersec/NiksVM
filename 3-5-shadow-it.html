@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shadow IT Detection - Identifying unauthorized assets, rogue cloud accounts, unsanctioned SaaS, and bringing shadow IT into governance.">
+    <title>Shadow IT Detection | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item active">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="3-1-discovery-methods.html">Section 3: Asset Discovery</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Shadow IT Detection</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Shadow IT Detection</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 3.5</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers detecting shadow IT including unauthorized infrastructure, 
+                        rogue cloud accounts, unsanctioned SaaS applications, and strategies for 
+                        bringing shadow IT under proper governance and security controls.
+                    </p>
+                </div>
+                
+                <h2>What is Shadow IT?</h2>
+                
+                <p>
+                    Shadow IT refers to technology deployed without IT department approval or oversight. 
+                    These assets are particularly dangerous because they typically lack security controls, 
+                    patching, and monitoring.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SHADOW IT CATEGORIES
+═══════════════════════════════════════════════════════════════════════
+
+SHADOW INFRASTRUCTURE:
+─────────────────────────────────────────────────────────────────────
+• Servers deployed by developers without IT knowledge
+• Test/dev systems that became production
+• Legacy systems "forgotten" after projects end
+• Personal devices on corporate network
+• Unauthorized network equipment (switches, APs)
+
+SHADOW CLOUD:
+─────────────────────────────────────────────────────────────────────
+• Personal AWS/Azure/GCP accounts with company data
+• Credit card-purchased cloud resources
+• Free tier cloud services
+• Development environments with production data
+• Containers/serverless without security review
+
+SHADOW SAAS:
+─────────────────────────────────────────────────────────────────────
+• Unsanctioned productivity tools (Trello, Notion)
+• File sharing services (personal Dropbox, Google Drive)
+• Communication tools (WhatsApp, Telegram for work)
+• AI tools (ChatGPT with sensitive data)
+• Development tools (GitHub personal accounts)
+
+SHADOW ENDPOINTS:
+─────────────────────────────────────────────────────────────────────
+• Personal laptops on corporate network
+• Raspberry Pi / IoT devices
+• Virtual machines on workstations
+• Mobile devices without MDM</code></pre>
+                </div>
+                
+                <h2>Detection Methods</h2>
+                
+                <h3>Network-Based Detection</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Shadow IT Detection - Network Analysis
+Compare discovered assets against known inventory.
+"""
+
+from typing import Dict, List, Set
+from datetime import datetime
+
+
+class ShadowITDetector:
+    """Identify potential shadow IT through inventory comparison."""
+    
+    def __init__(self, authorized_sources: List[str]):
+        """
+        Args:
+            authorized_sources: List of authoritative inventory sources
+                               e.g., ['cmdb', 'ad', 'intune']
+        """
+        self.authorized_sources = authorized_sources
+        self.shadow_assets = []
+    
+    def detect_shadow_assets(self, 
+                              discovered_assets: List[Dict],
+                              authorized_assets: List[Dict]) -> List[Dict]:
+        """
+        Find assets discovered by scanners but not in authorized inventory.
+        
+        Args:
+            discovered_assets: Assets from network/vuln scanning
+            authorized_assets: Assets from CMDB, AD, etc.
+        
+        Returns:
+            List of potential shadow IT assets
+        """
+        # Build sets of authorized identifiers
+        authorized_ips = {a.get('ip') for a in authorized_assets if a.get('ip')}
+        authorized_macs = {a.get('mac', '').lower() for a in authorized_assets if a.get('mac')}
+        authorized_hosts = {a.get('hostname', '').lower() for a in authorized_assets if a.get('hostname')}
+        
+        shadow_assets = []
+        
+        for asset in discovered_assets:
+            is_authorized = False
+            
+            # Check against all identifiers
+            if asset.get('ip') in authorized_ips:
+                is_authorized = True
+            elif asset.get('mac', '').lower() in authorized_macs:
+                is_authorized = True
+            elif asset.get('hostname', '').lower() in authorized_hosts:
+                is_authorized = True
+            
+            if not is_authorized:
+                shadow_asset = asset.copy()
+                shadow_asset['shadow_detected_at'] = datetime.utcnow().isoformat()
+                shadow_asset['shadow_reason'] = 'Not found in authorized inventory'
+                shadow_assets.append(shadow_asset)
+        
+        self.shadow_assets = shadow_assets
+        return shadow_assets
+    
+    def classify_shadow_risk(self, asset: Dict) -> str:
+        """Classify risk level of shadow asset."""
+        risk_score = 0
+        
+        # Internet-facing is high risk
+        if asset.get('public_ip') or asset.get('internet_facing'):
+            risk_score += 40
+        
+        # Running services increase risk
+        open_ports = asset.get('open_ports', [])
+        if len(open_ports) > 10:
+            risk_score += 20
+        elif len(open_ports) > 5:
+            risk_score += 10
+        
+        # Server OS vs workstation
+        os_name = asset.get('os', '').lower()
+        if 'server' in os_name:
+            risk_score += 20
+        
+        # Has vulnerabilities
+        vuln_count = asset.get('vulnerability_count', 0)
+        if vuln_count > 10:
+            risk_score += 30
+        elif vuln_count > 0:
+            risk_score += 15
+        
+        # Classify
+        if risk_score >= 60:
+            return 'Critical'
+        elif risk_score >= 40:
+            return 'High'
+        elif risk_score >= 20:
+            return 'Medium'
+        else:
+            return 'Low'
+    
+    def generate_report(self) -> Dict:
+        """Generate shadow IT summary report."""
+        report = {
+            'generated_at': datetime.utcnow().isoformat(),
+            'total_shadow_assets': len(self.shadow_assets),
+            'by_risk': {'Critical': 0, 'High': 0, 'Medium': 0, 'Low': 0},
+            'by_os': {},
+            'assets': []
+        }
+        
+        for asset in self.shadow_assets:
+            risk = self.classify_shadow_risk(asset)
+            report['by_risk'][risk] += 1
+            
+            os_type = asset.get('os_family', 'Unknown')
+            report['by_os'][os_type] = report['by_os'].get(os_type, 0) + 1
+            
+            report['assets'].append({
+                'ip': asset.get('ip'),
+                'hostname': asset.get('hostname'),
+                'os': asset.get('os'),
+                'risk_level': risk,
+                'open_ports': len(asset.get('open_ports', [])),
+                'first_seen': asset.get('first_discovered')
+            })
+        
+        return report
+
+
+# Example usage
+detector = ShadowITDetector(['cmdb', 'ad'])
+
+# Assets from network scanning
+discovered = [
+    {'ip': '192.168.1.10', 'hostname': 'web-01', 'os': 'Linux'},
+    {'ip': '192.168.1.99', 'hostname': 'dev-test-01', 'os': 'Windows Server 2019',
+     'open_ports': [22, 80, 443, 3389]},
+    {'ip': '192.168.1.100', 'hostname': 'raspberry-pi', 'os': 'Linux',
+     'open_ports': [22, 8080]}
+]
+
+# Assets from CMDB
+authorized = [
+    {'ip': '192.168.1.10', 'hostname': 'web-01', 'os': 'Linux'}
+]
+
+shadow = detector.detect_shadow_assets(discovered, authorized)
+print(f"Found {len(shadow)} shadow IT assets")</code></pre>
+                </div>
+                
+                <h3>Cloud Shadow IT Detection</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# Detect Shadow Cloud Resources
+
+# ═══════════════════════════════════════════════════════════════════
+# AWS: Find resources not tagged with required tags
+# ═══════════════════════════════════════════════════════════════════
+
+# List EC2 instances missing "Owner" tag
+aws ec2 describe-instances \
+  --query 'Reservations[].Instances[?!Tags[?Key==`Owner`]].[InstanceId,PrivateIpAddress,State.Name]' \
+  --output table
+
+# Find resources created by non-approved users
+aws cloudtrail lookup-events \
+  --lookup-attributes AttributeKey=EventName,AttributeValue=RunInstances \
+  --query 'Events[?!contains(Username, `service-account`)].[Username, EventTime, CloudTrailEvent]'
+
+# ═══════════════════════════════════════════════════════════════════
+# DNS: Find cloud services via DNS queries
+# ═══════════════════════════════════════════════════════════════════
+
+# Search DNS logs for cloud provider domains
+grep -E "amazonaws\.com|azure\.com|googleapis\.com" /var/log/named/queries.log | \
+  awk '{print $6}' | sort | uniq -c | sort -rn | head -20
+
+# ═══════════════════════════════════════════════════════════════════
+# Network: Detect cloud provider traffic
+# ═══════════════════════════════════════════════════════════════════
+
+# Check firewall logs for cloud provider IP ranges
+# AWS IP ranges: https://ip-ranges.amazonaws.com/ip-ranges.json
+# Azure IP ranges: https://www.microsoft.com/en-us/download/details.aspx?id=56519</code></pre>
+                </div>
+                
+                <h3>SaaS Shadow IT Detection</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SAAS SHADOW IT DETECTION SOURCES
+═══════════════════════════════════════════════════════════════════════
+
+WEB PROXY LOGS:
+─────────────────────────────────────────────────────────────────────
+• Analyze Zscaler, Netskope, McAfee Web Gateway logs
+• Look for unsanctioned SaaS domains
+• Track OAuth authorizations to third-party apps
+
+CASB (Cloud Access Security Broker):
+─────────────────────────────────────────────────────────────────────
+• Microsoft Defender for Cloud Apps
+• Netskope
+• McAfee MVISION Cloud
+• Provides: App discovery, risk scoring, policy enforcement
+
+SSO/IDENTITY PROVIDER:
+─────────────────────────────────────────────────────────────────────
+• Okta, Azure AD application access reports
+• Apps receiving authentication but not sanctioned
+• OAuth consent grants
+
+DNS ANALYTICS:
+─────────────────────────────────────────────────────────────────────
+• Query logs from DNS servers
+• Identify queries to SaaS provider domains
+• Correlate with user identity
+
+EXPENSE REPORTS:
+─────────────────────────────────────────────────────────────────────
+• Credit card charges to SaaS vendors
+• Expensed subscriptions
+• Partner with Finance team</code></pre>
+                </div>
+                
+                <h2>Governance Process</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SHADOW IT GOVERNANCE WORKFLOW
+═══════════════════════════════════════════════════════════════════════
+
+    ┌──────────────────┐
+    │    DETECTION     │ ← Continuous scanning, log analysis
+    └────────┬─────────┘
+             │
+             ▼
+    ┌──────────────────┐
+    │   INVESTIGATION  │ ← Who owns it? What's the business need?
+    └────────┬─────────┘
+             │
+     ┌───────┴───────┐
+     │               │
+     ▼               ▼
+┌─────────┐    ┌─────────────┐
+│LEGITIMATE│    │UNAUTHORIZED │
+│NEED      │    │NO JUSTIF.  │
+└────┬────┘    └──────┬──────┘
+     │                │
+     ▼                ▼
+┌─────────────┐  ┌─────────────┐
+│  ONBOARD    │  │  REMEDIATE  │
+│  • Add to   │  │  • Decommis │
+│    CMDB     │  │  • Block    │
+│  • Patch    │  │  • Migrate  │
+│  • Monitor  │  │    to sanctd│
+└─────────────┘  └─────────────┘
+
+ESCALATION MATRIX:
+─────────────────────────────────────────────────────────────────────
+Risk Level    │ Response Time │ Escalation
+─────────────────────────────────────────────────────────────────────
+Critical      │ 24 hours      │ CISO, business unit VP
+High          │ 72 hours      │ Security Manager, IT Director
+Medium        │ 1 week        │ Security Analyst
+Low           │ 30 days       │ Standard process</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you handle shadow IT in your vulnerability management program?"</strong><br><br>
+                        Sample answer: "I treat shadow IT as a continuous discovery challenge. I compare 
+                        network scan results against authorized inventory from CMDB and AD—any discrepancies 
+                        are flagged as potential shadow IT. For cloud, I use CSPM tools to find resources 
+                        without required tags. For SaaS, I work with the CASB team to identify unsanctioned 
+                        applications. When shadow IT is found, I don't just block it—I investigate the business 
+                        need and either bring it under proper governance or help find a sanctioned alternative. 
+                        The goal is enabling the business safely, not just saying no."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Shadow IT detection is an ongoing process, not a one-time project. Use multiple detection 
+                    methods—network scanning, cloud APIs, proxy logs, and CASB—to identify unauthorized 
+                    assets. Focus on bringing valuable shadow IT under governance rather than simply blocking it.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="3-4-cloud-discovery.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Cloud Asset Discovery</span>
+                    </a>
+                    <a href="3-6-classification.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Asset Classification</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

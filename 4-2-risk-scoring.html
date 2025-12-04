@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Risk Scoring Models - CVSS, EPSS, SSVC, VPR, TruRisk, and custom scoring approaches for vulnerability prioritization.">
+    <title>Risk Scoring Models | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item active">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="4-1-prioritization.html">Section 4: Analysis & Priority</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Risk Scoring Models</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Risk Scoring Models</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 4.2</span>
+                        <span class="page-meta-item">⏱️ 20 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers major vulnerability scoring models including CVSS v3.1/v4.0, 
+                        EPSS (Exploit Prediction Scoring System), SSVC (Stakeholder-Specific Vulnerability 
+                        Categorization), vendor scores like VPR and TruRisk, and building custom scoring.
+                    </p>
+                </div>
+                
+                <h2>Scoring Models Comparison</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VULNERABILITY SCORING MODELS COMPARISON
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────┬─────────────┬───────────────┬────────────────────────────┐
+│ Model       │ Type        │ Range         │ Best For                   │
+├─────────────┼─────────────┼───────────────┼────────────────────────────┤
+│ CVSS        │ Severity    │ 0.0-10.0      │ Standardized severity      │
+│ EPSS        │ Probability │ 0.0-1.0 (%)   │ Exploit likelihood         │
+│ SSVC        │ Decision    │ Categories    │ Action-based decisions     │
+│ VPR         │ Risk        │ 0.0-10.0      │ Tenable users              │
+│ TruRisk     │ Risk        │ 0-1000        │ Qualys users               │
+│ Real Risk   │ Risk        │ 0-1000        │ Rapid7 users               │
+└─────────────┴─────────────┴───────────────┴────────────────────────────┘
+
+KEY INSIGHT:
+─────────────────────────────────────────────────────────────────────
+• CVSS tells you "how bad" (severity)
+• EPSS tells you "how likely" (exploitation probability)
+• SSVC tells you "what to do" (action)
+• Vendor scores combine multiple factors
+
+RECOMMENDED: Use multiple models together
+  CVSS (severity) + EPSS (likelihood) + Asset Criticality (impact)</code></pre>
+                </div>
+                
+                <h2>CVSS (Common Vulnerability Scoring System)</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CVSS v3.1 COMPONENTS
+═══════════════════════════════════════════════════════════════════════
+
+BASE SCORE (Intrinsic vulnerability characteristics)
+─────────────────────────────────────────────────────────────────────
+Exploitability Metrics:
+  • Attack Vector (AV): Network/Adjacent/Local/Physical
+  • Attack Complexity (AC): Low/High
+  • Privileges Required (PR): None/Low/High
+  • User Interaction (UI): None/Required
+
+Impact Metrics:
+  • Confidentiality (C): None/Low/High
+  • Integrity (I): None/Low/High
+  • Availability (A): None/Low/High
+  • Scope (S): Unchanged/Changed
+
+TEMPORAL SCORE (Changes over time)
+─────────────────────────────────────────────────────────────────────
+  • Exploit Code Maturity (E): Not Defined/Unproven/PoC/Functional/High
+  • Remediation Level (RL): Not Defined/Official Fix/Temp Fix/Workaround
+  • Report Confidence (RC): Not Defined/Unknown/Reasonable/Confirmed
+
+ENVIRONMENTAL SCORE (Your specific environment)
+─────────────────────────────────────────────────────────────────────
+  • Modified Base Metrics (adjust AV, AC, etc. for your context)
+  • CIA Requirements (your organization's requirements)
+
+SEVERITY RATINGS:
+─────────────────────────────────────────────────────────────────────
+  0.0           = None
+  0.1 - 3.9     = Low
+  4.0 - 6.9     = Medium
+  7.0 - 8.9     = High
+  9.0 - 10.0    = Critical</code></pre>
+                </div>
+                
+                <h3>CVSS v4.0 Changes</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CVSS v4.0 KEY CHANGES (Released November 2023)
+═══════════════════════════════════════════════════════════════════════
+
+NEW METRIC GROUPS:
+─────────────────────────────────────────────────────────────────────
+• Base (B): Intrinsic characteristics
+• Threat (T): Replaces Temporal, focuses on exploitation state
+• Environmental (E): Organization-specific adjustments
+• Supplemental (S): Additional context (not in score calculation)
+
+KEY IMPROVEMENTS:
+─────────────────────────────────────────────────────────────────────
+1. Attack Requirements (AT)
+   - New metric capturing preconditions for attack
+   - Values: None, Present
+   
+2. Revised User Interaction (UI)
+   - Values: None, Passive, Active
+   - Better granularity for social engineering attacks
+
+3. Subsequent System Impact
+   - Separates impact on vulnerable system vs. downstream systems
+   - Confidentiality (VC/SC), Integrity (VI/SI), Availability (VA/SA)
+
+4. Supplemental Metrics (Advisory Only)
+   - Safety, Automatable, Recovery, Provider Urgency
+   - Not calculated into score
+
+NAMING CONVENTION:
+─────────────────────────────────────────────────────────────────────
+CVSS-B   = Base only
+CVSS-BT  = Base + Threat
+CVSS-BE  = Base + Environmental
+CVSS-BTE = Base + Threat + Environmental (full)</code></pre>
+                </div>
+                
+                <h2>EPSS (Exploit Prediction Scoring System)</h2>
+                
+                <p>
+                    EPSS predicts the probability that a vulnerability will be exploited in the wild 
+                    within the next 30 days. It's maintained by FIRST.org and updated daily.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+EPSS API Integration
+Retrieve exploit prediction scores for CVEs.
+"""
+
+import requests
+from typing import Dict, List, Optional
+from datetime import datetime
+
+
+class EPSSClient:
+    """Client for EPSS (Exploit Prediction Scoring System) API."""
+    
+    BASE_URL = "https://api.first.org/data/v1/epss"
+    
+    def get_score(self, cve_id: str) -> Optional[Dict]:
+        """Get EPSS score for a single CVE."""
+        response = requests.get(f"{self.BASE_URL}?cve={cve_id}")
+        response.raise_for_status()
+        
+        data = response.json()
+        if data.get('data'):
+            return data['data'][0]
+        return None
+    
+    def get_scores_batch(self, cve_ids: List[str]) -> Dict[str, Dict]:
+        """Get EPSS scores for multiple CVEs."""
+        # API supports comma-separated CVEs
+        cve_param = ','.join(cve_ids[:100])  # Max 100 per request
+        
+        response = requests.get(f"{self.BASE_URL}?cve={cve_param}")
+        response.raise_for_status()
+        
+        data = response.json()
+        return {item['cve']: item for item in data.get('data', [])}
+    
+    def get_high_epss_cves(self, threshold: float = 0.1) -> List[Dict]:
+        """Get CVEs above EPSS threshold."""
+        response = requests.get(
+            f"{self.BASE_URL}",
+            params={'epss-gt': threshold, 'limit': 1000}
+        )
+        response.raise_for_status()
+        
+        return response.json().get('data', [])
+
+
+def interpret_epss(epss_score: float) -> str:
+    """Interpret EPSS score for prioritization."""
+    if epss_score >= 0.7:
+        return "Very High - Immediate attention required"
+    elif epss_score >= 0.4:
+        return "High - Prioritize remediation"
+    elif epss_score >= 0.1:
+        return "Moderate - Include in patching cycles"
+    elif epss_score >= 0.01:
+        return "Low - Standard remediation timeline"
+    else:
+        return "Very Low - May deprioritize"
+
+
+# Example usage
+client = EPSSClient()
+
+# Get score for Log4Shell
+score = client.get_score("CVE-2021-44228")
+if score:
+    epss = float(score['epss'])
+    percentile = float(score['percentile'])
+    print(f"CVE-2021-44228:")
+    print(f"  EPSS: {epss:.2%} probability of exploitation")
+    print(f"  Percentile: {percentile:.1%} (more likely than {percentile:.1%} of all CVEs)")
+    print(f"  Interpretation: {interpret_epss(epss)}")</code></pre>
+                </div>
+                
+                <h2>SSVC (Stakeholder-Specific Vulnerability Categorization)</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SSVC DECISION TREE (CISA Model)
+═══════════════════════════════════════════════════════════════════════
+
+SSVC provides ACTION-based decisions, not just scores.
+
+DECISION POINTS:
+─────────────────────────────────────────────────────────────────────
+
+1. EXPLOITATION STATUS
+   □ None - No evidence of active exploitation
+   □ PoC - Proof of concept exists
+   □ Active - Actively exploited in the wild
+
+2. TECHNICAL IMPACT
+   □ Partial - Limited impact (e.g., DoS, info disclosure)
+   □ Total - Full system compromise possible
+
+3. AUTOMATABLE
+   □ No - Requires manual steps or specific conditions
+   □ Yes - Can be automated/wormable
+
+4. MISSION PREVALENCE (Your organization)
+   □ Minimal - Asset not essential to mission
+   □ Support - Asset supports mission functions
+   □ Essential - Asset is mission-critical
+
+5. PUBLIC WELL-BEING IMPACT
+   □ Minimal - Limited public impact
+   □ Material - Significant public impact
+   □ Irreversible - Permanent public harm possible
+
+DECISION OUTCOMES:
+─────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────┐
+│  TRACK     │ Monitor, no immediate action needed                   │
+├─────────────────────────────────────────────────────────────────────┤
+│  TRACK*    │ Close monitoring, may require action soon             │
+├─────────────────────────────────────────────────────────────────────┤
+│  ATTEND    │ Action required, prioritize within standard process   │
+├─────────────────────────────────────────────────────────────────────┤
+│  ACT       │ Immediate action required, top priority               │
+└─────────────────────────────────────────────────────────────────────┘</code></pre>
+                </div>
+                
+                <h2>Vendor Risk Scores</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VENDOR RISK SCORING COMPARISON
+═══════════════════════════════════════════════════════════════════════
+
+TENABLE VPR (Vulnerability Priority Rating)
+─────────────────────────────────────────────────────────────────────
+Range: 0.1 - 10.0
+Updates: Daily
+
+Factors:
+  • CVSS base score
+  • Threat sources and intelligence
+  • Exploit code maturity
+  • Exploit availability
+  • Age of vulnerability
+  • Product coverage (how widespread)
+
+Thresholds:
+  9.0-10.0 = Critical (top 3%)
+  7.0-8.9  = High
+  4.0-6.9  = Medium
+  0.1-3.9  = Low
+
+QUALYS TRURISK
+─────────────────────────────────────────────────────────────────────
+Range: 0 - 1000
+Updates: Continuous
+
+Factors:
+  • CVSS score
+  • Threat intelligence
+  • Exploit maturity
+  • Real-time threat indicators
+  • Asset criticality (Tier 1-5)
+  • Asset exposure
+  • Malware correlation
+
+Thresholds:
+  850-1000 = Critical
+  700-849  = High
+  500-699  = Medium
+  300-499  = Low
+  0-299    = Minimal
+
+RAPID7 REAL RISK
+─────────────────────────────────────────────────────────────────────
+Range: 0 - 1000
+Updates: Continuous
+
+Factors:
+  • CVSS score
+  • Exploit availability
+  • Malware kit presence
+  • Active exploitation
+  • Asset exposure level
+  • Asset criticality tags
+  • Temporal factors
+
+Thresholds:
+  900-1000 = Critical
+  700-899  = High
+  500-699  = Medium
+  0-499    = Low</code></pre>
+                </div>
+                
+                <h2>Building a Custom Scoring Model</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Custom Risk Scoring Model
+Combine multiple data sources into a single score.
+"""
+
+from dataclasses import dataclass
+from typing import Dict, Optional
+import math
+
+
+@dataclass
+class RiskScore:
+    score: float           # 0-100
+    severity: str          # Critical/High/Medium/Low
+    contributing_factors: Dict[str, float]
+    recommended_action: str
+
+
+class CustomRiskScorer:
+    """
+    Custom risk scoring combining CVSS, EPSS, and business context.
+    """
+    
+    def __init__(self, weights: Dict[str, float] = None):
+        # Default weights (sum to 1.0)
+        self.weights = weights or {
+            'cvss_base': 0.15,
+            'epss': 0.25,
+            'exploit_maturity': 0.15,
+            'asset_criticality': 0.25,
+            'exposure': 0.15,
+            'cisa_kev': 0.05
+        }
+    
+    def calculate_risk(self, 
+                       cvss: float,
+                       epss: float,
+                       exploit_maturity: str,
+                       asset_criticality: int,
+                       network_zone: str,
+                       cisa_kev: bool) -> RiskScore:
+        """
+        Calculate composite risk score.
+        
+        Args:
+            cvss: CVSS base score (0-10)
+            epss: EPSS probability (0-1)
+            exploit_maturity: 'none', 'poc', 'functional', 'weaponized'
+            asset_criticality: Tier 1-4
+            network_zone: 'internet', 'dmz', 'internal', 'isolated'
+            cisa_kev: Whether in CISA KEV catalog
+        
+        Returns:
+            RiskScore with composite score and interpretation
+        """
+        factors = {}
+        
+        # Normalize CVSS (0-10 → 0-100)
+        factors['cvss_base'] = (cvss / 10) * 100
+        
+        # Normalize EPSS (already 0-1, apply log scaling)
+        # EPSS is often very low, log scale makes differences more visible
+        if epss > 0:
+            # Scale: 0.01 → ~50, 0.1 → ~75, 0.5 → ~90
+            factors['epss'] = min(100, 50 + (math.log10(epss * 100) * 25))
+        else:
+            factors['epss'] = 0
+        
+        # Exploit maturity score
+        maturity_scores = {
+            'none': 10,
+            'poc': 50,
+            'functional': 80,
+            'weaponized': 100
+        }
+        factors['exploit_maturity'] = maturity_scores.get(exploit_maturity, 30)
+        
+        # Asset criticality (Tier 1=100, Tier 4=25)
+        criticality_scores = {1: 100, 2: 75, 3: 50, 4: 25}
+        factors['asset_criticality'] = criticality_scores.get(asset_criticality, 50)
+        
+        # Network exposure
+        exposure_scores = {
+            'internet': 100,
+            'dmz': 80,
+            'internal': 40,
+            'isolated': 10
+        }
+        factors['exposure'] = exposure_scores.get(network_zone, 40)
+        
+        # CISA KEV (binary boost)
+        factors['cisa_kev'] = 100 if cisa_kev else 0
+        
+        # Calculate weighted score
+        score = sum(
+            factors[k] * self.weights[k] 
+            for k in self.weights
+        )
+        
+        # Determine severity
+        if score >= 80 or cisa_kev:
+            severity = 'Critical'
+            action = "Immediate remediation required (24-48 hours)"
+        elif score >= 60:
+            severity = 'High'
+            action = "Prioritize remediation (7 days)"
+        elif score >= 40:
+            severity = 'Medium'
+            action = "Standard remediation timeline (30 days)"
+        else:
+            severity = 'Low'
+            action = "Address in regular maintenance cycles"
+        
+        return RiskScore(
+            score=round(score, 1),
+            severity=severity,
+            contributing_factors=factors,
+            recommended_action=action
+        )
+
+
+# Example
+scorer = CustomRiskScorer()
+
+# High-risk scenario
+result = scorer.calculate_risk(
+    cvss=9.8,
+    epss=0.37,
+    exploit_maturity='functional',
+    asset_criticality=1,
+    network_zone='internet',
+    cisa_kev=True
+)
+
+print(f"Risk Score: {result.score}/100")
+print(f"Severity: {result.severity}")
+print(f"Action: {result.recommended_action}")
+print(f"Factors: {result.contributing_factors}")</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"What's the difference between CVSS and EPSS, and when would you use each?"</strong><br><br>
+                        Sample answer: "CVSS measures technical severity—how bad the vulnerability is if exploited. 
+                        EPSS measures probability—the likelihood it will actually be exploited in the next 30 days. 
+                        They answer different questions. A CVSS 9.8 vulnerability might have EPSS of 0.001 (unlikely 
+                        to be exploited), while a CVSS 7.0 might have EPSS of 0.5 (actively exploited). I use both 
+                        together: CVSS as the baseline impact score, EPSS to filter for real-world exploitation 
+                        likelihood. This helps focus on the ~5% of vulns that are both severe AND likely to be 
+                        exploited."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Multiple scoring models exist because no single score captures all dimensions of 
+                    vulnerability risk. Use CVSS for standardized severity, EPSS for exploitation 
+                    probability, SSVC for decision support, and vendor scores for integrated risk views. 
+                    The best approach combines multiple signals with asset context.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="4-1-prioritization.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Prioritization</span>
+                    </a>
+                    <a href="4-3-threat-intel.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Threat Intelligence</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

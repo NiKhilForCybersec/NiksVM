@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Microsoft Defender Vulnerability Management - Integration with MDE, software inventory, security recommendations, and remediation workflows.">
+    <title>Microsoft Defender Vulnerability Management | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item active">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Microsoft Defender VM</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Microsoft Defender Vulnerability Management</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.5</span>
+                        <span class="page-meta-item">⏱️ 18 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers Microsoft Defender Vulnerability Management (MDVM) including integration 
+                        with Defender for Endpoint, software inventory, security recommendations, browser extension 
+                        vulnerabilities, and remediation workflows in the Microsoft security ecosystem.
+                    </p>
+                </div>
+                
+                <h2>Defender Vulnerability Management Overview</h2>
+                
+                <p>
+                    Microsoft Defender Vulnerability Management (formerly Threat and Vulnerability Management/TVM) 
+                    is built into Microsoft Defender for Endpoint, providing agentless vulnerability assessment 
+                    for devices already running the Defender sensor.
+                </p>
+                
+                <h3>Key Capabilities</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Capability</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Software Inventory</strong></td>
+                                <td>Automatic discovery of installed applications and versions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Vulnerability Assessment</strong></td>
+                                <td>CVE detection based on software inventory</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Security Recommendations</strong></td>
+                                <td>Prioritized remediation guidance</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Browser Extensions</strong></td>
+                                <td>Visibility into browser add-ons and their risks</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Certificate Assessment</strong></td>
+                                <td>Track certificate expiration and issues</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Secure Score Integration</strong></td>
+                                <td>VM findings impact Microsoft Secure Score</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box tip" data-label="Tip">
+                    <div class="info-box-title">💜 Licensing Note</div>
+                    <p>
+                        Basic MDVM is included with Defender for Endpoint P2. Advanced features like authenticated 
+                        network scanning and premium vulnerability data require the Defender Vulnerability 
+                        Management add-on license.
+                    </p>
+                </div>
+                
+                <h2>Software Inventory</h2>
+                
+                <p>
+                    MDVM automatically maintains a real-time software inventory across all Defender-protected 
+                    endpoints without additional scanning.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">KQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>// KQL Query: Software Inventory Analysis
+// Run in Microsoft 365 Defender Advanced Hunting
+
+// Get all software with vulnerabilities
+DeviceTvmSoftwareInventory
+| where SoftwareName has "Adobe" or SoftwareName has "Java"
+| summarize DeviceCount = dcount(DeviceId) by SoftwareName, SoftwareVersion
+| order by DeviceCount desc
+
+// Find devices running vulnerable software versions
+DeviceTvmSoftwareVulnerabilities
+| where CveId == "CVE-2023-44487"  // HTTP/2 Rapid Reset
+| project DeviceName, SoftwareName, SoftwareVersion, CveId, VulnerabilitySeverityLevel
+| order by VulnerabilitySeverityLevel desc
+
+// Software with critical vulnerabilities
+DeviceTvmSoftwareVulnerabilities
+| where VulnerabilitySeverityLevel == "Critical"
+| summarize 
+    VulnCount = count(),
+    DeviceCount = dcount(DeviceId) 
+    by SoftwareName, SoftwareVersion
+| order by VulnCount desc
+
+// End-of-life software
+DeviceTvmSoftwareInventory
+| where EndOfSupportStatus == "EOS" or EndOfSupportStatus == "Upcoming EOS"
+| summarize DeviceCount = dcount(DeviceId) by SoftwareName, SoftwareVersion, EndOfSupportDate
+| order by EndOfSupportDate asc</code></pre>
+                </div>
+                
+                <h2>Security Recommendations</h2>
+                
+                <p>
+                    MDVM provides prioritized security recommendations based on exposure score and remediation impact.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SECURITY RECOMMENDATION CATEGORIES
+═══════════════════════════════════════════════════════════════════════
+
+APPLICATION VULNERABILITIES:
+─────────────────────────────────────────────────────────────────────
+• Update vulnerable applications
+• Remove unsupported software
+• Install security patches
+
+OS CONFIGURATION:
+─────────────────────────────────────────────────────────────────────
+• Enable Windows security features
+• Configure secure boot
+• Enable attack surface reduction rules
+• Configure Windows Firewall
+
+ACCOUNT SECURITY:
+─────────────────────────────────────────────────────────────────────
+• Reduce local admin accounts
+• Disable default administrator
+• Enable credential guard
+
+NETWORK SECURITY:
+─────────────────────────────────────────────────────────────────────
+• Disable insecure protocols (SMBv1, TLS 1.0)
+• Configure secure DNS
+• Enable network protection
+
+EXPOSURE SCORE FACTORS:
+─────────────────────────────────────────────────────────────────────
+• Vulnerability severity (CVSS)
+• Exploit availability
+• Number of affected devices
+• Asset criticality
+• Public exposure
+• Time since discovery</code></pre>
+                </div>
+                
+                <h2>Remediation Workflows</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">PowerShell</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Microsoft Graph API for Defender VM
+# Requires Microsoft.Graph PowerShell module
+
+# Connect to Microsoft Graph
+Connect-MgGraph -Scopes "SecurityEvents.Read.All", "ThreatAssessment.Read.All"
+
+# Get vulnerability recommendations
+$recommendations = Invoke-MgGraphRequest -Method GET `
+    -Uri "https://graph.microsoft.com/v1.0/security/secureScores" 
+
+# Create remediation task via Intune
+# This triggers software update deployment
+
+$body = @{
+    "@odata.type" = "#microsoft.graph.windowsUpdateForBusinessConfiguration"
+    displayName = "Critical Security Updates"
+    description = "Deploy critical vulnerability patches"
+    qualityUpdatesDeferralPeriodInDays = 0
+    featureUpdatesDeferralPeriodInDays = 30
+    qualityUpdatesWillBeRolledBack = $false
+    autoRestartNotificationDismissal = "automatic"
+} | ConvertTo-Json
+
+# Export vulnerability data for reporting
+$vulnData = Invoke-MgGraphRequest -Method GET `
+    -Uri "https://api.securitycenter.microsoft.com/api/vulnerabilities" 
+
+$vulnData.value | 
+    Where-Object { $_.severity -eq "Critical" } |
+    Export-Csv -Path "critical_vulns.csv" -NoTypeInformation</code></pre>
+                </div>
+                
+                <h2>Integration with Microsoft Security Stack</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>MICROSOFT SECURITY ECOSYSTEM INTEGRATION
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                    MICROSOFT 365 DEFENDER                           │
+├─────────────────────────────────────────────────────────────────────┤
+│  ┌───────────────┐  ┌───────────────┐  ┌───────────────┐          │
+│  │ Defender for  │  │ Defender for  │  │ Defender for  │          │
+│  │ Endpoint      │  │ Identity      │  │ Cloud Apps    │          │
+│  └───────┬───────┘  └───────────────┘  └───────────────┘          │
+│          │                                                          │
+│          ▼                                                          │
+│  ┌───────────────────────────────────────────────────────┐         │
+│  │        DEFENDER VULNERABILITY MANAGEMENT              │         │
+│  │  • Software Inventory    • Security Recommendations   │         │
+│  │  • Vulnerability Data    • Exposure Score             │         │
+│  └───────────────────────────────────────────────────────┘         │
+│          │                                                          │
+└──────────┼──────────────────────────────────────────────────────────┘
+           │
+           ├──────────────┬──────────────┬──────────────┐
+           ▼              ▼              ▼              ▼
+   ┌───────────────┐ ┌───────────┐ ┌───────────┐ ┌───────────┐
+   │ Microsoft     │ │ Microsoft │ │ Microsoft │ │ Microsoft │
+   │ Sentinel      │ │ Intune    │ │ Secure    │ │ Defender  │
+   │ (SIEM)        │ │ (MDM)     │ │ Score     │ │ for Cloud │
+   └───────────────┘ └───────────┘ └───────────┘ └───────────┘
+
+INTEGRATION BENEFITS:
+─────────────────────────────────────────────────────────────────────
+• Sentinel: Correlate vulns with security incidents
+• Intune: Automated patch deployment
+• Secure Score: Track security posture improvement
+• Defender for Cloud: Extend to Azure resources</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How does Microsoft Defender VM compare to traditional scanners like Nessus?"</strong><br><br>
+                        Sample answer: "MDVM is agent-based using the existing Defender sensor, so there's no 
+                        additional deployment. It provides continuous assessment without network scanning overhead. 
+                        The integration with Microsoft's ecosystem—Intune for patching, Sentinel for correlation, 
+                        Secure Score for tracking—makes it powerful for Microsoft-centric environments. However, 
+                        it's limited to Defender-protected endpoints and doesn't cover network devices, Linux servers 
+                        (without Defender for Linux), or OT systems. I'd use it as a complement to, not replacement 
+                        for, traditional scanners in heterogeneous environments."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Microsoft Defender Vulnerability Management provides integrated, agentless vulnerability 
+                    assessment for organizations already using Defender for Endpoint. Its tight integration 
+                    with the Microsoft security ecosystem enables streamlined remediation workflows.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="2-4-rapid7.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Rapid7 InsightVM</span>
+                    </a>
+                    <a href="2-6-opensource.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Open Source Scanners</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

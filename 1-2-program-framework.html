@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VM Program Framework - Building a vulnerability management program from scratch, stakeholder engagement, policies, and maturity models.">
+    <title>VM Program Framework | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+                <div class="sidebar-search">
+                    <span class="sidebar-search-icon">🔍</span>
+                    <input type="text" placeholder="Search documentation...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            
+                                    <nav class="sidebar-nav">
+                <div class="nav-section " data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item active">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section 0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="1-1-introduction.html">Section 1: Fundamentals</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">VM Program Framework</span>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header">
+                    <h1>VM Program Framework</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 1.2</span>
+                        <span class="page-meta-item">⏱️ 18 min read</span>
+                        <span class="page-meta-item">📅 Last updated: 2025</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers building a VM program from scratch including stakeholder engagement, 
+                        policy development, SLA definition, roles and responsibilities (RACI matrix), and 
+                        program maturity models for continuous improvement.
+                    </p>
+                </div>
+                
+                <h2>Building a VM Program from Scratch</h2>
+                
+                <p>
+                    Establishing a vulnerability management program requires more than deploying a scanner. 
+                    Successful programs are built on a foundation of executive sponsorship, clear policies, 
+                    defined processes, and organizational buy-in. Here's a phased approach to building a 
+                    mature VM program:
+                </p>
+                
+                <h3>Phase 1: Foundation (Months 1-3)</h3>
+                
+                <ul>
+                    <li>Secure executive sponsorship and budget</li>
+                    <li>Define program scope and objectives</li>
+                    <li>Select and deploy scanning technology</li>
+                    <li>Conduct initial asset discovery</li>
+                    <li>Establish baseline vulnerability inventory</li>
+                    <li>Identify key stakeholders across IT, DevOps, and business units</li>
+                </ul>
+                
+                <h3>Phase 2: Operationalization (Months 3-6)</h3>
+                
+                <ul>
+                    <li>Develop and publish VM policy and SLAs</li>
+                    <li>Define severity classification and prioritization criteria</li>
+                    <li>Establish remediation workflows and ticketing integration</li>
+                    <li>Implement regular scanning schedules</li>
+                    <li>Create reporting templates for different audiences</li>
+                    <li>Train asset owners on their responsibilities</li>
+                </ul>
+                
+                <h3>Phase 3: Maturation (Months 6-12)</h3>
+                
+                <ul>
+                    <li>Integrate threat intelligence for risk-based prioritization</li>
+                    <li>Automate routine tasks (scan scheduling, ticket creation, notifications)</li>
+                    <li>Expand coverage to cloud, containers, and applications</li>
+                    <li>Implement exception management process</li>
+                    <li>Develop executive dashboards and trend reporting</li>
+                    <li>Conduct program effectiveness reviews</li>
+                </ul>
+                
+                <h3>Phase 4: Optimization (Ongoing)</h3>
+                
+                <ul>
+                    <li>Continuous process improvement based on metrics</li>
+                    <li>Advanced automation with SOAR integration</li>
+                    <li>Predictive analytics for vulnerability prioritization</li>
+                    <li>Attack surface management integration</li>
+                    <li>Continuous compliance monitoring</li>
+                </ul>
+                
+                <div class="info-box tip" data-label="Tip">
+                    <div class="info-box-title">💜 Program Launch Tip</div>
+                    <p>
+                        Start with a pilot group of cooperative asset owners before organization-wide rollout. 
+                        Use pilot results to refine processes, demonstrate quick wins, and build momentum for 
+                        broader adoption.
+                    </p>
+                </div>
+                
+                <h2>Stakeholder Engagement</h2>
+                
+                <p>
+                    VM programs touch every part of the organization. Success depends on engaging stakeholders 
+                    at all levels and translating security findings into language they understand.
+                </p>
+                
+                <h3>Executive Leadership</h3>
+                <p>
+                    Executives need to understand cyber risk in business terms. Focus on risk exposure, 
+                    potential business impact, compliance implications, and return on security investment. 
+                    Avoid technical jargon and vulnerability counts.
+                </p>
+                
+                <h3>IT Operations</h3>
+                <p>
+                    IT ops teams implement patches and configuration changes. They need clear priorities, 
+                    realistic timelines, and assurance that security won't destabilize production systems. 
+                    Build trust through proper testing processes and change management integration.
+                </p>
+                
+                <h3>Development Teams</h3>
+                <p>
+                    Developers need early feedback on application vulnerabilities. Integrate security scanning 
+                    into CI/CD pipelines, provide remediation guidance, and work with them to prioritize 
+                    findings that matter.
+                </p>
+                
+                <h3>Business Unit Leaders</h3>
+                <p>
+                    Business owners may not understand technical vulnerabilities but do understand risk to 
+                    their operations. Translate findings into business impact and involve them in risk 
+                    acceptance decisions.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>STAKEHOLDER COMMUNICATION MATRIX
+═══════════════════════════════════════════════════════════════════════════════
+
+Stakeholder          | Focus Areas           | Frequency    | Format
+─────────────────────┼───────────────────────┼──────────────┼──────────────────
+Executive Leadership | Risk trends, ROI,     | Monthly      | Dashboard, 
+                     | compliance status     |              | Executive Summary
+─────────────────────┼───────────────────────┼──────────────┼──────────────────
+IT Operations        | Patches due, SLAs,    | Weekly       | Tickets, 
+                     | upcoming maintenance  |              | Team Meetings
+─────────────────────┼───────────────────────┼──────────────┼──────────────────
+Development Teams    | Code vulns, library   | Sprint       | Pipeline reports,
+                     | updates, secure code  | cycles       | Slack/Teams
+─────────────────────┼───────────────────────┼──────────────┼──────────────────
+Security Team        | All findings, trends, | Daily        | SIEM, Scanner
+                     | emerging threats      |              | Console, Alerts
+─────────────────────┼───────────────────────┼──────────────┼──────────────────
+Compliance/Audit     | Control effectiveness,| Quarterly    | Compliance 
+                     | evidence, exceptions  |              | Reports
+─────────────────────┼───────────────────────┼──────────────┼──────────────────
+Asset Owners         | Their assets, status, | As needed    | Email, Tickets,
+                     | required actions      |              | Portal Access</code></pre>
+                </div>
+                
+                <h2>Policy Development</h2>
+                
+                <p>
+                    A formal VM policy establishes the authority, scope, and requirements for the program. 
+                    The policy should be approved by executive leadership and communicated organization-wide.
+                </p>
+                
+                <h3>Policy Components</h3>
+                
+                <h4>Purpose and Scope</h4>
+                <p>
+                    Define why the policy exists and what assets/systems it covers. Specify any exclusions 
+                    and the process for requesting exceptions.
+                </p>
+                
+                <h4>Roles and Responsibilities</h4>
+                <p>
+                    Clearly define who is responsible for scanning, analysis, remediation, verification, 
+                    and oversight. Include escalation paths for non-compliance.
+                </p>
+                
+                <h4>Scanning Requirements</h4>
+                <p>
+                    Specify minimum scan frequencies by asset type, authenticated vs. unauthenticated scanning 
+                    requirements, and scan window restrictions.
+                </p>
+                
+                <h4>Remediation SLAs</h4>
+                <p>
+                    Define maximum remediation timelines by severity level. Include provisions for emergency 
+                    patching and risk acceptance procedures.
+                </p>
+                
+                <h4>Exception Process</h4>
+                <p>
+                    Document how exceptions are requested, reviewed, approved, and tracked. Include required 
+                    compensating controls and maximum exception durations.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Markdown</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># VULNERABILITY MANAGEMENT POLICY
+## Document Control
+- **Version:** 2.0
+- **Effective Date:** January 1, 2025
+- **Owner:** Chief Information Security Officer
+- **Review Cycle:** Annual
+
+## 1. Purpose
+This policy establishes requirements for the identification, assessment, 
+prioritization, and remediation of security vulnerabilities across all 
+organizational information systems.
+
+## 2. Scope
+This policy applies to:
+- All production and non-production systems
+- Cloud infrastructure (IaaS, PaaS, SaaS)
+- Network devices and appliances
+- End-user devices (managed)
+- Third-party hosted systems with organizational data
+
+Exclusions: Personal devices, guest networks, isolated lab environments
+(unless connected to corporate network)
+
+## 3. Scanning Requirements
+| Asset Type           | Minimum Frequency | Scan Type        |
+|---------------------|-------------------|------------------|
+| Internet-facing     | Weekly            | Authenticated    |
+| Internal servers    | Monthly           | Authenticated    |
+| Workstations        | Monthly           | Agent-based      |
+| Network devices     | Monthly           | Authenticated    |
+| Cloud resources     | Continuous        | API/Agent        |
+
+## 4. Remediation SLAs
+| Severity  | Internet-Facing | Internal Assets |
+|-----------|-----------------|-----------------|
+| Critical  | 72 hours        | 7 days          |
+| High      | 7 days          | 30 days         |
+| Medium    | 30 days         | 90 days         |
+| Low       | 90 days         | 180 days        |
+
+## 5. Non-Compliance
+Failure to remediate vulnerabilities within SLA will result in:
+1. Automated escalation to asset owner's management
+2. Risk acceptance requirement after 2x SLA
+3. Potential system isolation for critical internet-facing vulns
+4. Inclusion in security metrics reported to executive leadership</code></pre>
+                </div>
+                
+                <h2>SLA Definition</h2>
+                
+                <p>
+                    Service Level Agreements define the expected remediation timelines and create accountability. 
+                    SLAs should be realistic, risk-based, and aligned with business needs.
+                </p>
+                
+                <h3>Factors Influencing SLAs</h3>
+                
+                <ul>
+                    <li><strong>Vulnerability Severity:</strong> Critical findings require faster response</li>
+                    <li><strong>Asset Exposure:</strong> Internet-facing systems need shorter SLAs</li>
+                    <li><strong>Exploit Availability:</strong> Weaponized exploits demand urgent action</li>
+                    <li><strong>Business Criticality:</strong> Crown jewels vs. non-critical systems</li>
+                    <li><strong>Regulatory Requirements:</strong> PCI DSS, HIPAA may mandate specific timelines</li>
+                </ul>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Severity</th>
+                                <th>Internet-Facing</th>
+                                <th>DMZ</th>
+                                <th>Internal</th>
+                                <th>Isolated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Critical (CVSS 9.0-10.0)</strong></td>
+                                <td>24-72 hours</td>
+                                <td>72 hours</td>
+                                <td>7 days</td>
+                                <td>14 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>High (CVSS 7.0-8.9)</strong></td>
+                                <td>7 days</td>
+                                <td>14 days</td>
+                                <td>30 days</td>
+                                <td>45 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Medium (CVSS 4.0-6.9)</strong></td>
+                                <td>30 days</td>
+                                <td>45 days</td>
+                                <td>90 days</td>
+                                <td>120 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Low (CVSS 0.1-3.9)</strong></td>
+                                <td>90 days</td>
+                                <td>120 days</td>
+                                <td>180 days</td>
+                                <td>365 days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ SLA Pitfall</div>
+                    <p>
+                        Avoid setting unrealistic SLAs that teams cannot meet. This leads to widespread exceptions, 
+                        metric gaming, and loss of program credibility. Start conservative and tighten SLAs as 
+                        processes mature.
+                    </p>
+                </div>
+                
+                <h2>RACI Matrix</h2>
+                
+                <p>
+                    A RACI matrix clarifies roles and responsibilities for each VM process activity. 
+                    RACI stands for Responsible, Accountable, Consulted, and Informed.
+                </p>
+                
+                <ul>
+                    <li><strong>Responsible (R):</strong> Person who performs the work</li>
+                    <li><strong>Accountable (A):</strong> Person ultimately answerable for completion</li>
+                    <li><strong>Consulted (C):</strong> Person whose input is sought before action</li>
+                    <li><strong>Informed (I):</strong> Person kept updated on progress</li>
+                </ul>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Activity</th>
+                                <th>Security Team</th>
+                                <th>IT Operations</th>
+                                <th>Asset Owners</th>
+                                <th>CISO</th>
+                                <th>DevOps</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Scanner Configuration</td>
+                                <td>R, A</td>
+                                <td>C</td>
+                                <td>I</td>
+                                <td>I</td>
+                                <td>C</td>
+                            </tr>
+                            <tr>
+                                <td>Vulnerability Scanning</td>
+                                <td>R</td>
+                                <td>C</td>
+                                <td>I</td>
+                                <td>A</td>
+                                <td>I</td>
+                            </tr>
+                            <tr>
+                                <td>Vulnerability Analysis</td>
+                                <td>R, A</td>
+                                <td>C</td>
+                                <td>C</td>
+                                <td>I</td>
+                                <td>C</td>
+                            </tr>
+                            <tr>
+                                <td>Prioritization</td>
+                                <td>R</td>
+                                <td>C</td>
+                                <td>C</td>
+                                <td>A</td>
+                                <td>C</td>
+                            </tr>
+                            <tr>
+                                <td>Patch Testing</td>
+                                <td>C</td>
+                                <td>R</td>
+                                <td>A</td>
+                                <td>I</td>
+                                <td>R</td>
+                            </tr>
+                            <tr>
+                                <td>Remediation</td>
+                                <td>C</td>
+                                <td>R</td>
+                                <td>A</td>
+                                <td>I</td>
+                                <td>R</td>
+                            </tr>
+                            <tr>
+                                <td>Verification</td>
+                                <td>R, A</td>
+                                <td>I</td>
+                                <td>I</td>
+                                <td>I</td>
+                                <td>I</td>
+                            </tr>
+                            <tr>
+                                <td>Exception Approval</td>
+                                <td>R</td>
+                                <td>C</td>
+                                <td>R</td>
+                                <td>A</td>
+                                <td>C</td>
+                            </tr>
+                            <tr>
+                                <td>Reporting</td>
+                                <td>R, A</td>
+                                <td>I</td>
+                                <td>I</td>
+                                <td>I</td>
+                                <td>I</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>VM Maturity Model</h2>
+                
+                <p>
+                    Organizations progress through maturity levels as their VM program evolves. Understanding 
+                    your current maturity helps identify improvement areas and set realistic goals.
+                </p>
+                
+                <h3>Level 1: Reactive</h3>
+                <p>
+                    Ad-hoc vulnerability management with no formal program. Scanning occurs sporadically 
+                    or only after incidents. No defined SLAs, metrics, or ownership. Remediation is 
+                    inconsistent and untracked.
+                </p>
+                
+                <h3>Level 2: Managed</h3>
+                <p>
+                    Basic scanning program established with regular scan schedules. Vulnerabilities are 
+                    tracked in spreadsheets or basic ticketing. SLAs exist but compliance is inconsistent. 
+                    Limited automation and reporting.
+                </p>
+                
+                <h3>Level 3: Defined</h3>
+                <p>
+                    Formal VM policy and procedures documented. Enterprise scanning platform deployed with 
+                    authenticated scanning. Ticketing integration for remediation tracking. Regular metrics 
+                    and executive reporting. Exception process established.
+                </p>
+                
+                <h3>Level 4: Proactive</h3>
+                <p>
+                    Risk-based prioritization using threat intelligence and asset criticality. Automated 
+                    workflows for ticket creation and notification. Strong SLA compliance. Integration 
+                    with SIEM and incident response. Continuous monitoring and trending.
+                </p>
+                
+                <h3>Level 5: Optimized</h3>
+                <p>
+                    Predictive analytics and machine learning for prioritization. Full automation with 
+                    SOAR integration. Attack surface management and exposure assessment. Continuous 
+                    compliance monitoring. Industry benchmarking and continuous improvement.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VM MATURITY MODEL ASSESSMENT
+════════════════════════════════════════════════════════════════════════════════
+
+CAPABILITY AREA           │ L1: REACTIVE │ L2: MANAGED │ L3: DEFINED │ L4: PROACTIVE │ L5: OPTIMIZED
+──────────────────────────┼──────────────┼─────────────┼─────────────┼───────────────┼──────────────
+Asset Discovery           │ Manual       │ Basic scans │ Multiple    │ Continuous    │ Full attack
+                          │              │             │ methods     │ discovery     │ surface mgmt
+──────────────────────────┼──────────────┼─────────────┼─────────────┼───────────────┼──────────────
+Scanning                  │ Ad-hoc       │ Scheduled   │ Authenticated│ Risk-based   │ Continuous
+                          │              │             │ + scheduled │ scheduling    │ + real-time
+──────────────────────────┼──────────────┼─────────────┼─────────────┼───────────────┼──────────────
+Prioritization            │ CVSS only    │ CVSS +      │ RBVM basic  │ Full RBVM +  │ ML/AI-driven
+                          │              │ manual      │             │ threat intel │ predictive
+──────────────────────────┼──────────────┼─────────────┼─────────────┼───────────────┼──────────────
+Remediation               │ No tracking  │ Spreadsheet │ Ticketing   │ Automated    │ Auto-remediate
+                          │              │             │ integrated  │ workflows    │ + orchestration
+──────────────────────────┼──────────────┼─────────────┼─────────────┼───────────────┼──────────────
+Reporting                 │ None         │ Manual      │ Scheduled   │ Real-time    │ Predictive
+                          │              │             │ reports     │ dashboards   │ analytics
+──────────────────────────┼──────────────┼─────────────┼─────────────┼───────────────┼──────────────
+Integration               │ Standalone   │ Basic       │ Ticketing + │ SIEM + SOAR  │ Full ecosystem
+                          │              │ exports     │ CMDB        │ integration  │ automation</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How would you build a VM program from scratch?"</strong><br><br>
+                        Sample answer: "I'd start by securing executive sponsorship and defining scope. Phase one 
+                        focuses on deploying scanning technology and establishing baseline visibility. Phase two 
+                        operationalizes the program with policies, SLAs, and remediation workflows. Phase three 
+                        matures the program with RBVM, automation, and integration. Throughout, I'd engage 
+                        stakeholders, demonstrate quick wins, and track metrics that show risk reduction. 
+                        I'd use a maturity model to assess progress and identify improvement areas."
+                    </p>
+                </div>
+                
+                <h2>Common Program Pitfalls</h2>
+                
+                <p>
+                    Learn from common mistakes that derail VM programs:
+                </p>
+                
+                <ul>
+                    <li><strong>Tool-First Thinking:</strong> Deploying a scanner without process and governance leads to scanner shelfware</li>
+                    <li><strong>Lack of Executive Support:</strong> Without leadership backing, remediation teams won't prioritize security</li>
+                    <li><strong>Unrealistic SLAs:</strong> Timelines teams can't meet lead to exceptions, gaming, and credibility loss</li>
+                    <li><strong>No Asset Ownership:</strong> Orphaned vulnerabilities with no clear owner never get fixed</li>
+                    <li><strong>Metric Obsession:</strong> Focusing on vulnerability counts rather than risk reduction</li>
+                    <li><strong>Ignoring Business Context:</strong> Treating all assets equally regardless of criticality</li>
+                    <li><strong>Manual Everything:</strong> Relying on manual processes that don't scale</li>
+                </ul>
+                
+                <div class="info-box best-practice" data-label="Best Practice">
+                    <div class="info-box-title">✅ Success Factor</div>
+                    <p>
+                        Build relationships before you need them. Engage IT ops, DevOps, and business leaders 
+                        during program development—not just when vulnerabilities need fixing. Partners who 
+                        understand the program are more likely to support remediation efforts.
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    A successful VM program requires more than technology—it needs executive support, clear policies, 
+                    defined roles, and stakeholder engagement. Use a phased approach to build capabilities over time, 
+                    and regularly assess maturity to identify improvement opportunities. In the next section, we'll 
+                    dive into vulnerability scoring systems including CVSS, EPSS, and SSVC.
+                </p>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation">
+                    <a href="1-1-introduction.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Introduction to VM</span>
+                    </a>
+                    <a href="1-3-scoring-systems.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Vulnerability Scoring Systems</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

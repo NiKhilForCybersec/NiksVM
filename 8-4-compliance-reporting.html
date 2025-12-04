@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compliance Vulnerability Reporting - PCI DSS, HIPAA, SOC 2, and regulatory compliance evidence.">
+    <title>Compliance Reporting | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item active">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="8-1-dashboards.html">Section 8: Reporting</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Compliance Reporting</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Compliance Vulnerability Reporting</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 8.4</span>
+                        <span class="page-meta-item">⏱️ 12 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers compliance-focused vulnerability reporting for PCI DSS, HIPAA, 
+                        SOC 2, and other regulatory frameworks including audit evidence preparation.
+                    </p>
+                </div>
+                
+                <h2>Compliance Framework Requirements</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VULNERABILITY MANAGEMENT COMPLIANCE REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════
+
+PCI DSS 4.0
+─────────────────────────────────────────────────────────────────────
+Requirement 6.3: Security vulnerabilities identified and addressed
+Requirement 11.3: External and internal vulnerability scans
+
+Key Requirements:
+• Quarterly external ASV scans (passing)
+• Internal vulnerability scans
+• High/critical vulns remediated or risk-mitigated
+• Re-scan to verify remediation
+• Documented process
+
+Evidence Needed:
+• ASV scan reports (quarterly)
+• Internal scan reports
+• Remediation tickets/evidence
+• Re-scan validation
+• Exception documentation
+
+HIPAA Security Rule
+─────────────────────────────────────────────────────────────────────
+§164.308(a)(1): Security Management Process
+§164.308(a)(8): Evaluation
+
+Key Requirements:
+• Risk analysis including vulnerabilities
+• Risk management process
+• Regular technical evaluation
+
+Evidence Needed:
+• Vulnerability scan reports
+• Risk assessment documentation
+• Remediation tracking
+• Policy documentation
+
+SOC 2 (Trust Services Criteria)
+─────────────────────────────────────────────────────────────────────
+CC6.1: Logical and physical access controls
+CC7.1: System monitoring
+
+Key Requirements:
+• Vulnerability identification process
+• Timely remediation
+• Monitoring for new vulnerabilities
+
+Evidence Needed:
+• Scan schedules and coverage
+• Remediation SLAs and compliance
+• Process documentation
+• Sample tickets
+
+NIST CSF / 800-53
+─────────────────────────────────────────────────────────────────────
+RA-5: Vulnerability Scanning
+SI-2: Flaw Remediation
+
+Key Requirements:
+• Automated vulnerability scanning
+• Analysis of scan reports
+• Remediation of identified vulnerabilities
+• Sharing vulnerability information
+
+Evidence Needed:
+• Scan tool configuration
+• Scan reports
+• Remediation evidence
+• Information sharing procedures</code></pre>
+                </div>
+                
+                <h2>PCI DSS Compliance Report</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>PCI DSS VULNERABILITY MANAGEMENT EVIDENCE PACKAGE
+Q4 2024 Assessment Period
+═══════════════════════════════════════════════════════════════════════
+
+1. EXTERNAL ASV SCAN RESULTS
+─────────────────────────────────────────────────────────────────────
+Scan Date: October 15, 2024
+ASV Provider: Qualys
+Result: PASS
+
+Scope: All external-facing IP addresses in CDE
+  • 12 IP addresses scanned
+  • 0 High vulnerabilities
+  • 2 Medium vulnerabilities (non-failing per ASV)
+  • 4 Low vulnerabilities
+
+Previous Quarter: PASS (July 2024)
+
+2. INTERNAL SCAN RESULTS
+─────────────────────────────────────────────────────────────────────
+Scan Date: October 20, 2024
+Scanner: Tenable.io
+Scope: All CDE systems (142 assets)
+
+Results at Scan Time:
+  • Critical: 3 (remediated within 24 hours)
+  • High: 12 (remediated within 30 days)
+  • Medium: 47
+  • Low: 156
+
+Current Status:
+  • Critical: 0
+  • High: 0 (all remediated)
+  • Medium: 38 (9 remediated)
+  • Low: 142 (14 remediated)
+
+3. REMEDIATION EVIDENCE
+─────────────────────────────────────────────────────────────────────
+Ticket ID    | CVE            | Severity | Found    | Remediated | Days
+-------------|----------------|----------|----------|------------|-----
+SEC-1234     | CVE-2024-1234  | Critical | Oct 20   | Oct 21     | 1
+SEC-1235     | CVE-2024-1235  | Critical | Oct 20   | Oct 20     | 0
+SEC-1236     | CVE-2024-1236  | Critical | Oct 20   | Oct 21     | 1
+SEC-1237     | CVE-2024-2345  | High     | Oct 20   | Nov 5      | 16
+[continued...]
+
+4. RE-SCAN VALIDATION
+─────────────────────────────────────────────────────────────────────
+Validation Scan: November 10, 2024
+Result: All critical/high vulnerabilities confirmed remediated
+
+5. EXCEPTIONS/COMPENSATING CONTROLS
+─────────────────────────────────────────────────────────────────────
+Exception ID: EXC-2024-042
+Vulnerability: CVE-2024-9999
+Reason: Vendor patch not available
+Compensating Control: Network segmentation, IPS signature
+Review Date: December 15, 2024
+Approval: CISO (documented)</code></pre>
+                </div>
+                
+                <h2>Audit Evidence Checklist</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VULNERABILITY MANAGEMENT AUDIT EVIDENCE CHECKLIST
+═══════════════════════════════════════════════════════════════════════
+
+POLICIES & PROCEDURES
+─────────────────────────────────────────────────────────────────────
+□ Vulnerability Management Policy
+□ Scanning procedures
+□ Remediation SLA definitions
+□ Exception/risk acceptance process
+□ Roles and responsibilities
+
+SCANNING EVIDENCE
+─────────────────────────────────────────────────────────────────────
+□ Scan tool configuration/settings
+□ Scan schedules (automated)
+□ Asset scope documentation
+□ Scan completion reports
+□ Coverage metrics
+
+REMEDIATION EVIDENCE
+─────────────────────────────────────────────────────────────────────
+□ Ticketing system records
+□ Remediation timelines
+□ SLA compliance metrics
+□ Re-scan verification
+□ Change management records
+
+EXCEPTION DOCUMENTATION
+─────────────────────────────────────────────────────────────────────
+□ Risk acceptance forms
+□ Compensating control documentation
+□ Approval signatures
+□ Review/expiration dates
+□ Periodic review evidence
+
+METRICS & REPORTING
+─────────────────────────────────────────────────────────────────────
+□ Historical trend reports
+□ SLA compliance over time
+□ Executive reports
+□ Continuous monitoring evidence</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you handle compliance reporting for vulnerability management?"</strong><br><br>
+                        Sample answer: "I maintain audit-ready evidence continuously rather than scrambling 
+                        before assessments. For PCI, I ensure quarterly ASV scans pass and document all 
+                        internal scan results with remediation evidence. Every critical/high vulnerability 
+                        has a ticket showing detection date, remediation date, and re-scan verification. 
+                        Exceptions are formally documented with compensating controls and CISO approval. 
+                        I keep a compliance dashboard showing current status against each framework's 
+                        requirements so we're always assessment-ready."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Compliance reporting requires continuous evidence collection, not just point-in-time 
+                    assessments. Understand each framework's specific requirements, maintain audit-ready 
+                    documentation, and track exceptions formally with compensating controls.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="8-3-operational-reporting.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Operational Reporting</span>
+                    </a>
+                    <a href="8-5-kpis-metrics.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">KPIs & Metrics</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Open Source Vulnerability Scanners - OpenVAS, Nuclei, Trivy, Nmap NSE scripts, and OWASP ZAP for vulnerability assessment.">
+    <title>Open Source Scanners | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item active">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Open Source Scanners</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Open Source Vulnerability Scanners</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.6</span>
+                        <span class="page-meta-item">⏱️ 20 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers open source vulnerability scanning tools including OpenVAS/Greenbone, 
+                        Nuclei for template-based scanning, Trivy for containers, Nmap NSE scripts, and 
+                        OWASP ZAP for web applications.
+                    </p>
+                </div>
+                
+                <h2>OpenVAS / Greenbone</h2>
+                
+                <p>
+                    OpenVAS (Open Vulnerability Assessment Scanner) is the most comprehensive open source 
+                    network vulnerability scanner. Greenbone provides the commercial-supported version.
+                </p>
+                
+                <h3>Installation with Docker</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># OpenVAS/Greenbone Community Edition Docker Setup
+
+# Create directories
+mkdir -p /opt/gvm/data
+cd /opt/gvm
+
+# Docker Compose file
+cat > docker-compose.yml << 'EOF'
+version: '3.8'
+services:
+  gvm:
+    image: greenbone/community-container
+    container_name: greenbone-community
+    hostname: greenbone
+    ports:
+      - "9392:9392"   # GSA Web Interface
+      - "5432:5432"   # PostgreSQL (optional)
+    volumes:
+      - gvm-data:/var/lib/gvm
+      - gvm-scap:/var/lib/gvm/scap-data
+      - gvm-cert:/var/lib/gvm/cert-data
+      - gvm-data-objects:/var/lib/gvm/data-objects
+      - psql-data:/var/lib/postgresql
+      - run-ospd:/run/ospd
+    environment:
+      - PASSWORD=admin  # Change this!
+    restart: unless-stopped
+
+volumes:
+  gvm-data:
+  gvm-scap:
+  gvm-cert:
+  gvm-data-objects:
+  psql-data:
+  run-ospd:
+EOF
+
+# Start OpenVAS
+docker-compose up -d
+
+# Wait for initialization (15-30 minutes first time)
+docker-compose logs -f gvm
+
+# Access web interface
+# https://localhost:9392
+# Default: admin / admin (change immediately)</code></pre>
+                </div>
+                
+                <h3>OpenVAS CLI Scanning</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Using gvm-cli for automation
+pip install gvm-tools
+
+# Create scan via CLI
+gvm-cli socket --xml '<create_target>
+  <name>Internal Network</name>
+  <hosts>192.168.1.0/24</hosts>
+</create_target>'
+
+# List available scan configs
+gvm-cli socket --xml '<get_scan_configs/>'
+
+# Start scan
+gvm-cli socket --xml '<create_task>
+  <name>Weekly Scan</name>
+  <config id="daba56c8-73ec-11df-a475-002264764cea"/>
+  <target id="TARGET_ID"/>
+  <scanner id="08b69003-5fc2-4037-a479-93b440211c73"/>
+</create_task>'
+
+# Get scan results
+gvm-cli socket --xml '<get_results task_id="TASK_ID"/>'</code></pre>
+                </div>
+                
+                <h2>Nuclei</h2>
+                
+                <p>
+                    Nuclei is a fast, template-based vulnerability scanner from ProjectDiscovery. It excels 
+                    at web vulnerability scanning with a massive community-contributed template library.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Install Nuclei
+go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+
+# Or download binary
+wget https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_linux_amd64.zip
+unzip nuclei_linux_amd64.zip
+sudo mv nuclei /usr/local/bin/
+
+# Update templates
+nuclei -update-templates
+
+# Basic scan against single target
+nuclei -u https://target.com
+
+# Scan with specific severity
+nuclei -u https://target.com -s critical,high
+
+# Scan multiple targets from file
+nuclei -l targets.txt -o results.txt
+
+# Scan with specific template tags
+nuclei -u https://target.com -tags cve,rce,lfi
+
+# Scan for specific CVE
+nuclei -u https://target.com -t cves/2021/CVE-2021-44228.yaml
+
+# Scan with rate limiting (requests per second)
+nuclei -u https://target.com -rl 100
+
+# Output formats
+nuclei -u https://target.com -json -o results.json
+nuclei -u https://target.com -me output_dir/  # Markdown export
+
+# Scan entire subnet (with httpx for discovery)
+echo "192.168.1.0/24" | httpx -silent | nuclei -t cves/</code></pre>
+                </div>
+                
+                <h3>Custom Nuclei Templates</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">YAML</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Custom Nuclei Template Example
+# File: custom-checks/exposed-admin.yaml
+
+id: exposed-admin-panel
+
+info:
+  name: Exposed Admin Panel Detection
+  author: security-team
+  severity: high
+  description: Detects exposed administrative interfaces
+  tags: admin,panel,exposure
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/admin"
+      - "{{BaseURL}}/administrator"
+      - "{{BaseURL}}/wp-admin"
+      - "{{BaseURL}}/admin/login"
+      - "{{BaseURL}}/manage"
+      - "{{BaseURL}}/dashboard"
+    
+    matchers-condition: or
+    matchers:
+      - type: word
+        words:
+          - "Admin Login"
+          - "Administrator"
+          - "Dashboard"
+          - "Control Panel"
+        condition: or
+        
+      - type: status
+        status:
+          - 200
+          - 302
+
+# CVE Detection Template Example
+# File: custom-checks/log4j-detect.yaml
+
+id: log4j-rce-detect
+
+info:
+  name: Log4j RCE (CVE-2021-44228)
+  author: security-team
+  severity: critical
+  description: Detects Log4j RCE vulnerability
+  reference:
+    - https://nvd.nist.gov/vuln/detail/CVE-2021-44228
+  tags: cve,cve2021,rce,log4j,critical
+
+requests:
+  - raw:
+      - |
+        GET / HTTP/1.1
+        Host: {{Hostname}}
+        User-Agent: ${jndi:ldap://{{interactsh-url}}/a}
+        X-Forwarded-For: ${jndi:ldap://{{interactsh-url}}/a}
+        
+    matchers:
+      - type: word
+        part: interactsh_protocol
+        words:
+          - "dns"
+          - "http"</code></pre>
+                </div>
+                
+                <h2>Trivy</h2>
+                
+                <p>
+                    Trivy is Aqua Security's comprehensive scanner for containers, filesystems, Git repositories, 
+                    and infrastructure as code.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Install Trivy
+# Debian/Ubuntu
+sudo apt-get install wget apt-transport-https gnupg lsb-release
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/trivy.list
+sudo apt-get update && sudo apt-get install trivy
+
+# Scan container image
+trivy image nginx:latest
+trivy image --severity HIGH,CRITICAL alpine:3.18
+
+# Scan local filesystem
+trivy fs /path/to/project
+trivy fs --scanners vuln,secret,config .
+
+# Scan Git repository
+trivy repo https://github.com/org/repo
+
+# Scan Kubernetes cluster
+trivy k8s --report summary cluster
+
+# Scan IaC (Terraform, CloudFormation, etc.)
+trivy config ./terraform/
+trivy config --severity HIGH,CRITICAL ./cloudformation/
+
+# Output formats
+trivy image -f json -o results.json nginx:latest
+trivy image -f sarif -o results.sarif nginx:latest  # For GitHub integration
+trivy image -f template --template "@contrib/html.tpl" -o report.html nginx:latest
+
+# Scan with ignore file
+cat > .trivyignore << EOF
+CVE-2023-12345
+CVE-2023-67890
+EOF
+trivy image --ignorefile .trivyignore myimage:latest
+
+# CI/CD Integration - fail on high/critical
+trivy image --exit-code 1 --severity HIGH,CRITICAL myimage:latest</code></pre>
+                </div>
+                
+                <h2>Nmap NSE Scripts</h2>
+                
+                <p>
+                    Nmap's Scripting Engine (NSE) includes vulnerability detection scripts that complement 
+                    dedicated scanners.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Nmap Vulnerability Scanning
+
+# Run all vuln scripts
+nmap --script vuln 192.168.1.1
+
+# Specific vulnerability checks
+nmap --script smb-vuln-* 192.168.1.1           # SMB vulnerabilities
+nmap --script ssl-* 192.168.1.1                 # SSL/TLS issues
+nmap --script http-vuln-* 192.168.1.1          # HTTP vulnerabilities
+
+# Common CVE checks
+nmap --script smb-vuln-ms17-010 192.168.1.0/24  # EternalBlue
+nmap --script http-vuln-cve2017-5638 target     # Apache Struts
+
+# Safe vulnerability scanning (won't crash services)
+nmap --script "vuln and safe" 192.168.1.1
+
+# Comprehensive scan with version detection
+nmap -sV --script=vuln -p- 192.168.1.1
+
+# Output to multiple formats
+nmap --script vuln -oA vuln_scan 192.168.1.0/24
+
+# Update NSE scripts
+nmap --script-updatedb
+
+# List available vuln scripts
+ls /usr/share/nmap/scripts/ | grep vuln
+
+# Custom script execution
+nmap --script /path/to/custom-check.nse 192.168.1.1</code></pre>
+                </div>
+                
+                <h3>Useful NSE Vulnerability Scripts</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Script</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>smb-vuln-ms17-010</code></td>
+                                <td>EternalBlue (WannaCry)</td>
+                            </tr>
+                            <tr>
+                                <td><code>ssl-heartbleed</code></td>
+                                <td>Heartbleed vulnerability</td>
+                            </tr>
+                            <tr>
+                                <td><code>ssl-poodle</code></td>
+                                <td>POODLE SSL vulnerability</td>
+                            </tr>
+                            <tr>
+                                <td><code>http-shellshock</code></td>
+                                <td>Bash Shellshock</td>
+                            </tr>
+                            <tr>
+                                <td><code>rdp-vuln-ms12-020</code></td>
+                                <td>RDP vulnerability</td>
+                            </tr>
+                            <tr>
+                                <td><code>ftp-vsftpd-backdoor</code></td>
+                                <td>VSFTPD backdoor</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>OWASP ZAP</h2>
+                
+                <p>
+                    OWASP ZAP (Zed Attack Proxy) is the leading open source web application security scanner 
+                    for DAST (Dynamic Application Security Testing).
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># ZAP Docker Usage
+
+# Quick baseline scan
+docker run -t zaproxy/zap-stable zap-baseline.py -t https://target.com
+
+# Full scan
+docker run -t zaproxy/zap-stable zap-full-scan.py -t https://target.com
+
+# API scan
+docker run -t zaproxy/zap-stable zap-api-scan.py -t https://api.target.com/openapi.json
+
+# Save report
+docker run -v $(pwd):/zap/wrk/:rw -t zaproxy/zap-stable zap-baseline.py \
+    -t https://target.com \
+    -r report.html
+
+# ZAP CLI with custom config
+docker run -t zaproxy/zap-stable zap-baseline.py \
+    -t https://target.com \
+    -c config.prop \
+    -d  # Show debug output
+
+# ZAP Daemon mode for automation
+docker run -u zap -p 8080:8080 -d zaproxy/zap-stable \
+    zap.sh -daemon -host 0.0.0.0 -port 8080 \
+    -config api.addrs.addr.name=.* \
+    -config api.addrs.addr.regex=true
+
+# Use ZAP API
+curl "http://localhost:8080/JSON/spider/action/scan/?url=https://target.com"
+curl "http://localhost:8080/JSON/ascan/action/scan/?url=https://target.com"</code></pre>
+                </div>
+                
+                <h2>Open Source Scanner Comparison</h2>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Best For</th>
+                                <th>Strengths</th>
+                                <th>Limitations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>OpenVAS</strong></td>
+                                <td>Network vulnerability scanning</td>
+                                <td>Comprehensive, enterprise-like features</td>
+                                <td>Resource intensive, complex setup</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nuclei</strong></td>
+                                <td>Web/API scanning, custom checks</td>
+                                <td>Fast, huge template library, easy custom templates</td>
+                                <td>Primarily web-focused</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Trivy</strong></td>
+                                <td>Containers, IaC, SBOM</td>
+                                <td>Fast, CI/CD friendly, multiple scan types</td>
+                                <td>No network scanning</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Nmap NSE</strong></td>
+                                <td>Network discovery + basic vuln checks</td>
+                                <td>Lightweight, excellent discovery</td>
+                                <td>Limited vuln coverage</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OWASP ZAP</strong></td>
+                                <td>Web application DAST</td>
+                                <td>Full-featured DAST, active community</td>
+                                <td>Web-only, can be slow</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"When would you use open source scanners instead of commercial tools?"</strong><br><br>
+                        Sample answer: "Open source scanners have specific strengths: Trivy is excellent for 
+                        container scanning in CI/CD pipelines—it's faster and more developer-friendly than most 
+                        commercial options. Nuclei excels at custom vulnerability checks with its template system. 
+                        I use them to complement commercial scanners: Trivy in our build pipeline, Nuclei for 
+                        custom web checks, and ZAP for developer self-service DAST. For enterprise VM programs 
+                        requiring compliance reporting, SLA tracking, and support, I still rely on commercial 
+                        tools, but open source fills important gaps."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Open source vulnerability scanners provide powerful capabilities for specific use cases. 
+                    Trivy dominates container scanning, Nuclei excels at web vulnerability detection with 
+                    custom templates, and OpenVAS offers comprehensive network scanning. Use them strategically 
+                    to complement commercial tools.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="2-5-defender.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Microsoft Defender VM</span>
+                    </a>
+                    <a href="2-7-best-practices.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Scan Best Practices</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

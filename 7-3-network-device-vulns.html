@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Network Device Vulnerabilities - Routers, switches, firewalls, VPN appliances, and firmware security.">
+    <title>Network Device Vulnerabilities | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item active">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="7-1-os-vulnerabilities.html">Section 7: Vulnerability Types</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Network Device Vulnerabilities</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Network Device Vulnerabilities</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 7.3</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers network infrastructure vulnerabilities including routers, 
+                        switches, firewalls, VPN appliances, load balancers, and firmware security.
+                    </p>
+                </div>
+                
+                <h2>Network Device Categories</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NETWORK INFRASTRUCTURE VULNERABILITY AREAS
+═══════════════════════════════════════════════════════════════════════
+
+DEVICE TYPES:
+─────────────────────────────────────────────────────────────────────
+• Routers (Cisco, Juniper, Arista)
+• Switches (Cisco, HP/Aruba, Dell)
+• Firewalls (Palo Alto, Fortinet, Cisco ASA, Check Point)
+• VPN Appliances (Pulse Secure, Cisco AnyConnect, F5)
+• Load Balancers (F5 BIG-IP, Citrix ADC/NetScaler)
+• Wireless Controllers (Cisco, Aruba, Meraki)
+• SD-WAN Devices (Viptela, Velocloud, Silver Peak)
+
+COMMON VULNERABILITY TYPES:
+─────────────────────────────────────────────────────────────────────
+Authentication Bypass
+  • Default credentials
+  • Hardcoded passwords
+  • Authentication logic flaws
+
+Remote Code Execution
+  • Web management interface exploits
+  • Protocol implementation bugs
+  • Buffer overflows in firmware
+
+Configuration Issues
+  • Insecure protocols (Telnet, SNMPv1/v2)
+  • Weak encryption
+  • Exposed management interfaces
+
+Denial of Service
+  • Protocol handling crashes
+  • Resource exhaustion
+  • Malformed packet processing</code></pre>
+                </div>
+                
+                <h2>Notable Network Device CVEs</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CRITICAL NETWORK DEVICE VULNERABILITIES (Study These)
+═══════════════════════════════════════════════════════════════════════
+
+CVE-2023-27997 (FortiOS SSL-VPN RCE)
+─────────────────────────────────────────────────────────────────────
+Device: Fortinet FortiGate
+Type: Pre-auth Remote Code Execution
+CVSS: 9.8
+Impact: Complete device compromise via SSL-VPN
+Fix: Upgrade FortiOS, disable SSL-VPN if not needed
+
+CVE-2023-4966 (Citrix Bleed)
+─────────────────────────────────────────────────────────────────────
+Device: Citrix NetScaler ADC/Gateway
+Type: Information disclosure (session token leak)
+CVSS: 9.4
+Impact: Session hijacking, credential theft
+Fix: Update firmware, rotate credentials post-patch
+
+CVE-2021-22893 (Pulse Connect Secure)
+─────────────────────────────────────────────────────────────────────
+Device: Pulse Secure VPN
+Type: Authentication bypass
+CVSS: 10.0
+Impact: Pre-auth RCE, used by APT groups
+Fix: Update firmware, check Integrity Checker Tool
+
+CVE-2020-3452 (Cisco ASA/FTD Path Traversal)
+─────────────────────────────────────────────────────────────────────
+Device: Cisco ASA, Firepower
+Type: Path traversal, file read
+CVSS: 7.5
+Impact: Read sensitive files from device
+Fix: Update ASA/FTD software
+
+CVE-2022-40684 (Fortinet Auth Bypass)
+─────────────────────────────────────────────────────────────────────
+Device: FortiOS, FortiProxy, FortiSwitchManager
+Type: Authentication bypass via HTTP headers
+CVSS: 9.8
+Impact: Admin access without credentials
+Fix: Update firmware, implement workarounds
+
+CVE-2023-20198 (Cisco IOS XE Web UI)
+─────────────────────────────────────────────────────────────────────
+Device: Cisco IOS XE devices
+Type: Privilege escalation via Web UI
+CVSS: 10.0
+Impact: Create admin accounts, full device control
+Fix: Disable Web UI, update IOS XE</code></pre>
+                </div>
+                
+                <h2>Scanning Challenges</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NETWORK DEVICE SCANNING CHALLENGES
+═══════════════════════════════════════════════════════════════════════
+
+CHALLENGES:
+─────────────────────────────────────────────────────────────────────
+• Cannot install agents on network devices
+• Authenticated scanning requires SNMP/SSH credentials
+• Version detection often requires specific banners
+• Firmware versions not always exposed
+• Custom/proprietary operating systems
+• Sensitive devices may crash from aggressive scanning
+
+SCANNING APPROACHES:
+─────────────────────────────────────────────────────────────────────
+Unauthenticated:
+  • Port scanning for exposed services
+  • Banner grabbing for version detection
+  • Web interface fingerprinting
+  Limitation: Incomplete coverage, may miss patched vulns
+
+Authenticated (SNMP):
+  • SNMPv3 preferred (encrypted)
+  • System description, version info
+  • Interface and configuration details
+  Limitation: Not all devices support SNMP scanning
+
+Authenticated (SSH/CLI):
+  • Execute "show version" type commands
+  • Most accurate firmware detection
+  • Can check configuration
+  Limitation: Requires valid credentials, read-only account
+
+API-Based:
+  • Query device management APIs
+  • Integrate with SDN controllers
+  • Pull from network management systems (NMS)
+  Limitation: Varies by vendor, not standardized</code></pre>
+                </div>
+                
+                <h2>Remediation Strategies</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NETWORK DEVICE REMEDIATION
+═══════════════════════════════════════════════════════════════════════
+
+FIRMWARE UPDATE PROCESS:
+─────────────────────────────────────────────────────────────────────
+1. Download firmware from vendor (verify hash)
+2. Review release notes for breaking changes
+3. Backup current configuration
+4. Test on non-production device if possible
+5. Schedule maintenance window
+6. Apply update (may require reboot)
+7. Verify device functionality
+8. Confirm vulnerability resolved
+
+IMMEDIATE MITIGATIONS (While Awaiting Patch):
+─────────────────────────────────────────────────────────────────────
+• Disable vulnerable features if not needed
+• Restrict management interface access (ACLs)
+• Enable additional authentication (MFA where supported)
+• Place behind jump host/bastion
+• Increase monitoring/logging
+• Implement IPS signatures if available
+
+BEST PRACTICES:
+─────────────────────────────────────────────────────────────────────
+• No management interfaces on internet
+• Separate management VLAN
+• SNMPv3 only (not v1/v2c)
+• SSH only (no Telnet)
+• Strong password policy
+• Regular firmware lifecycle reviews
+• Subscribe to vendor security advisories</code></pre>
+                </div>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ Edge Device Priority</div>
+                    <p>
+                        VPN concentrators, SSL-VPN appliances, and internet-facing firewalls are 
+                        extremely high priority targets. They're directly exposed to the internet 
+                        and provide access to internal networks. Treat any vulnerability in these 
+                        devices as P1 regardless of CVSS.
+                    </p>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you handle vulnerabilities on network infrastructure?"</strong><br><br>
+                        Sample answer: "Network devices require special handling. I use authenticated 
+                        scanning with SSH or SNMPv3 for accurate version detection. Edge devices like 
+                        VPN concentrators get P1 priority regardless of CVSS because of their exposure. 
+                        Firmware updates are scheduled during maintenance windows with configuration 
+                        backups ready. For critical vulnerabilities, I implement immediate mitigations 
+                        like disabling vulnerable features or restricting management access via ACLs 
+                        while we test and schedule the patch."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Network device vulnerabilities can compromise entire network segments. Prioritize 
+                    edge devices, maintain authenticated scanning, and have a firmware update process 
+                    that balances speed with stability. Subscribe to vendor advisories for your 
+                    specific equipment.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="7-2-application-vulns.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Application Vulnerabilities</span>
+                    </a>
+                    <a href="7-4-web-application-vulns.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Web Application Vulnerabilities</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

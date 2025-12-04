@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Container Vulnerabilities - Docker, Kubernetes security, image scanning, and container runtime protection.">
+    <title>Container Vulnerabilities | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item active">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="7-1-os-vulnerabilities.html">Section 7: Vulnerability Types</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Container Vulnerabilities</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Container Vulnerabilities</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 7.5</span>
+                        <span class="page-meta-item">⏱️ 16 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers container security including image vulnerabilities, Kubernetes 
+                        misconfigurations, container escape vulnerabilities, and scanning strategies.
+                    </p>
+                </div>
+                
+                <h2>Container Vulnerability Types</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CONTAINER SECURITY VULNERABILITY AREAS
+═══════════════════════════════════════════════════════════════════════
+
+IMAGE VULNERABILITIES
+─────────────────────────────────────────────────────────────────────
+• Base image OS packages (Debian, Alpine, Ubuntu)
+• Application dependencies (npm, pip, gem)
+• Outdated/unpatched software in layers
+• Embedded secrets/credentials
+
+CONTAINER RUNTIME
+─────────────────────────────────────────────────────────────────────
+• Container escape vulnerabilities
+• Privileged container risks
+• Host filesystem access
+• Docker daemon vulnerabilities
+
+KUBERNETES/ORCHESTRATION
+─────────────────────────────────────────────────────────────────────
+• RBAC misconfigurations
+• Exposed dashboards/APIs
+• Pod security policy gaps
+• Network policy absence
+• Secrets management issues
+
+REGISTRY SECURITY
+─────────────────────────────────────────────────────────────────────
+• Unsigned images
+• Public registries with malicious images
+• Lack of image scanning
+• Missing vulnerability policies</code></pre>
+                </div>
+                
+                <h2>Container Image Scanning</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# Container Image Scanning Examples
+
+# ═══════════════════════════════════════════════════════════════════
+# TRIVY - Most popular open source scanner
+# ═══════════════════════════════════════════════════════════════════
+
+# Scan image for vulnerabilities
+trivy image nginx:latest
+
+# Scan with severity filter
+trivy image --severity CRITICAL,HIGH myapp:v1.0
+
+# Output as JSON for automation
+trivy image --format json --output results.json myapp:v1.0
+
+# Scan and fail on critical (for CI/CD)
+trivy image --exit-code 1 --severity CRITICAL myapp:v1.0
+
+# Scan filesystem (for local builds)
+trivy fs --security-checks vuln,config /path/to/project
+
+# ═══════════════════════════════════════════════════════════════════
+# GRYPE - Anchore's scanner
+# ═══════════════════════════════════════════════════════════════════
+
+# Scan image
+grype myapp:v1.0
+
+# Fail on high+ severity
+grype myapp:v1.0 --fail-on high
+
+# ═══════════════════════════════════════════════════════════════════
+# DOCKER SCOUT (Docker Desktop built-in)
+# ═══════════════════════════════════════════════════════════════════
+
+# Scan with Docker Scout
+docker scout cves myapp:v1.0
+
+# Quick overview
+docker scout quickview myapp:v1.0</code></pre>
+                </div>
+                
+                <h2>Kubernetes Security</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">YAML</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Secure Pod Configuration Example
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-pod
+spec:
+  # Don't run as root
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    fsGroup: 1000
+    
+  containers:
+  - name: app
+    image: myapp:v1.0
+    
+    # Container-level security
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+          - ALL
+    
+    # Resource limits (prevent DoS)
+    resources:
+      limits:
+        memory: "256Mi"
+        cpu: "500m"
+      requests:
+        memory: "128Mi"
+        cpu: "250m"
+    
+    # Health checks
+    livenessProbe:
+      httpGet:
+        path: /health
+        port: 8080
+    
+    # Don't mount service account token if not needed
+  automountServiceAccountToken: false</code></pre>
+                </div>
+                
+                <h3>Kubernetes Scanning</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# Kubernetes Security Scanning
+
+# ═══════════════════════════════════════════════════════════════════
+# KUBESCAPE - NSA/CISA hardening checks
+# ═══════════════════════════════════════════════════════════════════
+
+# Full cluster scan
+kubescape scan framework nsa --submit
+
+# Scan specific namespace
+kubescape scan framework nsa --include-namespaces production
+
+# Scan YAML files before deploy
+kubescape scan deployment.yaml
+
+# ═══════════════════════════════════════════════════════════════════
+# KUBE-BENCH - CIS Benchmark checks
+# ═══════════════════════════════════════════════════════════════════
+
+# Run CIS benchmark checks
+kube-bench run --targets node,master,controlplane
+
+# ═══════════════════════════════════════════════════════════════════
+# TRIVY - Kubernetes scanning
+# ═══════════════════════════════════════════════════════════════════
+
+# Scan running cluster
+trivy k8s --report summary cluster
+
+# Scan specific namespace
+trivy k8s -n production --report all</code></pre>
+                </div>
+                
+                <h2>Notable Container CVEs</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CRITICAL CONTAINER VULNERABILITIES
+═══════════════════════════════════════════════════════════════════════
+
+CVE-2024-21626 (Leaky Vessels - runc)
+─────────────────────────────────────────────────────────────────────
+Component: runc (container runtime)
+Type: Container escape
+Impact: Break out of container to host
+Affected: runc < 1.1.12
+Fix: Update runc, Docker, containerd
+
+CVE-2022-0185 (Linux Kernel)
+─────────────────────────────────────────────────────────────────────
+Component: Linux kernel
+Type: Container escape via filesystem
+Impact: Privilege escalation to host
+Fix: Kernel update, block unshare in containers
+
+CVE-2020-15257 (containerd)
+─────────────────────────────────────────────────────────────────────
+Component: containerd
+Type: Container escape
+Impact: Host access via abstract unix sockets
+Fix: Update containerd to 1.4.3+
+
+CVE-2019-5736 (runc)
+─────────────────────────────────────────────────────────────────────
+Component: runc
+Type: Container escape
+Impact: Overwrite host runc binary
+Fix: Update runc to 1.0.0-rc6+</code></pre>
+                </div>
+                
+                <h2>Remediation Strategy</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CONTAINER VULNERABILITY REMEDIATION
+═══════════════════════════════════════════════════════════════════════
+
+IMAGE VULNERABILITIES:
+─────────────────────────────────────────────────────────────────────
+1. Rebuild with updated base image
+2. Update application dependencies
+3. Push new image to registry
+4. Redeploy containers/pods
+
+Note: Containers are immutable - you don't patch, you rebuild
+
+KUBERNETES MISCONFIGURATIONS:
+─────────────────────────────────────────────────────────────────────
+1. Update deployment YAML
+2. Apply pod security standards
+3. Implement network policies
+4. Redeploy affected workloads
+
+CONTAINER RUNTIME:
+─────────────────────────────────────────────────────────────────────
+1. Update Docker/containerd/runc on nodes
+2. Rolling node update in Kubernetes
+3. Verify container functionality
+
+BEST PRACTICES:
+─────────────────────────────────────────────────────────────────────
+• Use minimal base images (distroless, alpine)
+• Scan images in CI/CD pipeline
+• Block deployment of vulnerable images
+• Implement admission controllers
+• Regular base image updates
+• Sign and verify images</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you manage container vulnerabilities?"</strong><br><br>
+                        Sample answer: "I integrate Trivy into our CI/CD pipeline to scan images before 
+                        they're pushed to the registry. Any critical vulnerabilities block the build. In 
+                        our registry, we run periodic scans and have admission controllers in Kubernetes 
+                        that prevent deploying images with critical CVEs. For remediation, we rebuild 
+                        images with updated base images and dependencies rather than patching—containers 
+                        are immutable. We also use Kubescape to check for Kubernetes misconfigurations 
+                        against NSA/CISA guidelines."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Container vulnerabilities span images, runtimes, and orchestration. Scan images 
+                    in CI/CD, use admission control to prevent vulnerable deployments, and follow 
+                    pod security best practices. Remember: containers are immutable—remediation 
+                    means rebuild and redeploy.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="7-4-web-application-vulns.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Web Application Vulnerabilities</span>
+                    </a>
+                    <a href="7-6-cloud-vulns.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Cloud Vulnerabilities</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

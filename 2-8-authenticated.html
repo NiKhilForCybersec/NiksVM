@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Authenticated Scanning - Credential management, service accounts, privileged access for Windows, Linux, network devices, and databases.">
+    <title>Authenticated Scanning | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item active">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Authenticated Scanning</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Authenticated Scanning</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.8</span>
+                        <span class="page-meta-item">⏱️ 20 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers authenticated vulnerability scanning including credential types, 
+                        service account configuration for Windows and Linux, network device authentication, 
+                        database scanning, and secure credential management practices.
+                    </p>
+                </div>
+                
+                <h2>Why Authenticated Scanning Matters</h2>
+                
+                <p>
+                    Authenticated scans detect 60-70% more vulnerabilities than unauthenticated scans. 
+                    Without credentials, scanners only see externally visible information like banners 
+                    and open ports.
+                </p>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Detection Type</th>
+                                <th>Unauthenticated</th>
+                                <th>Authenticated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Missing OS patches</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Installed software versions</td>
+                                <td>⚠️ Limited</td>
+                                <td>✅ Complete</td>
+                            </tr>
+                            <tr>
+                                <td>Configuration weaknesses</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Local privilege escalation</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Service account permissions</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Browser/client-side software</td>
+                                <td>❌ No</td>
+                                <td>✅ Yes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Windows Authentication</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">PowerShell</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Create Vulnerability Scanner Service Account in Active Directory
+
+# Create OU for service accounts
+New-ADOrganizationalUnit -Name "Service Accounts" -Path "DC=corp,DC=company,DC=com"
+
+# Create scanner service account
+$Password = ConvertTo-SecureString "ComplexP@ssw0rd!" -AsPlainText -Force
+New-ADUser -Name "svc_vuln_scan" `
+    -SamAccountName "svc_vuln_scan" `
+    -UserPrincipalName "svc_vuln_scan@corp.company.com" `
+    -Path "OU=Service Accounts,DC=corp,DC=company,DC=com" `
+    -AccountPassword $Password `
+    -Enabled $true `
+    -PasswordNeverExpires $true `
+    -CannotChangePassword $true `
+    -Description "Vulnerability Scanner Service Account"
+
+# Add to local Administrators on target systems via GPO
+# Or create a dedicated group
+New-ADGroup -Name "Vulnerability Scanners" `
+    -GroupScope Global `
+    -GroupCategory Security `
+    -Path "OU=Security Groups,DC=corp,DC=company,DC=com"
+
+Add-ADGroupMember -Identity "Vulnerability Scanners" -Members "svc_vuln_scan"</code></pre>
+                </div>
+                
+                <h3>Windows Target Configuration</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">PowerShell</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Configure Windows targets for authenticated scanning
+
+# 1. Enable Remote Registry service (for WMI scanning)
+Set-Service -Name "RemoteRegistry" -StartupType Automatic
+Start-Service -Name "RemoteRegistry"
+
+# 2. Configure Windows Firewall (if enabled)
+# Enable File and Printer Sharing
+Enable-NetFirewallRule -DisplayGroup "File and Printer Sharing"
+
+# Enable WMI
+Enable-NetFirewallRule -DisplayGroup "Windows Management Instrumentation (WMI)"
+
+# 3. Enable WinRM (for PowerShell-based scanning)
+Enable-PSRemoting -Force
+Set-Item WSMan:\localhost\Client\TrustedHosts -Value "scanner.company.com"
+
+# 4. Configure UAC for remote admin access
+# Required for non-domain admin local accounts
+$RegPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
+Set-ItemProperty -Path $RegPath -Name "LocalAccountTokenFilterPolicy" -Value 1
+
+# 5. Verify admin share access
+# Test from scanner: net use \\target\c$ /user:domain\svc_vuln_scan
+
+# GPO Settings for domain-wide deployment:
+# Computer Configuration > Preferences > Windows Settings > Registry
+# Add LocalAccountTokenFilterPolicy = 1
+# Computer Configuration > Policies > Admin Templates > Network > Network Connections > Windows Firewall
+# Allow inbound file and printer sharing exception</code></pre>
+                </div>
+                
+                <h2>Linux/Unix Authentication</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# Configure Linux targets for authenticated scanning
+
+# 1. Create scanner service account
+sudo useradd -m -s /bin/bash -c "Vulnerability Scanner" nessus_scan
+sudo passwd nessus_scan  # Set strong password
+
+# 2. Configure sudo access (choose one approach)
+
+# Option A: Full sudo (not recommended for production)
+echo "nessus_scan ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/nessus_scan
+
+# Option B: Limited sudo (recommended)
+cat << 'EOF' | sudo tee /etc/sudoers.d/nessus_scan
+# Vulnerability Scanner - Limited sudo access
+nessus_scan ALL=(root) NOPASSWD: /bin/cat /etc/shadow
+nessus_scan ALL=(root) NOPASSWD: /bin/cat /etc/passwd
+nessus_scan ALL=(root) NOPASSWD: /usr/bin/find
+nessus_scan ALL=(root) NOPASSWD: /bin/ls
+nessus_scan ALL=(root) NOPASSWD: /usr/bin/rpm -qa
+nessus_scan ALL=(root) NOPASSWD: /usr/bin/dpkg -l
+nessus_scan ALL=(root) NOPASSWD: /usr/sbin/dmidecode
+nessus_scan ALL=(root) NOPASSWD: /sbin/iptables -L
+nessus_scan ALL=(root) NOPASSWD: /bin/netstat
+nessus_scan ALL=(root) NOPASSWD: /bin/ss
+nessus_scan ALL=(root) NOPASSWD: /usr/bin/systemctl list-units
+EOF
+
+sudo chmod 440 /etc/sudoers.d/nessus_scan
+
+# 3. SSH Key Authentication (recommended over password)
+# On scanner server:
+ssh-keygen -t ed25519 -f /opt/scanner/keys/nessus_scan -N ""
+
+# Copy public key to targets:
+ssh-copy-id -i /opt/scanner/keys/nessus_scan.pub nessus_scan@target
+
+# 4. Verify SSH configuration allows key auth
+grep -E "^PubkeyAuthentication|^PasswordAuthentication" /etc/ssh/sshd_config
+# PubkeyAuthentication yes
+
+# 5. Test connectivity
+ssh -i /opt/scanner/keys/nessus_scan nessus_scan@target "sudo cat /etc/shadow | head -1"</code></pre>
+                </div>
+                
+                <h2>Network Device Authentication</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>NETWORK DEVICE AUTHENTICATION METHODS
+═══════════════════════════════════════════════════════════════════════
+
+CISCO IOS/IOS-XE:
+─────────────────────────────────────────────────────────────────────
+Protocol: SSH (preferred) or SNMP
+Username: vuln_scanner (privilege 15 or enable password)
+
+! Create scanner account on Cisco device
+enable
+configure terminal
+username vuln_scanner privilege 15 secret ComplexP@ss!
+aaa new-model
+aaa authentication login default local
+line vty 0 15
+ transport input ssh
+ login local
+
+Scanner Config:
+  Protocol: SSH
+  Username: vuln_scanner
+  Password: ComplexP@ss!
+  Enable Password: [if not privilege 15]
+
+JUNIPER JUNOS:
+─────────────────────────────────────────────────────────────────────
+Protocol: SSH
+Class: Read-only or operator
+
+set system login user vuln_scanner class read-only
+set system login user vuln_scanner authentication plain-text-password
+
+PALO ALTO:
+─────────────────────────────────────────────────────────────────────
+Protocol: SSH or API
+Role: Device Reader (minimum)
+
+Configure > Device > Administrators
+Create user: vuln_scanner
+Role: Device Reader
+
+SNMP CONFIGURATION (Alternative):
+─────────────────────────────────────────────────────────────────────
+SNMPv3 (Recommended):
+  Security Level: authPriv
+  Auth Protocol: SHA
+  Privacy Protocol: AES128
+  
+SNMPv2c (Legacy - avoid if possible):
+  Community String: [random complex string]
+  Access: Read-only</code></pre>
+                </div>
+                
+                <h2>Database Authentication</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>-- SQL Server Scanner Account
+USE master;
+GO
+
+-- Create login
+CREATE LOGIN vuln_scanner WITH PASSWORD = 'ComplexP@ssw0rd!';
+GO
+
+-- Add to server roles for scanning
+ALTER SERVER ROLE [securityadmin] ADD MEMBER [vuln_scanner];
+ALTER SERVER ROLE [serveradmin] ADD MEMBER [vuln_scanner];
+GO
+
+-- Grant VIEW SERVER STATE for configuration checks
+GRANT VIEW SERVER STATE TO vuln_scanner;
+GRANT VIEW ANY DEFINITION TO vuln_scanner;
+GO
+
+-- Oracle Scanner Account
+CREATE USER vuln_scanner IDENTIFIED BY "ComplexP@ssw0rd!";
+GRANT CREATE SESSION TO vuln_scanner;
+GRANT SELECT_CATALOG_ROLE TO vuln_scanner;
+GRANT SELECT ANY DICTIONARY TO vuln_scanner;
+
+-- MySQL Scanner Account  
+CREATE USER 'vuln_scanner'@'scanner_ip' IDENTIFIED BY 'ComplexP@ssw0rd!';
+GRANT SELECT ON *.* TO 'vuln_scanner'@'scanner_ip';
+GRANT PROCESS ON *.* TO 'vuln_scanner'@'scanner_ip';
+GRANT SHOW DATABASES ON *.* TO 'vuln_scanner'@'scanner_ip';
+FLUSH PRIVILEGES;
+
+-- PostgreSQL Scanner Account
+CREATE USER vuln_scanner WITH PASSWORD 'ComplexP@ssw0rd!';
+GRANT pg_read_all_settings TO vuln_scanner;
+GRANT SELECT ON pg_authid TO vuln_scanner;</code></pre>
+                </div>
+                
+                <h2>Credential Security Best Practices</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CREDENTIAL SECURITY CHECKLIST
+═══════════════════════════════════════════════════════════════════════
+
+ACCOUNT MANAGEMENT:
+─────────────────────────────────────────────────────────────────────
+□ Use dedicated service accounts (never personal accounts)
+□ Use separate accounts per zone/environment
+□ Follow naming convention: svc_vuln_scan_[zone]
+□ Document all scanner accounts in CMDB
+□ Review accounts quarterly
+
+PASSWORD SECURITY:
+─────────────────────────────────────────────────────────────────────
+□ Minimum 16 characters, complex
+□ Rotate passwords quarterly (or per policy)
+□ Use different passwords per account
+□ Never store in plaintext files
+
+PRIVILEGE MANAGEMENT:
+─────────────────────────────────────────────────────────────────────
+□ Use least privilege necessary
+□ Prefer read-only where possible
+□ Document required privileges per platform
+□ Audit privilege usage
+
+CREDENTIAL STORAGE:
+─────────────────────────────────────────────────────────────────────
+Options (best to acceptable):
+1. PAM Integration (CyberArk, HashiCorp Vault)
+   - Scanner retrieves credentials at runtime
+   - Automatic rotation
+   - Full audit trail
+
+2. Scanner's Built-in Credential Manager
+   - Encrypted storage
+   - Role-based access to credentials
+   - Audit who accesses credentials
+
+3. Encrypted Credential Files (last resort)
+   - Strong encryption (AES-256)
+   - Restricted file permissions
+   - Regular key rotation
+
+NETWORK RESTRICTIONS:
+─────────────────────────────────────────────────────────────────────
+□ Restrict scanner account login to scanner IPs only
+□ Windows: Use "Log on to" restrictions in AD
+□ Linux: Use AllowUsers in sshd_config with IP restrictions
+□ Firewall rules limiting credential protocols to scanner</code></pre>
+                </div>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ Credential Compromise Risk</div>
+                    <p>
+                        Scanner credentials provide broad access across your environment. If compromised, 
+                        attackers gain immediate lateral movement capability. Treat scanner credentials as 
+                        Tier 0/privileged—monitor usage, restrict access, rotate regularly, and integrate 
+                        with PAM solutions when possible.
+                    </p>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you securely manage scanner credentials across a large environment?"</strong><br><br>
+                        Sample answer: "I segment credentials by network zone and criticality—DMZ scanners 
+                        have different credentials than internal. For Windows, I use dedicated domain service 
+                        accounts with restricted logon-to settings. For Linux, I prefer SSH key authentication 
+                        over passwords. I integrate with CyberArk for credential storage and rotation—the 
+                        scanner retrieves credentials at runtime rather than storing them. All scanner accounts 
+                        are monitored in our SIEM for anomalous usage. I conduct quarterly access reviews and 
+                        rotate credentials after any team member departure."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Authenticated scanning is essential for comprehensive vulnerability detection. Proper 
+                    service account configuration, platform-specific setup, and secure credential management 
+                    enable effective scanning while minimizing security risks.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="2-7-best-practices.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Scan Best Practices</span>
+                    </a>
+                    <a href="2-9-cloud-container.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Cloud & Container Scanning</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

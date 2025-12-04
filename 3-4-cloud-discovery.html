@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cloud Asset Discovery - AWS, Azure, GCP asset inventory, cloud connectors, multi-cloud visibility, and ephemeral resource tracking.">
+    <title>Cloud Asset Discovery | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item active">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="3-1-discovery-methods.html">Section 3: Asset Discovery</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Cloud Asset Discovery</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Cloud Asset Discovery</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 3.4</span>
+                        <span class="page-meta-item">⏱️ 18 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers cloud asset discovery across AWS, Azure, and GCP including 
+                        API-based inventory collection, cloud connectors for vulnerability scanners, 
+                        multi-cloud visibility strategies, and handling ephemeral cloud resources.
+                    </p>
+                </div>
+                
+                <h2>Cloud Discovery Challenges</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CLOUD ASSET DISCOVERY CHALLENGES
+═══════════════════════════════════════════════════════════════════════
+
+TRADITIONAL VM                          CLOUD ENVIRONMENTS
+─────────────────                       ──────────────────
+Static IP addresses          vs.        Dynamic IPs, ephemeral resources
+Long-lived servers           vs.        Auto-scaling, containers, serverless
+Network scanning works       vs.        VPC isolation, security groups block
+Stable inventory             vs.        Resources created/destroyed hourly
+Manual provisioning          vs.        Infrastructure as Code, self-service
+
+KEY CHALLENGES:
+─────────────────────────────────────────────────────────────────────
+• Ephemeral resources: EC2 instances may exist for minutes
+• Multi-account sprawl: Dozens or hundreds of AWS accounts
+• Shadow cloud: Developers spinning up unauthorized resources
+• Service diversity: VMs, containers, serverless, PaaS, SaaS
+• Network scanning limitations: Can't scan across VPCs easily
+• Shared responsibility: What's your responsibility vs cloud provider?</code></pre>
+                </div>
+                
+                <h2>AWS Asset Discovery</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+AWS Asset Discovery
+Comprehensive inventory collection across AWS services.
+"""
+
+import boto3
+from typing import Dict, List
+from datetime import datetime
+
+
+class AWSAssetDiscovery:
+    """Discover AWS assets across multiple services."""
+    
+    def __init__(self, profile: str = None, region: str = 'us-east-1'):
+        self.session = boto3.Session(profile_name=profile, region_name=region)
+        self.inventory = {
+            'ec2_instances': [],
+            'rds_instances': [],
+            'lambda_functions': [],
+            's3_buckets': [],
+            'load_balancers': [],
+            'security_groups': []
+        }
+    
+    def discover_ec2_instances(self) -> List[Dict]:
+        """Discover all EC2 instances."""
+        ec2 = self.session.client('ec2')
+        paginator = ec2.get_paginator('describe_instances')
+        
+        instances = []
+        for page in paginator.paginate():
+            for reservation in page['Reservations']:
+                for instance in reservation['Instances']:
+                    instances.append({
+                        'resource_type': 'EC2',
+                        'instance_id': instance['InstanceId'],
+                        'instance_type': instance['InstanceType'],
+                        'state': instance['State']['Name'],
+                        'private_ip': instance.get('PrivateIpAddress'),
+                        'public_ip': instance.get('PublicIpAddress'),
+                        'vpc_id': instance.get('VpcId'),
+                        'subnet_id': instance.get('SubnetId'),
+                        'ami_id': instance.get('ImageId'),
+                        'launch_time': instance['LaunchTime'].isoformat(),
+                        'tags': {t['Key']: t['Value'] for t in instance.get('Tags', [])},
+                        'security_groups': [sg['GroupId'] for sg in instance.get('SecurityGroups', [])],
+                        'platform': instance.get('Platform', 'linux'),
+                        'iam_role': instance.get('IamInstanceProfile', {}).get('Arn')
+                    })
+        
+        self.inventory['ec2_instances'] = instances
+        return instances
+    
+    def discover_rds_instances(self) -> List[Dict]:
+        """Discover RDS database instances."""
+        rds = self.session.client('rds')
+        paginator = rds.get_paginator('describe_db_instances')
+        
+        instances = []
+        for page in paginator.paginate():
+            for db in page['DBInstances']:
+                instances.append({
+                    'resource_type': 'RDS',
+                    'db_instance_id': db['DBInstanceIdentifier'],
+                    'engine': db['Engine'],
+                    'engine_version': db['EngineVersion'],
+                    'instance_class': db['DBInstanceClass'],
+                    'status': db['DBInstanceStatus'],
+                    'endpoint': db.get('Endpoint', {}).get('Address'),
+                    'port': db.get('Endpoint', {}).get('Port'),
+                    'vpc_id': db.get('DBSubnetGroup', {}).get('VpcId'),
+                    'publicly_accessible': db.get('PubliclyAccessible', False),
+                    'encrypted': db.get('StorageEncrypted', False),
+                    'multi_az': db.get('MultiAZ', False)
+                })
+        
+        self.inventory['rds_instances'] = instances
+        return instances
+    
+    def discover_lambda_functions(self) -> List[Dict]:
+        """Discover Lambda functions."""
+        lambda_client = self.session.client('lambda')
+        paginator = lambda_client.get_paginator('list_functions')
+        
+        functions = []
+        for page in paginator.paginate():
+            for func in page['Functions']:
+                functions.append({
+                    'resource_type': 'Lambda',
+                    'function_name': func['FunctionName'],
+                    'runtime': func.get('Runtime'),
+                    'handler': func.get('Handler'),
+                    'memory_size': func.get('MemorySize'),
+                    'timeout': func.get('Timeout'),
+                    'last_modified': func.get('LastModified'),
+                    'vpc_config': func.get('VpcConfig'),
+                    'role': func.get('Role')
+                })
+        
+        self.inventory['lambda_functions'] = functions
+        return functions
+    
+    def discover_all(self) -> Dict:
+        """Run all discovery methods."""
+        self.discover_ec2_instances()
+        self.discover_rds_instances()
+        self.discover_lambda_functions()
+        
+        return {
+            'discovered_at': datetime.utcnow().isoformat(),
+            'region': self.session.region_name,
+            'summary': {
+                'ec2_instances': len(self.inventory['ec2_instances']),
+                'rds_instances': len(self.inventory['rds_instances']),
+                'lambda_functions': len(self.inventory['lambda_functions'])
+            },
+            'inventory': self.inventory
+        }
+
+
+# Multi-account discovery using AWS Organizations
+def discover_all_accounts():
+    """Discover assets across all AWS accounts in organization."""
+    org_client = boto3.client('organizations')
+    
+    # Get all accounts
+    accounts = []
+    paginator = org_client.get_paginator('list_accounts')
+    for page in paginator.paginate():
+        accounts.extend(page['Accounts'])
+    
+    all_assets = {}
+    for account in accounts:
+        if account['Status'] == 'ACTIVE':
+            # Assume role in target account
+            sts = boto3.client('sts')
+            role_arn = f"arn:aws:iam::{account['Id']}:role/SecurityAuditRole"
+            
+            try:
+                credentials = sts.assume_role(
+                    RoleArn=role_arn,
+                    RoleSessionName='AssetDiscovery'
+                )['Credentials']
+                
+                session = boto3.Session(
+                    aws_access_key_id=credentials['AccessKeyId'],
+                    aws_secret_access_key=credentials['SecretAccessKey'],
+                    aws_session_token=credentials['SessionToken']
+                )
+                
+                # Run discovery in target account
+                # ... (iterate through regions)
+                
+            except Exception as e:
+                print(f"Failed to access account {account['Id']}: {e}")
+    
+    return all_assets</code></pre>
+                </div>
+                
+                <h2>Azure Asset Discovery</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Azure Asset Discovery using Azure Resource Graph
+"""
+
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.resourcegraph import ResourceGraphClient
+from azure.mgmt.resourcegraph.models import QueryRequest
+from typing import List, Dict
+
+
+class AzureAssetDiscovery:
+    """Discover Azure assets using Resource Graph."""
+    
+    def __init__(self, subscription_ids: List[str] = None):
+        self.credential = DefaultAzureCredential()
+        self.client = ResourceGraphClient(self.credential)
+        self.subscription_ids = subscription_ids or []
+    
+    def query_resources(self, query: str) -> List[Dict]:
+        """Execute Azure Resource Graph query."""
+        request = QueryRequest(
+            subscriptions=self.subscription_ids,
+            query=query
+        )
+        
+        response = self.client.resources(request)
+        return response.data
+    
+    def discover_vms(self) -> List[Dict]:
+        """Discover all Virtual Machines."""
+        query = """
+        Resources
+        | where type == 'microsoft.compute/virtualmachines'
+        | extend 
+            vmSize = properties.hardwareProfile.vmSize,
+            osType = properties.storageProfile.osDisk.osType,
+            osPublisher = properties.storageProfile.imageReference.publisher,
+            osOffer = properties.storageProfile.imageReference.offer,
+            osSku = properties.storageProfile.imageReference.sku,
+            powerState = properties.extended.instanceView.powerState.code
+        | project 
+            id, name, resourceGroup, location, subscriptionId,
+            vmSize, osType, osPublisher, osOffer, osSku, powerState, tags
+        """
+        return self.query_resources(query)
+    
+    def discover_sql_databases(self) -> List[Dict]:
+        """Discover SQL databases."""
+        query = """
+        Resources
+        | where type == 'microsoft.sql/servers/databases'
+        | extend 
+            serverName = split(id, '/')[8],
+            edition = properties.edition,
+            status = properties.status
+        | project 
+            id, name, resourceGroup, location, subscriptionId,
+            serverName, edition, status, tags
+        """
+        return self.query_resources(query)
+    
+    def discover_storage_accounts(self) -> List[Dict]:
+        """Discover storage accounts."""
+        query = """
+        Resources
+        | where type == 'microsoft.storage/storageaccounts'
+        | extend
+            httpsOnly = properties.supportsHttpsTrafficOnly,
+            publicAccess = properties.allowBlobPublicAccess,
+            encryption = properties.encryption.services.blob.enabled
+        | project
+            id, name, resourceGroup, location, subscriptionId,
+            httpsOnly, publicAccess, encryption, tags
+        """
+        return self.query_resources(query)
+    
+    def discover_public_ips(self) -> List[Dict]:
+        """Find all public IPs (internet-facing resources)."""
+        query = """
+        Resources
+        | where type == 'microsoft.network/publicipaddresses'
+        | extend
+            ipAddress = properties.ipAddress,
+            allocationMethod = properties.publicIPAllocationMethod,
+            associatedResource = properties.ipConfiguration.id
+        | project
+            id, name, resourceGroup, location, subscriptionId,
+            ipAddress, allocationMethod, associatedResource, tags
+        """
+        return self.query_resources(query)
+    
+    def discover_all(self) -> Dict:
+        """Run comprehensive discovery."""
+        return {
+            'virtual_machines': self.discover_vms(),
+            'sql_databases': self.discover_sql_databases(),
+            'storage_accounts': self.discover_storage_accounts(),
+            'public_ips': self.discover_public_ips()
+        }
+
+
+# Example usage
+discovery = AzureAssetDiscovery(subscription_ids=['sub-id-1', 'sub-id-2'])
+assets = discovery.discover_all()
+print(f"Found {len(assets['virtual_machines'])} VMs")</code></pre>
+                </div>
+                
+                <h2>Cloud Connectors</h2>
+                
+                <p>
+                    Major vulnerability scanners provide native cloud connectors for seamless integration.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CLOUD CONNECTOR COMPARISON
+═══════════════════════════════════════════════════════════════════════
+
+QUALYS CLOUD CONNECTORS:
+─────────────────────────────────────────────────────────────────────
+AWS:
+  • AssetView Connector: Imports EC2, RDS, Lambda, EKS metadata
+  • Cloud Agent: Deployed on EC2 for vulnerability scanning
+  • Setup: IAM role with read permissions, run from Qualys console
+
+Azure:
+  • Azure Connector: Syncs VMs, SQL, App Services
+  • Integrated with Azure Security Center findings
+  • Uses Service Principal for authentication
+
+GCP:
+  • GCP Connector: Imports Compute Engine, GKE, Cloud SQL
+  • Service Account with Viewer role
+
+TENABLE.IO CLOUD CONNECTORS:
+─────────────────────────────────────────────────────────────────────
+AWS:
+  • AWS Connector: Auto-discovers EC2, Lambda, ECS
+  • Frictionless Assessment: Scans without agents using AWS APIs
+  • Nessus Agents for deep scanning
+
+Azure:
+  • Azure Connector: VM, VMSS, SQL, Container instances
+  • Uses App Registration
+
+GCP:
+  • GCP Connector: GCE, GKE resources
+  • Service Account authentication
+
+RAPID7 INSIGHT PLATFORM:
+─────────────────────────────────────────────────────────────────────
+• AWS Connection: CloudFormation template for setup
+• Azure Connection: ARM template deployment
+• Container scanning: Registry integration
+• All support auto-discovery and tagging</code></pre>
+                </div>
+                
+                <h2>Ephemeral Resource Handling</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>HANDLING EPHEMERAL CLOUD RESOURCES
+═══════════════════════════════════════════════════════════════════════
+
+CHALLENGE: Auto-scaling creates/destroys instances faster than scan cycles
+
+STRATEGIES:
+─────────────────────────────────────────────────────────────────────
+
+1. GOLDEN IMAGE SCANNING
+   ┌─────────────────────────────────────────────────────────────────┐
+   │  Scan AMI/Image BEFORE deployment                               │
+   │  • Scan in CI/CD pipeline                                       │
+   │  • Block promotion of vulnerable images                         │
+   │  • All instances from image inherit scan results                │
+   └─────────────────────────────────────────────────────────────────┘
+
+2. CONTAINER IMAGE SCANNING
+   ┌─────────────────────────────────────────────────────────────────┐
+   │  Scan container images in registry                              │
+   │  • ECR, ACR, GCR built-in scanning                             │
+   │  • Trivy/Grype in CI/CD                                        │
+   │  • Results apply to all running containers                      │
+   └─────────────────────────────────────────────────────────────────┘
+
+3. AGENT-BASED SCANNING
+   ┌─────────────────────────────────────────────────────────────────┐
+   │  Bake agent into base image                                     │
+   │  • Agent activates on boot                                      │
+   │  • Scans before instance handles traffic                        │
+   │  • Results reported even for short-lived instances              │
+   └─────────────────────────────────────────────────────────────────┘
+
+4. API-BASED ASSESSMENT
+   ┌─────────────────────────────────────────────────────────────────┐
+   │  Use cloud APIs instead of network scanning                     │
+   │  • AWS Inspector API-based assessment                           │
+   │  • No network access required                                   │
+   │  • Near real-time inventory                                     │
+   └─────────────────────────────────────────────────────────────────┘
+
+5. SHIFT-LEFT
+   ┌─────────────────────────────────────────────────────────────────┐
+   │  Scan Infrastructure as Code                                    │
+   │  • Terraform, CloudFormation scanning                           │
+   │  • Catch misconfigurations before deployment                    │
+   │  • Checkov, tfsec, cfn-nag                                     │
+   └─────────────────────────────────────────────────────────────────┘</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you handle vulnerability scanning in auto-scaling cloud environments?"</strong><br><br>
+                        Sample answer: "Traditional network scanning doesn't work well with ephemeral resources. 
+                        I use a layered approach: scan golden AMIs and container images in CI/CD before they're 
+                        deployed, so all instances inherit known vulnerability status. I bake agents into base 
+                        images so they self-register and scan on boot. For serverless like Lambda, I use SCA 
+                        tools to scan dependencies in the build pipeline. I also leverage cloud-native tools 
+                        like AWS Inspector which use API-based assessment rather than network scanning."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Cloud asset discovery requires API-based approaches rather than traditional network 
+                    scanning. Use native cloud connectors for VM platforms, implement shift-left scanning 
+                    for ephemeral resources, and ensure multi-account visibility across your cloud footprint.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="3-3-cmdb-integration.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">CMDB Integration</span>
+                    </a>
+                    <a href="3-5-shadow-it.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Shadow IT Detection</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

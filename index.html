@@ -3,1971 +3,412 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nik4U | Complete Vulnerability Management Reference</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg: #0a0a0f;
-            --bg-card: #111118;
-            --bg-elevated: #1a1a22;
-            --border: #2a2a35;
-            --text: #e8e8ed;
-            --text-dim: #9898a8;
-            --text-muted: #5a5a6a;
-            --cyan: #00d4ff;
-            --green: #00ff88;
-            --purple: #a855f7;
-            --amber: #ffb000;
-            --red: #ff4466;
-            --blue: #3b82f6;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 65px;
-            background: rgba(10,10,15,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            z-index: 1000;
-            padding: 0 2rem;
-        }
-        .logo {
-            font-family: 'IBM Plex Mono', monospace;
-            font-weight: 600;
-            font-size: 1.2rem;
-            color: var(--cyan);
-            position: absolute;
-            left: 2rem;
-        }
-        .main-tabs {
-            display: flex;
-            gap: 4px;
-            background: var(--bg-card);
-            padding: 4px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-        }
-        .main-tab {
-            padding: 10px 30px;
-            background: transparent;
-            border: none;
-            border-radius: 6px;
-            color: var(--text-dim);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .main-tab:hover { background: var(--bg-elevated); color: var(--text); }
-        .main-tab.active { background: var(--cyan); color: var(--bg); }
-        .main-tab.active.analyst { background: var(--blue); }
-        .main-tab.active.engineer { background: var(--green); color: #000; }
-        .main-tab.active.overview { background: var(--amber); color: #000; }
-        
-        .content { padding-top: 80px; max-width: 1600px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem; }
-        .tab-panel { display: none; }
-        .tab-panel.active { display: block; }
-        
-        .hero { text-align: center; padding: 50px 0 40px; }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
-        .hero h1 span { color: var(--cyan); }
-        .hero.analyst h1 span { color: var(--blue); }
-        .hero.engineer h1 span { color: var(--green); }
-        .hero.overview h1 span { color: var(--amber); }
-        .hero p { color: var(--text-dim); font-size: 1.1rem; max-width: 800px; margin: 0 auto; }
-        
-        .section { margin-bottom: 3rem; }
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .card h3 { margin-bottom: 1rem; color: var(--cyan); }
-        .card.analyst h3 { color: var(--blue); }
-        .card.engineer h3 { color: var(--green); }
-        
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
-        @media (max-width: 1000px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
-        
-        ul { padding-left: 1.5rem; }
-        ul li { margin-bottom: 0.5rem; color: var(--text-dim); }
-        ul li strong { color: var(--text); }
-        
-        .timeline-item {
-            padding: 1rem 0 1rem 1.5rem;
-            border-left: 2px solid var(--border);
-            position: relative;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 1.2rem;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--cyan);
-        }
-        .timeline-item.analyst::before { background: var(--blue); }
-        .timeline-item.engineer::before { background: var(--green); }
-        .timeline-time {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--cyan);
-            margin-bottom: 0.25rem;
-        }
-        .timeline-item.analyst .timeline-time { color: var(--blue); }
-        .timeline-item.engineer .timeline-time { color: var(--green); }
-        .timeline-title { font-weight: 600; margin-bottom: 0.25rem; }
-        .timeline-desc { color: var(--text-dim); font-size: 0.9rem; }
-        
-        .ticket {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-        }
-        .ticket-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.75rem;
-        }
-        .ticket-id {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--cyan);
-        }
-        .ticket-severity {
-            padding: 3px 10px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-        .severity-critical { background: rgba(255,68,102,0.2); color: var(--red); }
-        .severity-high { background: rgba(255,100,50,0.2); color: #ff6432; }
-        .severity-medium { background: rgba(255,176,0,0.2); color: var(--amber); }
-        .severity-low { background: rgba(0,255,136,0.2); color: var(--green); }
-        .ticket-title { font-weight: 600; margin-bottom: 0.5rem; }
-        .ticket-desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 0.75rem; }
-        .ticket-actions {
-            background: var(--bg-elevated);
-            border-radius: 6px;
-            padding: 0.75rem;
-            font-size: 0.85rem;
-        }
-        .ticket-actions strong { color: var(--green); }
-        
-        .discrepancy {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--red);
-            border-radius: 0 10px 10px 0;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-        }
-        .discrepancy.warning { border-left-color: var(--amber); }
-        .discrepancy.info { border-left-color: var(--blue); }
-        .discrepancy-title { font-weight: 600; margin-bottom: 0.5rem; }
-        .discrepancy-desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 0.75rem; }
-        .discrepancy-solution {
-            background: var(--bg-elevated);
-            border-radius: 6px;
-            padding: 0.75rem;
-            font-size: 0.85rem;
-        }
-        .discrepancy-solution strong { color: var(--green); }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-            background: var(--bg-card);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-        }
-        th, td {
-            padding: 12px 14px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        th {
-            background: var(--bg-elevated);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-muted);
-        }
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background: rgba(255,255,255,0.02); }
-        .check { color: var(--green); }
-        .cross { color: var(--red); }
-        .partial { color: var(--amber); }
-        
-        .vendor-name {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-        .vendor-logo {
-            width: 32px;
-            height: 32px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-        
-        .rating { color: var(--amber); }
-        
-        .tag {
-            display: inline-block;
-            padding: 3px 8px;
-            background: var(--bg-elevated);
-            border-radius: 4px;
-            font-size: 0.75rem;
-            margin: 2px;
-            color: var(--text-dim);
-        }
-        
-        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
-        .pros h4 { color: var(--green); margin-bottom: 0.5rem; }
-        .cons h4 { color: var(--red); margin-bottom: 0.5rem; }
-        .pros ul li::marker { color: var(--green); }
-        .cons ul li::marker { color: var(--red); }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 1.25rem;
-            text-align: center;
-        }
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--cyan);
-        }
-        .stat-label { color: var(--text-dim); font-size: 0.85rem; }
-        @media (max-width: 800px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
-        
-        .flow {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            padding: 1rem;
-            background: var(--bg-card);
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-        }
-        .flow-step {
-            padding: 8px 16px;
-            background: var(--bg-elevated);
-            border-radius: 6px;
-            font-size: 0.85rem;
-        }
-        .flow-arrow { color: var(--cyan); }
-        
-        .sub-tabs {
-            display: flex;
-            gap: 4px;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .sub-tab {
-            padding: 8px 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .sub-tab:hover { background: var(--bg-elevated); }
-        .sub-tab.active { background: var(--bg-elevated); color: var(--text); border-color: var(--cyan); }
-        .sub-content { display: none; }
-        .sub-content.active { display: block; }
-        
-        .accordion { margin-bottom: 1rem; }
-        .accordion-header {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem 1.25rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-        }
-        .accordion-header:hover { background: var(--bg-elevated); }
-        .accordion-body {
-            display: none;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-top: none;
-            border-radius: 0 0 8px 8px;
-            padding: 1.25rem;
-        }
-        .accordion.open .accordion-body { display: block; }
-        .accordion.open .accordion-header { border-radius: 8px 8px 0 0; }
-    </style>
+    <meta name="description" content="Comprehensive Vulnerability Management documentation for Security Engineers and SOC Analysts. Operational reference and interview preparation resource.">
+    <title>Vulnerability Management | Ultimate Guide</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
 </head>
 <body>
-    <nav class="nav">
-        <div class="logo">🛡️ Nik4U</div>
-        <div class="main-tabs">
-            <button class="main-tab analyst active" data-tab="analyst">👤 Analyst</button>
-            <button class="main-tab engineer" data-tab="engineer">⚙️ Engineer</button>
-            <button class="main-tab overview" data-tab="overview">📊 VM Overview</button>
-        </div>
-    </nav>
-
-    <div class="content">
-        <!-- ==================== ANALYST TAB ==================== -->
-        <div id="analyst" class="tab-panel active">
-            <div class="hero analyst">
-                <h1>Vulnerability <span>Analyst</span></h1>
-                <p>Complete reference for day-to-day operations, triage processes, common tickets, discrepancies, and best practices for vulnerability analysts.</p>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value" style="color: var(--blue);">50-200</div>
-                    <div class="stat-label">Daily Vulns Triaged</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color: var(--blue);">15-30</div>
-                    <div class="stat-label">Tickets Created/Day</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color: var(--blue);">5-10%</div>
-                    <div class="stat-label">False Positive Rate</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color: var(--blue);">85%+</div>
-                    <div class="stat-label">SLA Target</div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">📋 Role Overview</h2>
-                <div class="card analyst">
-                    <h3>What Does a Vulnerability Analyst Do?</h3>
-                    <p style="color: var(--text-dim); margin-bottom: 1rem;">The Vulnerability Analyst is the operational backbone of the vulnerability management program. They are responsible for the day-to-day execution of scanning, triage, prioritization, ticketing, tracking, and reporting. Unlike engineers who build and maintain the infrastructure, analysts focus on <strong>interpreting scan results</strong>, <strong>validating findings</strong>, <strong>coordinating remediation</strong>, and <strong>communicating with stakeholders</strong>.</p>
-                    
-                    <div class="grid-2">
-                        <div>
-                            <h4 style="margin-bottom: 0.75rem;">Primary Responsibilities</h4>
-                            <ul>
-                                <li><strong>Scan Execution & Scheduling:</strong> Configure and execute scheduled and ad-hoc vulnerability scans across network segments, cloud environments, and endpoints</li>
-                                <li><strong>Results Triage:</strong> Review raw scan output, filter noise, identify true positives, and validate vulnerability existence</li>
-                                <li><strong>Risk Prioritization:</strong> Apply CVSS, EPSS, KEV data, and business context to rank vulnerabilities by actual risk</li>
-                                <li><strong>Ticket Management:</strong> Create, assign, track, and close remediation tickets in ServiceNow/Jira</li>
-                                <li><strong>False Positive Analysis:</strong> Investigate and document false positives, create exception rules</li>
-                                <li><strong>SLA Monitoring:</strong> Track remediation timelines, send escalations for breaches</li>
-                                <li><strong>Stakeholder Communication:</strong> Lead weekly remediation meetings, provide status updates to management</li>
-                                <li><strong>Reporting & Dashboards:</strong> Generate executive reports, maintain KPI dashboards, trend analysis</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 style="margin-bottom: 0.75rem;">Required Skills</h4>
-                            <ul>
-                                <li><strong>Scanner Proficiency:</strong> Tenable.io/Nessus, Qualys VMDR, Rapid7 InsightVM, Microsoft Defender VM</li>
-                                <li><strong>Ticketing Systems:</strong> ServiceNow SecOps, Jira, BMC Remedy</li>
-                                <li><strong>Risk Frameworks:</strong> CVSS v3.1/v4.0, EPSS, CISA KEV catalog</li>
-                                <li><strong>Operating Systems:</strong> Windows Server, Linux (RHEL, Ubuntu), network devices</li>
-                                <li><strong>Networking Basics:</strong> TCP/IP, ports, protocols, firewall concepts</li>
-                                <li><strong>Reporting Tools:</strong> Power BI, Splunk dashboards, Excel/CSV analysis</li>
-                                <li><strong>Soft Skills:</strong> Communication, stakeholder management, documentation</li>
-                                <li><strong>Certifications:</strong> CompTIA Security+, CySA+, CEH, GEVA</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">⏰ Day-to-Day Responsibilities (Hourly Breakdown)</h2>
-                <div class="card analyst">
-                    <p style="color: var(--text-dim); margin-bottom: 1.5rem;">A typical day for a vulnerability analyst involves structured tasks across scanning, triage, communication, and reporting. Here's a detailed hourly breakdown:</p>
-                    
-                    <div class="timeline-item analyst">
-                        <div class="timeline-time">8:00 AM - 9:00 AM | Morning Review</div>
-                        <div class="timeline-title">Overnight Scan Results Review</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Check scanner console for completed overnight scans (authenticated scans typically run 2-6 AM)</li>
-                                <li>Review scan completion status - identify any failed scans due to credential issues, network timeouts, or target unavailability</li>
-                                <li>Check email for critical vulnerability alerts (CVSS 9.0+) that require immediate attention</li>
-                                <li>Review CISA KEV updates from previous day - check if any new KEVs affect your environment</li>
-                                <li>Check EPSS score updates for existing vulnerabilities - reprioritize if scores increased significantly</li>
-                                <li>Review overnight tickets created by automated workflows</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item analyst">
-                        <div class="timeline-time">9:00 AM - 11:00 AM | Triage & Validation</div>
-                        <div class="timeline-title">Primary Vulnerability Triage Session</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li><strong>Export new findings:</strong> Pull vulnerabilities discovered in past 24 hours from scanner</li>
-                                <li><strong>Deduplicate:</strong> Group same vulnerability across multiple assets, identify affected asset count</li>
-                                <li><strong>Validate criticality:</strong> Cross-reference CVSS score with asset criticality tier (Tier 1 = business critical, Tier 2 = important, Tier 3 = standard)</li>
-                                <li><strong>Check exploitability:</strong> Verify if public exploit exists (ExploitDB, Metasploit modules), check if actively exploited (KEV)</li>
-                                <li><strong>False positive check:</strong> Review plugin output details, verify software version detected matches actual installed version</li>
-                                <li><strong>Asset context:</strong> Determine if asset is internet-facing, contains sensitive data (PII/PCI), or is in production vs. dev</li>
-                                <li><strong>Assign risk score:</strong> Calculate final priority using formula: CVSS + Asset Criticality + Exposure + Exploitability</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item analyst">
-                        <div class="timeline-time">11:00 AM - 12:00 PM | Ticket Creation</div>
-                        <div class="timeline-title">Remediation Ticket Generation</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li><strong>Create tickets:</strong> Generate ServiceNow/Jira tickets for validated high/critical vulnerabilities</li>
-                                <li><strong>Populate required fields:</strong> CVE ID, affected assets, CVSS score, recommended fix, SLA due date</li>
-                                <li><strong>Assign ownership:</strong> Route to appropriate team based on CMDB owner - Infrastructure, App Team, DBA, Network</li>
-                                <li><strong>Attach evidence:</strong> Include scanner output screenshot, vulnerability description, remediation guidance</li>
-                                <li><strong>Set priority:</strong> Map vulnerability severity to ticket priority (Critical=P1, High=P2, Medium=P3, Low=P4)</li>
-                                <li><strong>Link related tickets:</strong> Associate with parent change request if patch deployment planned</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item analyst">
-                        <div class="timeline-time">12:00 PM - 1:00 PM | Lunch Break</div>
-                        <div class="timeline-title">Break</div>
-                        <div class="timeline-desc">Monitor critical alerts on mobile, respond to urgent Slack/Teams messages if needed.</div>
-                    </div>
-
-                    <div class="timeline-item analyst">
-                        <div class="timeline-time">1:00 PM - 2:30 PM | Stakeholder Communication</div>
-                        <div class="timeline-title">Remediation Meetings & Follow-ups</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li><strong>Weekly remediation meeting:</strong> Review open vulnerability backlog with infrastructure and application teams</li>
-                                <li><strong>Discuss blockers:</strong> Identify vulnerabilities stuck due to application dependencies, change freeze, resource constraints</li>
-                                <li><strong>Negotiate timelines:</strong> Work with asset owners on realistic remediation dates within SLA</li>
-                                <li><strong>Exception requests:</strong> Review requests for risk acceptance, ensure proper justification and compensating controls</li>
-                                <li><strong>Escalation decisions:</strong> Flag vulnerabilities approaching SLA breach to management</li>
-                                <li><strong>Send status emails:</strong> Provide weekly summary to business unit leaders on their vulnerability posture</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item analyst">
-                        <div class="timeline-time">2:30 PM - 4:00 PM | Verification & Closure</div>
-                        <div class="timeline-title">Remediation Verification Scans</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li><strong>Trigger verification scans:</strong> Run targeted rescans on assets where patches were applied</li>
-                                <li><strong>Compare results:</strong> Verify vulnerability no longer detected after remediation</li>
-                                <li><strong>Close tickets:</strong> Update ticket status to "Resolved" with verification evidence</li>
-                                <li><strong>Handle failures:</strong> If vulnerability persists, reopen ticket, engage with remediation team</li>
-                                <li><strong>Update metrics:</strong> Record MTTR (Mean Time to Remediate), track against SLA targets</li>
-                                <li><strong>Document exceptions:</strong> For vulns that cannot be patched, ensure risk acceptance is documented with expiration date</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item analyst">
-                        <div class="timeline-time">4:00 PM - 5:00 PM | Reporting & Planning</div>
-                        <div class="timeline-title">Dashboard Updates & Next Day Prep</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li><strong>Update dashboards:</strong> Refresh Power BI/Splunk dashboards with latest vulnerability counts</li>
-                                <li><strong>Generate reports:</strong> Create daily/weekly reports for management showing remediation progress</li>
-                                <li><strong>Trend analysis:</strong> Review vulnerability aging report - identify vulns open > 30/60/90 days</li>
-                                <li><strong>Schedule scans:</strong> Configure next day's scan jobs, verify credential validity</li>
-                                <li><strong>Review threat intel:</strong> Check for new critical CVEs published that may affect environment</li>
-                                <li><strong>Knowledge base:</strong> Document any new false positive patterns or troubleshooting procedures discovered</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">🎫 Common Tickets Analysts Handle</h2>
-                <p style="color: var(--text-dim); margin-bottom: 1.5rem;">These are the most frequent ticket types vulnerability analysts create, receive, and manage:</p>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VULN-2024-001847</span>
-                        <span class="ticket-severity severity-critical">CRITICAL</span>
-                    </div>
-                    <div class="ticket-title">CVE-2024-21762 - FortiOS SSL VPN Out-of-Bounds Write (CVSS 9.8)</div>
-                    <div class="ticket-desc">
-                        <strong>Affected Assets:</strong> FORTIGATE-01, FORTIGATE-02 (Edge firewalls)<br>
-                        <strong>Discovery:</strong> Authenticated scan detected FortiOS version 7.2.3 vulnerable to heap-based buffer overflow allowing RCE<br>
-                        <strong>Business Impact:</strong> Tier 1 assets - perimeter security devices protecting entire corporate network<br>
-                        <strong>KEV Status:</strong> Listed in CISA KEV - actively exploited in the wild<br>
-                        <strong>EPSS:</strong> 0.97 (97% probability of exploitation in next 30 days)
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Analyst Actions:</strong> Immediately escalate to Network Security team and CISO. Verify if VPN is internet-facing (confirmed). Check for IOCs in SIEM logs. Coordinate emergency change window for firmware upgrade to 7.2.6+. Monitor for exploitation attempts. SLA: 24 hours (expedited due to KEV + internet-facing).
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VULN-2024-002341</span>
-                        <span class="ticket-severity severity-critical">CRITICAL</span>
-                    </div>
-                    <div class="ticket-title">CVE-2024-3094 - XZ Utils Backdoor (CVSS 10.0)</div>
-                    <div class="ticket-desc">
-                        <strong>Affected Assets:</strong> 47 Linux servers (RHEL 9, Fedora 40, Ubuntu 24.04 variants)<br>
-                        <strong>Discovery:</strong> Agent-based scan identified xz-libs version 5.6.0/5.6.1 with supply chain backdoor<br>
-                        <strong>Business Impact:</strong> SSH authentication bypass allowing unauthorized remote access<br>
-                        <strong>Unique Challenge:</strong> Malicious code only triggers under specific conditions - standard testing may miss it
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Analyst Actions:</strong> Cross-reference affected servers with CMDB to identify all instances. Verify xz version via package manager (rpm -qa | grep xz). Coordinate with Linux admins for emergency downgrade to 5.4.x. Check SSH logs for anomalous authentication patterns. Report to management due to supply chain nature.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VULN-2024-003892</span>
-                        <span class="ticket-severity severity-high">HIGH</span>
-                    </div>
-                    <div class="ticket-title">MS17-010 (EternalBlue) - SMBv1 Remote Code Execution (CVSS 8.1)</div>
-                    <div class="ticket-desc">
-                        <strong>Affected Assets:</strong> LEGACY-APP-01 (Windows Server 2012 R2)<br>
-                        <strong>Discovery:</strong> Network scan detected SMBv1 enabled with missing MS17-010 patches<br>
-                        <strong>Business Impact:</strong> Legacy ERP application server - business critical but end-of-life OS<br>
-                        <strong>Challenge:</strong> Application vendor no longer supports newer Windows versions, patching breaks app
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Analyst Actions:</strong> This is a common "stuck" vulnerability. Document business justification for exception. Verify compensating controls: network segmentation (isolated VLAN), host-based firewall blocking SMB externally, EDR monitoring for EternalBlue IOCs. Create 90-day exception with mandatory review. Track application modernization project timeline.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VULN-2024-004521</span>
-                        <span class="ticket-severity severity-high">HIGH</span>
-                    </div>
-                    <div class="ticket-title">CVE-2023-44487 - HTTP/2 Rapid Reset DDoS (CVSS 7.5)</div>
-                    <div class="ticket-desc">
-                        <strong>Affected Assets:</strong> 23 web servers running Apache 2.4.x, Nginx 1.22.x, IIS 10<br>
-                        <strong>Discovery:</strong> Scan identified HTTP/2 enabled servers vulnerable to rapid reset attack<br>
-                        <strong>Business Impact:</strong> Internet-facing web tier - DoS could impact customer-facing applications<br>
-                        <strong>Complexity:</strong> Multiple web server types require different patches
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Analyst Actions:</strong> Group tickets by web server type for efficient remediation. Apache: upgrade to 2.4.58+. Nginx: upgrade to 1.25.3+. IIS: apply KB5031364. Coordinate with Web Operations team. Verify WAF has rate limiting rules as interim mitigation. Schedule verification scans post-patching.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VULN-2024-005673</span>
-                        <span class="ticket-severity severity-medium">MEDIUM</span>
-                    </div>
-                    <div class="ticket-title">SSL/TLS Certificate Expiring in 30 Days</div>
-                    <div class="ticket-desc">
-                        <strong>Affected Assets:</strong> www.company.com, api.company.com, portal.company.com<br>
-                        <strong>Discovery:</strong> Certificate assessment scan detected certificates expiring 2024-12-15<br>
-                        <strong>Business Impact:</strong> Expired certificates will cause browser warnings and API failures<br>
-                        <strong>Root Cause:</strong> Manual certificate renewal process with no automation
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Analyst Actions:</strong> Create ticket for PKI/Web team. Verify certificate authority and renewal process. Track renewal request submission. After renewal, verify new cert installed correctly with updated expiry. Recommend implementing automated certificate management (Let's Encrypt, Venafi).
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VULN-2024-006234</span>
-                        <span class="ticket-severity severity-medium">MEDIUM</span>
-                    </div>
-                    <div class="ticket-title">CVE-2024-21626 - Docker Container Escape via runc (CVSS 8.6)</div>
-                    <div class="ticket-desc">
-                        <strong>Affected Assets:</strong> DOCKER-PROD-01 through DOCKER-PROD-08 (Container hosts)<br>
-                        <strong>Discovery:</strong> Agent scan detected runc version 1.1.9 vulnerable to container escape<br>
-                        <strong>Business Impact:</strong> Container escape could allow lateral movement to host and other containers<br>
-                        <strong>Environment:</strong> Production Kubernetes cluster running customer workloads
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Analyst Actions:</strong> Coordinate with DevOps/Platform team. Verify containerd and runc versions. Plan rolling update to runc 1.1.12+. Monitor for container escape detection rules in Falco/Sysdig. Update container base images. Verify no untrusted container images running.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VULN-2024-007891</span>
-                        <span class="ticket-severity severity-low">LOW</span>
-                    </div>
-                    <div class="ticket-title">SSH Server Supports Weak Key Exchange Algorithms</div>
-                    <div class="ticket-desc">
-                        <strong>Affected Assets:</strong> 156 Linux servers across environment<br>
-                        <strong>Discovery:</strong> Compliance scan detected diffie-hellman-group1-sha1 and diffie-hellman-group-exchange-sha1 enabled<br>
-                        <strong>Business Impact:</strong> Theoretical risk of MITM attacks, requires significant computational resources to exploit<br>
-                        <strong>Challenge:</strong> Disabling may break legacy SSH clients still in use
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Analyst Actions:</strong> Low priority - schedule for quarterly hardening cycle. Coordinate with Linux team to update /etc/ssh/sshd_config to remove weak algorithms. Test with inventory of SSH clients before production rollout. Add to CIS benchmark compliance project.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">EXCEPT-2024-000234</span>
-                        <span class="ticket-severity" style="background: rgba(168,85,247,0.2); color: #a855f7;">EXCEPTION</span>
-                    </div>
-                    <div class="ticket-title">Risk Acceptance Request - Legacy Healthcare Application</div>
-                    <div class="ticket-desc">
-                        <strong>Vulnerability:</strong> CVE-2019-0708 (BlueKeep) on Windows Server 2008 R2<br>
-                        <strong>Asset:</strong> PACS-IMG-01 (Medical imaging system)<br>
-                        <strong>Justification:</strong> Vendor no longer supports system, replacement scheduled Q2 2025<br>
-                        <strong>Compensating Controls:</strong> Network isolated, no internet access, EDR installed, daily backup
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Analyst Actions:</strong> Validate compensating controls are implemented. Document risk acceptance with business owner signature. Set exception expiry date aligned with replacement timeline. Add to quarterly exception review. Monitor for any changes to network segmentation. Escalate if replacement project delayed.
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">⚠️ Common Discrepancies & Issues</h2>
-                <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Analysts frequently encounter these discrepancies between scan results and reality. Understanding these helps avoid wasted remediation effort:</p>
-
-                <div class="discrepancy">
-                    <div class="discrepancy-title">🔴 False Positive: Backported Security Patches (Linux)</div>
-                    <div class="discrepancy-desc">
-                        Scanner reports Apache 2.4.6 vulnerable to CVE-2023-XXXX, but RHEL/CentOS backports security fixes without changing version number. Scanner sees "old" version and flags it, but the actual vulnerability was patched.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Run <code>rpm -q --changelog httpd | grep CVE-2023-XXXX</code> to verify if patch was backported. Use authenticated scans that check package manager metadata, not just banner versions. Mark as false positive with evidence and create scanner exception rule for this CVE+package combination.
-                    </div>
-                </div>
-
-                <div class="discrepancy">
-                    <div class="discrepancy-title">🔴 False Positive: Uninstalled Software Remnants</div>
-                    <div class="discrepancy-desc">
-                        Scanner detects vulnerable Java 8u202 on Windows server, but Java was uninstalled months ago. Registry entries, environment variables, or leftover files in Program Files trigger the detection.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Verify via <code>java -version</code> command and check Add/Remove Programs. If truly uninstalled, clean up remnants: remove JAVA_HOME environment variable, delete leftover folders, clean registry keys. Document as false positive and request rescan.
-                    </div>
-                </div>
-
-                <div class="discrepancy warning">
-                    <div class="discrepancy-title">🟡 Scan Credential Failure - Incomplete Results</div>
-                    <div class="discrepancy-desc">
-                        Scan completes but shows 0 vulnerabilities on servers that should have findings. Authenticated scan credentials failed silently, causing scanner to only perform unauthenticated checks which miss most vulnerabilities.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Check scan logs for authentication errors. Verify service account password hasn't expired. Confirm account has local admin rights (Windows) or sudo privileges (Linux). Check if firewall blocked WMI/SSH ports. Re-run scan after fixing credentials. Always verify "credentialed checks: yes" in scan results.
-                    </div>
-                </div>
-
-                <div class="discrepancy warning">
-                    <div class="discrepancy-title">🟡 Asset Not in CMDB - No Owner Assignment</div>
-                    <div class="discrepancy-desc">
-                        Scanner discovers vulnerable asset but it's not in the Configuration Management Database. Cannot determine owner for ticket assignment. Often shadow IT, temporary test systems, or missed during onboarding.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Query Active Directory for computer object details. Check DHCP/DNS records for hostname patterns indicating ownership. Use network traffic analysis to identify usage patterns. Escalate to IT Asset Management for CMDB update. Once owner identified, ensure CMDB is updated to prevent recurrence.
-                    </div>
-                </div>
-
-                <div class="discrepancy warning">
-                    <div class="discrepancy-title">🟡 Duplicate Vulnerabilities Across Scanners</div>
-                    <div class="discrepancy-desc">
-                        Running multiple scanners (e.g., Tenable for network, Qualys for cloud, Microsoft Defender for endpoints) creates duplicate findings for same vulnerability on same asset with different formats and IDs.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Use vulnerability aggregation tool (DefectDojo, Nucleus, Kenna) to deduplicate findings based on CVE + Asset. Establish primary scanner per asset type to avoid overlap. Create master ticket and link scanner-specific findings. Standardize on CVE as common identifier across tools.
-                    </div>
-                </div>
-
-                <div class="discrepancy info">
-                    <div class="discrepancy-title">🔵 Vulnerability Verified But Patch Breaks Application</div>
-                    <div class="discrepancy-desc">
-                        Remediation team confirms vulnerability exists and applies patch. Application stops working because patch changes behavior that application depends on. Common with Java, .NET framework, and database patches.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Always test patches in non-production environment first. Work with application team to identify compatibility issues. Options: request vendor hotfix, implement compensating controls (WAF rules, network segmentation), accept risk with documentation, or plan application upgrade. Never rollback patches without security team approval.
-                    </div>
-                </div>
-
-                <div class="discrepancy info">
-                    <div class="discrepancy-title">🔵 CVSS Score Mismatch Between Sources</div>
-                    <div class="discrepancy-desc">
-                        NVD shows CVSS 7.5, vendor advisory says 8.1, scanner shows 6.8. Different scoring by different entities creates confusion about true severity and SLA assignment.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Prefer NVD as authoritative source for base score. Understand that vendor scores may include environmental factors. Scanner scores may be adjusted based on detection confidence. Document your organization's policy for score source. Consider EPSS and KEV status as additional prioritization factors beyond CVSS alone.
-                    </div>
-                </div>
-
-                <div class="discrepancy info">
-                    <div class="discrepancy-title">🔵 Vulnerability Fixed But Still Appears in Scan</div>
-                    <div class="discrepancy-desc">
-                        Patch was applied and verified, but next scan still shows vulnerability. Causes: scan cache, incomplete patch installation, multiple instances of software, or scanner plugin lag.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Wait for scanner plugin update if CVE is newly patched. Clear scanner cache and force fresh credential authentication. Verify ALL instances of software were patched (e.g., multiple Java installations). Check if patch requires reboot to take effect. Run targeted rescan of specific asset with fresh scan policy.
-                    </div>
-                </div>
-
-                <div class="discrepancy">
-                    <div class="discrepancy-title">🔴 Zero-Day Announced - No Scanner Detection Yet</div>
-                    <div class="discrepancy-desc">
-                        Critical zero-day vulnerability announced in news/vendor advisory, but scanner doesn't detect it yet. Plugin development can take 24-72 hours for new CVEs.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Don't wait for scanner - manually identify affected systems using software inventory. Query CMDB for systems running vulnerable software/version. Use vendor-provided detection scripts or IOC checks. Create tracking ticket manually. Apply patches or workarounds immediately for critical issues. Scanner will catch any missed systems once plugin released.
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">📊 Key Performance Indicators (KPIs)</h2>
-                <div class="grid-3">
-                    <div class="card analyst">
-                        <h3>MTTR by Severity</h3>
-                        <ul>
-                            <li><strong>Critical:</strong> Target &lt;7 days, Actual: Track weekly</li>
-                            <li><strong>High:</strong> Target &lt;30 days</li>
-                            <li><strong>Medium:</strong> Target &lt;90 days</li>
-                            <li><strong>Low:</strong> Target &lt;180 days</li>
-                        </ul>
-                    </div>
-                    <div class="card analyst">
-                        <h3>SLA Compliance Rate</h3>
-                        <ul>
-                            <li><strong>Target:</strong> 85%+ within SLA</li>
-                            <li><strong>Track:</strong> % tickets closed before due date</li>
-                            <li><strong>Report:</strong> Weekly to management</li>
-                            <li><strong>Escalate:</strong> All breaches to leadership</li>
-                        </ul>
-                    </div>
-                    <div class="card analyst">
-                        <h3>Vulnerability Aging</h3>
-                        <ul>
-                            <li><strong>0-30 days:</strong> Active remediation</li>
-                            <li><strong>31-60 days:</strong> Escalation review</li>
-                            <li><strong>61-90 days:</strong> Management attention</li>
-                            <li><strong>90+ days:</strong> Executive escalation</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==================== ENGINEER TAB ==================== -->
-        <div id="engineer" class="tab-panel">
-            <div class="hero engineer">
-                <h1>Vulnerability <span>Engineer</span></h1>
-                <p>Complete reference for architecture, automation, integrations, and infrastructure management for vulnerability management engineers.</p>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value" style="color: var(--green);">50K+</div>
-                    <div class="stat-label">Assets Under Management</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color: var(--green);">99.9%</div>
-                    <div class="stat-label">Scan Success Rate Target</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color: var(--green);">100+</div>
-                    <div class="stat-label">Integrations Maintained</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value" style="color: var(--green);">24/7</div>
-                    <div class="stat-label">Platform Availability</div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">📋 Role Overview</h2>
-                <div class="card engineer">
-                    <h3>What Does a Vulnerability Engineer Do?</h3>
-                    <p style="color: var(--text-dim); margin-bottom: 1rem;">The Vulnerability Engineer builds, maintains, and optimizes the technical infrastructure that enables the vulnerability management program. While analysts focus on operational tasks, engineers ensure the <strong>scanners work correctly</strong>, <strong>integrations flow data properly</strong>, <strong>automation reduces manual effort</strong>, and the <strong>platform scales</strong> with organizational growth.</p>
-                    
-                    <div class="grid-2">
-                        <div>
-                            <h4 style="margin-bottom: 0.75rem;">Primary Responsibilities</h4>
-                            <ul>
-                                <li><strong>Scanner Architecture:</strong> Design and deploy vulnerability scanner infrastructure - on-prem appliances, cloud connectors, agent distribution</li>
-                                <li><strong>Credential Management:</strong> Configure and maintain scan credentials in vault (CyberArk, HashiCorp), manage service accounts</li>
-                                <li><strong>CMDB Integration:</strong> Sync asset data from Active Directory, Azure, VMware, ServiceNow CMDB to scanners</li>
-                                <li><strong>Ticketing Integration:</strong> Build API workflows to auto-create tickets from scan results in ServiceNow/Jira</li>
-                                <li><strong>Automation Development:</strong> Write Python/PowerShell scripts for data enrichment, reporting, remediation workflows</li>
-                                <li><strong>Patch Orchestration:</strong> Integrate with SCCM/Intune for patch deployment visibility and coordination</li>
-                                <li><strong>Platform Maintenance:</strong> Upgrade scanners, apply security patches, monitor performance, troubleshoot issues</li>
-                                <li><strong>New Tool Evaluation:</strong> POC new scanner technologies, evaluate cloud security tools, recommend improvements</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 style="margin-bottom: 0.75rem;">Required Skills</h4>
-                            <ul>
-                                <li><strong>Programming:</strong> Python, PowerShell, Bash scripting for automation</li>
-                                <li><strong>APIs:</strong> REST API integration, JSON/XML parsing, authentication methods</li>
-                                <li><strong>Scanners (Admin):</strong> Tenable.io/SC administration, Qualys backend, Rapid7 console management</li>
-                                <li><strong>Infrastructure:</strong> Linux server admin, Windows Server, virtualization (VMware, Hyper-V)</li>
-                                <li><strong>Cloud Platforms:</strong> AWS, Azure, GCP security and API access</li>
-                                <li><strong>Networking:</strong> Firewall rules, VLANs, routing for scanner placement</li>
-                                <li><strong>Databases:</strong> SQL for reporting queries, data warehouse concepts</li>
-                                <li><strong>Certifications:</strong> Tenable Certified Security Engineer, Qualys Certified Specialist, CISSP, GIAC</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">⏰ Day-to-Day Responsibilities (Hourly Breakdown)</h2>
-                <div class="card engineer">
-                    <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Engineers balance reactive support work with proactive improvement projects. Here's a typical day:</p>
-                    
-                    <div class="timeline-item engineer">
-                        <div class="timeline-time">8:00 AM - 9:00 AM | Platform Health Check</div>
-                        <div class="timeline-title">Morning Infrastructure Review</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Check scanner platform status - console uptime, scan engine connectivity, agent check-in rates</li>
-                                <li>Review overnight scan job completion - identify failed scans, timeouts, error messages</li>
-                                <li>Monitor disk space on scan appliances (scan data can consume significant storage)</li>
-                                <li>Check credential vault integration - verify service accounts are not locked/expired</li>
-                                <li>Review Splunk/SIEM dashboards for scanner performance metrics</li>
-                                <li>Check for scanner software updates or new plugin releases</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item engineer">
-                        <div class="timeline-time">9:00 AM - 11:00 AM | Integration Maintenance</div>
-                        <div class="timeline-title">API Workflows & Data Pipeline</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li><strong>CMDB Sync:</strong> Verify nightly AD/Azure/VMware sync completed - check for new assets, decommissioned systems</li>
-                                <li><strong>Ticketing Integration:</strong> Review ServiceNow API job logs - ensure tickets created correctly, no duplicates</li>
-                                <li><strong>Data Export:</strong> Verify scheduled CSV/API exports to data warehouse completed for Power BI dashboards</li>
-                                <li><strong>Alert Routing:</strong> Check that critical vulnerability alerts routed to correct Slack/Teams channels</li>
-                                <li><strong>Debug failures:</strong> Investigate any API errors, authentication failures, rate limiting issues</li>
-                                <li><strong>Update mappings:</strong> Maintain CMDB-to-scanner asset group mappings as organization changes</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item engineer">
-                        <div class="timeline-time">11:00 AM - 12:00 PM | Support Requests</div>
-                        <div class="timeline-title">Analyst & Team Support</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Respond to analyst requests: add new scan targets, modify scan schedules, investigate scan failures</li>
-                                <li>Troubleshoot credential issues: test connectivity to targets, verify firewall rules allow scanner traffic</li>
-                                <li>Help analysts with complex queries: build custom reports, export specific data sets</li>
-                                <li>Onboard new asset types: configure scan templates for new technology (containers, cloud workloads)</li>
-                                <li>Create exception rules: implement scanner exclusions for confirmed false positives</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item engineer">
-                        <div class="timeline-time">1:00 PM - 3:00 PM | Development & Automation</div>
-                        <div class="timeline-title">Scripting & Tool Development</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li><strong>Automation scripts:</strong> Develop Python scripts to automate repetitive tasks (bulk ticket creation, report generation)</li>
-                                <li><strong>API integrations:</strong> Build new connectors to security tools (SOAR, threat intel platforms)</li>
-                                <li><strong>Dashboard development:</strong> Create Power BI/Grafana visualizations for executive reporting</li>
-                                <li><strong>Custom checks:</strong> Write custom scanner plugins/audit files for organization-specific compliance requirements</li>
-                                <li><strong>Documentation:</strong> Update runbooks, architecture diagrams, API documentation</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item engineer">
-                        <div class="timeline-time">3:00 PM - 4:30 PM | Infrastructure Projects</div>
-                        <div class="timeline-title">Platform Improvements</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li><strong>Scanner deployment:</strong> Deploy new scan engines to cover additional network segments or cloud regions</li>
-                                <li><strong>Agent rollout:</strong> Coordinate with endpoint team to deploy vulnerability agents to new systems</li>
-                                <li><strong>Capacity planning:</strong> Analyze scan performance metrics, plan for scanner scaling</li>
-                                <li><strong>Security hardening:</strong> Apply patches to scanner infrastructure, update TLS certificates</li>
-                                <li><strong>Disaster recovery:</strong> Test backup/restore procedures, verify replication to DR site</li>
-                                <li><strong>Tool evaluation:</strong> POC new features, evaluate alternative solutions</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item engineer">
-                        <div class="timeline-time">4:30 PM - 5:00 PM | Planning & Coordination</div>
-                        <div class="timeline-title">Change Management & Next Day Prep</div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Submit change requests for planned maintenance windows</li>
-                                <li>Coordinate with network team on firewall rules for new scanner deployments</li>
-                                <li>Update project tracking for ongoing infrastructure initiatives</li>
-                                <li>Review upcoming maintenance windows that may impact scanning</li>
-                                <li>Prepare for next day's planned deployments or upgrades</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">🎫 Common Tickets Engineers Handle</h2>
-                <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Engineers handle infrastructure and integration issues rather than individual vulnerabilities:</p>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VENG-2024-000892</span>
-                        <span class="ticket-severity" style="background: rgba(255,176,0,0.2); color: var(--amber);">PLATFORM</span>
-                    </div>
-                    <div class="ticket-title">Scanner Engine Offline - SCAN-ENGINE-DMZ-01</div>
-                    <div class="ticket-desc">
-                        <strong>Issue:</strong> DMZ scan engine showing disconnected in console for 4+ hours. Scheduled scans failing.<br>
-                        <strong>Impact:</strong> 200+ DMZ assets not being scanned, including internet-facing web servers<br>
-                        <strong>Initial Analysis:</strong> Engine VM is running, but scanner service not responding to console
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Engineer Actions:</strong> SSH to appliance, check service status (systemctl status nessus). Review /var/log/nessus/ for errors. Verify network connectivity to cloud console (port 443 outbound). Check if VM was moved/rebooted during maintenance. Restart service, re-link to console if needed. Verify all scheduled scans resume. Document root cause for postmortem.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VENG-2024-001234</span>
-                        <span class="ticket-severity" style="background: rgba(59,130,246,0.2); color: var(--blue);">INTEGRATION</span>
-                    </div>
-                    <div class="ticket-title">ServiceNow Ticket Creation Failing - API 401 Errors</div>
-                    <div class="ticket-desc">
-                        <strong>Issue:</strong> Automated ticket creation workflow failing since 6 AM. 47 vulnerabilities queued without tickets.<br>
-                        <strong>Error:</strong> "401 Unauthorized - Invalid token" in API logs<br>
-                        <strong>Root Cause:</strong> ServiceNow service account password expired per 90-day policy
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Engineer Actions:</strong> Coordinate with IAM team to reset service account password. Update credential in scanner integration settings and secret vault. Test API connectivity manually. Clear queue and reprocess failed ticket creations. Implement password expiry monitoring. Consider switching to OAuth/API keys for service accounts.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VENG-2024-001567</span>
-                        <span class="ticket-severity" style="background: rgba(0,255,136,0.2); color: var(--green);">REQUEST</span>
-                    </div>
-                    <div class="ticket-title">New Azure Subscription - Enable Vulnerability Scanning</div>
-                    <div class="ticket-desc">
-                        <strong>Request:</strong> Digital team launched new Azure subscription "PROD-DIGITALPLATFORM-01" with 45 VMs<br>
-                        <strong>Requirements:</strong> Configure cloud connector, deploy agents to VMs, integrate with existing dashboards<br>
-                        <strong>Timeline:</strong> Must be scanning within 5 business days per security policy
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Engineer Actions:</strong> Configure Azure connector with subscription credentials (App Registration + secret). Set up Service Principal with Reader role. Deploy vulnerability assessment agents via Azure Policy. Create asset groups matching Azure resource groups. Configure scan schedule aligned with existing Azure scanning windows. Add to Power BI dashboard. Verify initial scan results within SLA.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VENG-2024-001789</span>
-                        <span class="ticket-severity" style="background: rgba(168,85,247,0.2); color: var(--purple);">AUTOMATION</span>
-                    </div>
-                    <div class="ticket-title">Build EPSS Enrichment Pipeline for Vulnerability Data</div>
-                    <div class="ticket-desc">
-                        <strong>Request:</strong> Analyst team wants EPSS scores added to all vulnerability records for better prioritization<br>
-                        <strong>Requirements:</strong> Daily EPSS feed ingestion, match to CVEs in scan data, surface in dashboards<br>
-                        <strong>Data Source:</strong> FIRST EPSS API (https://api.first.org/data/v1/epss)
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Engineer Actions:</strong> Develop Python script to pull daily EPSS feed via API. Parse JSON response, extract CVE-to-EPSS mappings. Join with vulnerability data in data warehouse using CVE as key. Add EPSS score column to Power BI dataset. Create threshold alerts for EPSS > 0.5. Document data freshness SLA (24-hour lag acceptable). Deploy script as scheduled job.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VENG-2024-002012</span>
-                        <span class="ticket-severity" style="background: rgba(255,68,102,0.2); color: var(--red);">INCIDENT</span>
-                    </div>
-                    <div class="ticket-title">Scans Causing Network Performance Degradation</div>
-                    <div class="ticket-desc">
-                        <strong>Issue:</strong> Network team reports bandwidth saturation during scan windows affecting production traffic<br>
-                        <strong>Affected:</strong> Core switch CORE-SW-01 showing 95% utilization during 2-6 AM scan window<br>
-                        <strong>Impact:</strong> Batch jobs and backups failing due to network contention
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Engineer Actions:</strong> Review scan policy settings - reduce concurrent hosts scanned from 50 to 25. Enable bandwidth throttling in scanner (limit to 500 Mbps). Stagger scan start times across network segments. Consider agent-based scanning for high-bandwidth assets. Work with network team to identify if QoS policies can prioritize production traffic. Monitor next scan window to verify improvement.
-                    </div>
-                </div>
-
-                <div class="ticket">
-                    <div class="ticket-header">
-                        <span class="ticket-id">VENG-2024-002345</span>
-                        <span class="ticket-severity" style="background: rgba(0,212,255,0.2); color: var(--cyan);">PROJECT</span>
-                    </div>
-                    <div class="ticket-title">Implement Container Image Scanning Pipeline</div>
-                    <div class="ticket-desc">
-                        <strong>Initiative:</strong> DevOps team adopting Kubernetes - need to scan container images before deployment<br>
-                        <strong>Requirements:</strong> Integrate with GitLab CI/CD, scan images in Harbor registry, block vulnerable images<br>
-                        <strong>Stack:</strong> GitLab, Harbor, Kubernetes, Trivy/Grype for scanning
-                    </div>
-                    <div class="ticket-actions">
-                        <strong>Engineer Actions:</strong> Evaluate scanner options (Trivy, Grype, Qualys Container). Design CI/CD integration - add scanning stage to .gitlab-ci.yml. Configure severity thresholds (fail build on Critical/High). Implement Harbor webhook to scan on image push. Create Kubernetes admission controller to block unscanned images. Build dashboard showing container vulnerability posture. Document process for developers.
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">⚠️ Common Discrepancies & Issues</h2>
-
-                <div class="discrepancy">
-                    <div class="discrepancy-title">🔴 Credential Scan Fails - Access Denied</div>
-                    <div class="discrepancy-desc">
-                        Authenticated scans failing with "Access Denied" or "Permission Denied" errors. Service account credentials are correct but scan cannot execute privileged checks.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> <br>
-                        <strong>Windows:</strong> Verify account is in local Administrators group, WMI access enabled, Remote Registry service running, firewall allows WMI (TCP 135, 445, dynamic ports), UAC remote restrictions disabled for domain accounts.<br>
-                        <strong>Linux:</strong> Verify sudo NOPASSWD configured for scan account, SSH key authentication working, /etc/sudoers allows required commands, SELinux not blocking access.
-                    </div>
-                </div>
-
-                <div class="discrepancy">
-                    <div class="discrepancy-title">🔴 Scanner Plugin Out of Date - Missing New CVEs</div>
-                    <div class="discrepancy-desc">
-                        New critical vulnerability announced but scanner not detecting it. Plugin feed is days or weeks behind, missing detection capability for recently published CVEs.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Check plugin feed update status in scanner console. Verify internet connectivity for plugin downloads. Force plugin update manually if auto-update stuck. Check vendor status page for plugin release schedule. For zero-days, use manual detection methods while waiting for plugin. Consider supplementing primary scanner with Nuclei templates for rapid CVE coverage.
-                    </div>
-                </div>
-
-                <div class="discrepancy warning">
-                    <div class="discrepancy-title">🟡 CMDB Asset Count Mismatch with Scanner</div>
-                    <div class="discrepancy-desc">
-                        CMDB shows 10,000 servers but scanner only sees 8,500 assets. 1,500 assets missing from vulnerability coverage. Creates blind spots in security posture.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Export asset lists from both systems and compare. Common causes: network segmentation blocking scanner, assets powered off, IP address changes, new network segments not added to scan targets. Work with network team to ensure scanner can reach all subnets. Implement continuous asset discovery scanning. Set up CMDB sync to auto-add new assets to scanner.
-                    </div>
-                </div>
-
-                <div class="discrepancy warning">
-                    <div class="discrepancy-title">🟡 Scan Timeout on Large/Complex Systems</div>
-                    <div class="discrepancy-desc">
-                        Scans of database servers, file servers, or systems with many installed applications timeout before completion. Results are partial, missing vulnerabilities.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Increase per-host scan timeout settings (default often 30-60 minutes, increase to 2-4 hours for complex systems). Reduce concurrent checks per host. Consider agent-based scanning for complex hosts - agents can scan incrementally without timeout pressure. Exclude non-essential checks (compliance audits) from performance-sensitive scans.
-                    </div>
-                </div>
-
-                <div class="discrepancy info">
-                    <div class="discrepancy-title">🔵 API Rate Limiting Breaking Automation</div>
-                    <div class="discrepancy-desc">
-                        Automated scripts hitting API rate limits (HTTP 429 errors). Bulk operations like ticket creation or asset updates failing mid-execution.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Implement exponential backoff in scripts - wait and retry on rate limit errors. Add delays between API calls (100-500ms). Batch operations where possible (bulk ticket creation vs. individual). Cache frequently accessed data to reduce API calls. Request rate limit increase from vendor if business-justified. Monitor API usage dashboards to stay under limits.
-                    </div>
-                </div>
-
-                <div class="discrepancy info">
-                    <div class="discrepancy-title">🔵 Multi-Cloud Visibility Gaps</div>
-                    <div class="discrepancy-desc">
-                        Organization uses AWS, Azure, and GCP but scanner only has visibility into AWS. Cloud teams provisioning workloads that never get scanned.
-                    </div>
-                    <div class="discrepancy-solution">
-                        <strong>Resolution:</strong> Configure cloud connectors for each cloud provider. Use native tools where appropriate (AWS Inspector, Azure Defender, GCP Security Command Center) and aggregate findings. Implement cloud security policy requiring vulnerability scanning before workload deployment. Consider CSPM tools for multi-cloud posture management. Automate connector setup as part of cloud account provisioning.
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">🔧 Architecture & Integration Patterns</h2>
-                
-                <div class="card engineer">
-                    <h3>Typical Enterprise Scanner Architecture</h3>
-                    <div class="flow">
-                        <span class="flow-step">Cloud Console (Tenable.io)</span>
-                        <span class="flow-arrow">↔</span>
-                        <span class="flow-step">On-Prem Scan Engines (DMZ, Internal, DC)</span>
-                        <span class="flow-arrow">↔</span>
-                        <span class="flow-step">Target Assets</span>
-                    </div>
-                    <div class="flow">
-                        <span class="flow-step">Scanner API</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="flow-step">Python ETL Script</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="flow-step">Data Warehouse</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="flow-step">Power BI Dashboard</span>
-                    </div>
-                    <div class="flow">
-                        <span class="flow-step">Scanner Webhook</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="flow-step">Logic App / Lambda</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="flow-step">ServiceNow API</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="flow-step">Ticket Created</span>
-                    </div>
-                </div>
-
-                <div class="grid-2" style="margin-top: 1.5rem;">
-                    <div class="card engineer">
-                        <h3>Key Integrations to Maintain</h3>
-                        <ul>
-                            <li><strong>CMDB Sync:</strong> AD, Azure AD, VMware vCenter, ServiceNow CMDB → Scanner asset inventory</li>
-                            <li><strong>Credential Vault:</strong> CyberArk, HashiCorp Vault → Scanner credential storage</li>
-                            <li><strong>Ticketing:</strong> Scanner findings → ServiceNow VR, Jira via REST API</li>
-                            <li><strong>SIEM:</strong> Scanner logs → Splunk/Sentinel for security monitoring</li>
-                            <li><strong>SOAR:</strong> Critical findings → Cortex XSOAR playbooks for automated response</li>
-                            <li><strong>Patch Management:</strong> SCCM/Intune compliance data → Scanner for patch verification</li>
-                            <li><strong>Threat Intel:</strong> EPSS, KEV feeds → Scanner for risk enrichment</li>
-                        </ul>
-                    </div>
-                    <div class="card engineer">
-                        <h3>Automation Script Library</h3>
-                        <ul>
-                            <li><strong>asset_sync.py:</strong> Sync assets from AD/Azure to scanner groups</li>
-                            <li><strong>ticket_creator.py:</strong> Create ServiceNow tickets from scan results</li>
-                            <li><strong>epss_enrichment.py:</strong> Add EPSS scores to vulnerability data</li>
-                            <li><strong>kev_checker.py:</strong> Flag vulnerabilities in CISA KEV catalog</li>
-                            <li><strong>report_generator.py:</strong> Generate executive PDF reports</li>
-                            <li><strong>credential_tester.ps1:</strong> Test scan credentials against targets</li>
-                            <li><strong>scan_health_monitor.py:</strong> Alert on failed scans and engine issues</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==================== OVERVIEW TAB ==================== -->
-        <div id="overview" class="tab-panel">
-            <div class="hero overview">
-                <h1>Vulnerability Management <span>Overview</span></h1>
-                <p>Comprehensive reference covering the complete VM lifecycle, industry tools comparison, prioritization frameworks, and best practices.</p>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">🔄 Vulnerability Management Lifecycle</h2>
-                <div class="flow">
-                    <span class="flow-step">1. Asset Discovery</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">2. Vulnerability Scanning</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">3. Analysis & Prioritization</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">4. Remediation</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">5. Verification</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">6. Reporting</span>
-                    <span class="flow-arrow">→</span>
-                    <span class="flow-step">↻ Continuous</span>
-                </div>
-
-                <div class="grid-3">
-                    <div class="card">
-                        <h3 style="color: var(--amber);">1. Asset Discovery</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">You cannot protect what you cannot see. Asset discovery establishes complete visibility of the attack surface.</p>
-                        <ul>
-                            <li><strong>Network scanning:</strong> Discover live hosts via ping/ARP sweeps</li>
-                            <li><strong>CMDB integration:</strong> Sync from ServiceNow, Active Directory</li>
-                            <li><strong>Cloud connectors:</strong> AWS, Azure, GCP asset APIs</li>
-                            <li><strong>Agent deployment:</strong> Endpoint agents for off-network devices</li>
-                            <li><strong>Shadow IT detection:</strong> Find unmanaged/unauthorized assets</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--amber);">2. Vulnerability Scanning</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Systematic identification of security weaknesses across all asset types.</p>
-                        <ul>
-                            <li><strong>Authenticated scans:</strong> Credentialed checks for complete visibility</li>
-                            <li><strong>Network scans:</strong> TCP/UDP port scanning and service detection</li>
-                            <li><strong>Agent-based:</strong> Continuous assessment without network dependency</li>
-                            <li><strong>Web app scans:</strong> OWASP Top 10, SQL injection, XSS</li>
-                            <li><strong>Container scans:</strong> Image vulnerabilities in registries/runtime</li>
-                            <li><strong>Cloud config:</strong> Misconfigurations in IaaS/PaaS/SaaS</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--amber);">3. Analysis & Prioritization</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Not all vulnerabilities are equal. Risk-based prioritization focuses effort on what matters.</p>
-                        <ul>
-                            <li><strong>CVSS scoring:</strong> Industry standard severity rating (0-10)</li>
-                            <li><strong>EPSS:</strong> Probability of exploitation in next 30 days</li>
-                            <li><strong>CISA KEV:</strong> Known actively exploited vulnerabilities</li>
-                            <li><strong>Asset criticality:</strong> Business impact of affected system</li>
-                            <li><strong>Exposure:</strong> Internet-facing vs. internal only</li>
-                            <li><strong>False positive triage:</strong> Validate findings before creating work</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--amber);">4. Remediation</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Fixing vulnerabilities through patching, configuration, or compensating controls.</p>
-                        <ul>
-                            <li><strong>Patching:</strong> Apply vendor security updates (SCCM, Intune, Ansible)</li>
-                            <li><strong>Configuration:</strong> Harden settings, disable vulnerable features</li>
-                            <li><strong>Upgrade:</strong> Move to supported software versions</li>
-                            <li><strong>Compensating controls:</strong> WAF rules, network segmentation when patching impossible</li>
-                            <li><strong>Risk acceptance:</strong> Documented business decision to accept residual risk</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--amber);">5. Verification</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Confirming remediation was successful before closing tickets.</p>
-                        <ul>
-                            <li><strong>Rescan:</strong> Targeted scan of remediated assets</li>
-                            <li><strong>Manual validation:</strong> Verify patch installed, config changed</li>
-                            <li><strong>Penetration testing:</strong> Confirm exploit no longer works</li>
-                            <li><strong>Continuous monitoring:</strong> Ensure vulnerability doesn't reappear</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--amber);">6. Reporting</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Communicating risk posture and program effectiveness to stakeholders.</p>
-                        <ul>
-                            <li><strong>Executive dashboards:</strong> High-level risk trends for leadership</li>
-                            <li><strong>Technical reports:</strong> Detailed findings for remediation teams</li>
-                            <li><strong>SLA tracking:</strong> Remediation timeline compliance</li>
-                            <li><strong>Compliance evidence:</strong> Audit documentation for PCI, SOX, HIPAA</li>
-                            <li><strong>KPIs:</strong> MTTR, aging, coverage metrics</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">📊 Risk Prioritization Frameworks</h2>
-                <div class="grid-3">
-                    <div class="card">
-                        <h3 style="color: var(--red);">CVSS - Common Vulnerability Scoring System</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Industry-standard severity scoring maintained by FIRST.org. Current version: CVSS v4.0</p>
-                        <table style="font-size: 0.8rem;">
-                            <tr><th>Score</th><th>Severity</th><th>Typical SLA</th></tr>
-                            <tr><td>9.0 - 10.0</td><td style="color: var(--red);">Critical</td><td>7 days</td></tr>
-                            <tr><td>7.0 - 8.9</td><td style="color: #ff6432;">High</td><td>30 days</td></tr>
-                            <tr><td>4.0 - 6.9</td><td style="color: var(--amber);">Medium</td><td>90 days</td></tr>
-                            <tr><td>0.1 - 3.9</td><td style="color: var(--green);">Low</td><td>180 days</td></tr>
-                        </table>
-                        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;"><strong>Limitation:</strong> Static score doesn't reflect real-world exploitation likelihood</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--amber);">EPSS - Exploit Prediction Scoring System</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Machine learning model predicting probability of exploitation in next 30 days. Updated daily.</p>
-                        <ul>
-                            <li><strong>Score range:</strong> 0.0 to 1.0 (0% to 100% probability)</li>
-                            <li><strong>High risk threshold:</strong> EPSS > 0.1 (10%) deserves attention</li>
-                            <li><strong>Critical threshold:</strong> EPSS > 0.5 (50%) - prioritize immediately</li>
-                            <li><strong>Data sources:</strong> Exploit code availability, threat intel, vulnerability age</li>
-                        </ul>
-                        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;"><strong>Best use:</strong> Combine with CVSS - High CVSS + High EPSS = Highest Priority</p>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--purple);">CISA KEV - Known Exploited Vulnerabilities</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">CISA catalog of vulnerabilities confirmed actively exploited in the wild. Mandatory remediation for US federal agencies.</p>
-                        <ul>
-                            <li><strong>Binary indicator:</strong> Either on the list or not</li>
-                            <li><strong>Action:</strong> If on KEV, prioritize regardless of CVSS score</li>
-                            <li><strong>Updates:</strong> Multiple times per week as new exploitation observed</li>
-                            <li><strong>SLA override:</strong> KEV vulnerabilities often get expedited 24-48 hour SLAs</li>
-                        </ul>
-                        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;"><strong>URL:</strong> cisa.gov/known-exploited-vulnerabilities-catalog</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">🛠️ Vulnerability Scanner Comparison</h2>
-                <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Comprehensive comparison of leading vulnerability management platforms based on features, user feedback, and analyst research.</p>
-
-                <div class="table-container" style="max-height: 600px; overflow-y: auto;">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th style="min-width: 180px;">Vendor</th>
-                                <th>Gartner Rating</th>
-                                <th>Deployment</th>
-                                <th>Best For</th>
-                                <th>Plugin Coverage</th>
-                                <th>Agent Support</th>
-                                <th>Cloud Native</th>
-                                <th>Container Scanning</th>
-                                <th>API Quality</th>
-                                <th>Pricing Model</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="vendor-name">
-                                        <div class="vendor-logo" style="background: rgba(0,212,255,0.2); color: var(--cyan);">T</div>
-                                        <div>
-                                            <strong>Tenable.io / Nessus</strong>
-                                            <div style="font-size: 0.7rem; color: var(--text-muted);">Market Leader</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="rating">★★★★★</span> <span style="color: var(--text-muted);">4.6/5</span></td>
-                                <td>Cloud + On-Prem</td>
-                                <td>Enterprise, Compliance</td>
-                                <td>222K+ plugins, 91K+ CVEs</td>
-                                <td class="check">✓ Full</td>
-                                <td class="check">✓ AWS, Azure, GCP</td>
-                                <td class="check">✓ Yes</td>
-                                <td class="check">✓ Excellent</td>
-                                <td>Per asset (~$40/asset/yr)</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="vendor-name">
-                                        <div class="vendor-logo" style="background: rgba(255,68,102,0.2); color: var(--red);">Q</div>
-                                        <div>
-                                            <strong>Qualys VMDR</strong>
-                                            <div style="font-size: 0.7rem; color: var(--text-muted);">Cloud Pioneer</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="rating">★★★★☆</span> <span style="color: var(--text-muted);">4.4/5</span></td>
-                                <td>Cloud + Appliance</td>
-                                <td>Large Enterprise, Multi-Cloud</td>
-                                <td>Extensive, TruRisk scoring</td>
-                                <td class="check">✓ Cloud Agent</td>
-                                <td class="check">✓ Native</td>
-                                <td class="check">✓ Yes</td>
-                                <td class="check">✓ Good</td>
-                                <td>Per asset (tiered)</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="vendor-name">
-                                        <div class="vendor-logo" style="background: rgba(255,176,0,0.2); color: var(--amber);">R7</div>
-                                        <div>
-                                            <strong>Rapid7 InsightVM</strong>
-                                            <div style="font-size: 0.7rem; color: var(--text-muted);">Mid-Market Leader</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="rating">★★★★☆</span> <span style="color: var(--text-muted);">4.3/5</span></td>
-                                <td>Cloud + On-Prem</td>
-                                <td>Mid-Market, Ease of Use</td>
-                                <td>Real Risk scoring</td>
-                                <td class="check">✓ InsightAgent</td>
-                                <td class="check">✓ Yes</td>
-                                <td class="check">✓ Yes</td>
-                                <td class="check">✓ Good</td>
-                                <td>Per asset (~$6/mo)</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="vendor-name">
-                                        <div class="vendor-logo" style="background: rgba(59,130,246,0.2); color: var(--blue);">MS</div>
-                                        <div>
-                                            <strong>Microsoft Defender VM</strong>
-                                            <div style="font-size: 0.7rem; color: var(--text-muted);">M365 Native</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="rating">★★★★☆</span> <span style="color: var(--text-muted);">4.2/5</span></td>
-                                <td>Cloud (MDE Required)</td>
-                                <td>Microsoft Shops</td>
-                                <td>Windows-centric</td>
-                                <td class="check">✓ MDE Agent</td>
-                                <td class="check">✓ Azure Native</td>
-                                <td class="partial">◐ Limited</td>
-                                <td class="partial">◐ Moderate</td>
-                                <td>Included in E5 or add-on</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="vendor-name">
-                                        <div class="vendor-logo" style="background: rgba(0,255,136,0.2); color: var(--green);">OV</div>
-                                        <div>
-                                            <strong>OpenVAS / Greenbone</strong>
-                                            <div style="font-size: 0.7rem; color: var(--text-muted);">Open Source</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="rating">★★★☆☆</span> <span style="color: var(--text-muted);">3.8/5</span></td>
-                                <td>On-Prem Only</td>
-                                <td>Budget-Conscious, SMB</td>
-                                <td>50K+ NVTs</td>
-                                <td class="cross">✗ No</td>
-                                <td class="cross">✗ No</td>
-                                <td class="cross">✗ No</td>
-                                <td class="partial">◐ Basic</td>
-                                <td>Free (Community)</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="vendor-name">
-                                        <div class="vendor-logo" style="background: rgba(168,85,247,0.2); color: var(--purple);">NC</div>
-                                        <div>
-                                            <strong>Nuclei</strong>
-                                            <div style="font-size: 0.7rem; color: var(--text-muted);">DevSecOps</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><span class="rating">★★★★☆</span> <span style="color: var(--text-muted);">4.5/5</span></td>
-                                <td>CLI / CI/CD</td>
-                                <td>DevOps, Automation</td>
-                                <td>8000+ templates</td>
-                                <td class="cross">✗ No</td>
-                                <td class="check">✓ Yes</td>
-                                <td class="check">✓ Yes</td>
-                                <td class="check">✓ Excellent</td>
-                                <td>Free (Open Source)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">📋 Detailed Vendor Analysis</h2>
-                
-                <div class="sub-tabs">
-                    <button class="sub-tab active" data-subtab="tenable">Tenable</button>
-                    <button class="sub-tab" data-subtab="qualys">Qualys</button>
-                    <button class="sub-tab" data-subtab="rapid7">Rapid7</button>
-                    <button class="sub-tab" data-subtab="msdefender">Microsoft Defender</button>
-                    <button class="sub-tab" data-subtab="others">Others</button>
-                </div>
-
-                <div id="tenable" class="sub-content active">
-                    <div class="card">
-                        <h3 style="color: var(--cyan);">Tenable (Nessus / Tenable.io / Tenable.sc)</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Market leader with 25%+ market share. Founded 1998 as creators of Nessus, the most widely deployed vulnerability scanner. Known for broadest plugin coverage and research-driven approach.</p>
-                        
-                        <h4 style="margin: 1rem 0 0.5rem;">Key Products</h4>
-                        <ul style="margin-bottom: 1rem;">
-                            <li><strong>Nessus Professional:</strong> Standalone scanner for consultants and small teams ($3,990/year)</li>
-                            <li><strong>Tenable.io:</strong> Cloud-based platform for enterprise vulnerability management</li>
-                            <li><strong>Tenable.sc (SecurityCenter):</strong> On-premises console for air-gapped or regulated environments</li>
-                            <li><strong>Tenable One:</strong> Unified exposure management platform (VM + Cloud + Identity + Web App)</li>
-                        </ul>
-
-                        <h4 style="margin: 1rem 0 0.5rem;">Standout Features</h4>
-                        <ul style="margin-bottom: 1rem;">
-                            <li><strong>222,000+ plugins</strong> covering 91,000+ CVEs - industry's broadest coverage</li>
-                            <li><strong>VPR (Vulnerability Priority Rating):</strong> Proprietary risk scoring combining threat intel with CVSS</li>
-                            <li><strong>Predictive Prioritization:</strong> ML-based prediction of which vulnerabilities will be exploited</li>
-                            <li><strong>Tenable Research:</strong> World-class vulnerability research team finding zero-days</li>
-                            <li><strong>Frictionless Assessment:</strong> Agentless cloud workload scanning</li>
-                            <li><strong>OT Security:</strong> Industrial control system (ICS/SCADA) vulnerability assessment</li>
-                        </ul>
-
-                        <div class="pros-cons">
-                            <div class="pros">
-                                <h4>✓ Strengths</h4>
-                                <ul>
-                                    <li>Broadest vulnerability coverage in the industry</li>
-                                    <li>Fastest plugin updates for new CVEs (often same-day)</li>
-                                    <li>Excellent API for automation and integration</li>
-                                    <li>Strong compliance reporting (PCI, HIPAA, CIS)</li>
-                                    <li>Robust partner ecosystem (500+ integrations)</li>
-                                    <li>Flexible deployment (cloud, on-prem, hybrid)</li>
-                                    <li>Active user community and documentation</li>
-                                </ul>
-                            </div>
-                            <div class="cons">
-                                <h4>✗ Weaknesses</h4>
-                                <ul>
-                                    <li>Higher cost than competitors ($40-50/asset/year)</li>
-                                    <li>UI can feel dated compared to newer platforms</li>
-                                    <li>Reporting customization requires learning curve</li>
-                                    <li>Asset licensing model can be complex</li>
-                                    <li>Some users report support quality varies</li>
-                                    <li>Tenable.sc on-prem requires significant infrastructure</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h4 style="margin: 1.5rem 0 0.5rem;">User Feedback Summary (Gartner Peer Insights)</h4>
-                        <p style="color: var(--text-dim);">"The biggest difference between Tenable and competitors is its coverage. The way information is presented and how it helps prioritize risk makes it a better tool." - Security Engineer, Insurance Company</p>
-                        <p style="color: var(--text-dim); margin-top: 0.5rem;">"Archiving is weak, logins don't stay persistent, and assets must be updated one by one. Reporting also lacks flexibility." - IT Security Analyst</p>
-                    </div>
-                </div>
-
-                <div id="qualys" class="sub-content">
-                    <div class="card">
-                        <h3 style="color: var(--red);">Qualys VMDR (Vulnerability Management Detection & Response)</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Pioneer of cloud-based vulnerability management since 2000. Known for the integrated Qualys Cloud Platform approach and TruRisk scoring methodology.</p>
-                        
-                        <h4 style="margin: 1rem 0 0.5rem;">Key Products</h4>
-                        <ul style="margin-bottom: 1rem;">
-                            <li><strong>VMDR:</strong> Core vulnerability management with asset discovery, prioritization, remediation</li>
-                            <li><strong>Qualys Cloud Platform:</strong> 20+ integrated security apps (WAS, PC, EDR, CSPM)</li>
-                            <li><strong>Cloud Agent:</strong> Lightweight agent for continuous assessment</li>
-                            <li><strong>Qualys CSAM:</strong> Cyber Security Asset Management for complete visibility</li>
-                        </ul>
-
-                        <h4 style="margin: 1rem 0 0.5rem;">Standout Features</h4>
-                        <ul style="margin-bottom: 1rem;">
-                            <li><strong>TruRisk:</strong> Contextual risk scoring considering exploitability, asset criticality, threat intel</li>
-                            <li><strong>No-code Remediation:</strong> One-click patching for many vulnerability types</li>
-                            <li><strong>100% Cloud Architecture:</strong> No on-premises infrastructure required (optional appliances)</li>
-                            <li><strong>Real-time Visibility:</strong> Continuous assessment via Cloud Agent</li>
-                            <li><strong>Integrated Platform:</strong> Single agent/console for VM, EDR, compliance, and more</li>
-                        </ul>
-
-                        <div class="pros-cons">
-                            <div class="pros">
-                                <h4>✓ Strengths</h4>
-                                <ul>
-                                    <li>True cloud-native architecture - scales effortlessly</li>
-                                    <li>Strong asset visibility with CSAM integration</li>
-                                    <li>TruRisk provides excellent prioritization</li>
-                                    <li>Integrated remediation workflows</li>
-                                    <li>Good multi-cloud coverage (AWS, Azure, GCP)</li>
-                                    <li>Strong compliance module for PCI ASV</li>
-                                </ul>
-                            </div>
-                            <div class="cons">
-                                <h4>✗ Weaknesses</h4>
-                                <ul>
-                                    <li>Complex pricing model (per compute unit)</li>
-                                    <li>Steeper learning curve than competitors</li>
-                                    <li>Longer scan times reported by some users</li>
-                                    <li>Higher false positive rates in some scenarios</li>
-                                    <li>UI can be overwhelming for new users</li>
-                                    <li>Support response times inconsistent</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h4 style="margin: 1.5rem 0 0.5rem;">User Feedback Summary</h4>
-                        <p style="color: var(--text-dim);">"Qualys earns a solid 4.4/5 rating with users highlighting strong asset visibility and integrated vulnerability management." - Gartner Peer Insights</p>
-                        <p style="color: var(--text-dim); margin-top: 0.5rem;">"Pricing seemed quite complex. It is based on the number of compute units in the cloud: virtual machines, serverless, and container images." - TechRepublic Review</p>
-                    </div>
-                </div>
-
-                <div id="rapid7" class="sub-content">
-                    <div class="card">
-                        <h3 style="color: var(--amber);">Rapid7 InsightVM (formerly Nexpose)</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Known for ease of use and strong mid-market presence. Acquired Metasploit in 2009, providing unique exploit validation capabilities.</p>
-                        
-                        <h4 style="margin: 1rem 0 0.5rem;">Key Products</h4>
-                        <ul style="margin-bottom: 1rem;">
-                            <li><strong>InsightVM:</strong> Cloud-managed vulnerability management platform</li>
-                            <li><strong>Nexpose:</strong> On-premises scanner (being sunset in favor of InsightVM)</li>
-                            <li><strong>InsightAgent:</strong> Endpoint agent for continuous visibility</li>
-                            <li><strong>Insight Platform:</strong> Unified security suite (VM, SIEM, SOAR, AppSec)</li>
-                        </ul>
-
-                        <h4 style="margin: 1rem 0 0.5rem;">Standout Features</h4>
-                        <ul style="margin-bottom: 1rem;">
-                            <li><strong>Real Risk Score:</strong> Context-aware prioritization using threat feeds and exploitability</li>
-                            <li><strong>Live Dashboards:</strong> Real-time visibility with customizable views</li>
-                            <li><strong>Remediation Projects:</strong> Workflow tools to track and manage fix campaigns</li>
-                            <li><strong>Metasploit Integration:</strong> Validate vulnerabilities with actual exploits</li>
-                            <li><strong>Goals & SLAs:</strong> Built-in tracking for remediation timelines</li>
-                        </ul>
-
-                        <div class="pros-cons">
-                            <div class="pros">
-                                <h4>✓ Strengths</h4>
-                                <ul>
-                                    <li>Intuitive, modern user interface</li>
-                                    <li>Strong remediation tracking and projects feature</li>
-                                    <li>Good value for mid-market ($6/asset/month)</li>
-                                    <li>Metasploit integration for exploit validation</li>
-                                    <li>Live dashboards are highly customizable</li>
-                                    <li>Strong community and documentation</li>
-                                </ul>
-                            </div>
-                            <div class="cons">
-                                <h4>✗ Weaknesses</h4>
-                                <ul>
-                                    <li>Smaller plugin library than Tenable</li>
-                                    <li>No native OT/ICS security coverage</li>
-                                    <li>No integrated PCI ASV scanning</li>
-                                    <li>Support quality complaints from some users</li>
-                                    <li>Sunsetted some integrations (BeyondTrust)</li>
-                                    <li>Identity/Azure AD coverage limited vs Tenable</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h4 style="margin: 1.5rem 0 0.5rem;">User Feedback Summary</h4>
-                        <p style="color: var(--text-dim);">"Rapid7 InsightVM is my top pick for on-prem deployments. The company lays out clearly how to use this for on-prem deployments." - TechRepublic</p>
-                        <p style="color: var(--text-dim); margin-top: 0.5rem;">"Rapid7's support was being difficult. One of the things we were looking for was a company with a good track record for support." - Security Engineer, Public University</p>
-                    </div>
-                </div>
-
-                <div id="msdefender" class="sub-content">
-                    <div class="card">
-                        <h3 style="color: var(--blue);">Microsoft Defender Vulnerability Management</h3>
-                        <p style="color: var(--text-dim); margin-bottom: 1rem;">Native vulnerability management integrated with Microsoft Defender for Endpoint. Ideal for organizations heavily invested in Microsoft 365 E5 security stack.</p>
-                        
-                        <h4 style="margin: 1rem 0 0.5rem;">Key Products</h4>
-                        <ul style="margin-bottom: 1rem;">
-                            <li><strong>Defender VM (Core):</strong> Included in Defender for Endpoint P2</li>
-                            <li><strong>Defender VM Add-on:</strong> Premium features for E5 customers</li>
-                            <li><strong>Defender for Cloud:</strong> Cloud workload vulnerability assessment</li>
-                        </ul>
-
-                        <h4 style="margin: 1rem 0 0.5rem;">Standout Features</h4>
-                        <ul style="margin-bottom: 1rem;">
-                            <li><strong>Zero Deployment:</strong> Uses existing MDE agent - no additional infrastructure</li>
-                            <li><strong>Microsoft Secure Score:</strong> Integrated security posture management</li>
-                            <li><strong>Threat & Vulnerability Management:</strong> Correlates with EDR detections</li>
-                            <li><strong>Browser Extension Assessment:</strong> Visibility into risky browser add-ons</li>
-                            <li><strong>Block Vulnerable Applications:</strong> Prevent execution of known-vulnerable apps</li>
-                        </ul>
-
-                        <div class="pros-cons">
-                            <div class="pros">
-                                <h4>✓ Strengths</h4>
-                                <ul>
-                                    <li>No additional agent if already using MDE</li>
-                                    <li>Seamless M365/Azure integration</li>
-                                    <li>Included in E5 licensing (cost savings)</li>
-                                    <li>Real-time, continuous assessment</li>
-                                    <li>Strong Windows coverage</li>
-                                    <li>Built-in remediation recommendations</li>
-                                    <li>Correlates vulnerabilities with active threats</li>
-                                </ul>
-                            </div>
-                            <div class="cons">
-                                <h4>✗ Weaknesses</h4>
-                                <ul>
-                                    <li>Requires MDE - not standalone solution</li>
-                                    <li>Limited non-Windows coverage (improving)</li>
-                                    <li>Reporting customization challenging</li>
-                                    <li>Complex licensing tiers confuse customers</li>
-                                    <li>Technical support response times slow</li>
-                                    <li>Less mature than dedicated VM vendors</li>
-                                    <li>Network device coverage limited</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h4 style="margin: 1.5rem 0 0.5rem;">User Feedback Summary</h4>
-                        <p style="color: var(--text-dim);">"The scalability is amazing and highly efficient. The recommendations, scores, and steps to remediate actions are highly useful." - PeerSpot Review</p>
-                        <p style="color: var(--text-dim); margin-top: 0.5rem;">"It is challenging to extract and customize reports. The setup phase is complex and requires expertise. Technical support takes too much time to resolve tickets." - PeerSpot Review</p>
-                    </div>
-                </div>
-
-                <div id="others" class="sub-content">
-                    <div class="grid-2">
-                        <div class="card">
-                            <h3 style="color: var(--green);">OpenVAS / Greenbone</h3>
-                            <p style="color: var(--text-dim); margin-bottom: 1rem;">Open-source vulnerability scanner forked from Nessus in 2005. Good option for budget-constrained organizations.</p>
-                            <ul>
-                                <li><strong>Cost:</strong> Free (Community Edition)</li>
-                                <li><strong>Best for:</strong> Small businesses, home labs, learning</li>
-                                <li><strong>Coverage:</strong> 50,000+ Network Vulnerability Tests</li>
-                            </ul>
-                            <div class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros</h4>
-                                    <ul>
-                                        <li>Completely free and open source</li>
-                                        <li>Active community development</li>
-                                        <li>Good basic coverage</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons</h4>
-                                    <ul>
-                                        <li>No agent support</li>
-                                        <li>Limited cloud/container coverage</li>
-                                        <li>Slower scan performance</li>
-                                        <li>No commercial support</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3 style="color: var(--purple);">Nuclei (ProjectDiscovery)</h3>
-                            <p style="color: var(--text-dim); margin-bottom: 1rem;">Modern, template-based scanner focused on speed and DevSecOps integration. Rapidly growing community.</p>
-                            <ul>
-                                <li><strong>Cost:</strong> Free (Open Source)</li>
-                                <li><strong>Best for:</strong> DevSecOps, CI/CD, bug bounty</li>
-                                <li><strong>Coverage:</strong> 8,000+ community templates</li>
-                            </ul>
-                            <div class="pros-cons">
-                                <div class="pros">
-                                    <h4>✓ Pros</h4>
-                                    <ul>
-                                        <li>Extremely fast scanning</li>
-                                        <li>Easy template creation (YAML)</li>
-                                        <li>Perfect for CI/CD pipelines</li>
-                                        <li>Active community templates</li>
-                                    </ul>
-                                </div>
-                                <div class="cons">
-                                    <h4>✗ Cons</h4>
-                                    <ul>
-                                        <li>CLI-only (no GUI)</li>
-                                        <li>No enterprise management features</li>
-                                        <li>Requires technical expertise</li>
-                                        <li>Not a full VM replacement</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <h3 style="color: var(--cyan);">Ivanti (Neurons for RBVM)</h3>
-                            <p style="color: var(--text-dim); margin-bottom: 1rem;">Known for third-party application patching and risk-based vulnerability management combining multiple scanner inputs.</p>
-                            <ul>
-                                <li><strong>Cost:</strong> Enterprise pricing</li>
-                                <li><strong>Best for:</strong> Third-party patching, aggregation</li>
-                                <li><strong>Unique:</strong> Ingests data from other scanners</li>
-                            </ul>
-                        </div>
-
-                        <div class="card">
-                            <h3 style="color: var(--amber);">CrowdStrike Falcon Spotlight</h3>
-                            <p style="color: var(--text-dim); margin-bottom: 1rem;">Vulnerability management module within CrowdStrike Falcon platform. Uses existing Falcon agent.</p>
-                            <ul>
-                                <li><strong>Cost:</strong> Add-on to Falcon platform</li>
-                                <li><strong>Best for:</strong> Existing CrowdStrike customers</li>
-                                <li><strong>Unique:</strong> Real-time with EDR correlation</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">🔌 Supporting Tools Ecosystem</h2>
-                
-                <div class="grid-3">
-                    <div class="card">
-                        <h3 style="color: var(--cyan);">CMDB / Asset Management</h3>
-                        <ul>
-                            <li><strong>ServiceNow CMDB:</strong> Enterprise ITIL-based asset database</li>
-                            <li><strong>Active Directory:</strong> Windows computer objects and groups</li>
-                            <li><strong>Azure Resource Graph:</strong> Cloud asset inventory via KQL</li>
-                            <li><strong>Axonius:</strong> Cybersecurity asset management (400+ integrations)</li>
-                            <li><strong>runZero:</strong> Agentless network asset discovery</li>
-                            <li><strong>Lansweeper:</strong> IT asset discovery and inventory</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--purple);">Ticketing / Workflow</h3>
-                        <ul>
-                            <li><strong>ServiceNow SecOps:</strong> Security Operations with VR module</li>
-                            <li><strong>Jira:</strong> Atlassian issue tracking with custom workflows</li>
-                            <li><strong>BMC Remedy/Helix:</strong> Enterprise ITSM platform</li>
-                            <li><strong>DefectDojo:</strong> Open-source vulnerability aggregation</li>
-                            <li><strong>Nucleus:</strong> Vulnerability orchestration platform</li>
-                            <li><strong>Kenna Security:</strong> Risk-based vulnerability management</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--green);">Patch Management</h3>
-                        <ul>
-                            <li><strong>SCCM/MECM:</strong> Microsoft enterprise patching</li>
-                            <li><strong>Intune:</strong> Cloud-based Windows Update management</li>
-                            <li><strong>WSUS:</strong> Windows Server Update Services</li>
-                            <li><strong>Ansible:</strong> Agentless Linux/Unix patching</li>
-                            <li><strong>BigFix:</strong> HCL endpoint management with Fixlets</li>
-                            <li><strong>Ivanti Patch:</strong> Third-party application patching</li>
-                            <li><strong>Automox:</strong> Cloud-native patch management</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">📈 SLA Framework</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Severity</th>
-                                <th>CVSS Range</th>
-                                <th>Standard SLA</th>
-                                <th>KEV Override</th>
-                                <th>Internet-Facing</th>
-                                <th>Tier 1 Assets</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><span class="tag" style="background: rgba(255,68,102,0.3); color: var(--red);">CRITICAL</span></td>
-                                <td>9.0 - 10.0</td>
-                                <td>7 days</td>
-                                <td style="color: var(--red);">24-48 hours</td>
-                                <td style="color: var(--red);">24 hours</td>
-                                <td style="color: var(--red);">48 hours</td>
-                            </tr>
-                            <tr>
-                                <td><span class="tag" style="background: rgba(255,100,50,0.3); color: #ff6432;">HIGH</span></td>
-                                <td>7.0 - 8.9</td>
-                                <td>30 days</td>
-                                <td style="color: var(--amber);">7 days</td>
-                                <td style="color: var(--amber);">72 hours</td>
-                                <td style="color: var(--amber);">7 days</td>
-                            </tr>
-                            <tr>
-                                <td><span class="tag" style="background: rgba(255,176,0,0.3); color: var(--amber);">MEDIUM</span></td>
-                                <td>4.0 - 6.9</td>
-                                <td>90 days</td>
-                                <td>30 days</td>
-                                <td>14 days</td>
-                                <td>30 days</td>
-                            </tr>
-                            <tr>
-                                <td><span class="tag" style="background: rgba(0,255,136,0.3); color: var(--green);">LOW</span></td>
-                                <td>0.1 - 3.9</td>
-                                <td>180 days</td>
-                                <td>90 days</td>
-                                <td>30 days</td>
-                                <td>90 days</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">📚 Key Metrics & KPIs</h2>
-                <div class="grid-2">
-                    <div class="card">
-                        <h3 style="color: var(--cyan);">Operational Metrics</h3>
-                        <ul>
-                            <li><strong>MTTR (Mean Time to Remediate):</strong> Average days from discovery to fix</li>
-                            <li><strong>SLA Compliance Rate:</strong> % of vulnerabilities fixed within SLA</li>
-                            <li><strong>Vulnerability Aging:</strong> Distribution of open vulns by age (0-30, 31-60, 61-90, 90+)</li>
-                            <li><strong>Scan Coverage:</strong> % of known assets scanned in rolling 30 days</li>
-                            <li><strong>Credential Success Rate:</strong> % of authenticated scans completing successfully</li>
-                            <li><strong>False Positive Rate:</strong> % of findings determined to be false positives</li>
-                            <li><strong>Exception Count:</strong> Number of active risk acceptances</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--amber);">Executive Metrics</h3>
-                        <ul>
-                            <li><strong>Risk Score Trend:</strong> Overall risk posture over time</li>
-                            <li><strong>Critical/High Vuln Count:</strong> Total open high-severity vulnerabilities</li>
-                            <li><strong>KEV Exposure:</strong> Count of CISA KEV vulnerabilities in environment</li>
-                            <li><strong>Internet-Facing Exposure:</strong> High-risk vulns on perimeter assets</li>
-                            <li><strong>Team Performance:</strong> Remediation rates by business unit</li>
-                            <li><strong>Compliance Status:</strong> PCI, HIPAA, SOX audit readiness</li>
-                            <li><strong>Benchmark Comparison:</strong> Industry peer comparison (if available)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">🔗 Useful Resources</h2>
-                <div class="grid-3">
-                    <div class="card">
-                        <h3 style="color: var(--cyan);">Vulnerability Databases</h3>
-                        <ul>
-                            <li><a href="https://nvd.nist.gov" style="color: var(--cyan);">NVD (NIST)</a> - National Vulnerability Database</li>
-                            <li><a href="https://cve.mitre.org" style="color: var(--cyan);">CVE (MITRE)</a> - Common Vulnerabilities and Exposures</li>
-                            <li><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" style="color: var(--cyan);">CISA KEV</a> - Known Exploited Vulnerabilities</li>
-                            <li><a href="https://www.first.org/epss" style="color: var(--cyan);">FIRST EPSS</a> - Exploit Prediction Scoring</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--purple);">Standards & Frameworks</h3>
-                        <ul>
-                            <li><a href="https://www.first.org/cvss/" style="color: var(--purple);">CVSS</a> - Common Vulnerability Scoring System</li>
-                            <li><a href="https://www.cisecurity.org/cis-benchmarks" style="color: var(--purple);">CIS Benchmarks</a> - Secure Configuration Guides</li>
-                            <li><a href="https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final" style="color: var(--purple);">NIST 800-53</a> - Security Controls Catalog</li>
-                            <li><a href="https://owasp.org/www-project-top-ten/" style="color: var(--purple);">OWASP Top 10</a> - Web Application Risks</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3 style="color: var(--green);">Threat Intelligence</h3>
-                        <ul>
-                            <li><a href="https://www.exploit-db.com" style="color: var(--green);">Exploit-DB</a> - Public Exploit Archive</li>
-                            <li><a href="https://vulners.com" style="color: var(--green);">Vulners</a> - Vulnerability Intelligence</li>
-                            <li><a href="https://github.com/projectdiscovery/nuclei-templates" style="color: var(--green);">Nuclei Templates</a> - Community Detection Rules</li>
-                            <li><a href="https://attackerkb.com" style="color: var(--green);">AttackerKB</a> - Vulnerability Assessment Community</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
     </div>
-
-    <script>
-        // Main tab switching
-        document.querySelectorAll('.main-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+                <div class="sidebar-search">
+                    <span class="sidebar-search-icon">🔍</span>
+                    <input type="text" placeholder="Search documentation...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <!-- Section 1 -->
+                <div class="nav-section" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction to VM</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 VM Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance Requirements</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
                 
-                tab.classList.add('active');
-                document.getElementById(tab.dataset.tab).classList.add('active');
-            });
-        });
-
-        // Sub tab switching
-        document.querySelectorAll('.sub-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
-                const container = tab.closest('.section');
-                container.querySelectorAll('.sub-tab').forEach(t => t.classList.remove('active'));
-                container.querySelectorAll('.sub-content').forEach(c => c.classList.remove('active'));
+                <!-- Section 2 -->
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus Deep Dive</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys Platform</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7 InsightVM</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Microsoft Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source Scanners</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Scan Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated Scanning</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud & Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App Scanning</a>
+                    </div>
+                </div>
                 
-                tab.classList.add('active');
-                container.querySelector('#' + tab.dataset.subtab).classList.add('active');
-            });
-        });
-
-        // Accordion functionality
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                header.parentElement.classList.toggle('open');
-            });
-        });
-    </script>
+                <!-- Section 3 -->
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <!-- Section 4 -->
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis & Priority</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exception Management</a>
+                    </div>
+                </div>
+                
+                <!-- Section 5 -->
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Remediation Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Management</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Management</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Management</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <!-- Section 6 -->
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 Scanner APIs</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing Integration</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflow Automation</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 CI/CD Pipeline</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Custom Reporting</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 Script Library</a>
+                    </div>
+                </div>
+                
+                <!-- Section 7 -->
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulnerabilities</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Web App Vulns</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Infra</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Cloud Misconfigs</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Container & K8s</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Active Directory</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Certificates & Crypto</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 Zero-Day Response</a>
+                    </div>
+                </div>
+                
+                <!-- Section 8 -->
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive Reports</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Stakeholder Comms</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Audit & Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 Metrics Visualization</a>
+                    </div>
+                </div>
+                
+                <!-- Section 9 -->
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🛠️</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Tenable Suite</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Microsoft Stack</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Open Source Toolkit</a>
+                    </div>
+                </div>
+                
+                <!-- Section 10 -->
+                <div class="nav-section collapsed" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎓</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 VM Concepts</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Technical Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Metrics & Programs</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Hands-On Challenges</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Hero Section -->
+                <section class="hero">
+                    <span class="hero-badge">Enterprise Security Documentation</span>
+                    <h1>Vulnerability Management</h1>
+                    <p class="hero-subtitle">
+                        The complete operational reference for Security Engineers and SOC Analysts. 
+                        From fundamentals to advanced automation.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">60+</div>
+                            <div class="hero-stat-label">Pages</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">10</div>
+                            <div class="hero-stat-label">Sections</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">100+</div>
+                            <div class="hero-stat-label">Code Examples</div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Overview -->
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What's Inside</div>
+                    <p>
+                        This documentation covers the complete vulnerability management lifecycle from program 
+                        development to advanced automation. Each section includes real-world configurations, 
+                        copy-paste ready scripts, and practical day-to-day operational procedures. 
+                        Special interview preparation sections help you articulate your expertise.
+                    </p>
+                </div>
+                
+                <!-- Sections Grid -->
+                <h2>Documentation Sections</h2>
+                <div class="sections-grid">
+                    <!-- Section 1 -->
+                    <a href="1-1-introduction.html" class="feature-card">
+                        <div class="feature-card-number">01</div>
+                        <div class="feature-card-title">VM Fundamentals</div>
+                        <div class="feature-card-description">
+                            Core concepts, program frameworks, scoring systems (CVSS, EPSS, SSVC), 
+                            compliance requirements, and key metrics.
+                        </div>
+                        <div class="feature-card-pages">5 pages</div>
+                    </a>
+                    
+                    <!-- Section 2 -->
+                    <a href="2-1-scanner-types.html" class="feature-card">
+                        <div class="feature-card-number">02</div>
+                        <div class="feature-card-title">Vulnerability Scanning</div>
+                        <div class="feature-card-description">
+                            Deep dives into Nessus, Qualys, Rapid7, Microsoft Defender, open source tools, 
+                            and scanning best practices.
+                        </div>
+                        <div class="feature-card-pages">10 pages</div>
+                    </a>
+                    
+                    <!-- Section 3 -->
+                    <a href="3-1-discovery-methods.html" class="feature-card">
+                        <div class="feature-card-number">03</div>
+                        <div class="feature-card-title">Asset Discovery</div>
+                        <div class="feature-card-description">
+                            Discovery methods, inventory management, cloud assets, network mapping, 
+                            SBOM creation, and criticality assessment.
+                        </div>
+                        <div class="feature-card-pages">6 pages</div>
+                    </a>
+                    
+                    <!-- Section 4 -->
+                    <a href="4-1-prioritization.html" class="feature-card">
+                        <div class="feature-card-number">04</div>
+                        <div class="feature-card-title">Analysis & Prioritization</div>
+                        <div class="feature-card-description">
+                            Triage processes, threat intelligence integration, risk-based prioritization, 
+                            exploit research, and exception management.
+                        </div>
+                        <div class="feature-card-pages">6 pages</div>
+                    </a>
+                    
+                    <!-- Section 5 -->
+                    <a href="5-1-remediation-strategies.html" class="feature-card">
+                        <div class="feature-card-number">05</div>
+                        <div class="feature-card-title">Remediation & Patching</div>
+                        <div class="feature-card-description">
+                            Windows, Linux, third-party, database, and network device patching. 
+                            Configuration remediation and SLA tracking.
+                        </div>
+                        <div class="feature-card-pages">8 pages</div>
+                    </a>
+                    
+                    <!-- Section 6 -->
+                    <a href="6-1-soar-integration.html" class="feature-card">
+                        <div class="feature-card-number">06</div>
+                        <div class="feature-card-title">Automation & Integration</div>
+                        <div class="feature-card-description">
+                            Scanner APIs, SIEM/SOAR integration, ticketing automation, CI/CD pipelines, 
+                            and custom reporting scripts.
+                        </div>
+                        <div class="feature-card-pages">7 pages</div>
+                    </a>
+                    
+                    <!-- Section 7 -->
+                    <a href="7-1-os-vulnerabilities.html" class="feature-card">
+                        <div class="feature-card-number">07</div>
+                        <div class="feature-card-title">Vulnerability Types</div>
+                        <div class="feature-card-description">
+                            OS, web app, network, cloud, container, Active Directory, cryptographic 
+                            vulnerabilities, and zero-day response.
+                        </div>
+                        <div class="feature-card-pages">8 pages</div>
+                    </a>
+                    
+                    <!-- Section 8 -->
+                    <a href="8-1-dashboards.html" class="feature-card">
+                        <div class="feature-card-number">08</div>
+                        <div class="feature-card-title">Reporting & Communication</div>
+                        <div class="feature-card-description">
+                            Executive dashboards, technical reports, stakeholder communication, 
+                            audit evidence, and metrics visualization.
+                        </div>
+                        <div class="feature-card-pages">5 pages</div>
+                    </a>
+                    
+                    <!-- Section 9 -->
+                    <a href="9-1-splunk-vm.html" class="feature-card">
+                        <div class="feature-card-number">09</div>
+                        <div class="feature-card-title">Tools Deep Dive</div>
+                        <div class="feature-card-description">
+                            Complete platform guides for Tenable, Qualys, Rapid7, Microsoft security stack, 
+                            and building a free VM program.
+                        </div>
+                        <div class="feature-card-pages">5 pages</div>
+                    </a>
+                    
+                    <!-- Section 10 -->
+                    <a href="10-1-common-questions.html" class="feature-card">
+                        <div class="feature-card-number">10</div>
+                        <div class="feature-card-title">Interview Preparation</div>
+                        <div class="feature-card-description">
+                            Common questions, technical scenarios, metrics discussions, 
+                            and hands-on challenge walkthroughs.
+                        </div>
+                        <div class="feature-card-pages">4 pages</div>
+                    </a>
+                </div>
+                
+                <!-- Quick Start -->
+                <h2>Quick Start</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">🚀</div>
+                        <div class="card-title">New to VM?</div>
+                        <div class="card-description">
+                            Start with the fundamentals section to understand core concepts and build a solid foundation.
+                        </div>
+                        <a href="1-1-introduction.html" class="card-link">
+                            Start Learning →
+                        </a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">🔧</div>
+                        <div class="card-title">Tool Setup</div>
+                        <div class="card-description">
+                            Jump straight to scanner configuration guides for Nessus, Qualys, or Rapid7.
+                        </div>
+                        <a href="2-2-nessus.html" class="card-link">
+                            Configure Scanners →
+                        </a>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">🎯</div>
+                        <div class="card-title">Interview Prep</div>
+                        <div class="card-description">
+                            Review common questions and practice scenarios to ace your security interview.
+                        </div>
+                        <a href="10-1-common-questions.html" class="card-link">
+                            Prepare Now →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Interview Tip -->
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Tip</div>
+                    <p>
+                        Throughout this documentation, look for cyan interview boxes like this one. 
+                        They highlight key talking points, common questions, and how to articulate 
+                        your expertise during security interviews.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
 </body>
 </html>

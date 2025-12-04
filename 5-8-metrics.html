@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Remediation Metrics - KPIs for vulnerability remediation, MTTR, SLA compliance, and tracking remediation program effectiveness.">
+    <title>Remediation Metrics | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item active">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="5-1-remediation-strategies.html">Section 5: Remediation</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Remediation Metrics</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Remediation Metrics</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 5.8</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers key performance indicators for vulnerability remediation including 
+                        MTTR, SLA compliance, remediation velocity, and metrics for reporting to leadership.
+                    </p>
+                </div>
+                
+                <h2>Key Remediation Metrics</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VULNERABILITY REMEDIATION KPIs
+═══════════════════════════════════════════════════════════════════════
+
+SPEED METRICS:
+─────────────────────────────────────────────────────────────────────
+MTTR (Mean Time to Remediate)
+  • Average days from detection to verified fix
+  • Track by severity: Critical, High, Medium, Low
+  • Target: Critical < 7 days, High < 14 days
+
+MTTD (Mean Time to Detect)
+  • Days from vuln disclosure to first scan detection
+  • Indicates scan frequency adequacy
+
+First Response Time
+  • Hours from ticket creation to first action
+  • Target: Critical < 4 hours, High < 24 hours
+
+VOLUME METRICS:
+─────────────────────────────────────────────────────────────────────
+Remediation Velocity
+  • Vulnerabilities closed per week/month
+  • Compare to new vulnerabilities discovered
+  • Healthy: Closed > Discovered (backlog shrinking)
+
+Backlog Age
+  • Average age of open vulnerabilities
+  • Track aging buckets: 30/60/90/180+ days
+
+Open Count by Severity
+  • Current open critical/high/medium/low
+  • Trend over time (should decrease)
+
+COMPLIANCE METRICS:
+─────────────────────────────────────────────────────────────────────
+SLA Compliance Rate
+  • % remediated within SLA by severity
+  • Target: Critical 95%, High 90%, Medium 85%
+
+Exception Rate
+  • % vulnerabilities with approved exceptions
+  • High rate indicates systemic issues
+
+Reopen Rate
+  • % tickets reopened after closure
+  • Indicates verification effectiveness</code></pre>
+                </div>
+                
+                <h2>Metrics Calculation</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>-- Remediation Metrics Queries
+
+-- MTTR by Severity (last 90 days)
+SELECT 
+    severity,
+    COUNT(*) as remediated_count,
+    ROUND(AVG(remediated_date - discovered_date), 1) as mttr_days,
+    ROUND(PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY remediated_date - discovered_date), 1) as median_days,
+    MIN(remediated_date - discovered_date) as min_days,
+    MAX(remediated_date - discovered_date) as max_days
+FROM vulnerabilities
+WHERE remediated_date IS NOT NULL
+  AND remediated_date >= CURRENT_DATE - 90
+GROUP BY severity
+ORDER BY 
+    CASE severity 
+        WHEN 'Critical' THEN 1 
+        WHEN 'High' THEN 2 
+        WHEN 'Medium' THEN 3 
+        ELSE 4 
+    END;
+
+-- SLA Compliance Rate
+SELECT 
+    severity,
+    COUNT(*) as total_remediated,
+    COUNT(*) FILTER (WHERE remediated_date <= sla_due_date) as within_sla,
+    ROUND(100.0 * COUNT(*) FILTER (WHERE remediated_date <= sla_due_date) / COUNT(*), 1) as compliance_pct
+FROM vulnerabilities
+WHERE remediated_date IS NOT NULL
+  AND remediated_date >= CURRENT_DATE - 90
+GROUP BY severity;
+
+-- Remediation Velocity (weekly trend)
+SELECT 
+    DATE_TRUNC('week', remediated_date) as week,
+    COUNT(*) as closed,
+    (SELECT COUNT(*) FROM vulnerabilities v2 
+     WHERE DATE_TRUNC('week', v2.discovered_date) = DATE_TRUNC('week', v.remediated_date)) as discovered,
+    COUNT(*) - (SELECT COUNT(*) FROM vulnerabilities v2 
+                WHERE DATE_TRUNC('week', v2.discovered_date) = DATE_TRUNC('week', v.remediated_date)) as net_change
+FROM vulnerabilities v
+WHERE remediated_date >= CURRENT_DATE - 90
+GROUP BY DATE_TRUNC('week', remediated_date)
+ORDER BY week;
+
+-- Backlog Age Distribution
+SELECT 
+    CASE 
+        WHEN CURRENT_DATE - discovered_date <= 30 THEN '0-30 days'
+        WHEN CURRENT_DATE - discovered_date <= 60 THEN '31-60 days'
+        WHEN CURRENT_DATE - discovered_date <= 90 THEN '61-90 days'
+        WHEN CURRENT_DATE - discovered_date <= 180 THEN '91-180 days'
+        ELSE '180+ days'
+    END as age_bucket,
+    severity,
+    COUNT(*) as count
+FROM vulnerabilities
+WHERE remediated_date IS NULL
+  AND status NOT IN ('Exception', 'Risk Accepted')
+GROUP BY 
+    CASE 
+        WHEN CURRENT_DATE - discovered_date <= 30 THEN '0-30 days'
+        WHEN CURRENT_DATE - discovered_date <= 60 THEN '31-60 days'
+        WHEN CURRENT_DATE - discovered_date <= 90 THEN '61-90 days'
+        WHEN CURRENT_DATE - discovered_date <= 180 THEN '91-180 days'
+        ELSE '180+ days'
+    END,
+    severity
+ORDER BY age_bucket, severity;
+
+-- Team Performance Comparison
+SELECT 
+    a.owner_team,
+    COUNT(*) FILTER (WHERE v.remediated_date IS NOT NULL) as remediated,
+    COUNT(*) FILTER (WHERE v.remediated_date IS NULL) as open,
+    ROUND(AVG(CASE WHEN v.remediated_date IS NOT NULL 
+              THEN v.remediated_date - v.discovered_date END), 1) as avg_mttr,
+    ROUND(100.0 * COUNT(*) FILTER (WHERE v.remediated_date <= v.sla_due_date) 
+          / NULLIF(COUNT(*) FILTER (WHERE v.remediated_date IS NOT NULL), 0), 1) as sla_compliance_pct
+FROM vulnerabilities v
+JOIN assets a ON v.asset_id = a.asset_id
+WHERE v.discovered_date >= CURRENT_DATE - 90
+GROUP BY a.owner_team
+ORDER BY open DESC;</code></pre>
+                </div>
+                
+                <h2>Executive Dashboard Metrics</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>EXECUTIVE DASHBOARD - MONTHLY REPORT
+═══════════════════════════════════════════════════════════════════════
+
+HEADLINE METRICS:
+─────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────┐
+│  MTTR Critical: 4.2 days ✓    (Target: 7 days)                     │
+│  SLA Compliance: 94%     ✓    (Target: 90%)                        │
+│  Open Critical: 12       ⚠    (Increased from 8)                   │
+│  Backlog Trend: ↓ 15%    ✓    (Improving)                          │
+└─────────────────────────────────────────────────────────────────────┘
+
+TREND CHARTS TO INCLUDE:
+─────────────────────────────────────────────────────────────────────
+1. Open Vulnerabilities Over Time (by severity)
+   - Line chart, 12-month view
+   - Show critical/high trending down
+
+2. MTTR Trend
+   - Bar chart by severity
+   - Month-over-month comparison
+
+3. Remediation Velocity
+   - Stacked bar: Discovered vs. Closed
+   - Net change trend line
+
+4. SLA Compliance by Team
+   - Horizontal bar chart
+   - Highlight teams below target
+
+5. Risk Exposure Trend
+   - Composite risk score over time
+   - Correlate with remediation efforts
+
+NARRATIVE ELEMENTS:
+─────────────────────────────────────────────────────────────────────
+• Key accomplishments (major CVEs remediated)
+• Challenges/blockers (resource constraints, legacy systems)
+• Focus areas for next period
+• Resource requests (if needed)</code></pre>
+                </div>
+                
+                <h2>Metrics Targets</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>RECOMMENDED METRIC TARGETS
+═══════════════════════════════════════════════════════════════════════
+
+MTTR TARGETS:
+─────────────────────────────────────────────────────────────────────
+Severity    │ Aggressive │ Standard │ Minimum
+────────────┼────────────┼──────────┼──────────
+Critical    │   3 days   │  7 days  │  14 days
+High        │   7 days   │ 14 days  │  30 days
+Medium      │  30 days   │ 45 days  │  60 days
+Low         │  60 days   │ 90 days  │ 120 days
+
+SLA COMPLIANCE TARGETS:
+─────────────────────────────────────────────────────────────────────
+Maturity Level │ Critical │ High │ Medium │ Low
+───────────────┼──────────┼──────┼────────┼──────
+Leading        │   98%    │ 95%  │  92%   │ 90%
+Established    │   95%    │ 90%  │  85%   │ 80%
+Developing     │   90%    │ 85%  │  80%   │ 75%
+Initial        │   85%    │ 80%  │  75%   │ 70%
+
+BACKLOG TARGETS:
+─────────────────────────────────────────────────────────────────────
+• Zero critical vulns > 30 days old
+• Zero high vulns > 60 days old
+• Backlog shrinking month-over-month
+• Exception rate < 10%</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"What metrics do you use to measure vulnerability remediation effectiveness?"</strong><br><br>
+                        Sample answer: "I track several KPIs: MTTR (Mean Time to Remediate) by severity—targeting 
+                        under 7 days for critical; SLA compliance rate—percentage remediated within defined 
+                        timelines, targeting 90%+ for critical/high; and remediation velocity—comparing vulns 
+                        closed vs. discovered to ensure backlog is shrinking. I also track backlog age distribution 
+                        to identify aging issues and team-level metrics to spot bottlenecks. For executives, I 
+                        show trend lines demonstrating improvement over time and highlight risk reduction achieved."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Metrics drive accountability and demonstrate program value. Focus on MTTR and SLA 
+                    compliance as primary KPIs, track velocity to ensure backlog improvement, and present 
+                    trends to executives showing risk reduction over time.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="5-7-rollback.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Rollback Procedures</span>
+                    </a>
+                    <a href="6-1-soar-integration.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Automation Overview</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

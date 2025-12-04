@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Change Management Integration - ITIL change process, CAB workflows, emergency changes, and ServiceNow integration.">
+    <title>Change Management Integration | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item active">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="5-1-remediation-strategies.html">Section 5: Remediation</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Change Management</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Change Management Integration</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 5.3</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers integrating vulnerability remediation with ITIL change management 
+                        processes including change types, CAB workflows, pre-approved changes, and 
+                        emergency change procedures.
+                    </p>
+                </div>
+                
+                <h2>Change Types for VM</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>CHANGE TYPES FOR VULNERABILITY REMEDIATION
+═══════════════════════════════════════════════════════════════════════
+
+STANDARD CHANGE (Pre-Approved)
+─────────────────────────────────────────────────────────────────────
+Definition: Low-risk, routine changes following established procedure
+Lead Time: None (immediate execution)
+
+Examples:
+• Monthly Windows security patches to Tier 3-4 systems
+• Anti-virus definition updates
+• Web browser updates
+• Pre-tested patch deployments
+
+Requirements:
+• Documented procedure exists
+• Risk assessment completed once
+• No CAB approval per-instance
+
+NORMAL CHANGE (CAB Approval Required)
+─────────────────────────────────────────────────────────────────────
+Definition: Planned changes requiring review and approval
+Lead Time: 3-5 business days typical
+
+Examples:
+• OS patches to production servers
+• Database security updates
+• Network device firmware updates
+• Application security patches
+
+Requirements:
+• Change request submitted
+• Risk assessment
+• Testing evidence
+• Rollback plan
+• CAB review and approval
+• Scheduled maintenance window
+
+EMERGENCY CHANGE (Expedited)
+─────────────────────────────────────────────────────────────────────
+Definition: Urgent changes to address immediate risk
+Lead Time: Hours (as fast as possible)
+
+Examples:
+• CISA KEV vulnerabilities
+• Zero-day patches
+• Active exploitation response
+• Wormable vulnerabilities
+
+Requirements:
+• Emergency CAB approval (verbal OK, documented after)
+• CISO or delegate authorization
+• Abbreviated testing (critical path)
+• Post-implementation review</code></pre>
+                </div>
+                
+                <h2>ServiceNow Integration</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+ServiceNow Change Request Automation
+Auto-create change requests for vulnerability remediation.
+"""
+
+import requests
+from typing import Dict, List
+from datetime import datetime, timedelta
+
+
+class ServiceNowChangeClient:
+    """Create and manage change requests in ServiceNow."""
+    
+    def __init__(self, instance: str, username: str, password: str):
+        self.base_url = f"https://{instance}.service-now.com/api/now"
+        self.auth = (username, password)
+        self.headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        }
+    
+    def create_change_request(self, vuln: Dict, assets: List[Dict], 
+                              priority: str) -> str:
+        """
+        Create change request for vulnerability remediation.
+        
+        Args:
+            vuln: Vulnerability details
+            assets: List of affected assets
+            priority: P1-P5 priority level
+        
+        Returns:
+            Change request number
+        """
+        # Determine change type based on priority
+        change_type = self._determine_change_type(priority, assets)
+        
+        # Calculate dates
+        dates = self._calculate_dates(priority)
+        
+        # Build description
+        description = self._build_description(vuln, assets)
+        
+        payload = {
+            'type': change_type,
+            'short_description': f"Security Patch: {vuln.get('cve_id')} Remediation",
+            'description': description,
+            'category': 'Security',
+            'priority': self._map_priority(priority),
+            'risk': self._assess_risk(vuln, assets),
+            'impact': self._assess_impact(assets),
+            'start_date': dates['start'].isoformat(),
+            'end_date': dates['end'].isoformat(),
+            'assignment_group': 'Security Operations',
+            'cmdb_ci': assets[0].get('cmdb_sys_id') if assets else None,
+            'justification': f"Remediation of {vuln.get('cve_id')} - "
+                           f"CVSS: {vuln.get('cvss_score', 'N/A')}",
+            'implementation_plan': self._build_implementation_plan(vuln),
+            'backout_plan': self._build_backout_plan(vuln),
+            'test_plan': "Post-patch vulnerability rescan to confirm remediation"
+        }
+        
+        response = requests.post(
+            f"{self.base_url}/table/change_request",
+            auth=self.auth,
+            headers=self.headers,
+            json=payload
+        )
+        response.raise_for_status()
+        
+        return response.json()['result']['number']
+    
+    def _determine_change_type(self, priority: str, assets: List[Dict]) -> str:
+        """Determine change type based on priority and assets."""
+        # Check for pre-approved standard change eligibility
+        if priority in ['P4', 'P5']:
+            all_low_tier = all(
+                a.get('criticality_tier', 3) >= 3 for a in assets
+            )
+            if all_low_tier:
+                return 'standard'
+        
+        if priority == 'P1':
+            return 'emergency'
+        
+        return 'normal'
+    
+    def _calculate_dates(self, priority: str) -> Dict:
+        """Calculate change window dates."""
+        now = datetime.now()
+        
+        windows = {
+            'P1': (timedelta(hours=4), timedelta(hours=8)),
+            'P2': (timedelta(days=3), timedelta(days=4)),
+            'P3': (timedelta(days=7), timedelta(days=8)),
+            'P4': (timedelta(days=14), timedelta(days=15)),
+            'P5': (timedelta(days=30), timedelta(days=31))
+        }
+        
+        start_delta, end_delta = windows.get(priority, (timedelta(days=7), timedelta(days=8)))
+        
+        return {
+            'start': now + start_delta,
+            'end': now + end_delta
+        }
+    
+    def _map_priority(self, priority: str) -> str:
+        """Map VM priority to ServiceNow priority."""
+        mapping = {
+            'P1': '1',  # Critical
+            'P2': '2',  # High
+            'P3': '3',  # Moderate
+            'P4': '4',  # Low
+            'P5': '5'   # Planning
+        }
+        return mapping.get(priority, '3')
+    
+    def _assess_risk(self, vuln: Dict, assets: List[Dict]) -> str:
+        """Assess change risk level."""
+        cvss = vuln.get('cvss_score', 5.0)
+        tier_1_count = sum(1 for a in assets if a.get('criticality_tier') == 1)
+        
+        if tier_1_count > 0:
+            return 'high'
+        elif cvss >= 9.0 or len(assets) > 50:
+            return 'high'
+        elif cvss >= 7.0:
+            return 'moderate'
+        else:
+            return 'low'
+    
+    def _assess_impact(self, assets: List[Dict]) -> str:
+        """Assess change impact."""
+        tier_1_count = sum(1 for a in assets if a.get('criticality_tier') == 1)
+        
+        if tier_1_count > 0 or len(assets) > 100:
+            return 'high'
+        elif len(assets) > 20:
+            return 'medium'
+        else:
+            return 'low'
+    
+    def _build_description(self, vuln: Dict, assets: List[Dict]) -> str:
+        """Build change description."""
+        asset_list = '\n'.join(f"- {a.get('hostname')}" for a in assets[:10])
+        if len(assets) > 10:
+            asset_list += f"\n- ... and {len(assets) - 10} more"
+        
+        return f"""
+Security Vulnerability Remediation
+
+CVE: {vuln.get('cve_id')}
+CVSS Score: {vuln.get('cvss_score', 'N/A')}
+Severity: {vuln.get('severity', 'N/A')}
+
+Description:
+{vuln.get('description', 'See vendor advisory')}
+
+Affected Assets ({len(assets)} total):
+{asset_list}
+
+Remediation:
+{vuln.get('solution', 'Apply vendor-provided patch')}
+        """
+    
+    def _build_implementation_plan(self, vuln: Dict) -> str:
+        """Build implementation plan."""
+        return f"""
+1. Create backup/snapshot of affected systems
+2. Verify patch availability: {vuln.get('patch_id', 'See advisory')}
+3. Deploy patch to pilot group (if applicable)
+4. Deploy patch to production systems
+5. Reboot systems (if required)
+6. Verify system functionality
+7. Run vulnerability rescan
+8. Close remediation ticket
+        """
+    
+    def _build_backout_plan(self, vuln: Dict) -> str:
+        """Build backout/rollback plan."""
+        return """
+1. Restore from pre-patch backup/snapshot
+2. Verify system functionality restored
+3. Document rollback reason
+4. Notify security team of failed remediation
+5. Implement compensating controls if needed
+6. Schedule remediation retry
+        """
+
+
+# Example usage
+snow = ServiceNowChangeClient('mycompany', 'api_user', 'api_password')
+
+vuln = {
+    'cve_id': 'CVE-2024-1234',
+    'cvss_score': 9.8,
+    'severity': 'Critical',
+    'description': 'Remote code execution vulnerability',
+    'solution': 'Apply Microsoft patch KB5001234',
+    'patch_id': 'KB5001234'
+}
+
+assets = [
+    {'hostname': 'srv-web-01', 'criticality_tier': 1, 'cmdb_sys_id': 'abc123'},
+    {'hostname': 'srv-web-02', 'criticality_tier': 1, 'cmdb_sys_id': 'def456'}
+]
+
+change_number = snow.create_change_request(vuln, assets, 'P1')
+print(f"Created change request: {change_number}")</code></pre>
+                </div>
+                
+                <h2>Pre-Approved Changes</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>STANDARD CHANGE CATALOG FOR VM
+═══════════════════════════════════════════════════════════════════════
+
+SC-SEC-001: Monthly Windows Security Patches
+─────────────────────────────────────────────────────────────────────
+Scope: Tier 3-4 Windows servers and workstations
+Frequency: Monthly (Patch Tuesday + 7 days)
+Procedure: SCCM automated deployment with staged rollout
+Risk: Low (tested in higher environments first)
+Approval: Pre-approved, no per-instance CAB
+
+SC-SEC-002: Anti-Malware Definition Updates
+─────────────────────────────────────────────────────────────────────
+Scope: All endpoints
+Frequency: Daily
+Procedure: Automatic via AV management console
+Risk: Very Low
+Approval: Pre-approved
+
+SC-SEC-003: Linux Package Security Updates
+─────────────────────────────────────────────────────────────────────
+Scope: Tier 3-4 Linux servers
+Frequency: Weekly
+Procedure: Ansible playbook execution
+Risk: Low
+Approval: Pre-approved
+
+SC-SEC-004: Web Browser Updates
+─────────────────────────────────────────────────────────────────────
+Scope: All workstations
+Frequency: As released
+Procedure: Software distribution automation
+Risk: Very Low
+Approval: Pre-approved
+
+ELIGIBILITY CRITERIA:
+─────────────────────────────────────────────────────────────────────
+✓ Asset is Tier 3 or Tier 4 (non-critical)
+✓ Patch has been tested in pilot for 48+ hours
+✓ No known issues reported
+✓ Follows documented procedure
+✓ Can be executed during business hours</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you balance security urgency with change management requirements?"</strong><br><br>
+                        Sample answer: "I work with the change management team to establish pre-approved 
+                        standard changes for routine patching, which eliminates CAB delays for low-risk 
+                        updates. For critical vulnerabilities, we have an emergency change process that 
+                        allows expedited approval—verbal authorization from the CISO followed by documentation. 
+                        I also categorize changes by asset criticality: Tier 3-4 systems can use standard 
+                        changes, while Tier 1-2 always go through normal change process. This balances 
+                        speed with appropriate governance."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Change management integration ensures remediation is controlled and auditable. 
+                    Use standard changes for routine patching, normal changes for production systems, 
+                    and emergency changes for critical vulnerabilities. Automate change request creation 
+                    from vulnerability findings.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="5-2-patch-management.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Patch Management</span>
+                    </a>
+                    <a href="5-4-ticket-workflows.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Ticket Workflows</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

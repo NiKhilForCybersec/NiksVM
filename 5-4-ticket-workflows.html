@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vulnerability Ticket Workflows - Automated ticket creation, assignment rules, escalation, and closure processes.">
+    <title>Ticket Workflows | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item active">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="5-1-remediation-strategies.html">Section 5: Remediation</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Ticket Workflows</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Vulnerability Ticket Workflows</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 5.4</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers vulnerability remediation ticket workflows including automated 
+                        ticket creation, intelligent assignment, escalation rules, ticket aggregation 
+                        strategies, and closure processes.
+                    </p>
+                </div>
+                
+                <h2>Ticket Workflow Overview</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VULNERABILITY TICKET LIFECYCLE
+═══════════════════════════════════════════════════════════════════════
+
+    ┌──────────────────┐
+    │  VULNERABILITY   │
+    │  DISCOVERED      │
+    └────────┬─────────┘
+             │ Auto-create ticket
+             ▼
+    ┌──────────────────┐
+    │      NEW         │ ← Initial state
+    └────────┬─────────┘
+             │ Assignment
+             ▼
+    ┌──────────────────┐
+    │    ASSIGNED      │ ← Owner notified
+    └────────┬─────────┘
+             │
+       ┌─────┴─────┐
+       │           │
+       ▼           ▼
+┌────────────┐ ┌────────────┐
+│ IN PROGRESS│ │  PENDING   │ ← Waiting on vendor/window
+└─────┬──────┘ └─────┬──────┘
+      │              │
+      └──────┬───────┘
+             │
+             ▼
+    ┌──────────────────┐
+    │   REMEDIATED     │ ← Action taken
+    └────────┬─────────┘
+             │ Rescan verification
+             ▼
+    ┌──────────────────┐
+    │    VERIFIED      │ ← Scanner confirms fix
+    └────────┬─────────┘
+             │
+             ▼
+    ┌──────────────────┐
+    │     CLOSED       │ ← Ticket complete
+    └──────────────────┘</code></pre>
+                </div>
+                
+                <h2>Ticket Aggregation Strategies</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>TICKET AGGREGATION APPROACHES
+═══════════════════════════════════════════════════════════════════════
+
+1. ONE TICKET PER VULNERABILITY INSTANCE (Not Recommended)
+─────────────────────────────────────────────────────────────────────
+Example: CVE-2024-1234 on 500 servers = 500 tickets
+Problem: Ticket flood, impossible to manage
+Use case: Never for enterprise
+
+2. ONE TICKET PER CVE (Common)
+─────────────────────────────────────────────────────────────────────
+Example: CVE-2024-1234 on 500 servers = 1 ticket
+Content: List of affected assets
+Assignment: Patch management team
+Use case: Centralized patching teams
+
+3. ONE TICKET PER CVE PER OWNER (Recommended)
+─────────────────────────────────────────────────────────────────────
+Example: CVE-2024-1234 on servers owned by 3 teams = 3 tickets
+Content: Each team gets their affected assets
+Assignment: Asset owner/team
+Use case: Distributed responsibility
+
+4. ONE TICKET PER SOLUTION (Efficient)
+─────────────────────────────────────────────────────────────────────
+Example: KB5001234 fixes 5 CVEs on 100 servers = 1 ticket
+Content: All CVEs addressed by single patch
+Assignment: Based on asset ownership
+Use case: Patch-centric remediation
+
+5. ONE TICKET PER ASSET (For High-Value Assets)
+─────────────────────────────────────────────────────────────────────
+Example: 10 CVEs on critical payment server = 1 ticket
+Content: All vulnerabilities for that asset
+Assignment: Asset owner
+Use case: Tier 1 systems requiring coordinated remediation</code></pre>
+                </div>
+                
+                <h2>Automated Ticket Creation</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Automated Vulnerability Ticket Creation
+Intelligently aggregate and create tickets.
+"""
+
+from typing import Dict, List, Optional
+from collections import defaultdict
+from datetime import datetime, timedelta
+
+
+class VulnTicketManager:
+    """Manage vulnerability remediation tickets."""
+    
+    def __init__(self, ticketing_client):
+        """
+        Args:
+            ticketing_client: ServiceNow/Jira API client
+        """
+        self.client = ticketing_client
+    
+    def create_tickets_by_owner(self, vulnerabilities: List[Dict]) -> List[str]:
+        """
+        Create tickets grouped by CVE and owner.
+        
+        Args:
+            vulnerabilities: List of vuln findings with asset info
+        
+        Returns:
+            List of created ticket IDs
+        """
+        # Group by CVE + Owner
+        grouped = defaultdict(list)
+        
+        for vuln in vulnerabilities:
+            cve = vuln.get('cve_id')
+            owner = vuln.get('asset_owner', 'Unassigned')
+            key = (cve, owner)
+            grouped[key].append(vuln)
+        
+        # Create tickets
+        created_tickets = []
+        
+        for (cve, owner), items in grouped.items():
+            # Get representative vuln info
+            sample = items[0]
+            
+            # Calculate SLA based on priority
+            priority = self._calculate_priority(sample)
+            due_date = self._calculate_due_date(priority)
+            
+            # Build asset list
+            assets = [
+                {
+                    'hostname': v.get('hostname'),
+                    'ip': v.get('ip_address'),
+                    'criticality': v.get('asset_criticality')
+                }
+                for v in items
+            ]
+            
+            ticket_data = {
+                'title': f"[{priority}] Remediate {cve} - {len(items)} assets",
+                'description': self._build_description(sample, assets),
+                'priority': priority,
+                'assignee': owner,
+                'due_date': due_date,
+                'labels': ['vulnerability', 'security', cve],
+                'custom_fields': {
+                    'cve_id': cve,
+                    'cvss_score': sample.get('cvss_score'),
+                    'affected_asset_count': len(items),
+                    'cisa_kev': sample.get('cisa_kev', False)
+                }
+            }
+            
+            ticket_id = self.client.create_ticket(ticket_data)
+            created_tickets.append(ticket_id)
+        
+        return created_tickets
+    
+    def create_tickets_by_solution(self, vulnerabilities: List[Dict]) -> List[str]:
+        """
+        Create tickets grouped by remediation solution.
+        """
+        # Group by solution/patch
+        grouped = defaultdict(list)
+        
+        for vuln in vulnerabilities:
+            solution = vuln.get('solution_id') or vuln.get('patch_id') or 'manual'
+            owner = vuln.get('asset_owner', 'Unassigned')
+            key = (solution, owner)
+            grouped[key].append(vuln)
+        
+        created_tickets = []
+        
+        for (solution, owner), items in grouped.items():
+            # Get all CVEs covered by this solution
+            cves = list(set(v.get('cve_id') for v in items))
+            max_cvss = max(v.get('cvss_score', 0) for v in items)
+            
+            priority = self._priority_from_cvss(max_cvss)
+            due_date = self._calculate_due_date(priority)
+            
+            assets = list(set(v.get('hostname') for v in items))
+            
+            ticket_data = {
+                'title': f"[{priority}] Apply {solution} - {len(cves)} CVEs, {len(assets)} assets",
+                'description': self._build_solution_description(solution, cves, assets, items),
+                'priority': priority,
+                'assignee': owner,
+                'due_date': due_date,
+                'labels': ['vulnerability', 'patching', solution]
+            }
+            
+            ticket_id = self.client.create_ticket(ticket_data)
+            created_tickets.append(ticket_id)
+        
+        return created_tickets
+    
+    def _calculate_priority(self, vuln: Dict) -> str:
+        """Calculate ticket priority."""
+        if vuln.get('cisa_kev'):
+            return 'P1'
+        
+        cvss = vuln.get('cvss_score', 0)
+        criticality = vuln.get('asset_criticality', 3)
+        
+        if cvss >= 9.0 and criticality <= 2:
+            return 'P1'
+        elif cvss >= 7.0 or criticality == 1:
+            return 'P2'
+        elif cvss >= 4.0:
+            return 'P3'
+        else:
+            return 'P4'
+    
+    def _priority_from_cvss(self, cvss: float) -> str:
+        """Simple CVSS to priority mapping."""
+        if cvss >= 9.0:
+            return 'P1'
+        elif cvss >= 7.0:
+            return 'P2'
+        elif cvss >= 4.0:
+            return 'P3'
+        return 'P4'
+    
+    def _calculate_due_date(self, priority: str) -> datetime:
+        """Calculate due date from priority."""
+        days = {'P1': 2, 'P2': 7, 'P3': 30, 'P4': 90, 'P5': 180}
+        return datetime.now() + timedelta(days=days.get(priority, 30))
+    
+    def _build_description(self, vuln: Dict, assets: List[Dict]) -> str:
+        """Build ticket description."""
+        asset_table = '\n'.join(
+            f"| {a['hostname']} | {a['ip']} | Tier {a['criticality']} |"
+            for a in assets[:20]
+        )
+        
+        return f"""
+## Vulnerability Details
+
+**CVE:** {vuln.get('cve_id')}
+**CVSS Score:** {vuln.get('cvss_score')}
+**CISA KEV:** {'Yes' if vuln.get('cisa_kev') else 'No'}
+
+### Description
+{vuln.get('description', 'See vendor advisory')}
+
+### Solution
+{vuln.get('solution', 'Apply vendor patch')}
+
+### Affected Assets ({len(assets)} total)
+
+| Hostname | IP | Criticality |
+|----------|----|----|
+{asset_table}
+{'... and more' if len(assets) > 20 else ''}
+
+### Remediation Steps
+1. Review patch/solution documentation
+2. Test in non-production environment
+3. Schedule maintenance window
+4. Apply remediation
+5. Verify system functionality
+6. Mark ticket as remediated for rescan
+        """
+    
+    def _build_solution_description(self, solution: str, cves: List[str],
+                                     assets: List[str], vulns: List[Dict]) -> str:
+        """Build solution-based ticket description."""
+        cve_list = ', '.join(cves[:10])
+        if len(cves) > 10:
+            cve_list += f" +{len(cves)-10} more"
+        
+        return f"""
+## Patch Deployment
+
+**Solution/Patch:** {solution}
+**CVEs Addressed:** {cve_list}
+**Assets Affected:** {len(assets)}
+
+### Apply this patch to remediate the following vulnerabilities:
+{chr(10).join(f'- {cve}' for cve in cves)}
+
+### Target Systems:
+{chr(10).join(f'- {asset}' for asset in assets[:20])}
+{'... and more' if len(assets) > 20 else ''}
+        """</code></pre>
+                </div>
+                
+                <h2>Assignment Rules</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>TICKET ASSIGNMENT RULES
+═══════════════════════════════════════════════════════════════════════
+
+ASSIGNMENT HIERARCHY:
+─────────────────────────────────────────────────────────────────────
+1. CMDB Asset Owner (if populated)
+2. Application Owner (if asset mapped to app)
+3. Team by subnet/network zone
+4. Team by technology stack
+5. Default: IT Operations queue
+
+EXAMPLE RULES:
+─────────────────────────────────────────────────────────────────────
+IF asset.cmdb_owner IS NOT NULL:
+    assign_to = asset.cmdb_owner
+ELSE IF asset.application IS NOT NULL:
+    assign_to = application.owner
+ELSE IF asset.subnet IN ('10.10.x.x'):
+    assign_to = 'Network Team'
+ELSE IF asset.os CONTAINS 'Windows Server':
+    assign_to = 'Windows Server Team'
+ELSE IF asset.os CONTAINS 'Linux':
+    assign_to = 'Linux Team'
+ELSE IF asset.type == 'Database':
+    assign_to = 'DBA Team'
+ELSE:
+    assign_to = 'IT Operations'
+
+ESCALATION RULES:
+─────────────────────────────────────────────────────────────────────
+• No acknowledgment in 24 hours → Notify manager
+• 50% SLA elapsed, not started → Escalate to team lead
+• SLA breach imminent (24h) → Escalate to director
+• P1 ticket → Auto-notify CISO</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you handle ticket creation for thousands of vulnerabilities?"</strong><br><br>
+                        Sample answer: "I never create one ticket per vulnerability instance—that creates 
+                        unmanageable noise. Instead, I aggregate intelligently: typically one ticket per 
+                        CVE per owner, so each team gets a single ticket with their affected assets listed. 
+                        For patch-centric organizations, I group by solution, so one ticket covers multiple 
+                        CVEs addressed by the same patch. I automate assignment based on CMDB ownership, 
+                        falling back to team routing rules. This typically reduces thousands of findings 
+                        to hundreds of actionable tickets."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Effective ticket workflows aggregate vulnerabilities intelligently, route to the 
+                    right owners automatically, and include clear escalation paths. The goal is 
+                    actionable tickets, not ticket floods that get ignored.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="5-3-change-management.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Change Management</span>
+                    </a>
+                    <a href="5-5-sla-management.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">SLA Management</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

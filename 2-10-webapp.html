@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Application Vulnerability Scanning - DAST, SAST, IAST comparison, OWASP Top 10 testing, API security scanning, and scanner configuration.">
+    <title>Web Application Scanning | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item active">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Web App Scanning</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Web Application Vulnerability Scanning</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.10</span>
+                        <span class="page-meta-item">⏱️ 22 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers web application security testing including DAST, SAST, and IAST 
+                        approaches, OWASP Top 10 vulnerability testing, API security scanning, commercial 
+                        and open source scanner configuration, and authentication handling for web scans.
+                    </p>
+                </div>
+                
+                <h2>Application Security Testing Types</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>APPLICATION SECURITY TESTING COMPARISON
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────┬────────────────────┬────────────────────┬────────────────────┐
+│   Type      │       SAST         │       DAST         │       IAST         │
+├─────────────┼────────────────────┼────────────────────┼────────────────────┤
+│ Full Name   │ Static Application │ Dynamic Application│ Interactive App    │
+│             │ Security Testing   │ Security Testing   │ Security Testing   │
+├─────────────┼────────────────────┼────────────────────┼────────────────────┤
+│ When        │ Development        │ Staging/Production │ QA/Testing         │
+│             │ (source code)      │ (running app)      │ (instrumented app) │
+├─────────────┼────────────────────┼────────────────────┼────────────────────┤
+│ How         │ Analyzes code      │ Black-box testing  │ Agent inside app   │
+│             │ without execution  │ via HTTP requests  │ monitors behavior  │
+├─────────────┼────────────────────┼────────────────────┼────────────────────┤
+│ Finds       │ Coding flaws,      │ Runtime vulns,     │ Runtime + code     │
+│             │ hardcoded secrets, │ config issues,     │ context, fewer     │
+│             │ unsafe functions   │ OWASP Top 10       │ false positives    │
+├─────────────┼────────────────────┼────────────────────┼────────────────────┤
+│ Pros        │ Early detection,   │ No source needed,  │ Best accuracy,     │
+│             │ covers all code    │ finds real vulns   │ runtime + code     │
+├─────────────┼────────────────────┼────────────────────┼────────────────────┤
+│ Cons        │ High false pos,    │ Coverage limited,  │ Requires agent,    │
+│             │ can't find runtime │ can miss logic     │ performance impact │
+├─────────────┼────────────────────┼────────────────────┼────────────────────┤
+│ Tools       │ SonarQube, Snyk,   │ OWASP ZAP, Burp,  │ Contrast Security, │
+│             │ Checkmarx, Veracode│ Qualys WAS         │ Hdiv               │
+└─────────────┴────────────────────┴────────────────────┴────────────────────┘
+
+RECOMMENDED APPROACH: Combine SAST + DAST
+─────────────────────────────────────────────────────────────────────
+• SAST in CI/CD for immediate developer feedback
+• DAST in staging for runtime vulnerability detection
+• IAST in QA for complex applications requiring accuracy</code></pre>
+                </div>
+                
+                <h2>OWASP Top 10 Testing</h2>
+                
+                <p>
+                    Web application scanners should detect the OWASP Top 10 vulnerabilities. Understanding 
+                    how scanners test for each category helps interpret results.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>OWASP TOP 10 (2021) - SCANNER DETECTION METHODS
+═══════════════════════════════════════════════════════════════════════
+
+A01:2021 - BROKEN ACCESS CONTROL
+─────────────────────────────────────────────────────────────────────
+Scanner Tests:
+  • IDOR (Insecure Direct Object Reference) - modify IDs in URLs
+  • Forced browsing to restricted pages
+  • Missing function-level access controls
+  • Path traversal attempts
+Manual Testing Required:
+  • Business logic authorization flaws
+  • Horizontal privilege escalation
+
+A02:2021 - CRYPTOGRAPHIC FAILURES
+─────────────────────────────────────────────────────────────────────
+Scanner Tests:
+  • SSL/TLS configuration (weak ciphers, protocols)
+  • Mixed content (HTTP resources on HTTPS)
+  • Sensitive data in URLs
+  • Missing secure flags on cookies
+  • Certificate validation issues
+
+A03:2021 - INJECTION
+─────────────────────────────────────────────────────────────────────
+Scanner Tests:
+  • SQL injection (error-based, blind, time-based)
+  • XSS (reflected, stored, DOM-based)
+  • Command injection
+  • LDAP injection
+  • XML injection / XXE
+
+A04:2021 - INSECURE DESIGN
+─────────────────────────────────────────────────────────────────────
+Manual Testing Required:
+  • Business logic flaws
+  • Missing rate limiting
+  • Trust boundary violations
+Limited Scanner Detection
+
+A05:2021 - SECURITY MISCONFIGURATION
+─────────────────────────────────────────────────────────────────────
+Scanner Tests:
+  • Default credentials
+  • Directory listing enabled
+  • Error messages exposing info
+  • Unnecessary HTTP methods enabled
+  • Missing security headers
+
+A06:2021 - VULNERABLE COMPONENTS
+─────────────────────────────────────────────────────────────────────
+Scanner Tests:
+  • Version detection via headers/responses
+  • Known CVE matching
+  • Outdated JavaScript libraries
+Combine with:
+  • SCA (Software Composition Analysis)
+  • SBOM analysis
+
+A07:2021 - IDENTIFICATION/AUTHENTICATION
+─────────────────────────────────────────────────────────────────────
+Scanner Tests:
+  • Weak password policy
+  • Credential stuffing protection
+  • Session fixation
+  • Session timeout
+  • Account lockout
+
+A08:2021 - SOFTWARE/DATA INTEGRITY FAILURES
+─────────────────────────────────────────────────────────────────────
+Scanner Tests:
+  • Insecure deserialization
+  • Missing integrity checks
+  • CI/CD security
+Manual Testing Required
+
+A09:2021 - SECURITY LOGGING FAILURES
+─────────────────────────────────────────────────────────────────────
+Manual Testing Required:
+  • Verify logging of auth events
+  • Check log injection
+Limited Scanner Detection
+
+A10:2021 - SSRF (Server-Side Request Forgery)
+─────────────────────────────────────────────────────────────────────
+Scanner Tests:
+  • URL parameter manipulation
+  • DNS rebinding tests
+  • Out-of-band detection</code></pre>
+                </div>
+                
+                <h2>Commercial Web App Scanners</h2>
+                
+                <h3>Burp Suite Enterprise</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Burp Suite Enterprise API Integration
+
+# Start scan via API
+curl -X POST "https://burp-enterprise/api/scans" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Production Scan",
+    "site_id": "site-uuid",
+    "scan_configuration_id": "config-uuid"
+  }'
+
+# Check scan status
+curl "https://burp-enterprise/api/scans/{scan-id}" \
+  -H "Authorization: Bearer $API_KEY"
+
+# Get scan issues
+curl "https://burp-enterprise/api/scans/{scan-id}/issues" \
+  -H "Authorization: Bearer $API_KEY"
+
+# Schedule recurring scan
+curl -X POST "https://burp-enterprise/api/schedules" \
+  -H "Authorization: Bearer $API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Weekly Scan",
+    "site_id": "site-uuid",
+    "recurrence_rule": "FREQ=WEEKLY;BYDAY=SU;BYHOUR=2"
+  }'</code></pre>
+                </div>
+                
+                <h3>Qualys Web Application Scanning (WAS)</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Qualys WAS API Integration
+"""
+
+import requests
+from base64 import b64encode
+
+
+class QualysWAS:
+    def __init__(self, username: str, password: str, platform: str = 'qg2'):
+        self.base_url = f'https://qualysapi.{platform}.apps.qualys.com/qps/rest/3.0'
+        self.auth = b64encode(f'{username}:{password}'.encode()).decode()
+        self.headers = {
+            'Authorization': f'Basic {self.auth}',
+            'Content-Type': 'application/xml'
+        }
+    
+    def create_web_app(self, name: str, url: str) -> str:
+        """Register a web application."""
+        xml_data = f'''
+        <ServiceRequest>
+            <data>
+                <WebApp>
+                    <name>{name}</name>
+                    <url>{url}</url>
+                </WebApp>
+            </data>
+        </ServiceRequest>
+        '''
+        response = requests.post(
+            f'{self.base_url}/create/was/webapp',
+            headers=self.headers,
+            data=xml_data
+        )
+        return response.text
+    
+    def launch_scan(self, webapp_id: str, scan_type: str = 'VULNERABILITY') -> str:
+        """Launch a WAS scan."""
+        xml_data = f'''
+        <ServiceRequest>
+            <data>
+                <WasScan>
+                    <name>API Scan {webapp_id}</name>
+                    <type>{scan_type}</type>
+                    <target>
+                        <webApp><id>{webapp_id}</id></webApp>
+                    </target>
+                </WasScan>
+            </data>
+        </ServiceRequest>
+        '''
+        response = requests.post(
+            f'{self.base_url}/launch/was/wasscan',
+            headers=self.headers,
+            data=xml_data
+        )
+        return response.text
+    
+    def get_scan_status(self, scan_id: str) -> str:
+        """Get scan status."""
+        response = requests.get(
+            f'{self.base_url}/status/was/wasscan/{scan_id}',
+            headers=self.headers
+        )
+        return response.text
+    
+    def get_findings(self, webapp_id: str) -> str:
+        """Get vulnerability findings for a web app."""
+        response = requests.get(
+            f'{self.base_url}/search/was/finding',
+            headers=self.headers,
+            params={'webAppId': webapp_id}
+        )
+        return response.text
+
+
+# Example
+was = QualysWAS('username', 'password')
+webapp = was.create_web_app('My App', 'https://myapp.example.com')
+scan = was.launch_scan(webapp_id='12345')</code></pre>
+                </div>
+                
+                <h2>API Security Scanning</h2>
+                
+                <p>
+                    APIs require specialized scanning approaches due to their programmatic nature and 
+                    lack of traditional web interfaces.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# API Security Scanning Tools and Techniques
+
+# ═══════════════════════════════════════════════════════════════════
+# OWASP ZAP API SCANNING
+# ═══════════════════════════════════════════════════════════════════
+
+# Import OpenAPI spec and scan
+zap-api-scan.py \
+  -t https://api.example.com/openapi.json \
+  -f openapi \
+  -r api-report.html
+
+# Import Postman collection
+zap.sh -cmd \
+  -quickurl https://api.example.com \
+  -quickout ~/zap-report.html \
+  -import /path/to/postman_collection.json
+
+# ═══════════════════════════════════════════════════════════════════
+# NUCLEI API SCANNING
+# ═══════════════════════════════════════════════════════════════════
+
+# Scan API endpoints with Nuclei templates
+nuclei -u https://api.example.com -t http/exposures/
+nuclei -u https://api.example.com -t http/misconfiguration/
+nuclei -u https://api.example.com -t http/cves/
+
+# Custom API check template
+cat > api-check.yaml << 'EOF'
+id: api-auth-bypass
+
+info:
+  name: API Authentication Bypass Check
+  severity: high
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/api/v1/users"
+      - "{{BaseURL}}/api/v1/admin"
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+      - type: word
+        words:
+          - "email"
+          - "username"
+        condition: or
+EOF
+
+nuclei -u https://api.example.com -t api-check.yaml
+
+# ═══════════════════════════════════════════════════════════════════
+# POSTMAN SECURITY TESTING
+# ═══════════════════════════════════════════════════════════════════
+
+# Run collection with Newman (CLI)
+newman run api_collection.json \
+  --environment production.json \
+  --reporters cli,json \
+  --reporter-json-export results.json
+
+# ═══════════════════════════════════════════════════════════════════
+# API FUZZING
+# ═══════════════════════════════════════════════════════════════════
+
+# Using ffuf for API endpoint discovery
+ffuf -u https://api.example.com/FUZZ \
+  -w /usr/share/wordlists/api-endpoints.txt \
+  -mc 200,201,204,301,302,307,401,403
+
+# Using wfuzz for parameter fuzzing
+wfuzz -z file,/usr/share/wordlists/sqli.txt \
+  -d "username=admin&password=FUZZ" \
+  https://api.example.com/login</code></pre>
+                </div>
+                
+                <h3>GraphQL Security Scanning</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# GraphQL Security Testing
+
+# ═══════════════════════════════════════════════════════════════════
+# GRAPHQL INTROSPECTION
+# ═══════════════════════════════════════════════════════════════════
+
+# Check if introspection is enabled (security risk)
+curl -X POST https://api.example.com/graphql \
+  -H "Content-Type: application/json" \
+  -d '{"query": "{ __schema { types { name } } }"}'
+
+# ═══════════════════════════════════════════════════════════════════
+# GRAPHQL-COP (GraphQL Security Auditor)
+# ═══════════════════════════════════════════════════════════════════
+
+# Install
+pip install graphql-cop
+
+# Run security audit
+graphql-cop -t https://api.example.com/graphql
+
+# ═══════════════════════════════════════════════════════════════════
+# INQL (Burp Extension)
+# ═══════════════════════════════════════════════════════════════════
+
+# Analyze GraphQL schema
+inql -t https://api.example.com/graphql -o output/
+
+# Generate queries from schema
+inql --generate-queries -t https://api.example.com/graphql</code></pre>
+                </div>
+                
+                <h2>Authentication Handling</h2>
+                
+                <p>
+                    Proper authentication configuration is critical for thorough web application scanning.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>WEB APP SCANNER AUTHENTICATION METHODS
+═══════════════════════════════════════════════════════════════════════
+
+FORM-BASED AUTHENTICATION:
+─────────────────────────────────────────────────────────────────────
+Configuration:
+  Login URL:      https://app.example.com/login
+  Username Field: username
+  Password Field: password
+  Username:       scanner_user
+  Password:       [secure credential]
+  Login Indicator: "Welcome" or "Dashboard"
+  Logout Pattern:  "logout" or "sign out"
+
+TOKEN-BASED (Bearer/JWT):
+─────────────────────────────────────────────────────────────────────
+Configuration:
+  Header Name:  Authorization
+  Header Value: Bearer eyJhbGciOiJIUzI1NiIs...
+  
+Automation:
+  1. Scanner authenticates via API
+  2. Extracts token from response
+  3. Includes token in all subsequent requests
+
+OAUTH 2.0:
+─────────────────────────────────────────────────────────────────────
+Configuration:
+  Authorization URL: https://auth.example.com/authorize
+  Token URL:         https://auth.example.com/token
+  Client ID:         scanner-client
+  Client Secret:     [secure]
+  Scope:             read write
+  
+Flow: Authorization Code or Client Credentials
+
+SESSION MANAGEMENT:
+─────────────────────────────────────────────────────────────────────
+Scanner must:
+  □ Detect session cookies
+  □ Maintain session across requests
+  □ Re-authenticate on session expiry
+  □ Handle CSRF tokens
+  □ Avoid logging out during scan</code></pre>
+                </div>
+                
+                <h2>CI/CD Integration</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">YAML</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># GitLab CI - Web Application Security Pipeline
+stages:
+  - build
+  - sast
+  - deploy-staging
+  - dast
+  - deploy-production
+
+# SAST - Static Analysis
+sast:
+  stage: sast
+  image: sonarsource/sonar-scanner-cli
+  script:
+    - sonar-scanner 
+        -Dsonar.projectKey=$CI_PROJECT_NAME
+        -Dsonar.sources=.
+        -Dsonar.host.url=$SONAR_HOST
+        -Dsonar.login=$SONAR_TOKEN
+  allow_failure: true
+
+# Deploy to staging for DAST
+deploy-staging:
+  stage: deploy-staging
+  script:
+    - kubectl apply -f k8s/staging/
+
+# DAST - Dynamic Analysis
+dast:
+  stage: dast
+  image: owasp/zap2docker-stable
+  variables:
+    DAST_TARGET_URL: https://staging.example.com
+  script:
+    # Wait for staging to be ready
+    - |
+      for i in {1..30}; do
+        if curl -s -o /dev/null -w "%{http_code}" $DAST_TARGET_URL | grep -q "200"; then
+          break
+        fi
+        sleep 10
+      done
+    # Run DAST scan
+    - zap-baseline.py 
+        -t $DAST_TARGET_URL 
+        -r zap-report.html 
+        -I  # Don't fail on warnings
+    # Run full scan on main branch
+    - |
+      if [ "$CI_COMMIT_BRANCH" == "main" ]; then
+        zap-full-scan.py -t $DAST_TARGET_URL -r zap-full-report.html
+      fi
+  artifacts:
+    paths:
+      - zap-report.html
+      - zap-full-report.html
+    when: always
+
+# Deploy to production after DAST passes
+deploy-production:
+  stage: deploy-production
+  script:
+    - kubectl apply -f k8s/production/
+  only:
+    - main
+  when: manual</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you implement web application vulnerability scanning in a DevSecOps pipeline?"</strong><br><br>
+                        Sample answer: "I implement multiple layers: SAST in the IDE with SonarLint for immediate 
+                        feedback, SAST in CI with SonarQube analyzing every commit, dependency scanning with 
+                        Snyk or Dependabot, and DAST against staging environments. For DAST, I use ZAP baseline 
+                        scans on every PR and full scans weekly. I configure authentication properly so the 
+                        scanner tests authenticated functionality. Critical and high findings block deployment, 
+                        while medium findings create tickets for the next sprint. I also ensure scan credentials 
+                        are stored securely and results are integrated into our vulnerability management platform."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Web application security testing requires a combination of SAST, DAST, and potentially 
+                    IAST for comprehensive coverage. Configure scanners properly with authentication, 
+                    integrate into CI/CD pipelines for continuous testing, and pay special attention to 
+                    API security for modern applications. The OWASP Top 10 provides a baseline for 
+                    vulnerability categories that scanners should detect.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="2-9-cloud-container.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Cloud & Container Scanning</span>
+                    </a>
+                    <a href="3-1-discovery-methods.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Asset Discovery Methods</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

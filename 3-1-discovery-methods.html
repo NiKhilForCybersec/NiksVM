@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Asset Discovery Methods - Network scanning, passive discovery, agent-based collection, and cloud connectors for comprehensive asset visibility.">
+    <title>Asset Discovery Methods | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item active">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="3-1-discovery-methods.html">Section 3: Asset Discovery</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Discovery Methods</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Asset Discovery Methods</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 3.1</span>
+                        <span class="page-meta-item">⏱️ 18 min read</span>
+                        <span class="page-meta-item">📅 Last updated: 2025</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers comprehensive asset discovery techniques including active network 
+                        scanning, passive discovery methods, agent-based collection, cloud connectors, 
+                        and integration strategies for building a complete asset inventory.
+                    </p>
+                </div>
+                
+                <h2>Why Asset Discovery Matters</h2>
+                
+                <p>
+                    You can't protect what you don't know exists. Asset discovery is the foundation of 
+                    vulnerability management—without a complete inventory, you're scanning blind spots 
+                    and missing critical exposures.
+                </p>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ The Unknown Asset Problem</div>
+                    <p>
+                        Studies consistently show that organizations underestimate their asset count by 
+                        20-40%. These unknown assets—forgotten servers, shadow IT, test systems, IoT 
+                        devices—often have the most severe vulnerabilities because they're unpatched 
+                        and unmonitored.
+                    </p>
+                </div>
+                
+                <h2>Discovery Method Comparison</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>ASSET DISCOVERY METHODS COMPARISON
+═══════════════════════════════════════════════════════════════════════
+
+┌────────────────────┬─────────────┬─────────────┬─────────────┬─────────────┐
+│ Method             │ Coverage    │ Accuracy    │ Real-time   │ Effort      │
+├────────────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+│ Network Scanning   │ High        │ Medium      │ No          │ Low         │
+│ Passive/Traffic    │ Medium      │ High        │ Yes         │ Medium      │
+│ Agent-Based        │ Very High   │ Very High   │ Yes         │ High        │
+│ Cloud Connectors   │ Cloud Only  │ Very High   │ Yes         │ Low         │
+│ DHCP/DNS Logs      │ Medium      │ Medium      │ Near        │ Medium      │
+│ AD/LDAP Query      │ Endpoints   │ High        │ Near        │ Low         │
+│ CMDB Import        │ Varies      │ Varies      │ No          │ Low         │
+└────────────────────┴─────────────┴─────────────┴─────────────┴─────────────┘
+
+RECOMMENDED APPROACH: Combine multiple methods
+─────────────────────────────────────────────────────────────────────
+• Network scanning for broad discovery
+• Agents for deep endpoint visibility
+• Passive for continuous monitoring
+• Cloud connectors for cloud resources
+• CMDB for business context</code></pre>
+                </div>
+                
+                <h2>Active Network Discovery</h2>
+                
+                <p>
+                    Active discovery sends probes to identify live hosts and their characteristics. 
+                    This is the most common discovery method.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>#!/bin/bash
+# Network Discovery Techniques
+
+# ═══════════════════════════════════════════════════════════════════
+# NMAP DISCOVERY SCANS
+# ═══════════════════════════════════════════════════════════════════
+
+# Basic ping sweep (ICMP)
+nmap -sn 192.168.1.0/24 -oG - | grep "Up" | awk '{print $2}'
+
+# TCP SYN ping (when ICMP is blocked)
+nmap -sn -PS22,80,443,3389 192.168.1.0/24
+
+# ARP discovery (local network only - most reliable)
+nmap -sn -PR 192.168.1.0/24
+
+# Combined discovery (best coverage)
+nmap -sn -PE -PS22,80,443 -PA80,443 -PP 192.168.1.0/24
+
+# Service version detection for discovered hosts
+nmap -sV -sC -O -oX discovery_results.xml 192.168.1.0/24
+
+# ═══════════════════════════════════════════════════════════════════
+# MASSCAN (High-speed scanning)
+# ═══════════════════════════════════════════════════════════════════
+
+# Fast discovery scan
+masscan 10.0.0.0/8 -p80,443,22,3389 --rate=10000 -oL results.txt
+
+# Banner grabbing for service identification
+masscan 192.168.0.0/16 -p0-65535 --rate=100000 --banners -oJ results.json
+
+# ═══════════════════════════════════════════════════════════════════
+# ARP-SCAN (Layer 2 Discovery)
+# ═══════════════════════════════════════════════════════════════════
+
+# Discover all hosts on local network
+arp-scan --localnet
+
+# Scan specific interface
+arp-scan -I eth0 192.168.1.0/24
+
+# ═══════════════════════════════════════════════════════════════════
+# NETDISCOVER (Passive/Active ARP)
+# ═══════════════════════════════════════════════════════════════════
+
+# Active ARP discovery
+netdiscover -r 192.168.1.0/24
+
+# Passive mode (just listen)
+netdiscover -p -i eth0</code></pre>
+                </div>
+                
+                <h3>Python Discovery Script</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Network Asset Discovery Script
+Combines multiple discovery techniques for comprehensive coverage.
+"""
+
+import subprocess
+import ipaddress
+import socket
+import concurrent.futures
+from typing import List, Dict, Set
+import json
+from datetime import datetime
+
+
+class AssetDiscovery:
+    def __init__(self, networks: List[str]):
+        """
+        Initialize discovery for specified networks.
+        
+        Args:
+            networks: List of CIDR networks (e.g., ['192.168.1.0/24'])
+        """
+        self.networks = networks
+        self.discovered_assets = {}
+    
+    def ping_sweep(self, network: str) -> Set[str]:
+        """Perform ICMP ping sweep."""
+        live_hosts = set()
+        
+        try:
+            result = subprocess.run(
+                ['nmap', '-sn', '-PE', network, '-oG', '-'],
+                capture_output=True, text=True, timeout=300
+            )
+            
+            for line in result.stdout.split('\n'):
+                if 'Up' in line:
+                    ip = line.split()[1]
+                    live_hosts.add(ip)
+        except Exception as e:
+            print(f"Ping sweep error: {e}")
+        
+        return live_hosts
+    
+    def tcp_discovery(self, network: str, ports: List[int] = None) -> Set[str]:
+        """Discover hosts via TCP port probes."""
+        if ports is None:
+            ports = [22, 80, 443, 445, 3389, 8080]
+        
+        port_str = ','.join(map(str, ports))
+        live_hosts = set()
+        
+        try:
+            result = subprocess.run(
+                ['nmap', '-sn', f'-PS{port_str}', network, '-oG', '-'],
+                capture_output=True, text=True, timeout=300
+            )
+            
+            for line in result.stdout.split('\n'):
+                if 'Up' in line:
+                    ip = line.split()[1]
+                    live_hosts.add(ip)
+        except Exception as e:
+            print(f"TCP discovery error: {e}")
+        
+        return live_hosts
+    
+    def get_host_details(self, ip: str) -> Dict:
+        """Get detailed information about a discovered host."""
+        details = {
+            'ip': ip,
+            'hostname': None,
+            'mac': None,
+            'os': None,
+            'open_ports': [],
+            'discovered_at': datetime.now().isoformat()
+        }
+        
+        # Reverse DNS lookup
+        try:
+            details['hostname'] = socket.gethostbyaddr(ip)[0]
+        except socket.herror:
+            pass
+        
+        # Service scan
+        try:
+            result = subprocess.run(
+                ['nmap', '-sV', '-O', '--top-ports', '100', '-oX', '-', ip],
+                capture_output=True, text=True, timeout=120
+            )
+            # Parse XML output for details
+            # (simplified - in production use xml.etree.ElementTree)
+            if 'open' in result.stdout:
+                details['open_ports'] = self._parse_ports(result.stdout)
+        except Exception as e:
+            print(f"Detail scan error for {ip}: {e}")
+        
+        return details
+    
+    def _parse_ports(self, nmap_output: str) -> List[Dict]:
+        """Parse Nmap output for open ports."""
+        # Simplified parser
+        ports = []
+        for line in nmap_output.split('\n'):
+            if '/tcp' in line and 'open' in line:
+                parts = line.split()
+                if len(parts) >= 3:
+                    ports.append({
+                        'port': parts[0].split('/')[0],
+                        'service': parts[2] if len(parts) > 2 else 'unknown'
+                    })
+        return ports
+    
+    def discover_all(self) -> Dict:
+        """Run comprehensive discovery across all networks."""
+        all_hosts = set()
+        
+        for network in self.networks:
+            print(f"Discovering {network}...")
+            
+            # Combine discovery methods
+            ping_hosts = self.ping_sweep(network)
+            tcp_hosts = self.tcp_discovery(network)
+            
+            all_hosts.update(ping_hosts)
+            all_hosts.update(tcp_hosts)
+        
+        print(f"Found {len(all_hosts)} hosts. Getting details...")
+        
+        # Get details for each host (parallel)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+            future_to_ip = {
+                executor.submit(self.get_host_details, ip): ip 
+                for ip in all_hosts
+            }
+            
+            for future in concurrent.futures.as_completed(future_to_ip):
+                ip = future_to_ip[future]
+                try:
+                    details = future.result()
+                    self.discovered_assets[ip] = details
+                except Exception as e:
+                    print(f"Error getting details for {ip}: {e}")
+        
+        return self.discovered_assets
+    
+    def export_results(self, filename: str):
+        """Export discovery results to JSON."""
+        with open(filename, 'w') as f:
+            json.dump({
+                'discovery_time': datetime.now().isoformat(),
+                'networks_scanned': self.networks,
+                'total_assets': len(self.discovered_assets),
+                'assets': self.discovered_assets
+            }, f, indent=2)
+
+
+# Example usage
+if __name__ == '__main__':
+    discovery = AssetDiscovery([
+        '192.168.1.0/24',
+        '192.168.2.0/24',
+        '10.10.0.0/16'
+    ])
+    
+    assets = discovery.discover_all()
+    discovery.export_results('discovered_assets.json')
+    
+    print(f"\nDiscovered {len(assets)} assets")
+    for ip, details in assets.items():
+        hostname = details.get('hostname', 'unknown')
+        ports = len(details.get('open_ports', []))
+        print(f"  {ip} ({hostname}) - {ports} open ports")</code></pre>
+                </div>
+                
+                <h2>Passive Discovery</h2>
+                
+                <p>
+                    Passive discovery monitors network traffic without actively probing systems. This is 
+                    ideal for sensitive environments like OT/ICS networks.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>PASSIVE DISCOVERY ARCHITECTURE
+═══════════════════════════════════════════════════════════════════════
+
+                    ┌─────────────────┐
+                    │  Core Switch    │
+                    │  (SPAN/Mirror)  │
+                    └───────┬─────────┘
+                            │ Traffic Copy
+                            ▼
+                    ┌─────────────────┐
+                    │ PASSIVE SENSOR  │
+                    │                 │
+                    │ • Traffic       │
+                    │   Analysis      │
+                    │ • Asset         │
+                    │   Identification│
+                    │ • Service       │
+                    │   Detection     │
+                    └───────┬─────────┘
+                            │
+                            ▼
+                    ┌─────────────────┐
+                    │ ASSET INVENTORY │
+                    │                 │
+                    │ IP, MAC, OS,    │
+                    │ Services,       │
+                    │ Protocols       │
+                    └─────────────────┘
+
+DATA SOURCES FOR PASSIVE DISCOVERY:
+─────────────────────────────────────────────────────────────────────
+• SPAN/Mirror ports on switches
+• Network TAPs
+• NetFlow/sFlow/IPFIX data
+• DHCP server logs
+• DNS query logs
+• Firewall logs
+• Proxy logs
+
+TOOLS:
+─────────────────────────────────────────────────────────────────────
+• Tenable Nessus Network Monitor (NNM)
+• Rapid7 Insight Network Sensor
+• Zeek (Bro) Network Security Monitor
+• ntopng
+• p0f (passive OS fingerprinting)</code></pre>
+                </div>
+                
+                <h3>DHCP and DNS Discovery</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+DHCP and DNS Log Analysis for Asset Discovery
+"""
+
+import re
+from datetime import datetime
+from typing import Dict, List
+from collections import defaultdict
+
+
+class DHCPLogAnalyzer:
+    """Parse DHCP server logs to discover assets."""
+    
+    # Windows DHCP log pattern
+    DHCP_PATTERN = re.compile(
+        r'(\d+),(\d{2}/\d{2}/\d{2}),(\d{2}:\d{2}:\d{2}),'
+        r'([^,]*),([^,]*),([^,]*),([^,]*)'
+    )
+    
+    def __init__(self):
+        self.leases = {}
+    
+    def parse_windows_dhcp_log(self, log_file: str) -> Dict[str, Dict]:
+        """Parse Windows DHCP server log."""
+        assets = {}
+        
+        with open(log_file, 'r') as f:
+            for line in f:
+                match = self.DHCP_PATTERN.match(line)
+                if match:
+                    event_id = match.group(1)
+                    ip = match.group(5)
+                    hostname = match.group(6)
+                    mac = match.group(7)
+                    
+                    # Event 10 = New lease, 11 = Renewal
+                    if event_id in ['10', '11'] and ip:
+                        assets[ip] = {
+                            'ip': ip,
+                            'hostname': hostname,
+                            'mac': mac,
+                            'source': 'dhcp',
+                            'last_seen': f"{match.group(2)} {match.group(3)}"
+                        }
+        
+        return assets
+    
+    def parse_isc_dhcp_log(self, log_file: str) -> Dict[str, Dict]:
+        """Parse ISC DHCP server log (Linux)."""
+        assets = {}
+        lease_pattern = re.compile(
+            r'DHCPACK on (\d+\.\d+\.\d+\.\d+) to ([0-9a-f:]+) \(([^)]*)\)'
+        )
+        
+        with open(log_file, 'r') as f:
+            for line in f:
+                match = lease_pattern.search(line)
+                if match:
+                    ip = match.group(1)
+                    mac = match.group(2)
+                    hostname = match.group(3)
+                    
+                    assets[ip] = {
+                        'ip': ip,
+                        'mac': mac,
+                        'hostname': hostname,
+                        'source': 'dhcp'
+                    }
+        
+        return assets
+
+
+class DNSLogAnalyzer:
+    """Parse DNS query logs to discover assets and services."""
+    
+    def __init__(self):
+        self.queries = defaultdict(set)
+    
+    def parse_bind_query_log(self, log_file: str) -> Dict[str, Dict]:
+        """Parse BIND DNS query log."""
+        assets = {}
+        
+        # Pattern: client @IP#port (hostname): query: domain IN A
+        pattern = re.compile(
+            r'client @?(\d+\.\d+\.\d+\.\d+)#\d+ \(([^)]*)\): query: (\S+)'
+        )
+        
+        with open(log_file, 'r') as f:
+            for line in f:
+                match = pattern.search(line)
+                if match:
+                    client_ip = match.group(1)
+                    query_domain = match.group(3)
+                    
+                    if client_ip not in assets:
+                        assets[client_ip] = {
+                            'ip': client_ip,
+                            'source': 'dns',
+                            'queries': set()
+                        }
+                    
+                    assets[client_ip]['queries'].add(query_domain)
+        
+        # Convert sets to lists for JSON serialization
+        for ip in assets:
+            assets[ip]['queries'] = list(assets[ip]['queries'])
+            assets[ip]['query_count'] = len(assets[ip]['queries'])
+        
+        return assets
+
+
+# Example usage
+if __name__ == '__main__':
+    # DHCP discovery
+    dhcp_analyzer = DHCPLogAnalyzer()
+    dhcp_assets = dhcp_analyzer.parse_windows_dhcp_log('/var/log/dhcp.log')
+    print(f"Discovered {len(dhcp_assets)} assets from DHCP")
+    
+    # DNS discovery
+    dns_analyzer = DNSLogAnalyzer()
+    dns_assets = dns_analyzer.parse_bind_query_log('/var/log/named/queries.log')
+    print(f"Discovered {len(dns_assets)} assets from DNS")</code></pre>
+                </div>
+                
+                <h2>Agent-Based Discovery</h2>
+                
+                <p>
+                    Agents installed on endpoints provide the most detailed asset information and work 
+                    regardless of network location.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>AGENT-BASED DISCOVERY DATA COLLECTION
+═══════════════════════════════════════════════════════════════════════
+
+SYSTEM INFORMATION:
+─────────────────────────────────────────────────────────────────────
+• Hostname, FQDN
+• Operating system and version
+• Hardware (CPU, RAM, disk)
+• Network interfaces and IPs
+• MAC addresses
+• Serial number, asset tag
+
+SOFTWARE INVENTORY:
+─────────────────────────────────────────────────────────────────────
+• Installed applications
+• Version numbers
+• Vendor information
+• Install dates
+• Patch levels
+
+CONFIGURATION:
+─────────────────────────────────────────────────────────────────────
+• Running services
+• Open ports
+• User accounts
+• Security settings
+• Certificates
+
+AGENTS BY PLATFORM:
+─────────────────────────────────────────────────────────────────────
+Vulnerability Management:
+  • Qualys Cloud Agent
+  • Tenable Nessus Agent
+  • Rapid7 Insight Agent
+  • Microsoft Defender for Endpoint
+
+Endpoint Management:
+  • Microsoft Intune
+  • SCCM/MECM
+  • Jamf (Mac)
+  • Ansible/Puppet/Chef (Linux)
+
+EDR/XDR:
+  • CrowdStrike Falcon
+  • SentinelOne
+  • Carbon Black
+  • Cortex XDR</code></pre>
+                </div>
+                
+                <h2>Active Directory Discovery</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">PowerShell</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Active Directory Asset Discovery
+
+# Import AD module
+Import-Module ActiveDirectory
+
+# Get all computers from AD
+$computers = Get-ADComputer -Filter * -Properties `
+    Name, DNSHostName, OperatingSystem, OperatingSystemVersion, `
+    LastLogonDate, Created, IPv4Address, Description, Location
+
+# Export to CSV
+$computers | Select-Object `
+    Name, 
+    DNSHostName,
+    OperatingSystem,
+    OperatingSystemVersion,
+    @{N='LastLogon';E={$_.LastLogonDate}},
+    @{N='DaysSinceLogon';E={(New-TimeSpan -Start $_.LastLogonDate -End (Get-Date)).Days}},
+    IPv4Address,
+    Description,
+    Location,
+    Created |
+Export-Csv -Path "ad_computers.csv" -NoTypeInformation
+
+# Find stale computer accounts (no login in 90 days)
+$staleDate = (Get-Date).AddDays(-90)
+$staleComputers = Get-ADComputer -Filter {LastLogonDate -lt $staleDate} -Properties LastLogonDate
+
+Write-Host "Stale computers (no login in 90 days): $($staleComputers.Count)"
+
+# Get computers by OS
+Get-ADComputer -Filter * -Properties OperatingSystem |
+    Group-Object OperatingSystem |
+    Sort-Object Count -Descending |
+    Format-Table Name, Count
+
+# Find computers not in vulnerability scanner
+$adComputers = (Get-ADComputer -Filter *).DNSHostName
+$scannedAssets = Import-Csv "scanner_inventory.csv" | Select-Object -ExpandProperty Hostname
+
+$notScanned = $adComputers | Where-Object { $_ -notin $scannedAssets }
+Write-Host "Computers in AD but not scanned: $($notScanned.Count)"
+$notScanned | Out-File "unscanned_computers.txt"</code></pre>
+                </div>
+                
+                <div class="info-box best-practice" data-label="Best Practice">
+                    <div class="info-box-title">✅ Multi-Source Discovery</div>
+                    <p>
+                        Combine multiple discovery sources for comprehensive coverage: network scanning finds 
+                        unknown devices, AD provides managed endpoints, DHCP shows dynamic hosts, agents give 
+                        detailed inventory, and cloud connectors cover cloud resources. Correlate data to 
+                        identify gaps and conflicts.
+                    </p>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you ensure complete asset visibility for vulnerability management?"</strong><br><br>
+                        Sample answer: "I use a layered approach: network scanning for broad discovery of all 
+                        IP-addressable devices, agents for deep endpoint visibility and roaming devices, AD 
+                        integration for Windows domain assets, cloud connectors for AWS/Azure/GCP resources, 
+                        and passive monitoring for OT environments. I compare asset counts across sources to 
+                        find gaps—for example, assets in DHCP logs but not in scanner results. I also monitor 
+                        for 'scan coverage' metrics to ensure newly discovered assets are added to scan schedules."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Comprehensive asset discovery requires combining multiple techniques: active network 
+                    scanning, passive traffic analysis, agent-based collection, cloud connectors, and 
+                    infrastructure data sources like AD and DHCP. The goal is complete visibility—you 
+                    can't secure assets you don't know about.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="2-10-webapp.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Web App Scanning</span>
+                    </a>
+                    <a href="3-2-inventory-management.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Inventory Management</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

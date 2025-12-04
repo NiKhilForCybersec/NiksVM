@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Asset Inventory Management - Building and maintaining a comprehensive asset database, data normalization, deduplication, and lifecycle management.">
+    <title>Asset Inventory Management | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item active">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="3-1-discovery-methods.html">Section 3: Asset Discovery</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Inventory Management</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Asset Inventory Management</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 3.2</span>
+                        <span class="page-meta-item">⏱️ 16 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers building and maintaining a comprehensive asset inventory including 
+                        data models, normalization techniques, deduplication strategies, ownership tracking, 
+                        and asset lifecycle management.
+                    </p>
+                </div>
+                
+                <h2>Asset Data Model</h2>
+                
+                <p>
+                    A well-designed asset data model is essential for effective vulnerability management. 
+                    It must capture technical details, business context, and relationships.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>-- Asset Inventory Database Schema
+
+CREATE TABLE assets (
+    asset_id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    
+    -- Identifiers
+    hostname            VARCHAR(255),
+    fqdn                VARCHAR(255),
+    primary_ip          INET,
+    mac_address         MACADDR,
+    serial_number       VARCHAR(100),
+    asset_tag           VARCHAR(50),
+    
+    -- Technical Details
+    os_family           VARCHAR(50),      -- Windows, Linux, macOS
+    os_name             VARCHAR(100),     -- Windows Server 2019
+    os_version          VARCHAR(50),      -- 10.0.17763
+    architecture        VARCHAR(20),      -- x64, ARM
+    cpu_cores           INTEGER,
+    ram_gb              INTEGER,
+    
+    -- Network
+    network_zone        VARCHAR(50),      -- DMZ, Internal, Cloud
+    vlan_id             INTEGER,
+    subnet              CIDR,
+    
+    -- Business Context
+    environment         VARCHAR(20),      -- Production, Staging, Dev
+    criticality_tier    INTEGER,          -- 1-4 (1=Critical)
+    business_unit       VARCHAR(100),
+    cost_center         VARCHAR(50),
+    application         VARCHAR(100),
+    owner_id            UUID REFERENCES users(user_id),
+    
+    -- Compliance
+    pci_scope           BOOLEAN DEFAULT FALSE,
+    hipaa_scope         BOOLEAN DEFAULT FALSE,
+    sox_scope           BOOLEAN DEFAULT FALSE,
+    
+    -- Status
+    status              VARCHAR(20) DEFAULT 'Active',  -- Active, Inactive, Decommissioned
+    
+    -- Metadata
+    first_discovered    TIMESTAMP DEFAULT NOW(),
+    last_seen           TIMESTAMP,
+    last_scanned        TIMESTAMP,
+    created_at          TIMESTAMP DEFAULT NOW(),
+    updated_at          TIMESTAMP DEFAULT NOW(),
+    
+    -- Source Tracking
+    discovery_source    VARCHAR(50),      -- nessus, qualys, ad, manual
+    source_id           VARCHAR(255)      -- Original ID from source
+);
+
+-- Indexes for common queries
+CREATE INDEX idx_assets_ip ON assets(primary_ip);
+CREATE INDEX idx_assets_hostname ON assets(hostname);
+CREATE INDEX idx_assets_criticality ON assets(criticality_tier);
+CREATE INDEX idx_assets_environment ON assets(environment);
+CREATE INDEX idx_assets_last_scanned ON assets(last_scanned);
+
+-- Secondary IPs table (assets can have multiple)
+CREATE TABLE asset_ips (
+    asset_id    UUID REFERENCES assets(asset_id),
+    ip_address  INET,
+    is_primary  BOOLEAN DEFAULT FALSE,
+    interface   VARCHAR(50),
+    PRIMARY KEY (asset_id, ip_address)
+);
+
+-- Software inventory
+CREATE TABLE asset_software (
+    asset_id        UUID REFERENCES assets(asset_id),
+    software_name   VARCHAR(255),
+    vendor          VARCHAR(100),
+    version         VARCHAR(50),
+    install_date    DATE,
+    cpe             VARCHAR(255),       -- CPE identifier
+    PRIMARY KEY (asset_id, software_name, version)
+);
+
+-- Asset tags (flexible tagging)
+CREATE TABLE asset_tags (
+    asset_id    UUID REFERENCES assets(asset_id),
+    tag_key     VARCHAR(100),
+    tag_value   VARCHAR(255),
+    PRIMARY KEY (asset_id, tag_key, tag_value)
+);</code></pre>
+                </div>
+                
+                <h2>Data Normalization</h2>
+                
+                <p>
+                    Different discovery sources report data in different formats. Normalization ensures 
+                    consistency for accurate matching and deduplication.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Asset Data Normalization
+Standardize asset data from multiple sources.
+"""
+
+import re
+from typing import Dict, Optional
+from dataclasses import dataclass
+
+
+@dataclass
+class NormalizedAsset:
+    hostname: str
+    fqdn: Optional[str]
+    ip_address: str
+    mac_address: Optional[str]
+    os_family: str
+    os_name: str
+    os_version: str
+
+
+class AssetNormalizer:
+    """Normalize asset data from various sources."""
+    
+    # OS family mappings
+    OS_FAMILY_MAP = {
+        'windows': 'Windows',
+        'microsoft': 'Windows',
+        'linux': 'Linux',
+        'ubuntu': 'Linux',
+        'centos': 'Linux',
+        'rhel': 'Linux',
+        'red hat': 'Linux',
+        'debian': 'Linux',
+        'macos': 'macOS',
+        'mac os': 'macOS',
+        'darwin': 'macOS',
+        'cisco': 'Network',
+        'juniper': 'Network',
+        'palo alto': 'Network',
+        'vmware': 'Hypervisor',
+        'esxi': 'Hypervisor',
+    }
+    
+    def normalize_hostname(self, hostname: str) -> str:
+        """Normalize hostname to lowercase, strip domain."""
+        if not hostname:
+            return ''
+        
+        # Convert to lowercase
+        hostname = hostname.lower().strip()
+        
+        # Remove domain suffix if present
+        if '.' in hostname:
+            # Keep FQDN separate, return short name
+            return hostname.split('.')[0]
+        
+        return hostname
+    
+    def normalize_fqdn(self, hostname: str, domain: str = None) -> str:
+        """Normalize to fully qualified domain name."""
+        if not hostname:
+            return ''
+        
+        hostname = hostname.lower().strip()
+        
+        # Already FQDN
+        if '.' in hostname and len(hostname.split('.')) > 2:
+            return hostname
+        
+        # Append domain if provided
+        if domain:
+            return f"{hostname.split('.')[0]}.{domain}"
+        
+        return hostname
+    
+    def normalize_mac(self, mac: str) -> Optional[str]:
+        """Normalize MAC address to XX:XX:XX:XX:XX:XX format."""
+        if not mac:
+            return None
+        
+        # Remove common separators and convert to uppercase
+        mac = re.sub(r'[:\-\.]', '', mac.upper())
+        
+        # Validate length
+        if len(mac) != 12:
+            return None
+        
+        # Validate hex
+        if not all(c in '0123456789ABCDEF' for c in mac):
+            return None
+        
+        # Format as XX:XX:XX:XX:XX:XX
+        return ':'.join(mac[i:i+2] for i in range(0, 12, 2))
+    
+    def normalize_ip(self, ip: str) -> Optional[str]:
+        """Normalize and validate IP address."""
+        if not ip:
+            return None
+        
+        ip = ip.strip()
+        
+        # Basic IPv4 validation
+        parts = ip.split('.')
+        if len(parts) != 4:
+            return None
+        
+        try:
+            octets = [int(p) for p in parts]
+            if all(0 <= o <= 255 for o in octets):
+                return ip
+        except ValueError:
+            pass
+        
+        return None
+    
+    def normalize_os(self, os_string: str) -> Dict[str, str]:
+        """Parse and normalize OS information."""
+        if not os_string:
+            return {'family': 'Unknown', 'name': 'Unknown', 'version': ''}
+        
+        os_lower = os_string.lower()
+        
+        # Determine OS family
+        os_family = 'Unknown'
+        for keyword, family in self.OS_FAMILY_MAP.items():
+            if keyword in os_lower:
+                os_family = family
+                break
+        
+        # Extract version numbers
+        version_match = re.search(r'(\d+(?:\.\d+)*)', os_string)
+        version = version_match.group(1) if version_match else ''
+        
+        return {
+            'family': os_family,
+            'name': os_string,
+            'version': version
+        }
+    
+    def normalize_asset(self, raw_data: Dict, source: str) -> NormalizedAsset:
+        """Normalize complete asset record."""
+        
+        # Different sources use different field names
+        hostname = raw_data.get('hostname') or raw_data.get('name') or \
+                   raw_data.get('computer_name') or raw_data.get('host')
+        
+        ip = raw_data.get('ip') or raw_data.get('ip_address') or \
+             raw_data.get('ipv4') or raw_data.get('address')
+        
+        mac = raw_data.get('mac') or raw_data.get('mac_address') or \
+              raw_data.get('hardware_address')
+        
+        os_info = raw_data.get('os') or raw_data.get('operating_system') or \
+                  raw_data.get('os_name') or ''
+        
+        os_parsed = self.normalize_os(os_info)
+        
+        return NormalizedAsset(
+            hostname=self.normalize_hostname(hostname),
+            fqdn=self.normalize_fqdn(hostname),
+            ip_address=self.normalize_ip(ip),
+            mac_address=self.normalize_mac(mac),
+            os_family=os_parsed['family'],
+            os_name=os_parsed['name'],
+            os_version=os_parsed['version']
+        )
+
+
+# Example usage
+normalizer = AssetNormalizer()
+
+# Raw data from different sources
+nessus_asset = {'hostname': 'WEB-SERVER-01.corp.local', 'ip': '192.168.1.10', 
+                'os': 'Microsoft Windows Server 2019 Standard'}
+qualys_asset = {'name': 'web-server-01', 'ip_address': '192.168.1.10',
+                'operating_system': 'Windows Server 2019'}
+
+# Normalize both
+norm1 = normalizer.normalize_asset(nessus_asset, 'nessus')
+norm2 = normalizer.normalize_asset(qualys_asset, 'qualys')
+
+print(f"Asset 1: {norm1.hostname} - {norm1.os_family}")
+print(f"Asset 2: {norm2.hostname} - {norm2.os_family}")</code></pre>
+                </div>
+                
+                <h2>Asset Deduplication</h2>
+                
+                <p>
+                    Multiple discovery sources often find the same asset. Deduplication merges these 
+                    records into a single authoritative entry.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Asset Deduplication Logic
+Match and merge assets from multiple sources.
+"""
+
+from typing import List, Dict, Optional, Tuple
+from dataclasses import dataclass
+from difflib import SequenceMatcher
+
+
+@dataclass
+class AssetMatch:
+    asset_a: Dict
+    asset_b: Dict
+    confidence: float
+    match_reasons: List[str]
+
+
+class AssetDeduplicator:
+    """Match and merge duplicate asset records."""
+    
+    def __init__(self, confidence_threshold: float = 0.7):
+        self.confidence_threshold = confidence_threshold
+    
+    def calculate_match_score(self, asset_a: Dict, asset_b: Dict) -> Tuple[float, List[str]]:
+        """
+        Calculate match confidence between two assets.
+        Returns (score, reasons) where score is 0.0-1.0.
+        """
+        score = 0.0
+        reasons = []
+        weights_used = 0.0
+        
+        # Exact IP match (high confidence)
+        if asset_a.get('ip') and asset_a.get('ip') == asset_b.get('ip'):
+            score += 0.4
+            weights_used += 0.4
+            reasons.append('IP match')
+        
+        # Exact MAC match (very high confidence)
+        if asset_a.get('mac') and asset_a.get('mac') == asset_b.get('mac'):
+            score += 0.5
+            weights_used += 0.5
+            reasons.append('MAC match')
+        
+        # Hostname match (fuzzy)
+        if asset_a.get('hostname') and asset_b.get('hostname'):
+            hostname_similarity = SequenceMatcher(
+                None, 
+                asset_a['hostname'].lower(), 
+                asset_b['hostname'].lower()
+            ).ratio()
+            
+            if hostname_similarity > 0.9:
+                score += 0.3
+                weights_used += 0.3
+                reasons.append(f'Hostname match ({hostname_similarity:.0%})')
+            elif hostname_similarity > 0.7:
+                score += 0.15
+                weights_used += 0.3
+                reasons.append(f'Hostname similar ({hostname_similarity:.0%})')
+        
+        # Serial number match (definitive)
+        if asset_a.get('serial') and asset_a.get('serial') == asset_b.get('serial'):
+            score += 0.6
+            weights_used += 0.6
+            reasons.append('Serial number match')
+        
+        # OS match (supporting evidence)
+        if asset_a.get('os_family') and asset_a.get('os_family') == asset_b.get('os_family'):
+            score += 0.1
+            weights_used += 0.1
+            reasons.append('OS family match')
+        
+        # Normalize score
+        final_score = min(score, 1.0)
+        
+        return final_score, reasons
+    
+    def find_matches(self, new_asset: Dict, existing_assets: List[Dict]) -> List[AssetMatch]:
+        """Find potential matches for a new asset in existing inventory."""
+        matches = []
+        
+        for existing in existing_assets:
+            score, reasons = self.calculate_match_score(new_asset, existing)
+            
+            if score >= self.confidence_threshold:
+                matches.append(AssetMatch(
+                    asset_a=new_asset,
+                    asset_b=existing,
+                    confidence=score,
+                    match_reasons=reasons
+                ))
+        
+        # Sort by confidence descending
+        matches.sort(key=lambda m: m.confidence, reverse=True)
+        
+        return matches
+    
+    def merge_assets(self, primary: Dict, secondary: Dict) -> Dict:
+        """
+        Merge two asset records, preferring data from primary.
+        Fill in gaps with secondary data.
+        """
+        merged = primary.copy()
+        
+        # Fill missing fields from secondary
+        for key, value in secondary.items():
+            if key not in merged or merged[key] is None:
+                merged[key] = value
+        
+        # Track merge sources
+        merged['_merge_sources'] = [
+            primary.get('_source', 'unknown'),
+            secondary.get('_source', 'unknown')
+        ]
+        
+        return merged
+    
+    def deduplicate_inventory(self, assets: List[Dict]) -> List[Dict]:
+        """Process list of assets, merging duplicates."""
+        deduplicated = []
+        processed_indices = set()
+        
+        for i, asset in enumerate(assets):
+            if i in processed_indices:
+                continue
+            
+            # Find matches in remaining assets
+            remaining = [a for j, a in enumerate(assets) if j > i and j not in processed_indices]
+            matches = self.find_matches(asset, remaining)
+            
+            if matches:
+                # Merge with best match
+                best_match = matches[0]
+                merged = self.merge_assets(asset, best_match.asset_b)
+                merged['_match_confidence'] = best_match.confidence
+                deduplicated.append(merged)
+                
+                # Mark matched asset as processed
+                match_idx = assets.index(best_match.asset_b)
+                processed_indices.add(match_idx)
+            else:
+                deduplicated.append(asset)
+            
+            processed_indices.add(i)
+        
+        return deduplicated
+
+
+# Example
+dedup = AssetDeduplicator(confidence_threshold=0.6)
+
+assets = [
+    {'hostname': 'web-server-01', 'ip': '192.168.1.10', 'mac': 'AA:BB:CC:DD:EE:01', 
+     'os_family': 'Linux', '_source': 'nessus'},
+    {'hostname': 'WEB-SERVER-01', 'ip': '192.168.1.10', 'mac': 'aa:bb:cc:dd:ee:01',
+     'os_family': 'Linux', '_source': 'qualys'},
+    {'hostname': 'db-server-01', 'ip': '192.168.1.20', 'mac': 'AA:BB:CC:DD:EE:02',
+     'os_family': 'Linux', '_source': 'nessus'},
+]
+
+deduplicated = dedup.deduplicate_inventory(assets)
+print(f"Original: {len(assets)} assets, After dedup: {len(deduplicated)} assets")</code></pre>
+                </div>
+                
+                <h2>Asset Ownership</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>ASSET OWNERSHIP MODEL
+═══════════════════════════════════════════════════════════════════════
+
+OWNERSHIP HIERARCHY:
+─────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────┐
+│                        ASSET                                        │
+├─────────────────────────────────────────────────────────────────────┤
+│ Technical Owner (Primary)                                           │
+│   • Responsible for patching and maintenance                        │
+│   • Receives vulnerability tickets                                  │
+│   • Approves changes                                                │
+├─────────────────────────────────────────────────────────────────────┤
+│ Business Owner                                                      │
+│   • Accountable for risk acceptance                                 │
+│   • Approves exception requests                                     │
+│   • Defines criticality and SLAs                                    │
+├─────────────────────────────────────────────────────────────────────┤
+│ Application Owner                                                   │
+│   • Owns application running on asset                               │
+│   • Coordinates maintenance windows                                 │
+│   • Validates remediation doesn't break app                         │
+└─────────────────────────────────────────────────────────────────────┘
+
+OWNERSHIP ASSIGNMENT STRATEGIES:
+─────────────────────────────────────────────────────────────────────
+1. CMDB-Based
+   • Pull owner from ServiceNow/BMC CMDB
+   • Requires accurate CMDB data
+
+2. AD-Based
+   • Use computer object's "Managed By" attribute
+   • Query OU hierarchy for responsible team
+
+3. IP Range-Based
+   • Assign by subnet/VLAN ownership
+   • Network team owns 10.10.x.x, Server team owns 10.20.x.x
+
+4. Application-Based
+   • Map assets to applications
+   • Application owner inherits asset responsibility
+
+5. Tag-Based
+   • Use cloud resource tags (Owner, Team)
+   • Scanner tags for grouping
+
+HANDLING ORPHAN ASSETS:
+─────────────────────────────────────────────────────────────────────
+• Assets with no identified owner
+• Assign to IT Security by default
+• Escalate to infrastructure manager
+• Track orphan count as a metric
+• Regular orphan review meetings</code></pre>
+                </div>
+                
+                <h2>Asset Lifecycle Management</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>ASSET LIFECYCLE STATES
+═══════════════════════════════════════════════════════════════════════
+
+    ┌──────────────┐
+    │  DISCOVERED  │ ─── New asset detected
+    └──────┬───────┘
+           │ Validation
+           ▼
+    ┌──────────────┐
+    │   PENDING    │ ─── Awaiting classification
+    └──────┬───────┘
+           │ Classified & Owner Assigned
+           ▼
+    ┌──────────────┐
+    │    ACTIVE    │ ─── In production, being scanned
+    └──────┬───────┘
+           │
+     ┌─────┴─────┐
+     │           │
+     ▼           ▼
+┌─────────┐ ┌─────────────┐
+│ STALE   │ │ MAINTENANCE │ ─── Temporary exclusion
+└────┬────┘ └──────┬──────┘
+     │             │
+     │             │ Returns to service
+     │             ▼
+     │      ┌──────────────┐
+     │      │    ACTIVE    │
+     │      └──────────────┘
+     │
+     │ Not seen for 90+ days
+     ▼
+┌──────────────┐
+│   INACTIVE   │ ─── Presumed offline
+└──────┬───────┘
+       │ Confirmed decommissioned
+       ▼
+┌──────────────┐
+│DECOMMISSIONED│ ─── Removed from scanning
+└──────────────┘
+
+LIFECYCLE AUTOMATION RULES:
+─────────────────────────────────────────────────────────────────────
+• New assets → Pending (auto-add to default scan)
+• Not seen 7 days → Flag for review
+• Not seen 30 days → Mark Stale
+• Not seen 90 days → Mark Inactive
+• Manual confirmation → Decommission
+• Decommissioned assets excluded from metrics</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you handle assets discovered by scanners that aren't in the CMDB?"</strong><br><br>
+                        Sample answer: "These discrepancies are common and important to track. I implement a 
+                        reconciliation process: assets in scanner but not CMDB get flagged as 'unmanaged' and 
+                        assigned to a default owner for investigation. They're still scanned and appear in 
+                        vulnerability reports, but with a flag indicating CMDB gap. I track 'CMDB coverage' as 
+                        a metric—what percentage of scanned assets have corresponding CMDB records. This drives 
+                        CMDB hygiene improvements and helps identify shadow IT."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Effective asset inventory management requires a robust data model, normalization of 
+                    data from multiple sources, intelligent deduplication, clear ownership assignment, 
+                    and lifecycle state tracking. The inventory is the foundation for accurate vulnerability 
+                    metrics and efficient remediation workflows.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="3-1-discovery-methods.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Discovery Methods</span>
+                    </a>
+                    <a href="3-3-cmdb-integration.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">CMDB Integration</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

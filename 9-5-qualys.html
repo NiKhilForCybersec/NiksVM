@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Qualys VMDR Integration - QID system, TruRisk scoring, API usage, and Qualys Cloud Agent deployment.">
+    <title>Qualys Integration | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item active">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="9-1-splunk-vm.html">Section 9: Tools Deep Dive</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Qualys</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Qualys VMDR Deep Dive</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 9.5</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers Qualys VMDR (Vulnerability Management, Detection, and Response) 
+                        including QID system, TruRisk scoring, API integration, and Cloud Agent deployment.
+                    </p>
+                </div>
+                
+                <h2>Qualys Platform</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>QUALYS CLOUD PLATFORM
+═══════════════════════════════════════════════════════════════════════
+
+CORE MODULES:
+─────────────────────────────────────────────────────────────────────
+• VMDR - Vulnerability Management, Detection & Response
+• PC - Policy Compliance
+• WAS - Web Application Scanning
+• CSAM - CyberSecurity Asset Management
+• EDR - Endpoint Detection & Response
+• CERTVIEW - Certificate management
+• Container Security
+• CloudView - Cloud security posture
+
+VMDR COMPONENTS:
+─────────────────────────────────────────────────────────────────────
+• Asset Inventory
+• Vulnerability Detection
+• TruRisk Scoring
+• Patch Management
+• Response Workflows
+• Reporting & Dashboards
+
+SCANNING OPTIONS:
+─────────────────────────────────────────────────────────────────────
+• Scanner Appliances (virtual or physical)
+• Cloud Agents (endpoint-based)
+• External Scanners (internet-facing)
+• Cloud Connectors (AWS, Azure, GCP)
+• Container Sensors</code></pre>
+                </div>
+                
+                <h2>QID System</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>QUALYS QID (QUALYS ID) SYSTEM
+═══════════════════════════════════════════════════════════════════════
+
+QID RANGES:
+─────────────────────────────────────────────────────────────────────
+1-19999:      Operating System vulnerabilities
+20000-49999:  Application vulnerabilities
+50000-79999:  CGI/Web vulnerabilities
+80000-89999:  Compliance checks
+90000-99999:  Information gathering
+100000+:      Newer vulnerabilities (all categories)
+
+QID ATTRIBUTES:
+─────────────────────────────────────────────────────────────────────
+• QID Number: Unique identifier
+• Title: Vulnerability name
+• Severity: 1-5 scale (5 = Critical)
+• CVE IDs: Associated CVEs
+• Solution: Remediation guidance
+• Category: Vulnerability type
+• Patchable: Whether patch exists
+
+QID vs CVE:
+─────────────────────────────────────────────────────────────────────
+• One QID may map to multiple CVEs
+• One CVE may have multiple QIDs (per-vendor)
+• QIDs include non-CVE findings (misconfigs, info)
+
+SEVERITY LEVELS:
+─────────────────────────────────────────────────────────────────────
+5: Urgent (critical vulnerability)
+4: Critical (serious vulnerability)
+3: Serious (significant vulnerability)
+2: Medium (moderate vulnerability)
+1: Minimal (low risk)</code></pre>
+                </div>
+                
+                <h2>TruRisk Scoring</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>QUALYS TRURISK
+═══════════════════════════════════════════════════════════════════════
+
+TRURISK FACTORS:
+─────────────────────────────────────────────────────────────────────
+Vulnerability Risk Factors:
+• CVSS score
+• Real-Time Threat Indicators (RTI)
+  - Active attacks
+  - Public exploits
+  - Zero-day status
+  - Malware/ransomware association
+• CISA KEV status
+• Exploit maturity
+
+Asset Risk Factors:
+• Asset Criticality Rating (ACR)
+• Internet exposure
+• Business context
+
+TRURISK SCORE:
+─────────────────────────────────────────────────────────────────────
+QDS (Qualys Detection Score): 1-100
+  70-100: Critical
+  40-69:  High
+  10-39:  Medium
+  1-9:    Low
+
+Asset Risk Score: Aggregated risk per asset
+Overall TruRisk: Organization-wide score
+
+PRIORITIZATION WITH TRURISK:
+─────────────────────────────────────────────────────────────────────
+Traditional: Patch all severity 5 first
+TruRisk: Patch QDS 90+ first (actual exploited threats)
+
+A QDS 95 vulnerability (actively exploited) takes priority
+over QDS 60 (high severity but no exploit activity)</code></pre>
+                </div>
+                
+                <h2>Qualys API</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Qualys API Integration Examples
+"""
+
+import requests
+from typing import Dict, List
+import xml.etree.ElementTree as ET
+
+
+class QualysAPI:
+    """Qualys API client."""
+    
+    def __init__(self, username: str, password: str, 
+                 platform: str = 'qualysapi.qualys.com'):
+        self.base_url = f"https://{platform}"
+        self.auth = (username, password)
+        self.headers = {'X-Requested-With': 'Python'}
+    
+    def get_host_detections(self, severities: List[int] = None) -> List[Dict]:
+        """Get vulnerability detections from hosts."""
+        
+        params = {
+            'action': 'list',
+            'show_results': '1',
+            'status': 'New,Active,Re-Opened'
+        }
+        
+        if severities:
+            params['severities'] = ','.join(map(str, severities))
+        
+        response = requests.post(
+            f"{self.base_url}/api/2.0/fo/asset/host/vm/detection/",
+            auth=self.auth,
+            headers=self.headers,
+            data=params
+        )
+        
+        # Parse XML response
+        root = ET.fromstring(response.text)
+        detections = []
+        
+        for host in root.findall('.//HOST'):
+            for detection in host.findall('.//DETECTION'):
+                detections.append({
+                    'host_ip': host.findtext('IP'),
+                    'hostname': host.findtext('DNS'),
+                    'qid': detection.findtext('QID'),
+                    'severity': detection.findtext('SEVERITY'),
+                    'status': detection.findtext('STATUS'),
+                    'first_found': detection.findtext('FIRST_FOUND_DATETIME'),
+                    'last_found': detection.findtext('LAST_FOUND_DATETIME')
+                })
+        
+        return detections
+    
+    def get_qid_details(self, qids: List[int]) -> List[Dict]:
+        """Get knowledge base details for QIDs."""
+        
+        params = {
+            'action': 'list',
+            'ids': ','.join(map(str, qids)),
+            'details': 'All'
+        }
+        
+        response = requests.post(
+            f"{self.base_url}/api/2.0/fo/knowledge_base/vuln/",
+            auth=self.auth,
+            headers=self.headers,
+            data=params
+        )
+        
+        root = ET.fromstring(response.text)
+        vulns = []
+        
+        for vuln in root.findall('.//VULN'):
+            vulns.append({
+                'qid': vuln.findtext('QID'),
+                'title': vuln.findtext('TITLE'),
+                'severity': vuln.findtext('SEVERITY_LEVEL'),
+                'cvss_base': vuln.findtext('.//CVSS/BASE'),
+                'cves': [cve.text for cve in vuln.findall('.//CVE/ID')],
+                'solution': vuln.findtext('SOLUTION'),
+                'patchable': vuln.findtext('PATCHABLE') == '1'
+            })
+        
+        return vulns
+    
+    def launch_scan(self, scan_ref: str) -> str:
+        """Launch a vulnerability scan."""
+        
+        params = {
+            'action': 'launch',
+            'scan_ref': scan_ref
+        }
+        
+        response = requests.post(
+            f"{self.base_url}/api/2.0/fo/scan/",
+            auth=self.auth,
+            headers=self.headers,
+            data=params
+        )
+        
+        return response.text</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"What's the difference between Qualys QID and CVE?"</strong><br><br>
+                        Sample answer: "QID is Qualys's internal identifier for vulnerabilities. One QID 
+                        might map to multiple CVEs if a single check detects several related vulnerabilities. 
+                        Conversely, one CVE might have multiple QIDs for different vendors or platforms. 
+                        QIDs also include findings that aren't CVEs—like misconfigurations or informational 
+                        checks. When reporting or integrating with other tools, I use the CVE mapping for 
+                        standardization, but QID is what Qualys uses for tracking and remediation."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Qualys VMDR provides comprehensive vulnerability management with TruRisk for 
+                    intelligent prioritization. The QID system offers detailed vulnerability data 
+                    beyond just CVEs. Cloud Agents enable continuous assessment while scanner 
+                    appliances handle network-based discovery.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="9-4-tenable.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Tenable</span>
+                    </a>
+                    <a href="10-1-common-questions.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Common Interview Questions</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

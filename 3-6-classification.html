@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Asset Classification & Criticality - Tiering models, business impact analysis, data sensitivity, and criticality-based vulnerability prioritization.">
+    <title>Asset Classification & Criticality | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item active">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="3-1-discovery-methods.html">Section 3: Asset Discovery</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Asset Classification</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Asset Classification & Criticality</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 3.6</span>
+                        <span class="page-meta-item">⏱️ 16 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers asset classification including criticality tiering models, 
+                        business impact analysis, data sensitivity classification, exposure factors, 
+                        and using classification for vulnerability prioritization.
+                    </p>
+                </div>
+                
+                <h2>Why Classification Matters</h2>
+                
+                <p>
+                    Not all assets are equal. A critical vulnerability on a production database server 
+                    is far more urgent than the same vulnerability on a developer's test VM. Asset 
+                    classification enables risk-based prioritization that aligns with business impact.
+                </p>
+                
+                <div class="info-box tip" data-label="Tip">
+                    <div class="info-box-title">💜 Classification = Prioritization</div>
+                    <p>
+                        Without asset classification, you're treating all systems equally and prioritizing 
+                        only by CVSS score. This leads to wasted effort patching low-value systems while 
+                        critical infrastructure remains vulnerable.
+                    </p>
+                </div>
+                
+                <h2>Criticality Tiering Model</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>ASSET CRITICALITY TIERS
+═══════════════════════════════════════════════════════════════════════
+
+TIER 1 - CRITICAL (Business Essential)
+─────────────────────────────────────────────────────────────────────
+Definition:
+  Systems whose failure would immediately halt critical business operations
+  or result in significant financial/legal/reputational impact.
+
+Examples:
+  • Core financial systems (ERP, payment processing)
+  • Customer-facing production infrastructure
+  • Authentication infrastructure (AD DCs, identity providers)
+  • Core network infrastructure (firewalls, core routers)
+  • Database servers with sensitive data
+  • Industrial control systems (SCADA, PLCs)
+
+SLA Impact:
+  • Critical vulns: 7 days
+  • High vulns: 14 days
+  • Scan frequency: Weekly minimum
+
+TIER 2 - HIGH (Business Important)
+─────────────────────────────────────────────────────────────────────
+Definition:
+  Systems supporting important business functions; failure causes 
+  significant disruption but workarounds exist.
+
+Examples:
+  • Email servers
+  • File servers
+  • Application servers (non-critical)
+  • Backup infrastructure
+  • Monitoring systems
+  • Secondary databases
+
+SLA Impact:
+  • Critical vulns: 14 days
+  • High vulns: 30 days
+  • Scan frequency: Weekly
+
+TIER 3 - MEDIUM (Business Support)
+─────────────────────────────────────────────────────────────────────
+Definition:
+  Systems supporting business operations; failure causes inconvenience
+  but limited business impact.
+
+Examples:
+  • Development servers
+  • Print servers
+  • Internal web applications
+  • Test environments (with no prod data)
+  • General workstations
+
+SLA Impact:
+  • Critical vulns: 30 days
+  • High vulns: 60 days
+  • Scan frequency: Monthly
+
+TIER 4 - LOW (Non-Essential)
+─────────────────────────────────────────────────────────────────────
+Definition:
+  Systems with minimal business impact if unavailable.
+
+Examples:
+  • Lab/sandbox environments
+  • Isolated test systems
+  • Training systems
+  • Legacy systems (isolated)
+
+SLA Impact:
+  • Critical vulns: 60 days
+  • High vulns: 90 days
+  • Scan frequency: Quarterly</code></pre>
+                </div>
+                
+                <h2>Classification Criteria</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>ASSET CLASSIFICATION FACTORS
+═══════════════════════════════════════════════════════════════════════
+
+BUSINESS IMPACT (Weight: 40%)
+─────────────────────────────────────────────────────────────────────
+Revenue Impact:
+  □ Direct revenue generation (e-commerce, payment)        +40
+  □ Indirect revenue support (CRM, analytics)              +25
+  □ Internal operations only                               +10
+  □ No revenue impact                                       +0
+
+Operational Impact:
+  □ Failure stops entire business                          +40
+  □ Failure affects multiple departments                   +25
+  □ Failure affects single department                      +15
+  □ Minimal operational impact                              +5
+
+DATA SENSITIVITY (Weight: 30%)
+─────────────────────────────────────────────────────────────────────
+Data Classification:
+  □ Restricted/Confidential (PII, PHI, financial, secrets) +40
+  □ Internal/Sensitive (employee data, internal docs)      +20
+  □ Public/Non-sensitive                                    +5
+
+Regulatory Scope:
+  □ PCI DSS cardholder data                                +15
+  □ HIPAA ePHI                                             +15
+  □ SOX financial data                                     +10
+  □ GDPR personal data                                     +10
+  □ No regulatory requirements                              +0
+
+EXPOSURE (Weight: 20%)
+─────────────────────────────────────────────────────────────────────
+Network Exposure:
+  □ Internet-facing (direct)                               +30
+  □ DMZ (indirect internet access)                         +20
+  □ Internal network                                       +10
+  □ Isolated network                                        +5
+
+Access Level:
+  □ Accessible by external parties (customers, partners)   +15
+  □ Accessible by all employees                            +10
+  □ Restricted internal access                              +5
+  □ Highly restricted (admin only)                          +0
+
+RECOVERABILITY (Weight: 10%)
+─────────────────────────────────────────────────────────────────────
+Recovery Time:
+  □ > 24 hours to restore                                  +15
+  □ 4-24 hours to restore                                  +10
+  □ 1-4 hours to restore                                    +5
+  □ < 1 hour to restore                                     +0
+
+SCORING:
+─────────────────────────────────────────────────────────────────────
+Total Score    │ Criticality Tier
+───────────────┼─────────────────
+80-100         │ Tier 1 (Critical)
+50-79          │ Tier 2 (High)
+25-49          │ Tier 3 (Medium)
+0-24           │ Tier 4 (Low)</code></pre>
+                </div>
+                
+                <h2>Classification Automation</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Asset Criticality Classification Engine
+Automatically classify assets based on configurable criteria.
+"""
+
+from typing import Dict, List
+from dataclasses import dataclass
+from enum import Enum
+
+
+class CriticalityTier(Enum):
+    TIER_1 = 1  # Critical
+    TIER_2 = 2  # High
+    TIER_3 = 3  # Medium
+    TIER_4 = 4  # Low
+
+
+@dataclass
+class ClassificationResult:
+    asset_id: str
+    tier: CriticalityTier
+    score: int
+    factors: Dict[str, int]
+    recommendations: List[str]
+
+
+class AssetClassifier:
+    """Classify assets into criticality tiers."""
+    
+    # Classification rules
+    RULES = {
+        'application_type': {
+            'payment_processing': 40,
+            'customer_facing': 35,
+            'financial_system': 35,
+            'identity_provider': 40,
+            'database': 25,
+            'web_application': 20,
+            'internal_app': 10,
+            'development': 5
+        },
+        'environment': {
+            'production': 30,
+            'staging': 15,
+            'development': 5,
+            'test': 5,
+            'sandbox': 0
+        },
+        'data_classification': {
+            'restricted': 40,
+            'confidential': 30,
+            'internal': 15,
+            'public': 0
+        },
+        'network_zone': {
+            'internet_facing': 30,
+            'dmz': 25,
+            'internal': 10,
+            'isolated': 5
+        },
+        'compliance_scope': {
+            'pci_dss': 15,
+            'hipaa': 15,
+            'sox': 10,
+            'gdpr': 10
+        }
+    }
+    
+    def classify(self, asset: Dict) -> ClassificationResult:
+        """
+        Classify an asset based on its attributes.
+        
+        Args:
+            asset: Asset dictionary with classification attributes
+            
+        Returns:
+            ClassificationResult with tier and score breakdown
+        """
+        score = 0
+        factors = {}
+        recommendations = []
+        
+        # Score application type
+        app_type = asset.get('application_type', '').lower()
+        if app_type in self.RULES['application_type']:
+            app_score = self.RULES['application_type'][app_type]
+            score += app_score
+            factors['application_type'] = app_score
+        
+        # Score environment
+        env = asset.get('environment', '').lower()
+        if env in self.RULES['environment']:
+            env_score = self.RULES['environment'][env]
+            score += env_score
+            factors['environment'] = env_score
+        
+        # Score data classification
+        data_class = asset.get('data_classification', '').lower()
+        if data_class in self.RULES['data_classification']:
+            data_score = self.RULES['data_classification'][data_class]
+            score += data_score
+            factors['data_classification'] = data_score
+        else:
+            recommendations.append('Assign data classification')
+        
+        # Score network exposure
+        network = asset.get('network_zone', '').lower()
+        if network in self.RULES['network_zone']:
+            network_score = self.RULES['network_zone'][network]
+            score += network_score
+            factors['network_zone'] = network_score
+        
+        # Score compliance scope (can have multiple)
+        compliance_score = 0
+        for scope in asset.get('compliance_scope', []):
+            scope_lower = scope.lower()
+            if scope_lower in self.RULES['compliance_scope']:
+                compliance_score += self.RULES['compliance_scope'][scope_lower]
+        score += compliance_score
+        factors['compliance_scope'] = compliance_score
+        
+        # Determine tier
+        if score >= 80:
+            tier = CriticalityTier.TIER_1
+        elif score >= 50:
+            tier = CriticalityTier.TIER_2
+        elif score >= 25:
+            tier = CriticalityTier.TIER_3
+        else:
+            tier = CriticalityTier.TIER_4
+        
+        # Validation recommendations
+        if not asset.get('owner'):
+            recommendations.append('Assign asset owner')
+        if not asset.get('environment'):
+            recommendations.append('Specify environment')
+        
+        return ClassificationResult(
+            asset_id=asset.get('id', 'unknown'),
+            tier=tier,
+            score=score,
+            factors=factors,
+            recommendations=recommendations
+        )
+    
+    def bulk_classify(self, assets: List[Dict]) -> Dict:
+        """Classify multiple assets and return summary."""
+        results = []
+        tier_counts = {t: 0 for t in CriticalityTier}
+        
+        for asset in assets:
+            result = self.classify(asset)
+            results.append(result)
+            tier_counts[result.tier] += 1
+        
+        return {
+            'total_assets': len(assets),
+            'tier_distribution': {t.name: count for t, count in tier_counts.items()},
+            'results': results
+        }
+
+
+# Example usage
+classifier = AssetClassifier()
+
+assets = [
+    {
+        'id': 'srv-web-01',
+        'application_type': 'customer_facing',
+        'environment': 'production',
+        'data_classification': 'confidential',
+        'network_zone': 'dmz',
+        'compliance_scope': ['pci_dss'],
+        'owner': 'web-team'
+    },
+    {
+        'id': 'srv-dev-01',
+        'application_type': 'development',
+        'environment': 'development',
+        'data_classification': 'internal',
+        'network_zone': 'internal'
+    }
+]
+
+summary = classifier.bulk_classify(assets)
+for result in summary['results']:
+    print(f"{result.asset_id}: {result.tier.name} (Score: {result.score})")</code></pre>
+                </div>
+                
+                <h2>Using Classification for Prioritization</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>-- Risk-Based Prioritization Query
+-- Combines vulnerability severity with asset criticality
+
+WITH priority_vulns AS (
+    SELECT 
+        v.vulnerability_id,
+        v.cve_id,
+        v.cvss_score,
+        v.severity,
+        a.asset_id,
+        a.hostname,
+        a.criticality_tier,
+        a.environment,
+        a.network_zone,
+        -- Calculate composite risk score
+        CASE 
+            WHEN v.severity = 'Critical' THEN 40
+            WHEN v.severity = 'High' THEN 25
+            WHEN v.severity = 'Medium' THEN 10
+            WHEN v.severity = 'Low' THEN 3
+            ELSE 1
+        END AS severity_score,
+        CASE 
+            WHEN a.criticality_tier = 1 THEN 4
+            WHEN a.criticality_tier = 2 THEN 3
+            WHEN a.criticality_tier = 3 THEN 2
+            ELSE 1
+        END AS criticality_multiplier,
+        CASE 
+            WHEN a.network_zone = 'internet_facing' THEN 2
+            WHEN a.network_zone = 'dmz' THEN 1.5
+            ELSE 1
+        END AS exposure_multiplier
+    FROM vulnerabilities v
+    JOIN assets a ON v.asset_id = a.asset_id
+    WHERE v.status = 'Open'
+)
+SELECT 
+    vulnerability_id,
+    cve_id,
+    hostname,
+    severity,
+    criticality_tier,
+    -- Composite risk score
+    ROUND(severity_score * criticality_multiplier * exposure_multiplier, 1) AS risk_score,
+    -- Priority ranking
+    RANK() OVER (ORDER BY 
+        severity_score * criticality_multiplier * exposure_multiplier DESC
+    ) AS priority_rank
+FROM priority_vulns
+ORDER BY risk_score DESC
+LIMIT 100;
+
+-- Get remediation workload by tier
+SELECT 
+    a.criticality_tier,
+    v.severity,
+    COUNT(*) as vuln_count,
+    COUNT(DISTINCT a.asset_id) as affected_assets
+FROM vulnerabilities v
+JOIN assets a ON v.asset_id = a.asset_id
+WHERE v.status = 'Open'
+GROUP BY a.criticality_tier, v.severity
+ORDER BY a.criticality_tier, 
+    CASE v.severity 
+        WHEN 'Critical' THEN 1 
+        WHEN 'High' THEN 2 
+        WHEN 'Medium' THEN 3 
+        ELSE 4 
+    END;</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you determine asset criticality for vulnerability prioritization?"</strong><br><br>
+                        Sample answer: "I use a multi-factor scoring model that considers business impact, 
+                        data sensitivity, network exposure, and regulatory scope. Assets are tiered 1-4, with 
+                        Tier 1 being business-critical systems like payment processing, authentication 
+                        infrastructure, and customer-facing production systems. I work with business stakeholders 
+                        to validate classifications—IT shouldn't determine business criticality alone. This 
+                        classification then multiplies vulnerability severity scores, so a high-severity vuln 
+                        on a Tier 1 asset gets prioritized over a critical vuln on a Tier 4 test system."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Asset classification enables intelligent vulnerability prioritization based on business 
+                    risk, not just technical severity. Implement a tiering model with clear criteria, 
+                    automate classification where possible, and use classification to drive differentiated 
+                    SLAs and remediation priorities.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="3-5-shadow-it.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Shadow IT Detection</span>
+                    </a>
+                    <a href="4-1-prioritization.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Vulnerability Prioritization</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

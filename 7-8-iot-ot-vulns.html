@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IoT and OT Vulnerabilities - Industrial control systems, SCADA, medical devices, and operational technology security.">
+    <title>IoT/OT Vulnerabilities | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item active">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="7-1-os-vulnerabilities.html">Section 7: Vulnerability Types</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">IoT/OT Vulnerabilities</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>IoT/OT Vulnerabilities</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 7.8</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers IoT (Internet of Things) and OT (Operational Technology) 
+                        vulnerabilities including industrial control systems, SCADA, medical devices, 
+                        and specialized scanning approaches.
+                    </p>
+                </div>
+                
+                <h2>IoT/OT Landscape</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>IOT/OT DEVICE CATEGORIES
+═══════════════════════════════════════════════════════════════════════
+
+OPERATIONAL TECHNOLOGY (OT):
+─────────────────────────────────────────────────────────────────────
+• SCADA (Supervisory Control and Data Acquisition)
+• ICS (Industrial Control Systems)
+• PLCs (Programmable Logic Controllers)
+• DCS (Distributed Control Systems)
+• HMI (Human Machine Interfaces)
+• RTU (Remote Terminal Units)
+
+Industries: Manufacturing, Energy, Utilities, Transportation
+
+IOT (Internet of Things):
+─────────────────────────────────────────────────────────────────────
+Enterprise IoT:
+• IP cameras and security systems
+• Smart HVAC systems
+• Badge readers and access control
+• VoIP phones
+• Smart TVs/displays
+• Printers and MFPs
+
+Medical Devices (IoMT):
+• Patient monitors
+• Infusion pumps
+• Imaging equipment (MRI, CT)
+• Medical IoT gateways
+
+Building Automation:
+• Lighting controls
+• Elevators
+• Fire/safety systems</code></pre>
+                </div>
+                
+                <h2>IoT/OT Vulnerability Challenges</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>WHY IOT/OT IS DIFFERENT
+═══════════════════════════════════════════════════════════════════════
+
+SCANNING CHALLENGES:
+─────────────────────────────────────────────────────────────────────
+• Cannot install agents
+• Aggressive scanning may crash devices
+• Proprietary protocols (Modbus, DNP3, BACnet)
+• No standard OS to fingerprint
+• Devices may be safety-critical
+
+PATCHING CHALLENGES:
+─────────────────────────────────────────────────────────────────────
+• Vendor-dependent updates
+• Long patch cycles (quarterly/annual)
+• Downtime impacts production
+• Regulatory approval needed (medical)
+• Legacy devices with no updates
+• 24/7 operational requirements
+
+COMMON VULNERABILITIES:
+─────────────────────────────────────────────────────────────────────
+• Default/hardcoded credentials
+• Unencrypted protocols
+• Lack of authentication
+• Outdated firmware
+• Exposed management interfaces
+• Weak/no update mechanisms
+• Physical access vulnerabilities</code></pre>
+                </div>
+                
+                <h2>IoT/OT Scanning Approaches</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>IOT/OT VULNERABILITY ASSESSMENT
+═══════════════════════════════════════════════════════════════════════
+
+PASSIVE MONITORING (Preferred for OT):
+─────────────────────────────────────────────────────────────────────
+• Network traffic analysis
+• No packets sent to devices
+• Protocol identification
+• Anomaly detection
+• Asset discovery
+
+Tools: Claroty, Nozomi Networks, Dragos, Armis
+
+ACTIVE SCANNING (With Caution):
+─────────────────────────────────────────────────────────────────────
+• Low-intensity scans only
+• Schedule during maintenance windows
+• Test on non-production first
+• OT-aware scanners only
+
+Tools: Tenable.ot, Claroty, Nozomi (active mode)
+
+SPECIALIZED OT SCANNERS:
+─────────────────────────────────────────────────────────────────────
+• Tenable.ot (formerly Indegy)
+• Claroty
+• Nozomi Networks
+• Dragos Platform
+• Armis
+• Forescout
+
+Features:
+• OT protocol support (Modbus, DNP3, etc.)
+• Safe scanning modes
+• Asset inventory
+• Vulnerability correlation
+• Network segmentation analysis</code></pre>
+                </div>
+                
+                <h2>Remediation Strategies</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>IOT/OT REMEDIATION APPROACH
+═══════════════════════════════════════════════════════════════════════
+
+WHEN PATCHING IS POSSIBLE:
+─────────────────────────────────────────────────────────────────────
+1. Obtain firmware from vendor
+2. Test on non-production device
+3. Schedule during maintenance window
+4. Backup configuration
+5. Apply update
+6. Validate functionality
+7. Update asset inventory
+
+WHEN PATCHING IS NOT POSSIBLE:
+─────────────────────────────────────────────────────────────────────
+Compensating Controls:
+• Network segmentation (VLAN isolation)
+• Firewall rules (restrict to needed protocols)
+• Jump hosts for management access
+• Enhanced monitoring/alerting
+• Physical security controls
+• Disable unused services/ports
+
+Long-term:
+• Include security in procurement
+• Plan device refresh cycles
+• Negotiate SLAs with vendors
+• Consider managed services
+
+PRIORITIZATION FOR OT:
+─────────────────────────────────────────────────────────────────────
+Unlike IT, availability often trumps security:
+• Safety systems: Highest priority, most caution
+• Production systems: Schedule with plant operations
+• Support systems: Standard IT approach
+
+Always involve OT/plant personnel in decisions</code></pre>
+                </div>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ Safety First</div>
+                    <p>
+                        Never apply IT scanning practices directly to OT environments without 
+                        coordination. Aggressive scanning can crash PLCs and safety systems, potentially 
+                        causing physical harm or production outages. Always use OT-specific tools and 
+                        involve plant/operations personnel.
+                    </p>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you approach vulnerability management for OT/ICS environments?"</strong><br><br>
+                        Sample answer: "OT requires a fundamentally different approach than IT. I start 
+                        with passive network monitoring to discover assets without disrupting operations. 
+                        For active scanning, I use OT-specific tools like Tenable.ot that understand 
+                        industrial protocols and have safe scanning modes. Patching is challenging because 
+                        downtime affects production, so I rely heavily on compensating controls like 
+                        network segmentation, firewall rules, and monitoring. I always coordinate with 
+                        plant operations—in OT, safety and availability often take priority over patching."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    IoT/OT vulnerability management requires specialized tools, passive monitoring, 
+                    and heavy reliance on compensating controls. Coordinate with operations teams, 
+                    prioritize safety, and accept that traditional patching approaches often don't 
+                    apply. Network segmentation is your primary defense.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="7-7-database-vulns.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Database Vulnerabilities</span>
+                    </a>
+                    <a href="8-1-dashboards.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">VM Dashboards</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

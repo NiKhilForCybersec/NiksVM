@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Qualys Platform - Cloud Agent deployment, QQL queries, asset tagging, VMDR workflows, API automation, and TruRisk scoring.">
+    <title>Qualys Platform | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+                <div class="sidebar-search">
+                    <span class="sidebar-search-icon">🔍</span>
+                    <input type="text" placeholder="Search documentation...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item active">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="2-1-scanner-types.html">Section 2: Scanning</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Qualys Platform</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Qualys Platform</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 2.3</span>
+                        <span class="page-meta-item">⏱️ 22 min read</span>
+                        <span class="page-meta-item">📅 Last updated: 2025</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers the Qualys cloud platform including Cloud Agent deployment, 
+                        Qualys Query Language (QQL), asset tagging strategies, VMDR workflows, 
+                        API automation, TruRisk scoring, and comparison with Nessus.
+                    </p>
+                </div>
+                
+                <h2>Qualys Platform Overview</h2>
+                
+                <p>
+                    Qualys is a cloud-native security platform offering multiple integrated applications. 
+                    Unlike traditional scanners, Qualys is delivered entirely as SaaS with no on-premises 
+                    management infrastructure required.
+                </p>
+                
+                <h3>Qualys Applications</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Application</th>
+                                <th>Function</th>
+                                <th>Key Features</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>VMDR</strong></td>
+                                <td>Vulnerability Management, Detection, Response</td>
+                                <td>TruRisk scoring, remediation workflows, dashboards</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Policy Compliance</strong></td>
+                                <td>Configuration compliance</td>
+                                <td>CIS, DISA STIG, custom policies</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Web App Scanning</strong></td>
+                                <td>DAST for web applications</td>
+                                <td>OWASP Top 10, API scanning</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Container Security</strong></td>
+                                <td>Container and Kubernetes scanning</td>
+                                <td>Image scanning, runtime protection</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cloud Security</strong></td>
+                                <td>CSPM for AWS/Azure/GCP</td>
+                                <td>Misconfiguration detection, compliance</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Patch Management</strong></td>
+                                <td>Automated patching</td>
+                                <td>Zero-touch patching, deployment jobs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Cloud Agent Deployment</h2>
+                
+                <p>
+                    Qualys Cloud Agents are lightweight software installed on endpoints that continuously 
+                    collect data and report to the Qualys platform without network-based scanning.
+                </p>
+                
+                <h3>Agent Installation</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Bash</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Windows Agent Installation (Command Line)
+# Download from Qualys portal with your activation key
+
+QualysCloudAgent.exe CustomerId={CUSTOMER_ID} ActivationId={ACTIVATION_ID} WebServiceUri=https://qagpublic.qg2.apps.qualys.com/CloudAgent/
+
+# Silent installation
+msiexec /i QualysCloudAgent.msi /quiet CUSTOMID={CUSTOMER_ID} ACTIVATIONID={ACTIVATION_ID} WEBSERVICEURI=https://qagpublic.qg2.apps.qualys.com/CloudAgent/
+
+# Linux Agent Installation
+# Download agent package from Qualys portal
+curl -o qualys-cloud-agent.x86_64.rpm "https://qualysguard.qualys.com/cloud-agent/..."
+
+# Install RPM (RHEL/CentOS)
+sudo rpm -ivh qualys-cloud-agent.x86_64.rpm
+
+# Activate agent
+sudo /usr/local/qualys/cloud-agent/bin/qualys-cloud-agent.sh ActivationId={ACTIVATION_ID} CustomerId={CUSTOMER_ID}
+
+# Check agent status
+sudo systemctl status qualys-cloud-agent
+
+# Agent logs
+tail -f /var/log/qualys/qualys-cloud-agent.log
+
+# Debian/Ubuntu
+sudo dpkg -i qualys-cloud-agent_x.x.x.x_amd64.deb
+sudo /usr/local/qualys/cloud-agent/bin/qualys-cloud-agent.sh ActivationId={ACTIVATION_ID} CustomerId={CUSTOMER_ID}</code></pre>
+                </div>
+                
+                <h3>Mass Deployment Options</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">PowerShell</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># Group Policy Deployment Script
+# Deploy via GPO startup script
+
+$CustomerID = "YOUR_CUSTOMER_ID"
+$ActivationID = "YOUR_ACTIVATION_ID"
+$AgentSource = "\\fileserver\software\QualysCloudAgent.exe"
+$LogPath = "C:\Temp\QualysInstall.log"
+
+# Check if agent already installed
+$AgentInstalled = Get-Service -Name "QualysAgent" -ErrorAction SilentlyContinue
+
+if (-not $AgentInstalled) {
+    # Copy agent locally
+    Copy-Item $AgentSource -Destination "C:\Temp\QualysCloudAgent.exe" -Force
+    
+    # Install agent
+    Start-Process -FilePath "C:\Temp\QualysCloudAgent.exe" -ArgumentList `
+        "CustomerId=$CustomerID", `
+        "ActivationId=$ActivationID", `
+        "WebServiceUri=https://qagpublic.qg2.apps.qualys.com/CloudAgent/" `
+        -Wait -NoNewWindow
+    
+    # Log installation
+    Add-Content -Path $LogPath -Value "$(Get-Date): Agent installed on $env:COMPUTERNAME"
+}
+
+# SCCM/MECM Deployment
+# Create application with detection method checking for QualysAgent service
+# Use the MSI installer with transform file for parameters
+
+# Ansible Deployment
+# playbook: deploy_qualys_agent.yml
+# - name: Deploy Qualys Cloud Agent
+#   hosts: all
+#   tasks:
+#     - name: Copy agent installer
+#       copy:
+#         src: qualys-cloud-agent.rpm
+#         dest: /tmp/
+#     - name: Install agent
+#       yum:
+#         name: /tmp/qualys-cloud-agent.rpm
+#         state: present
+#     - name: Activate agent
+#       command: >
+#         /usr/local/qualys/cloud-agent/bin/qualys-cloud-agent.sh
+#         ActivationId={{ activation_id }}
+#         CustomerId={{ customer_id }}</code></pre>
+                </div>
+                
+                <h2>Qualys Query Language (QQL)</h2>
+                
+                <p>
+                    QQL is Qualys's powerful query syntax for searching and filtering assets, vulnerabilities, 
+                    and other data across the platform.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>QUALYS QUERY LANGUAGE (QQL) REFERENCE
+═══════════════════════════════════════════════════════════════════════
+
+VULNERABILITY QUERIES:
+─────────────────────────────────────────────────────────────────────
+# Critical vulnerabilities
+vulnerabilities.severity:5
+
+# High and Critical (severity 4 or 5)
+vulnerabilities.severity:4 or vulnerabilities.severity:5
+
+# Specific QID
+vulnerabilities.vulnerability.qid:91345
+
+# CVE search
+vulnerabilities.vulnerability.cveIds:"CVE-2021-44228"
+
+# Exploitable vulnerabilities
+vulnerabilities.exploitability:true
+
+# CISA KEV vulnerabilities
+vulnerabilities.knownExploited:true
+
+# Patchable vulnerabilities
+vulnerabilities.patchable:true
+
+# Age-based queries (older than 30 days)
+vulnerabilities.firstFound > now-30d
+
+ASSET QUERIES:
+─────────────────────────────────────────────────────────────────────
+# By IP address
+asset.ipAddress:192.168.1.0/24
+
+# By hostname
+asset.name:`web-server*`
+
+# By operating system
+asset.operatingSystem.category1:Windows
+
+# By tag
+asset.tags.name:"Production"
+
+# Assets with agents
+asset.agentId is not empty
+
+# Assets without recent scan
+asset.lastVulnScan < now-7d
+
+# By business criticality
+asset.criticality:5
+
+COMBINED QUERIES:
+─────────────────────────────────────────────────────────────────────
+# Critical vulns on production Windows servers
+vulnerabilities.severity:5 and 
+asset.operatingSystem.category1:Windows and 
+asset.tags.name:"Production"
+
+# Exploitable vulns on internet-facing assets
+vulnerabilities.exploitability:true and 
+asset.tags.name:"Internet-Facing"
+
+# Unpatched vulns older than SLA
+vulnerabilities.patchable:true and 
+vulnerabilities.severity:4 and 
+vulnerabilities.firstFound < now-30d
+
+# Assets with Log4j vulnerability
+vulnerabilities.vulnerability.cveIds:"CVE-2021-44228"
+
+OPERATORS:
+─────────────────────────────────────────────────────────────────────
+and         - Both conditions must match
+or          - Either condition matches
+not         - Negation
+:           - Equals
+>           - Greater than
+<           - Less than
+>=          - Greater than or equal
+<=          - Less than or equal
+`...`       - Wildcard string (use backticks)
+"..."       - Exact string match
+is empty    - Field has no value
+is not empty - Field has a value
+now-Xd      - Relative date (X days ago)</code></pre>
+                </div>
+                
+                <h2>Asset Tagging Strategy</h2>
+                
+                <p>
+                    Asset tags in Qualys enable organization, filtering, and automated workflows. 
+                    A well-designed tagging strategy is essential for effective vulnerability management.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>QUALYS ASSET TAGGING TAXONOMY
+═══════════════════════════════════════════════════════════════════════
+
+ENVIRONMENT TAGS:
+─────────────────────────────────────────────────────────────────────
+├── Environment
+│   ├── Production
+│   ├── Staging
+│   ├── Development
+│   ├── Test
+│   └── DR
+
+NETWORK TAGS:
+─────────────────────────────────────────────────────────────────────
+├── Network Zone
+│   ├── Internet-Facing
+│   ├── DMZ
+│   ├── Internal
+│   ├── Isolated
+│   └── OT-Network
+
+BUSINESS TAGS:
+─────────────────────────────────────────────────────────────────────
+├── Business Unit
+│   ├── Finance
+│   ├── HR
+│   ├── IT
+│   ├── Sales
+│   └── Operations
+├── Cost Center
+│   ├── CC-1001
+│   ├── CC-1002
+│   └── ...
+
+COMPLIANCE TAGS:
+─────────────────────────────────────────────────────────────────────
+├── Compliance Scope
+│   ├── PCI-DSS
+│   ├── HIPAA
+│   ├── SOX
+│   └── GDPR
+
+CRITICALITY TAGS:
+─────────────────────────────────────────────────────────────────────
+├── Asset Criticality
+│   ├── Tier-1-Critical
+│   ├── Tier-2-High
+│   ├── Tier-3-Medium
+│   └── Tier-4-Low
+
+DYNAMIC TAG RULES (Auto-assignment):
+─────────────────────────────────────────────────────────────────────
+Name: "Windows Servers"
+Rule: asset.operatingSystem.category1:Windows and asset.operatingSystem.category2:Server
+
+Name: "Internet-Facing"
+Rule: asset.ipAddress:203.0.113.0/24 or asset.dnsName:`*.external.company.com`
+
+Name: "Production"
+Rule: asset.name:`prod-*` or asset.name:`prd-*`</code></pre>
+                </div>
+                
+                <h2>TruRisk Scoring</h2>
+                
+                <p>
+                    Qualys TruRisk provides a contextual risk score (0-1000) that goes beyond CVSS by 
+                    incorporating threat intelligence, asset criticality, and real-time exploit data.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>TRURISK SCORE COMPONENTS
+═══════════════════════════════════════════════════════════════════════
+
+VULNERABILITY FACTORS:
+─────────────────────────────────────────────────────────────────────
+• Base CVSS Score (0-10)
+• Real-Time Threat Intelligence
+  - Active exploitation in the wild
+  - Malware/ransomware association
+  - Threat actor TTPs
+• Exploit Maturity
+  - Proof of concept available
+  - Weaponized exploit
+  - Exploit in Metasploit/exploit-db
+• Attack Surface
+  - Internet-facing exposure
+  - Network accessibility
+
+ASSET FACTORS:
+─────────────────────────────────────────────────────────────────────
+• Asset Criticality Score (1-5)
+  - Business impact
+  - Data sensitivity
+  - Regulatory scope
+• Asset Type
+  - Server vs workstation
+  - Network device
+  - Cloud resource
+
+TRURISK SCORE RANGES:
+─────────────────────────────────────────────────────────────────────
+850-1000  │  Critical Risk  │  Immediate action required
+700-849   │  High Risk      │  Address within days
+500-699   │  Medium Risk    │  Address within weeks
+300-499   │  Low Risk       │  Address per normal cycle
+0-299     │  Minimal Risk   │  Monitor
+
+TRURISK REDUCTION FORMULA:
+─────────────────────────────────────────────────────────────────────
+Risk Reduction = Σ (TruRisk Score × Remediation Weight)
+
+Example: Patching 10 systems with TruRisk 850 each
+Reduction = 10 × 850 × 1.0 = 8,500 risk points removed</code></pre>
+                </div>
+                
+                <h2>VMDR Workflows</h2>
+                
+                <p>
+                    Qualys VMDR provides end-to-end vulnerability management from detection to remediation.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VMDR WORKFLOW STAGES
+═══════════════════════════════════════════════════════════════════════
+
+1. ASSET INVENTORY
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ • Cloud Agent collection                                        │
+   │ • Network scanner discovery                                     │
+   │ • Cloud connector sync (AWS, Azure, GCP)                       │
+   │ • CMDB integration                                              │
+   └─────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+2. VULNERABILITY DETECTION
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ • Continuous agent-based assessment                             │
+   │ • Scheduled network scans                                       │
+   │ • Authenticated local checks                                    │
+   │ • Web application scans                                         │
+   └─────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+3. PRIORITIZATION
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ • TruRisk scoring                                               │
+   │ • CISA KEV correlation                                          │
+   │ • Asset criticality weighting                                   │
+   │ • Threat intelligence enrichment                                │
+   └─────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+4. REMEDIATION
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ • Patch deployment jobs                                         │
+   │ • Remediation assignments                                       │
+   │ • ServiceNow/Jira integration                                   │
+   │ • Automated patching (Qualys Patch Management)                  │
+   └─────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+5. VERIFICATION
+   ┌─────────────────────────────────────────────────────────────────┐
+   │ • Post-patch rescan                                             │
+   │ • Continuous agent verification                                 │
+   │ • Closure confirmation                                          │
+   └─────────────────────────────────────────────────────────────────┘</code></pre>
+                </div>
+                
+                <h2>Qualys API Automation</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Qualys API Integration Module
+Provides VMDR automation capabilities.
+"""
+
+import requests
+import base64
+from typing import Dict, List, Optional
+import xml.etree.ElementTree as ET
+
+
+class QualysAPI:
+    """
+    Qualys API client for vulnerability management.
+    
+    Supports both VMDR API (REST) and legacy QualysGuard API (XML).
+    """
+    
+    def __init__(self, username: str, password: str, platform: str = 'qg2'):
+        """
+        Initialize Qualys API client.
+        
+        Args:
+            username: Qualys username
+            password: Qualys password
+            platform: Qualys platform (qg1, qg2, qg3, qg4)
+        """
+        self.base_url = f'https://qualysapi.{platform}.apps.qualys.com'
+        self.gateway_url = f'https://gateway.{platform}.apps.qualys.com'
+        self.auth = base64.b64encode(f'{username}:{password}'.encode()).decode()
+        self.headers = {
+            'Authorization': f'Basic {self.auth}',
+            'X-Requested-With': 'Python'
+        }
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # ASSET MANAGEMENT
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def search_assets(self, qql_query: str, limit: int = 100) -> List[Dict]:
+        """
+        Search assets using QQL.
+        
+        Args:
+            qql_query: Qualys Query Language query
+            limit: Maximum results to return
+            
+        Returns:
+            List of matching assets
+        """
+        url = f'{self.gateway_url}/am/v1/assets'
+        params = {
+            'filter': qql_query,
+            'pageSize': limit
+        }
+        
+        response = requests.get(url, headers=self.headers, params=params)
+        response.raise_for_status()
+        
+        return response.json().get('assets', [])
+    
+    def get_asset_details(self, asset_id: str) -> Dict:
+        """Get detailed information for a specific asset."""
+        url = f'{self.gateway_url}/am/v1/assets/{asset_id}'
+        response = requests.get(url, headers=self.headers)
+        response.raise_for_status()
+        return response.json()
+    
+    def add_asset_tags(self, asset_ids: List[str], tag_ids: List[str]) -> bool:
+        """Add tags to assets."""
+        url = f'{self.gateway_url}/am/v1/assets/tag'
+        data = {
+            'assetIds': asset_ids,
+            'tagIds': tag_ids
+        }
+        response = requests.post(url, headers=self.headers, json=data)
+        return response.status_code == 200
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # VULNERABILITY MANAGEMENT
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def get_vulnerabilities(self, qql_query: str, limit: int = 1000) -> List[Dict]:
+        """
+        Search vulnerabilities using QQL.
+        
+        Args:
+            qql_query: QQL filter (e.g., "vulnerabilities.severity:5")
+            limit: Maximum results
+            
+        Returns:
+            List of vulnerability findings
+        """
+        url = f'{self.gateway_url}/vmdr/v2/vulnerabilities'
+        params = {
+            'filter': qql_query,
+            'pageSize': min(limit, 1000)
+        }
+        
+        response = requests.get(url, headers=self.headers, params=params)
+        response.raise_for_status()
+        
+        return response.json().get('vulnerabilities', [])
+    
+    def get_vulnerability_count(self, qql_query: str = '') -> Dict:
+        """Get vulnerability counts by severity."""
+        url = f'{self.gateway_url}/vmdr/v2/vulnerabilities/count'
+        params = {'filter': qql_query} if qql_query else {}
+        
+        response = requests.get(url, headers=self.headers, params=params)
+        response.raise_for_status()
+        
+        return response.json()
+    
+    def get_kev_vulnerabilities(self) -> List[Dict]:
+        """Get CISA KEV (Known Exploited Vulnerabilities)."""
+        return self.get_vulnerabilities('vulnerabilities.knownExploited:true')
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # SCANNING
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def launch_scan(self, scan_title: str, ip_list: str, 
+                    option_id: str, scanner_name: str = None) -> str:
+        """
+        Launch a vulnerability scan.
+        
+        Args:
+            scan_title: Name for the scan
+            ip_list: Comma-separated IPs or ranges
+            option_id: Scan option profile ID
+            scanner_name: Specific scanner appliance
+            
+        Returns:
+            Scan reference ID
+        """
+        url = f'{self.base_url}/api/2.0/fo/scan/'
+        data = {
+            'action': 'launch',
+            'scan_title': scan_title,
+            'ip': ip_list,
+            'option_id': option_id
+        }
+        
+        if scanner_name:
+            data['iscanner_name'] = scanner_name
+        
+        response = requests.post(url, headers=self.headers, data=data)
+        response.raise_for_status()
+        
+        # Parse XML response for scan reference
+        root = ET.fromstring(response.text)
+        ref = root.find('.//VALUE')
+        return ref.text if ref is not None else None
+    
+    def get_scan_status(self, scan_ref: str) -> str:
+        """Get scan status by reference ID."""
+        url = f'{self.base_url}/api/2.0/fo/scan/'
+        params = {
+            'action': 'list',
+            'scan_ref': scan_ref
+        }
+        
+        response = requests.get(url, headers=self.headers, params=params)
+        root = ET.fromstring(response.text)
+        status = root.find('.//STATE')
+        return status.text if status is not None else 'Unknown'
+    
+    # ═══════════════════════════════════════════════════════════════════
+    # REPORTING
+    # ═══════════════════════════════════════════════════════════════════
+    
+    def generate_report(self, report_type: str, template_id: str,
+                        qql_filter: str = None) -> str:
+        """
+        Generate a report.
+        
+        Args:
+            report_type: 'Scan', 'Remediation', 'Compliance'
+            template_id: Report template ID
+            qql_filter: Optional QQL filter
+            
+        Returns:
+            Report ID
+        """
+        url = f'{self.base_url}/api/2.0/fo/report/'
+        data = {
+            'action': 'launch',
+            'report_type': report_type,
+            'template_id': template_id,
+            'output_format': 'pdf'
+        }
+        
+        if qql_filter:
+            data['filter'] = qql_filter
+        
+        response = requests.post(url, headers=self.headers, data=data)
+        response.raise_for_status()
+        
+        root = ET.fromstring(response.text)
+        report_id = root.find('.//VALUE')
+        return report_id.text if report_id is not None else None
+    
+    def get_trurisk_score(self) -> Dict:
+        """Get organization TruRisk score summary."""
+        url = f'{self.gateway_url}/vmdr/v2/trurisk/score'
+        response = requests.get(url, headers=self.headers)
+        response.raise_for_status()
+        return response.json()
+
+
+# Example Usage
+if __name__ == '__main__':
+    qualys = QualysAPI(
+        username='your_username',
+        password='your_password',
+        platform='qg2'
+    )
+    
+    # Get critical vulnerabilities
+    critical_vulns = qualys.get_vulnerabilities(
+        'vulnerabilities.severity:5 and vulnerabilities.patchable:true'
+    )
+    print(f"Critical patchable vulnerabilities: {len(critical_vulns)}")
+    
+    # Get KEV vulnerabilities
+    kev_vulns = qualys.get_kev_vulnerabilities()
+    print(f"CISA KEV vulnerabilities: {len(kev_vulns)}")
+    
+    # Get TruRisk score
+    trurisk = qualys.get_trurisk_score()
+    print(f"Organization TruRisk: {trurisk}")</code></pre>
+                </div>
+                
+                <h2>Qualys vs Nessus Comparison</h2>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>Qualys</th>
+                                <th>Nessus/Tenable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Deployment</strong></td>
+                                <td>Cloud-native SaaS</td>
+                                <td>On-prem or cloud options</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Management</strong></td>
+                                <td>No infrastructure to manage</td>
+                                <td>Requires server management</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Agent</strong></td>
+                                <td>Cloud Agent (recommended)</td>
+                                <td>Nessus Agent (optional)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Risk Scoring</strong></td>
+                                <td>TruRisk (contextual)</td>
+                                <td>VPR (Vulnerability Priority Rating)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Query Language</strong></td>
+                                <td>QQL (powerful, flexible)</td>
+                                <td>Limited filtering</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Patch Management</strong></td>
+                                <td>Integrated module</td>
+                                <td>Separate product</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Learning Curve</strong></td>
+                                <td>Steeper (many modules)</td>
+                                <td>Easier for scanning</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cost Model</strong></td>
+                                <td>Subscription per asset</td>
+                                <td>Various licensing options</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"Compare Qualys and Nessus. When would you choose one over the other?"</strong><br><br>
+                        Sample answer: "Both are excellent platforms with different strengths. Qualys is cloud-native 
+                        with no infrastructure to manage, powerful QQL querying, integrated TruRisk scoring, and a 
+                        unified platform for VM, compliance, and patching. Nessus/Tenable offers more deployment 
+                        flexibility, has the largest plugin library, and may be more cost-effective for smaller 
+                        environments. I'd choose Qualys for organizations wanting a unified cloud platform with 
+                        advanced risk prioritization, and Tenable for those needing on-premises control or 
+                        specialized compliance auditing."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Qualys provides a comprehensive cloud-native security platform with powerful VMDR capabilities. 
+                    Mastering QQL, asset tagging, and TruRisk scoring enables effective prioritization and 
+                    remediation workflows. The API enables extensive automation for enterprise-scale operations.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="2-2-nessus.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Nessus Deep Dive</span>
+                    </a>
+                    <a href="2-4-rapid7.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Rapid7 InsightVM</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

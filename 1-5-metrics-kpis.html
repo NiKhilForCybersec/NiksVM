@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VM Program Metrics & KPIs - MTTR, vulnerability density, SLA compliance, risk reduction, coverage metrics, and executive dashboards.">
+    <title>VM Program Metrics & KPIs | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+                <div class="sidebar-search">
+                    <span class="sidebar-search-icon">🔍</span>
+                    <input type="text" placeholder="Search documentation...">
+                    <div class="search-results"></div>
+                </div>
+            </div>
+            
+                                    <nav class="sidebar-nav">
+                <div class="nav-section " data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item active">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section 0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="1-1-introduction.html">Section 1: Fundamentals</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Metrics & KPIs</span>
+                </nav>
+                
+                <!-- Page Header -->
+                <header class="page-header">
+                    <h1>VM Program Metrics & KPIs</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 1.5</span>
+                        <span class="page-meta-item">⏱️ 20 min read</span>
+                        <span class="page-meta-item">📅 Last updated: 2025</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers essential VM metrics including Mean Time to Remediate (MTTR), 
+                        vulnerability density, SLA compliance rates, risk reduction over time, coverage 
+                        metrics, and building effective executive dashboards.
+                    </p>
+                </div>
+                
+                <h2>Why Metrics Matter</h2>
+                
+                <p>
+                    Metrics transform vulnerability management from a reactive firefighting exercise into a 
+                    strategic program that demonstrates value. Without metrics, you can't answer critical 
+                    questions: Are we getting better? Where are the bottlenecks? Are we reducing risk?
+                </p>
+                
+                <p>
+                    Effective VM metrics should be SMART: Specific, Measurable, Achievable, Relevant, and 
+                    Time-bound. They should drive behavior, highlight problems, and demonstrate progress 
+                    toward security objectives.
+                </p>
+                
+                <div class="info-box warning" data-label="Warning">
+                    <div class="info-box-title">⚠️ Metric Anti-Patterns</div>
+                    <p>
+                        Avoid metrics that incentivize wrong behavior: counting "vulnerabilities found" rewards 
+                        finding more problems, not reducing risk. Counting "patches deployed" rewards volume 
+                        over effectiveness. Focus on risk reduction and remediation efficiency.
+                    </p>
+                </div>
+                
+                <h2>Mean Time to Remediate (MTTR)</h2>
+                
+                <p>
+                    MTTR measures the average time from vulnerability discovery to verified remediation. It's 
+                    the most important operational metric for VM programs, directly indicating how quickly 
+                    the organization closes security gaps.
+                </p>
+                
+                <h3>MTTR Calculation</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>-- MTTR Calculation by Severity
+SELECT 
+    severity,
+    COUNT(*) AS total_remediated,
+    
+    -- Average MTTR in days
+    ROUND(AVG(
+        DATEDIFF(day, discovered_date, remediated_date)
+    ), 1) AS avg_mttr_days,
+    
+    -- Median MTTR (more resistant to outliers)
+    PERCENTILE_CONT(0.5) WITHIN GROUP (
+        ORDER BY DATEDIFF(day, discovered_date, remediated_date)
+    ) AS median_mttr_days,
+    
+    -- 90th percentile (worst cases)
+    PERCENTILE_CONT(0.9) WITHIN GROUP (
+        ORDER BY DATEDIFF(day, discovered_date, remediated_date)
+    ) AS p90_mttr_days,
+    
+    -- Min and Max for range
+    MIN(DATEDIFF(day, discovered_date, remediated_date)) AS min_mttr,
+    MAX(DATEDIFF(day, discovered_date, remediated_date)) AS max_mttr
+
+FROM vulnerabilities
+WHERE 
+    status = 'Remediated'
+    AND remediated_date >= DATEADD(quarter, -1, GETDATE())
+    AND discovered_date IS NOT NULL
+    AND remediated_date IS NOT NULL
+GROUP BY severity
+ORDER BY 
+    CASE severity 
+        WHEN 'Critical' THEN 1 
+        WHEN 'High' THEN 2 
+        WHEN 'Medium' THEN 3 
+        WHEN 'Low' THEN 4 
+    END;</code></pre>
+                </div>
+                
+                <h3>MTTR Targets</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Severity</th>
+                                <th>Good MTTR</th>
+                                <th>Acceptable MTTR</th>
+                                <th>Needs Improvement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Critical</strong></td>
+                                <td>&lt; 3 days</td>
+                                <td>3-7 days</td>
+                                <td>&gt; 7 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>High</strong></td>
+                                <td>&lt; 14 days</td>
+                                <td>14-30 days</td>
+                                <td>&gt; 30 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Medium</strong></td>
+                                <td>&lt; 45 days</td>
+                                <td>45-90 days</td>
+                                <td>&gt; 90 days</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Low</strong></td>
+                                <td>&lt; 90 days</td>
+                                <td>90-180 days</td>
+                                <td>&gt; 180 days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h3>MTTR Trend Analysis</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+from datetime import datetime, timedelta
+
+def analyze_mttr_trends(vulnerabilities_df, months=12):
+    """
+    Analyze MTTR trends over time by severity.
+    
+    Parameters:
+        vulnerabilities_df: DataFrame with discovered_date, remediated_date, severity
+        months: Number of months to analyze
+    
+    Returns:
+        DataFrame with monthly MTTR by severity
+    """
+    # Filter to remediated vulns in time range
+    cutoff_date = datetime.now() - timedelta(days=months * 30)
+    df = vulnerabilities_df[
+        (vulnerabilities_df['status'] == 'Remediated') &
+        (vulnerabilities_df['remediated_date'] >= cutoff_date)
+    ].copy()
+    
+    # Calculate remediation time in days
+    df['mttr_days'] = (
+        df['remediated_date'] - df['discovered_date']
+    ).dt.days
+    
+    # Extract month for grouping
+    df['month'] = df['remediated_date'].dt.to_period('M')
+    
+    # Calculate monthly MTTR by severity
+    mttr_trend = df.groupby(['month', 'severity'])['mttr_days'].agg([
+        ('avg_mttr', 'mean'),
+        ('median_mttr', 'median'),
+        ('count', 'size')
+    ]).reset_index()
+    
+    return mttr_trend
+
+def plot_mttr_trend(mttr_trend, severity='Critical'):
+    """
+    Plot MTTR trend for a specific severity level.
+    """
+    data = mttr_trend[mttr_trend['severity'] == severity]
+    
+    plt.figure(figsize=(12, 6))
+    plt.plot(data['month'].astype(str), data['avg_mttr'], 
+             marker='o', linewidth=2, label='Average MTTR')
+    plt.plot(data['month'].astype(str), data['median_mttr'], 
+             marker='s', linewidth=2, label='Median MTTR')
+    
+    # Add SLA target line
+    sla_targets = {'Critical': 7, 'High': 30, 'Medium': 90, 'Low': 180}
+    plt.axhline(y=sla_targets.get(severity, 30), 
+                color='red', linestyle='--', label='SLA Target')
+    
+    plt.xlabel('Month')
+    plt.ylabel('Days to Remediate')
+    plt.title(f'MTTR Trend - {severity} Severity')
+    plt.legend()
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    
+    return plt
+
+# Example usage
+# mttr_data = analyze_mttr_trends(vuln_df, months=12)
+# plot_mttr_trend(mttr_data, 'Critical')
+# plt.savefig('mttr_trend_critical.png', dpi=150)</code></pre>
+                </div>
+                
+                <div class="info-box tip" data-label="Tip">
+                    <div class="info-box-title">💜 MTTR Tips</div>
+                    <p>
+                        Track both average and median MTTR—a few outliers can skew the average significantly. 
+                        Investigate P90 MTTR to understand your worst-case scenarios. Segment MTTR by team, 
+                        asset type, or business unit to identify specific bottlenecks.
+                    </p>
+                </div>
+                
+                <h2>Vulnerability Density</h2>
+                
+                <p>
+                    Vulnerability density normalizes vulnerability counts by asset count, enabling fair 
+                    comparisons across teams, environments, or time periods with different asset populations.
+                </p>
+                
+                <h3>Density Calculations</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>-- Vulnerability Density by Business Unit
+WITH asset_counts AS (
+    SELECT 
+        business_unit,
+        COUNT(DISTINCT asset_id) AS total_assets
+    FROM assets
+    WHERE status = 'Active'
+    GROUP BY business_unit
+),
+vuln_counts AS (
+    SELECT 
+        a.business_unit,
+        v.severity,
+        COUNT(*) AS vuln_count
+    FROM vulnerabilities v
+    JOIN assets a ON v.asset_id = a.asset_id
+    WHERE v.status = 'Open'
+    GROUP BY a.business_unit, v.severity
+)
+SELECT 
+    ac.business_unit,
+    ac.total_assets,
+    
+    -- Total vulnerability density
+    ROUND(
+        SUM(vc.vuln_count) * 1.0 / ac.total_assets, 
+        2
+    ) AS total_vuln_density,
+    
+    -- Critical/High density (more actionable)
+    ROUND(
+        SUM(CASE WHEN vc.severity IN ('Critical', 'High') 
+            THEN vc.vuln_count ELSE 0 END) * 1.0 / ac.total_assets,
+        2
+    ) AS critical_high_density,
+    
+    -- Breakdown by severity
+    SUM(CASE WHEN vc.severity = 'Critical' THEN vc.vuln_count ELSE 0 END) AS critical_count,
+    SUM(CASE WHEN vc.severity = 'High' THEN vc.vuln_count ELSE 0 END) AS high_count,
+    SUM(CASE WHEN vc.severity = 'Medium' THEN vc.vuln_count ELSE 0 END) AS medium_count,
+    SUM(CASE WHEN vc.severity = 'Low' THEN vc.vuln_count ELSE 0 END) AS low_count
+
+FROM asset_counts ac
+LEFT JOIN vuln_counts vc ON ac.business_unit = vc.business_unit
+GROUP BY ac.business_unit, ac.total_assets
+ORDER BY critical_high_density DESC;</code></pre>
+                </div>
+                
+                <h3>Density Benchmarks</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Good</th>
+                                <th>Average</th>
+                                <th>Needs Work</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Total Vuln Density</strong></td>
+                                <td>&lt; 5 per asset</td>
+                                <td>5-15 per asset</td>
+                                <td>&gt; 15 per asset</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Critical/High Density</strong></td>
+                                <td>&lt; 0.5 per asset</td>
+                                <td>0.5-2 per asset</td>
+                                <td>&gt; 2 per asset</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Internet-Facing Critical</strong></td>
+                                <td>0 per asset</td>
+                                <td>&lt; 0.1 per asset</td>
+                                <td>&gt; 0.1 per asset</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>SLA Compliance Rate</h2>
+                
+                <p>
+                    SLA compliance measures the percentage of vulnerabilities remediated within defined 
+                    timeframes. This metric directly reflects program effectiveness and organizational 
+                    accountability.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>-- SLA Compliance Rate by Severity
+WITH sla_targets AS (
+    SELECT 'Critical' AS severity, 7 AS sla_days UNION ALL
+    SELECT 'High', 30 UNION ALL
+    SELECT 'Medium', 90 UNION ALL
+    SELECT 'Low', 180
+),
+remediation_analysis AS (
+    SELECT 
+        v.severity,
+        v.vulnerability_id,
+        DATEDIFF(day, v.discovered_date, v.remediated_date) AS actual_days,
+        st.sla_days,
+        CASE 
+            WHEN DATEDIFF(day, v.discovered_date, v.remediated_date) <= st.sla_days 
+            THEN 1 ELSE 0 
+        END AS within_sla
+    FROM vulnerabilities v
+    JOIN sla_targets st ON v.severity = st.severity
+    WHERE 
+        v.status = 'Remediated'
+        AND v.remediated_date >= DATEADD(quarter, -1, GETDATE())
+)
+SELECT 
+    severity,
+    COUNT(*) AS total_remediated,
+    SUM(within_sla) AS within_sla_count,
+    ROUND(
+        SUM(within_sla) * 100.0 / COUNT(*), 
+        1
+    ) AS sla_compliance_pct,
+    ROUND(AVG(actual_days), 1) AS avg_remediation_days,
+    MAX(sla_days) AS sla_target_days
+FROM remediation_analysis
+GROUP BY severity
+ORDER BY 
+    CASE severity 
+        WHEN 'Critical' THEN 1 
+        WHEN 'High' THEN 2 
+        WHEN 'Medium' THEN 3 
+        WHEN 'Low' THEN 4 
+    END;
+
+-- Overdue Vulnerabilities (SLA Violations)
+SELECT 
+    v.vulnerability_id,
+    v.cve_id,
+    v.severity,
+    v.discovered_date,
+    DATEDIFF(day, v.discovered_date, GETDATE()) AS age_days,
+    st.sla_days,
+    DATEDIFF(day, v.discovered_date, GETDATE()) - st.sla_days AS days_overdue,
+    a.asset_name,
+    a.business_unit,
+    a.asset_owner
+FROM vulnerabilities v
+JOIN sla_targets st ON v.severity = st.severity
+JOIN assets a ON v.asset_id = a.asset_id
+WHERE 
+    v.status = 'Open'
+    AND DATEDIFF(day, v.discovered_date, GETDATE()) > st.sla_days
+ORDER BY days_overdue DESC;</code></pre>
+                </div>
+                
+                <h3>SLA Compliance Targets</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Maturity Level</th>
+                                <th>Critical SLA</th>
+                                <th>High SLA</th>
+                                <th>Medium SLA</th>
+                                <th>Low SLA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Basic</strong></td>
+                                <td>&gt; 70%</td>
+                                <td>&gt; 60%</td>
+                                <td>&gt; 50%</td>
+                                <td>&gt; 40%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Intermediate</strong></td>
+                                <td>&gt; 85%</td>
+                                <td>&gt; 80%</td>
+                                <td>&gt; 70%</td>
+                                <td>&gt; 60%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Advanced</strong></td>
+                                <td>&gt; 95%</td>
+                                <td>&gt; 90%</td>
+                                <td>&gt; 85%</td>
+                                <td>&gt; 80%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Risk Reduction Over Time</h2>
+                
+                <p>
+                    Risk reduction metrics demonstrate the business value of the VM program by showing 
+                    how aggregate organizational risk decreases over time.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>import pandas as pd
+from datetime import datetime, timedelta
+
+def calculate_risk_score_trend(vulnerabilities_df, months=12):
+    """
+    Calculate aggregate risk score trend over time.
+    
+    Risk score factors:
+    - CVSS score (weighted by severity)
+    - Asset criticality
+    - Exposure (internet-facing vs internal)
+    - Age (older = higher risk)
+    """
+    
+    # Generate monthly snapshots
+    results = []
+    
+    for month_offset in range(months, -1, -1):
+        snapshot_date = datetime.now() - timedelta(days=month_offset * 30)
+        
+        # Get open vulnerabilities as of snapshot date
+        open_vulns = vulnerabilities_df[
+            (vulnerabilities_df['discovered_date'] <= snapshot_date) &
+            ((vulnerabilities_df['remediated_date'].isna()) | 
+             (vulnerabilities_df['remediated_date'] > snapshot_date))
+        ].copy()
+        
+        # Calculate risk score components
+        severity_weights = {
+            'Critical': 40, 'High': 25, 'Medium': 10, 'Low': 3
+        }
+        criticality_weights = {
+            'tier1': 4, 'tier2': 3, 'tier3': 2, 'tier4': 1
+        }
+        exposure_weights = {
+            'internet': 3, 'dmz': 2, 'internal': 1, 'isolated': 0.5
+        }
+        
+        open_vulns['severity_score'] = open_vulns['severity'].map(severity_weights)
+        open_vulns['criticality_score'] = open_vulns['asset_tier'].map(criticality_weights)
+        open_vulns['exposure_score'] = open_vulns['network_exposure'].map(exposure_weights)
+        
+        # Age factor (vulnerabilities get riskier over time)
+        open_vulns['age_days'] = (snapshot_date - open_vulns['discovered_date']).dt.days
+        open_vulns['age_factor'] = 1 + (open_vulns['age_days'] / 90).clip(upper=3)  # Max 4x
+        
+        # Combined risk score per vulnerability
+        open_vulns['risk_score'] = (
+            open_vulns['severity_score'] * 
+            open_vulns['criticality_score'] * 
+            open_vulns['exposure_score'] * 
+            open_vulns['age_factor']
+        )
+        
+        # Aggregate metrics
+        results.append({
+            'date': snapshot_date,
+            'total_open_vulns': len(open_vulns),
+            'critical_high_count': len(open_vulns[
+                open_vulns['severity'].isin(['Critical', 'High'])
+            ]),
+            'total_risk_score': open_vulns['risk_score'].sum(),
+            'avg_risk_per_vuln': open_vulns['risk_score'].mean(),
+            'max_single_risk': open_vulns['risk_score'].max()
+        })
+    
+    trend_df = pd.DataFrame(results)
+    
+    # Calculate month-over-month change
+    trend_df['risk_change_pct'] = trend_df['total_risk_score'].pct_change() * 100
+    
+    return trend_df
+
+def calculate_risk_reduction_roi(trend_df, program_cost):
+    """
+    Calculate risk reduction ROI.
+    
+    Parameters:
+        trend_df: Output from calculate_risk_score_trend
+        program_cost: Annual VM program cost
+    
+    Returns:
+        dict with ROI metrics
+    """
+    initial_risk = trend_df.iloc[0]['total_risk_score']
+    current_risk = trend_df.iloc[-1]['total_risk_score']
+    
+    risk_reduction = initial_risk - current_risk
+    risk_reduction_pct = (risk_reduction / initial_risk) * 100
+    
+    # Assume each risk point = $1000 potential impact (adjust based on org)
+    estimated_loss_prevented = risk_reduction * 1000
+    
+    roi = ((estimated_loss_prevented - program_cost) / program_cost) * 100
+    
+    return {
+        'initial_risk_score': initial_risk,
+        'current_risk_score': current_risk,
+        'risk_reduction_absolute': risk_reduction,
+        'risk_reduction_percent': risk_reduction_pct,
+        'estimated_loss_prevented': estimated_loss_prevented,
+        'program_cost': program_cost,
+        'roi_percent': roi
+    }</code></pre>
+                </div>
+                
+                <h2>Coverage Metrics</h2>
+                
+                <p>
+                    Coverage metrics ensure the VM program has visibility into all assets. Gaps in 
+                    coverage represent blind spots where vulnerabilities may exist undetected.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">SQL</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>-- Scan Coverage Analysis
+WITH asset_scan_status AS (
+    SELECT 
+        a.asset_id,
+        a.asset_name,
+        a.asset_type,
+        a.business_unit,
+        a.criticality_tier,
+        a.network_zone,
+        MAX(s.scan_date) AS last_scan_date,
+        DATEDIFF(day, MAX(s.scan_date), GETDATE()) AS days_since_scan
+    FROM assets a
+    LEFT JOIN scan_results s ON a.asset_id = s.asset_id
+    WHERE a.status = 'Active'
+    GROUP BY 
+        a.asset_id, a.asset_name, a.asset_type, 
+        a.business_unit, a.criticality_tier, a.network_zone
+)
+SELECT 
+    -- Overall coverage
+    COUNT(*) AS total_assets,
+    SUM(CASE WHEN last_scan_date IS NOT NULL THEN 1 ELSE 0 END) AS scanned_assets,
+    ROUND(
+        SUM(CASE WHEN last_scan_date IS NOT NULL THEN 1 ELSE 0 END) * 100.0 / COUNT(*),
+        1
+    ) AS overall_coverage_pct,
+    
+    -- Recent coverage (scanned in last 30 days)
+    SUM(CASE WHEN days_since_scan <= 30 THEN 1 ELSE 0 END) AS scanned_last_30d,
+    ROUND(
+        SUM(CASE WHEN days_since_scan <= 30 THEN 1 ELSE 0 END) * 100.0 / COUNT(*),
+        1
+    ) AS recent_coverage_pct,
+    
+    -- Stale scans (over 90 days)
+    SUM(CASE WHEN days_since_scan > 90 THEN 1 ELSE 0 END) AS stale_scans,
+    
+    -- Never scanned
+    SUM(CASE WHEN last_scan_date IS NULL THEN 1 ELSE 0 END) AS never_scanned
+
+FROM asset_scan_status;
+
+-- Coverage by Criticality (important for risk)
+SELECT 
+    criticality_tier,
+    COUNT(*) AS total_assets,
+    SUM(CASE WHEN days_since_scan <= 30 THEN 1 ELSE 0 END) AS scanned_30d,
+    ROUND(
+        SUM(CASE WHEN days_since_scan <= 30 THEN 1 ELSE 0 END) * 100.0 / COUNT(*),
+        1
+    ) AS coverage_pct,
+    SUM(CASE WHEN last_scan_date IS NULL THEN 1 ELSE 0 END) AS never_scanned
+FROM asset_scan_status
+GROUP BY criticality_tier
+ORDER BY 
+    CASE criticality_tier 
+        WHEN 'tier1' THEN 1 
+        WHEN 'tier2' THEN 2 
+        WHEN 'tier3' THEN 3 
+        WHEN 'tier4' THEN 4 
+    END;</code></pre>
+                </div>
+                
+                <h3>Coverage Targets</h3>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Asset Type</th>
+                                <th>Target Frequency</th>
+                                <th>Coverage Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Internet-Facing</strong></td>
+                                <td>Weekly</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tier 1 (Crown Jewels)</strong></td>
+                                <td>Weekly</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Production Servers</strong></td>
+                                <td>Monthly</td>
+                                <td>&gt; 98%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Workstations</strong></td>
+                                <td>Monthly</td>
+                                <td>&gt; 95%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Network Devices</strong></td>
+                                <td>Monthly</td>
+                                <td>&gt; 95%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Non-Production</strong></td>
+                                <td>Quarterly</td>
+                                <td>&gt; 90%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Executive Dashboards</h2>
+                
+                <p>
+                    Executive stakeholders need different metrics than technical teams. Focus on 
+                    risk posture, trends, and business impact rather than vulnerability counts.
+                </p>
+                
+                <h3>Executive Dashboard Components</h3>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>EXECUTIVE VM DASHBOARD LAYOUT
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                     SECURITY POSTURE OVERVIEW                       │
+├─────────────────┬─────────────────┬─────────────────┬───────────────┤
+│   RISK SCORE    │  SLA COMPLIANCE │  COVERAGE       │  TREND        │
+│                 │                 │                 │               │
+│     ████        │      92%        │      97%        │    ↓ 15%      │
+│   7,234 pts     │   On Target     │   Assets        │  Risk MoM     │
+│  (↓12% MoM)     │                 │   Scanned       │               │
+└─────────────────┴─────────────────┴─────────────────┴───────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                    CRITICAL ITEMS REQUIRING ATTENTION               │
+├─────────────────────────────────────────────────────────────────────┤
+│  🔴 3 Critical vulns overdue (>7 days)                              │
+│  🟡 12 High vulns approaching SLA                                   │
+│  🔴 Finance BU at 78% SLA compliance (below 85% target)            │
+│  🟡 AWS environment coverage dropped to 89%                         │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌────────────────────────────────────┬────────────────────────────────┐
+│     RISK SCORE TREND (12 MO)       │    SLA COMPLIANCE TREND        │
+│                                    │                                │
+│  12K│\                             │ 100│    ___                    │
+│     │ \    /\                      │    │   /   \___/\___           │
+│   8K│  \__/  \__                   │  80│__/                        │
+│     │          \__                 │    │                           │
+│   4K│             \__              │  60│                           │
+│     └────────────────              │    └────────────────           │
+│      J F M A M J J A S O N D       │     J F M A M J J A S O N D    │
+└────────────────────────────────────┴────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                    BUSINESS UNIT COMPARISON                         │
+├─────────────────┬─────────────┬─────────────┬───────────────────────┤
+│ Business Unit   │ Risk Score  │ SLA Comp.   │ Status                │
+├─────────────────┼─────────────┼─────────────┼───────────────────────┤
+│ Technology      │ 2,145       │ 94%         │ 🟢 On Track           │
+│ Operations      │ 1,892       │ 91%         │ 🟢 On Track           │
+│ Finance         │ 1,567       │ 78%         │ 🔴 Needs Attention    │
+│ Sales           │ 1,234       │ 89%         │ 🟡 Monitor            │
+│ HR              │ 396         │ 96%         │ 🟢 On Track           │
+└─────────────────┴─────────────┴─────────────┴───────────────────────┘
+
+KEY METRICS DEFINITIONS:
+─────────────────────────────────────────────────────────────────────
+• Risk Score: Aggregate vulnerability risk weighted by severity, 
+  asset criticality, and exposure. Lower is better.
+• SLA Compliance: % of vulnerabilities remediated within target 
+  timeframe by severity.
+• Coverage: % of active assets scanned within required frequency.
+• MoM: Month-over-month change.</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"What metrics do you report to executive leadership?"</strong><br><br>
+                        Sample answer: "I focus on metrics that translate to business risk. My executive dashboard 
+                        shows aggregate risk score with month-over-month trends, SLA compliance rates, and scan 
+                        coverage. I highlight items requiring attention—overdue critical vulnerabilities, 
+                        business units below compliance targets, and emerging threats. I avoid overwhelming 
+                        executives with vulnerability counts and instead show risk reduction percentages and 
+                        trend lines that demonstrate program value."
+                    </p>
+                </div>
+                
+                <h2>Operational Metrics</h2>
+                
+                <p>
+                    Technical teams need more granular metrics for day-to-day operations:
+                </p>
+                
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Purpose</th>
+                                <th>Target</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Scan Success Rate</strong></td>
+                                <td>Identify scan failures and auth issues</td>
+                                <td>&gt; 98%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>False Positive Rate</strong></td>
+                                <td>Measure scanner accuracy</td>
+                                <td>&lt; 5%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ticket Creation Time</strong></td>
+                                <td>Time from scan to ticket</td>
+                                <td>&lt; 24 hours</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Verification Scan Delay</strong></td>
+                                <td>Time to verify remediation</td>
+                                <td>&lt; 48 hours</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reopen Rate</strong></td>
+                                <td>Incomplete or failed remediations</td>
+                                <td>&lt; 5%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Exception Utilization</strong></td>
+                                <td>Exceptions as % of findings</td>
+                                <td>&lt; 10%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Patch Test Failure Rate</strong></td>
+                                <td>Patches failing in test</td>
+                                <td>&lt; 3%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <h2>Metrics Automation</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>import schedule
+import time
+from datetime import datetime
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+class VMMetricsReporter:
+    """
+    Automated VM metrics collection and reporting.
+    """
+    
+    def __init__(self, db_connection, email_config):
+        self.db = db_connection
+        self.email = email_config
+    
+    def collect_daily_metrics(self):
+        """Collect daily operational metrics."""
+        metrics = {
+            'date': datetime.now().isoformat(),
+            'open_critical': self._count_open_by_severity('Critical'),
+            'open_high': self._count_open_by_severity('High'),
+            'overdue_count': self._count_overdue(),
+            'scans_completed_24h': self._count_recent_scans(24),
+            'remediations_24h': self._count_remediations(24),
+            'new_vulns_24h': self._count_new_vulns(24)
+        }
+        
+        # Store metrics
+        self._store_metrics(metrics)
+        
+        # Alert if thresholds exceeded
+        if metrics['open_critical'] > 0:
+            self._send_alert(
+                "Critical Vulnerabilities Alert",
+                f"{metrics['open_critical']} critical vulnerabilities are open!"
+            )
+        
+        return metrics
+    
+    def generate_weekly_report(self):
+        """Generate weekly summary report."""
+        report = {
+            'period': 'Last 7 days',
+            'mttr_by_severity': self._calculate_mttr(),
+            'sla_compliance': self._calculate_sla_compliance(),
+            'coverage': self._calculate_coverage(),
+            'risk_score': self._calculate_risk_score(),
+            'top_vulnerable_assets': self._get_top_vulnerable_assets(10),
+            'overdue_by_owner': self._get_overdue_by_owner()
+        }
+        
+        # Generate HTML report
+        html_report = self._format_weekly_report(report)
+        
+        # Send to stakeholders
+        self._send_report(
+            subject="Weekly VM Report",
+            html_content=html_report,
+            recipients=self.email['weekly_recipients']
+        )
+        
+        return report
+    
+    def generate_executive_report(self):
+        """Generate monthly executive summary."""
+        report = {
+            'period': 'Last 30 days',
+            'risk_trend': self._calculate_risk_trend(30),
+            'risk_reduction_pct': self._calculate_risk_reduction(),
+            'sla_compliance_trend': self._calculate_sla_trend(),
+            'business_unit_comparison': self._compare_business_units(),
+            'key_achievements': self._get_achievements(),
+            'items_requiring_attention': self._get_attention_items()
+        }
+        
+        html_report = self._format_executive_report(report)
+        
+        self._send_report(
+            subject="Monthly VM Executive Summary",
+            html_content=html_report,
+            recipients=self.email['executive_recipients']
+        )
+        
+        return report
+    
+    def schedule_reports(self):
+        """Schedule automated reporting."""
+        # Daily metrics at 8 AM
+        schedule.every().day.at("08:00").do(self.collect_daily_metrics)
+        
+        # Weekly report on Monday at 9 AM
+        schedule.every().monday.at("09:00").do(self.generate_weekly_report)
+        
+        # Executive report on 1st of month at 9 AM
+        schedule.every().day.at("09:00").do(
+            lambda: self.generate_executive_report() 
+            if datetime.now().day == 1 else None
+        )
+        
+        print("Reporting schedule configured:")
+        print("  - Daily metrics: 8:00 AM")
+        print("  - Weekly report: Monday 9:00 AM")
+        print("  - Executive report: 1st of month 9:00 AM")
+        
+        while True:
+            schedule.run_pending()
+            time.sleep(60)
+
+# Example usage
+# reporter = VMMetricsReporter(db_conn, email_config)
+# reporter.schedule_reports()</code></pre>
+                </div>
+                
+                <div class="info-box best-practice" data-label="Best Practice">
+                    <div class="info-box-title">✅ Metrics Best Practices</div>
+                    <p>
+                        Start with a few key metrics and expand over time. Automate data collection and reporting 
+                        to ensure consistency. Review metrics regularly with stakeholders to ensure they're 
+                        driving the right behaviors. Adjust targets as the program matures.
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Effective metrics transform VM from a cost center into a demonstrable risk reduction program. 
+                    Focus on MTTR, SLA compliance, risk reduction trends, and coverage metrics. Tailor reporting 
+                    to your audience—executives need risk posture and trends, while operations teams need 
+                    granular performance data. This concludes Section 1 on VM Fundamentals. In Section 2, 
+                    we'll dive deep into vulnerability scanning technologies and techniques.
+                </p>
+                
+                <!-- Page Navigation -->
+                <nav class="page-navigation">
+                    <a href="1-4-compliance.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Compliance Requirements</span>
+                    </a>
+                    <a href="2-1-scanner-types.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Scanner Types & Selection</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

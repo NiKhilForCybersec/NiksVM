@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Threat Intelligence Integration - CISA KEV, exploit databases, threat feeds, and enriching vulnerabilities with real-world threat context.">
+    <title>Threat Intelligence Integration | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item active">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="4-1-prioritization.html">Section 4: Analysis & Priority</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Threat Intelligence</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Threat Intelligence Integration</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 4.3</span>
+                        <span class="page-meta-item">⏱️ 18 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers integrating threat intelligence with vulnerability management 
+                        including CISA KEV catalog, exploit databases, commercial threat feeds, and 
+                        enrichment workflows for prioritization.
+                    </p>
+                </div>
+                
+                <h2>CISA KEV (Known Exploited Vulnerabilities)</h2>
+                
+                <p>
+                    The CISA KEV catalog contains vulnerabilities confirmed to be actively exploited 
+                    in the wild. It's the most authoritative source for exploitation status.
+                </p>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+CISA KEV Integration
+Download and query the Known Exploited Vulnerabilities catalog.
+"""
+
+import requests
+from typing import Dict, List, Optional, Set
+from datetime import datetime
+import json
+
+
+class CISAKEVClient:
+    """Client for CISA Known Exploited Vulnerabilities catalog."""
+    
+    KEV_URL = "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+    
+    def __init__(self):
+        self.vulnerabilities = {}
+        self.cve_set = set()
+        self.last_updated = None
+    
+    def refresh(self) -> int:
+        """Download and parse KEV catalog."""
+        response = requests.get(self.KEV_URL)
+        response.raise_for_status()
+        
+        data = response.json()
+        self.last_updated = data.get('catalogVersion')
+        
+        self.vulnerabilities = {}
+        for vuln in data.get('vulnerabilities', []):
+            cve_id = vuln.get('cveID')
+            self.vulnerabilities[cve_id] = {
+                'cve_id': cve_id,
+                'vendor': vuln.get('vendorProject'),
+                'product': vuln.get('product'),
+                'name': vuln.get('vulnerabilityName'),
+                'description': vuln.get('shortDescription'),
+                'date_added': vuln.get('dateAdded'),
+                'due_date': vuln.get('dueDate'),
+                'required_action': vuln.get('requiredAction'),
+                'notes': vuln.get('notes'),
+                'known_ransomware': vuln.get('knownRansomwareCampaignUse', 'Unknown')
+            }
+        
+        self.cve_set = set(self.vulnerabilities.keys())
+        return len(self.vulnerabilities)
+    
+    def is_kev(self, cve_id: str) -> bool:
+        """Check if CVE is in KEV catalog."""
+        return cve_id.upper() in self.cve_set
+    
+    def get_details(self, cve_id: str) -> Optional[Dict]:
+        """Get KEV details for a CVE."""
+        return self.vulnerabilities.get(cve_id.upper())
+    
+    def check_batch(self, cve_ids: List[str]) -> Dict[str, bool]:
+        """Check multiple CVEs against KEV."""
+        return {cve: self.is_kev(cve) for cve in cve_ids}
+    
+    def get_ransomware_vulns(self) -> List[Dict]:
+        """Get vulnerabilities known to be used in ransomware."""
+        return [
+            v for v in self.vulnerabilities.values() 
+            if v.get('known_ransomware') == 'Known'
+        ]
+    
+    def get_recent_additions(self, days: int = 30) -> List[Dict]:
+        """Get recently added KEV entries."""
+        cutoff = datetime.now().date()
+        recent = []
+        
+        for vuln in self.vulnerabilities.values():
+            try:
+                added_date = datetime.strptime(
+                    vuln['date_added'], '%Y-%m-%d'
+                ).date()
+                delta = (cutoff - added_date).days
+                if delta <= days:
+                    recent.append(vuln)
+            except (ValueError, KeyError):
+                pass
+        
+        return sorted(recent, key=lambda x: x['date_added'], reverse=True)
+
+
+# Example usage
+kev = CISAKEVClient()
+count = kev.refresh()
+print(f"Loaded {count} KEV vulnerabilities")
+
+# Check specific CVEs
+vulns_to_check = ['CVE-2021-44228', 'CVE-2023-1234', 'CVE-2024-0000']
+results = kev.check_batch(vulns_to_check)
+
+for cve, is_kev in results.items():
+    if is_kev:
+        details = kev.get_details(cve)
+        print(f"⚠️  {cve} is in KEV - Due: {details['due_date']}")
+    else:
+        print(f"✓  {cve} is not in KEV")
+
+# Ransomware-related vulns
+ransomware = kev.get_ransomware_vulns()
+print(f"\n{len(ransomware)} vulnerabilities linked to ransomware")</code></pre>
+                </div>
+                
+                <h2>Exploit Database Integration</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Exploit Database Integration
+Check for public exploits across multiple sources.
+"""
+
+import requests
+from typing import Dict, List, Optional
+
+
+class ExploitDBChecker:
+    """Check for exploits in Exploit-DB."""
+    
+    SEARCH_URL = "https://www.exploit-db.com/search"
+    
+    def search_by_cve(self, cve_id: str) -> List[Dict]:
+        """Search Exploit-DB for CVE."""
+        # Note: Exploit-DB requires parsing HTML or using their API
+        # This is a simplified example
+        response = requests.get(
+            f"https://www.exploit-db.com/search?cve={cve_id}",
+            headers={'X-Requested-With': 'XMLHttpRequest'}
+        )
+        # Parse response for exploit data
+        # Returns list of exploits with metadata
+        return []
+
+
+class NVDClient:
+    """Query NVD for vulnerability details and references."""
+    
+    NVD_API = "https://services.nvd.nist.gov/rest/json/cves/2.0"
+    
+    def __init__(self, api_key: str = None):
+        self.api_key = api_key
+        self.headers = {'apiKey': api_key} if api_key else {}
+    
+    def get_cve(self, cve_id: str) -> Optional[Dict]:
+        """Get CVE details from NVD."""
+        response = requests.get(
+            self.NVD_API,
+            params={'cveId': cve_id},
+            headers=self.headers
+        )
+        response.raise_for_status()
+        
+        data = response.json()
+        vulns = data.get('vulnerabilities', [])
+        return vulns[0] if vulns else None
+    
+    def has_exploit_reference(self, cve_id: str) -> Dict:
+        """Check if CVE has exploit references in NVD."""
+        cve_data = self.get_cve(cve_id)
+        if not cve_data:
+            return {'has_exploit': False, 'sources': []}
+        
+        exploit_sources = []
+        cve_item = cve_data.get('cve', {})
+        
+        for ref in cve_item.get('references', []):
+            tags = ref.get('tags', [])
+            if 'Exploit' in tags:
+                exploit_sources.append({
+                    'url': ref.get('url'),
+                    'source': ref.get('source')
+                })
+        
+        return {
+            'has_exploit': len(exploit_sources) > 0,
+            'sources': exploit_sources
+        }
+
+
+class VulnCheckClient:
+    """VulnCheck API for exploit intelligence."""
+    
+    API_URL = "https://api.vulncheck.com/v3"
+    
+    def __init__(self, api_key: str):
+        self.headers = {'Authorization': f'Bearer {api_key}'}
+    
+    def get_exploit_status(self, cve_id: str) -> Dict:
+        """Get exploit status from VulnCheck."""
+        response = requests.get(
+            f"{self.API_URL}/cve/{cve_id}",
+            headers=self.headers
+        )
+        response.raise_for_status()
+        
+        data = response.json()
+        return {
+            'has_poc': data.get('has_poc', False),
+            'has_exploit': data.get('has_exploit', False),
+            'in_the_wild': data.get('exploited_in_wild', False),
+            'exploit_maturity': data.get('exploit_maturity', 'unknown')
+        }
+
+
+class ExploitEnricher:
+    """Aggregate exploit data from multiple sources."""
+    
+    def __init__(self, nvd_key: str = None, vulncheck_key: str = None):
+        self.nvd = NVDClient(nvd_key) if nvd_key else None
+        self.vulncheck = VulnCheckClient(vulncheck_key) if vulncheck_key else None
+        self.kev = CISAKEVClient()
+        self.kev.refresh()
+    
+    def enrich(self, cve_id: str) -> Dict:
+        """Enrich CVE with exploit intelligence."""
+        enrichment = {
+            'cve_id': cve_id,
+            'cisa_kev': self.kev.is_kev(cve_id),
+            'exploit_available': False,
+            'exploit_maturity': 'unknown',
+            'sources': []
+        }
+        
+        # Check CISA KEV
+        if enrichment['cisa_kev']:
+            enrichment['exploit_available'] = True
+            enrichment['exploit_maturity'] = 'in_the_wild'
+            kev_details = self.kev.get_details(cve_id)
+            enrichment['kev_due_date'] = kev_details.get('due_date')
+            enrichment['known_ransomware'] = kev_details.get('known_ransomware')
+        
+        # Check NVD references
+        if self.nvd:
+            nvd_result = self.nvd.has_exploit_reference(cve_id)
+            if nvd_result['has_exploit']:
+                enrichment['exploit_available'] = True
+                enrichment['sources'].extend(nvd_result['sources'])
+        
+        # Check VulnCheck
+        if self.vulncheck:
+            vc_result = self.vulncheck.get_exploit_status(cve_id)
+            if vc_result['has_exploit']:
+                enrichment['exploit_available'] = True
+            if vc_result['in_the_wild']:
+                enrichment['exploit_maturity'] = 'in_the_wild'
+            elif vc_result['has_exploit']:
+                enrichment['exploit_maturity'] = 'functional'
+            elif vc_result['has_poc']:
+                enrichment['exploit_maturity'] = 'poc'
+        
+        return enrichment</code></pre>
+                </div>
+                
+                <h2>Threat Feed Sources</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>THREAT INTELLIGENCE SOURCES FOR VM
+═══════════════════════════════════════════════════════════════════════
+
+FREE / GOVERNMENT SOURCES:
+─────────────────────────────────────────────────────────────────────
+• CISA KEV Catalog
+  - Known exploited vulnerabilities
+  - Mandatory remediation deadlines for federal agencies
+  - https://www.cisa.gov/known-exploited-vulnerabilities-catalog
+
+• NVD (National Vulnerability Database)
+  - Comprehensive CVE database
+  - CVSS scores, references
+  - https://nvd.nist.gov/
+
+• EPSS (FIRST.org)
+  - Exploit prediction scores
+  - Daily updates
+  - https://www.first.org/epss/
+
+• Exploit-DB
+  - Public exploit code
+  - https://www.exploit-db.com/
+
+COMMERCIAL THREAT INTELLIGENCE:
+─────────────────────────────────────────────────────────────────────
+• Recorded Future
+  - Real-time threat intelligence
+  - CVE enrichment, exploit status
+  - Threat actor tracking
+
+• Mandiant/Google Threat Intel
+  - APT tracking
+  - Exploit analysis
+  - Incident response data
+
+• VulnCheck
+  - Exploit intelligence platform
+  - Fast CVE-to-exploit mapping
+  - API-first design
+
+• Flashpoint
+  - Dark web monitoring
+  - Exploit marketplace tracking
+
+SCANNER-INTEGRATED INTEL:
+─────────────────────────────────────────────────────────────────────
+• Tenable VPR
+  - Built into Nessus/Tenable.io
+  - Daily threat-based scoring
+
+• Qualys TruRisk
+  - Real-time threat indicators
+  - Integrated with Qualys VMDR
+
+• Rapid7 Real Risk
+  - Threat intelligence integrated
+  - Metasploit exploit correlation</code></pre>
+                </div>
+                
+                <h2>Threat Intel Enrichment Workflow</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>VULNERABILITY ENRICHMENT WORKFLOW
+═══════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                    NEW VULNERABILITY                                │
+│                    (CVE-XXXX-XXXXX)                                 │
+└───────────────────────────┬─────────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    ENRICHMENT PIPELINE                              │
+│                                                                     │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐               │
+│  │  CISA KEV   │  │    NVD      │  │    EPSS     │               │
+│  │  Check      │  │  Lookup     │  │   Score     │               │
+│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘               │
+│         │                │                │                       │
+│         ▼                ▼                ▼                       │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐               │
+│  │  Exploit-DB │  │  VulnCheck  │  │  Vendor     │               │
+│  │  Search     │  │   API       │  │   Intel     │               │
+│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘               │
+│         │                │                │                       │
+│         └────────────────┼────────────────┘                       │
+│                          │                                        │
+└──────────────────────────┼────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                    ENRICHED VULNERABILITY                           │
+│                                                                     │
+│  • CVE: CVE-XXXX-XXXXX                                             │
+│  • CVSS: 9.8                                                       │
+│  • EPSS: 0.42 (42% exploitation probability)                       │
+│  • CISA KEV: Yes (Due: 2024-01-15)                                 │
+│  • Exploit Status: Functional exploit available                    │
+│  • Known Ransomware: Yes                                           │
+│  • Threat Actors: APT28, FIN7                                      │
+│                                                                     │
+│  PRIORITY: P1 - CRITICAL                                           │
+└─────────────────────────────────────────────────────────────────────┘</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you use threat intelligence in vulnerability management?"</strong><br><br>
+                        Sample answer: "I integrate threat intelligence at the prioritization stage. My primary 
+                        source is the CISA KEV catalog—any vulnerability in KEV automatically becomes top priority 
+                        regardless of CVSS score. I also use EPSS for exploitation probability and check exploit 
+                        databases for public PoCs. For a vulnerability to be P1, I look for: active exploitation 
+                        in KEV, functional exploit available, AND targeting a critical asset. I automate this 
+                        enrichment so every new vuln gets threat context before prioritization decisions."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Threat intelligence transforms vulnerability management from severity-based to 
+                    risk-based. The CISA KEV catalog is essential—it provides authoritative confirmation 
+                    of active exploitation. Combine it with EPSS, exploit databases, and commercial 
+                    feeds for comprehensive threat context.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="4-2-risk-scoring.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Risk Scoring Models</span>
+                    </a>
+                    <a href="4-4-exploit-prediction.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Exploit Prediction</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

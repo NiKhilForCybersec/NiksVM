@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Business Context Analysis - Incorporating business impact, data sensitivity, compliance requirements, and stakeholder input into vulnerability prioritization.">
+    <title>Business Context Analysis | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item active">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="4-1-prioritization.html">Section 4: Analysis & Priority</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">Business Context</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>Business Context Analysis</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 4.5</span>
+                        <span class="page-meta-item">⏱️ 14 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers incorporating business context into vulnerability prioritization 
+                        including business impact assessment, data sensitivity, compliance requirements, 
+                        revenue impact, and stakeholder communication.
+                    </p>
+                </div>
+                
+                <h2>Business Impact Factors</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>BUSINESS IMPACT ANALYSIS FRAMEWORK
+═══════════════════════════════════════════════════════════════════════
+
+IMPACT CATEGORIES:
+─────────────────────────────────────────────────────────────────────
+
+1. FINANCIAL IMPACT
+   □ Revenue loss (direct)
+   □ Transaction fees/penalties
+   □ Recovery costs
+   □ Legal/regulatory fines
+   □ Cyber insurance implications
+
+2. OPERATIONAL IMPACT
+   □ Business process disruption
+   □ Customer service degradation
+   □ Supply chain effects
+   □ Employee productivity
+   □ Partner/vendor relationships
+
+3. REPUTATIONAL IMPACT
+   □ Customer trust
+   □ Brand damage
+   □ Media coverage
+   □ Competitive disadvantage
+   □ Stock price (public companies)
+
+4. COMPLIANCE IMPACT
+   □ Regulatory violations
+   □ Audit findings
+   □ Certification risk (PCI, SOC2)
+   □ Contractual breaches
+   □ Legal liability
+
+5. DATA IMPACT
+   □ Data breach scope
+   □ PII/PHI exposure
+   □ Intellectual property
+   □ Trade secrets
+   □ Customer data</code></pre>
+                </div>
+                
+                <h2>Impact Quantification</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Business Impact Quantification
+Translate business context into priority scores.
+"""
+
+from typing import Dict
+from dataclasses import dataclass
+from enum import Enum
+
+
+class ImpactLevel(Enum):
+    CRITICAL = 4  # >$10M or catastrophic
+    HIGH = 3      # $1M-$10M
+    MEDIUM = 2    # $100K-$1M
+    LOW = 1       # <$100K
+
+
+@dataclass
+class BusinessImpact:
+    financial_impact: ImpactLevel
+    operational_impact: ImpactLevel
+    reputational_impact: ImpactLevel
+    compliance_impact: ImpactLevel
+    data_impact: ImpactLevel
+    
+    def calculate_score(self) -> float:
+        """Calculate weighted business impact score (0-100)."""
+        weights = {
+            'financial_impact': 0.25,
+            'operational_impact': 0.25,
+            'reputational_impact': 0.15,
+            'compliance_impact': 0.20,
+            'data_impact': 0.15
+        }
+        
+        score = 0
+        for field, weight in weights.items():
+            impact = getattr(self, field)
+            # Normalize to 0-100: (value / max) * 100
+            normalized = (impact.value / 4) * 100
+            score += normalized * weight
+        
+        return round(score, 1)
+
+
+class BusinessContextAnalyzer:
+    """Analyze business context for vulnerability prioritization."""
+    
+    # Application criticality mappings
+    APP_CRITICALITY = {
+        'payment_processing': ImpactLevel.CRITICAL,
+        'customer_portal': ImpactLevel.CRITICAL,
+        'erp': ImpactLevel.HIGH,
+        'crm': ImpactLevel.HIGH,
+        'email': ImpactLevel.HIGH,
+        'file_server': ImpactLevel.MEDIUM,
+        'internal_app': ImpactLevel.MEDIUM,
+        'development': ImpactLevel.LOW,
+        'test': ImpactLevel.LOW
+    }
+    
+    # Data classification impact
+    DATA_IMPACT = {
+        'restricted': ImpactLevel.CRITICAL,    # PII, PHI, financial
+        'confidential': ImpactLevel.HIGH,      # Internal sensitive
+        'internal': ImpactLevel.MEDIUM,        # Internal use
+        'public': ImpactLevel.LOW              # Public data
+    }
+    
+    # Compliance scope impact
+    COMPLIANCE_IMPACT = {
+        'pci_dss': ImpactLevel.CRITICAL,
+        'hipaa': ImpactLevel.CRITICAL,
+        'sox': ImpactLevel.HIGH,
+        'gdpr': ImpactLevel.HIGH,
+        'none': ImpactLevel.LOW
+    }
+    
+    def analyze_asset(self, asset: Dict) -> BusinessImpact:
+        """
+        Analyze business impact for an asset.
+        
+        Args:
+            asset: Asset with business context attributes
+        
+        Returns:
+            BusinessImpact assessment
+        """
+        # Determine financial impact based on application type
+        app_type = asset.get('application_type', 'internal_app')
+        financial = self.APP_CRITICALITY.get(app_type, ImpactLevel.MEDIUM)
+        
+        # Revenue-generating assets get elevated financial impact
+        if asset.get('revenue_generating', False):
+            financial = ImpactLevel.CRITICAL
+        
+        # Operational impact based on user count and dependency
+        user_count = asset.get('user_count', 0)
+        if user_count > 10000:
+            operational = ImpactLevel.CRITICAL
+        elif user_count > 1000:
+            operational = ImpactLevel.HIGH
+        elif user_count > 100:
+            operational = ImpactLevel.MEDIUM
+        else:
+            operational = ImpactLevel.LOW
+        
+        # Reputational impact for customer-facing assets
+        if asset.get('customer_facing', False):
+            reputational = ImpactLevel.HIGH
+            if asset.get('internet_facing', False):
+                reputational = ImpactLevel.CRITICAL
+        else:
+            reputational = ImpactLevel.LOW
+        
+        # Compliance impact
+        compliance_scopes = asset.get('compliance_scope', [])
+        compliance = ImpactLevel.LOW
+        for scope in compliance_scopes:
+            scope_impact = self.COMPLIANCE_IMPACT.get(scope.lower(), ImpactLevel.LOW)
+            if scope_impact.value > compliance.value:
+                compliance = scope_impact
+        
+        # Data impact
+        data_class = asset.get('data_classification', 'internal')
+        data = self.DATA_IMPACT.get(data_class.lower(), ImpactLevel.MEDIUM)
+        
+        return BusinessImpact(
+            financial_impact=financial,
+            operational_impact=operational,
+            reputational_impact=reputational,
+            compliance_impact=compliance,
+            data_impact=data
+        )
+
+
+# Example usage
+analyzer = BusinessContextAnalyzer()
+
+asset = {
+    'name': 'payment-gateway-01',
+    'application_type': 'payment_processing',
+    'revenue_generating': True,
+    'customer_facing': True,
+    'internet_facing': True,
+    'user_count': 50000,
+    'compliance_scope': ['pci_dss', 'sox'],
+    'data_classification': 'restricted'
+}
+
+impact = analyzer.analyze_asset(asset)
+score = impact.calculate_score()
+
+print(f"Business Impact Score: {score}/100")
+print(f"Financial: {impact.financial_impact.name}")
+print(f"Operational: {impact.operational_impact.name}")
+print(f"Compliance: {impact.compliance_impact.name}")</code></pre>
+                </div>
+                
+                <h2>Stakeholder Communication</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>COMMUNICATING BUSINESS RISK
+═══════════════════════════════════════════════════════════════════════
+
+FOR TECHNICAL TEAMS:
+─────────────────────────────────────────────────────────────────────
+"CVE-2024-1234 is a critical RCE in Apache Struts affecting 
+our payment gateway servers. EPSS is 45% (high exploitation 
+probability). We need emergency patching within 24 hours."
+
+FOR BUSINESS LEADERSHIP:
+─────────────────────────────────────────────────────────────────────
+"We've identified a critical vulnerability in our payment 
+processing system that attackers are actively exploiting. 
+If compromised, we risk:
+• $50M+ in potential fraud losses
+• PCI DSS compliance violation ($500K fine)
+• Customer notification requirements (reputational impact)
+
+Recommended action: Approve emergency maintenance window 
+tonight. Expected downtime: 2 hours. Risk of not patching:
+Significant financial and regulatory exposure."
+
+FOR BOARD/EXECUTIVE SUMMARY:
+─────────────────────────────────────────────────────────────────────
+"Vulnerability Risk Summary - Q4 2024
+
+Key Metrics:
+• Critical vulnerabilities on Tier 1 assets: 3 (down from 12)
+• Mean time to remediate critical: 4 days (target: 7 days)
+• Compliance posture: 98% PCI assets fully patched
+
+Highest Risk Items:
+1. Legacy payment system upgrade (funded, Q1 completion)
+2. Oracle database patching backlog (resource constraint)
+
+Recommendation: Approve $200K for additional contractor 
+support to accelerate Oracle remediation."</code></pre>
+                </div>
+                
+                <h2>Business-Adjusted Priority Matrix</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>BUSINESS-ADJUSTED PRIORITY MATRIX
+═══════════════════════════════════════════════════════════════════════
+
+                      BUSINESS IMPACT
+                 Low      Medium     High      Critical
+              ┌─────────┬─────────┬─────────┬─────────┐
+    Critical  │   P2    │   P1    │   P1    │   P1*   │
+              ├─────────┼─────────┼─────────┼─────────┤
+T     High    │   P3    │   P2    │   P1    │   P1    │
+E             ├─────────┼─────────┼─────────┼─────────┤
+C    Medium   │   P4    │   P3    │   P2    │   P2    │
+H             ├─────────┼─────────┼─────────┼─────────┤
+      Low     │   P5    │   P4    │   P3    │   P3    │
+              └─────────┴─────────┴─────────┴─────────┘
+
+P1* = War room / executive escalation
+P1  = 24-48 hours
+P2  = 7 days
+P3  = 30 days
+P4  = 90 days
+P5  = Accept or best effort
+
+KEY INSIGHT:
+─────────────────────────────────────────────────────────────────────
+A medium-severity vulnerability on a critical business asset 
+(P2) gets prioritized over a high-severity vulnerability on 
+a low-impact test system (P3).</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How do you incorporate business context into vulnerability prioritization?"</strong><br><br>
+                        Sample answer: "I work with business stakeholders to classify assets by business impact: 
+                        financial (revenue-generating), operational (user dependency), regulatory (compliance 
+                        scope), and reputational (customer-facing). This creates a business impact score that 
+                        multiplies the technical severity. A critical vulnerability on a test server might be 
+                        P3, while a high-severity vuln on the payment gateway is P1. I also translate technical 
+                        risk into business language for executives—potential financial loss, compliance fines, 
+                        and customer impact rather than CVSS scores."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    Business context transforms vulnerability management from a technical exercise to 
+                    a business risk management function. Quantify impact in terms leadership understands: 
+                    dollars, customers, and compliance. This drives better prioritization and secures 
+                    resources for remediation.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="4-4-exploit-prediction.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Exploit Prediction</span>
+                    </a>
+                    <a href="4-6-exceptions.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Exception Management</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

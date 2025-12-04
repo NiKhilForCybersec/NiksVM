@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SOAR Integration - Automating vulnerability management with XSOAR, Splunk SOAR, and custom playbooks.">
+    <title>SOAR Integration | VM Docs</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+</head>
+<body>
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+    
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">🛡️</div>
+                    <div class="sidebar-logo-text"><span>VM</span>DOCS</div>
+                </a>
+            </div>
+                                    <nav class="sidebar-nav">
+                <div class="nav-section collapsed" data-section="1">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📚</span>
+                        <span>1. Fundamentals</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="1-1-introduction.html" class="nav-item">1.1 Introduction</a>
+                        <a href="1-2-program-framework.html" class="nav-item">1.2 Program Framework</a>
+                        <a href="1-3-scoring-systems.html" class="nav-item">1.3 Scoring Systems</a>
+                        <a href="1-4-compliance.html" class="nav-item">1.4 Compliance</a>
+                        <a href="1-5-metrics-kpis.html" class="nav-item">1.5 Metrics & KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="2">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔍</span>
+                        <span>2. Scanning</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="2-1-scanner-types.html" class="nav-item">2.1 Scanner Types</a>
+                        <a href="2-2-nessus.html" class="nav-item">2.2 Nessus</a>
+                        <a href="2-3-qualys.html" class="nav-item">2.3 Qualys</a>
+                        <a href="2-4-rapid7.html" class="nav-item">2.4 Rapid7</a>
+                        <a href="2-5-defender.html" class="nav-item">2.5 Defender VM</a>
+                        <a href="2-6-opensource.html" class="nav-item">2.6 Open Source</a>
+                        <a href="2-7-best-practices.html" class="nav-item">2.7 Best Practices</a>
+                        <a href="2-8-authenticated.html" class="nav-item">2.8 Authenticated</a>
+                        <a href="2-9-cloud-container.html" class="nav-item">2.9 Cloud/Container</a>
+                        <a href="2-10-webapp.html" class="nav-item">2.10 Web App</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="3">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📦</span>
+                        <span>3. Asset Discovery</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="3-1-discovery-methods.html" class="nav-item">3.1 Discovery Methods</a>
+                        <a href="3-2-inventory-management.html" class="nav-item">3.2 Inventory</a>
+                        <a href="3-3-cmdb-integration.html" class="nav-item">3.3 CMDB Integration</a>
+                        <a href="3-4-cloud-discovery.html" class="nav-item">3.4 Cloud Discovery</a>
+                        <a href="3-5-shadow-it.html" class="nav-item">3.5 Shadow IT</a>
+                        <a href="3-6-classification.html" class="nav-item">3.6 Classification</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="4">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>4. Analysis</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="4-1-prioritization.html" class="nav-item">4.1 Prioritization</a>
+                        <a href="4-2-risk-scoring.html" class="nav-item">4.2 Risk Scoring</a>
+                        <a href="4-3-threat-intel.html" class="nav-item">4.3 Threat Intel</a>
+                        <a href="4-4-exploit-prediction.html" class="nav-item">4.4 Exploit Prediction</a>
+                        <a href="4-5-business-context.html" class="nav-item">4.5 Business Context</a>
+                        <a href="4-6-exceptions.html" class="nav-item">4.6 Exceptions</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="5">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔧</span>
+                        <span>5. Remediation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="5-1-remediation-strategies.html" class="nav-item">5.1 Strategies</a>
+                        <a href="5-2-patch-management.html" class="nav-item">5.2 Patch Mgmt</a>
+                        <a href="5-3-change-management.html" class="nav-item">5.3 Change Mgmt</a>
+                        <a href="5-4-ticket-workflows.html" class="nav-item">5.4 Ticket Workflows</a>
+                        <a href="5-5-sla-management.html" class="nav-item">5.5 SLA Mgmt</a>
+                        <a href="5-6-verification.html" class="nav-item">5.6 Verification</a>
+                        <a href="5-7-rollback.html" class="nav-item">5.7 Rollback</a>
+                        <a href="5-8-metrics.html" class="nav-item">5.8 Metrics</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section " data-section="6">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">⚡</span>
+                        <span>6. Automation</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="6-1-soar-integration.html" class="nav-item active">6.1 SOAR</a>
+                        <a href="6-2-ticketing-integration.html" class="nav-item">6.2 Ticketing</a>
+                        <a href="6-3-api-integration.html" class="nav-item">6.3 API Integration</a>
+                        <a href="6-4-workflow-automation.html" class="nav-item">6.4 Workflows</a>
+                        <a href="6-5-reporting-automation.html" class="nav-item">6.5 Report Automation</a>
+                        <a href="6-6-notifications.html" class="nav-item">6.6 Notifications</a>
+                        <a href="6-7-cicd-integration.html" class="nav-item">6.7 CI/CD</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="7">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🐛</span>
+                        <span>7. Vuln Types</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="7-1-os-vulnerabilities.html" class="nav-item">7.1 OS Vulns</a>
+                        <a href="7-2-application-vulns.html" class="nav-item">7.2 Applications</a>
+                        <a href="7-3-network-device-vulns.html" class="nav-item">7.3 Network Devices</a>
+                        <a href="7-4-web-application-vulns.html" class="nav-item">7.4 Web Apps</a>
+                        <a href="7-5-container-vulns.html" class="nav-item">7.5 Containers</a>
+                        <a href="7-6-cloud-vulns.html" class="nav-item">7.6 Cloud</a>
+                        <a href="7-7-database-vulns.html" class="nav-item">7.7 Databases</a>
+                        <a href="7-8-iot-ot-vulns.html" class="nav-item">7.8 IoT/OT</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="8">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">📊</span>
+                        <span>8. Reporting</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="8-1-dashboards.html" class="nav-item">8.1 Dashboards</a>
+                        <a href="8-2-executive-reporting.html" class="nav-item">8.2 Executive</a>
+                        <a href="8-3-operational-reporting.html" class="nav-item">8.3 Operational</a>
+                        <a href="8-4-compliance-reporting.html" class="nav-item">8.4 Compliance</a>
+                        <a href="8-5-kpis-metrics.html" class="nav-item">8.5 KPIs</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed" data-section="9">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🔌</span>
+                        <span>9. Tools Deep Dive</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="9-1-splunk-vm.html" class="nav-item">9.1 Splunk</a>
+                        <a href="9-2-sentinel-vm.html" class="nav-item">9.2 Sentinel</a>
+                        <a href="9-3-cortex-xsoar.html" class="nav-item">9.3 XSOAR</a>
+                        <a href="9-4-tenable.html" class="nav-item">9.4 Tenable</a>
+                        <a href="9-5-qualys.html" class="nav-item">9.5 Qualys</a>
+                    </div>
+                </div>
+                
+                <div class="nav-section collapsed0" data-section="10">
+                    <div class="nav-section-header">
+                        <span class="nav-section-icon">🎯</span>
+                        <span>10. Interview Prep</span>
+                        <span class="nav-section-toggle">▼</span>
+                    </div>
+                    <div class="nav-section-items">
+                        <a href="10-1-common-questions.html" class="nav-item">10.1 Common Questions</a>
+                        <a href="10-2-scenario-questions.html" class="nav-item">10.2 Scenarios</a>
+                        <a href="10-3-technical-deep-dive.html" class="nav-item">10.3 Technical</a>
+                        <a href="10-4-study-guide.html" class="nav-item">10.4 Study Guide</a>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="content-wrapper">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <a href="6-1-soar-integration.html">Section 6: Automation</a>
+                    <span class="breadcrumb-separator">›</span>
+                    <span class="breadcrumb-current">SOAR Integration</span>
+                </nav>
+                
+                <header class="page-header">
+                    <h1>SOAR Integration</h1>
+                    <div class="page-meta">
+                        <span class="page-meta-item">📖 Section 6.1</span>
+                        <span class="page-meta-item">⏱️ 18 min read</span>
+                    </div>
+                </header>
+                
+                <div class="info-box overview" data-label="Overview">
+                    <div class="info-box-title">📘 What You'll Learn</div>
+                    <p>
+                        This page covers integrating vulnerability management with SOAR platforms 
+                        including Cortex XSOAR, Splunk SOAR, and building automated playbooks for 
+                        vulnerability enrichment, ticketing, and remediation workflows.
+                    </p>
+                </div>
+                
+                <h2>SOAR for Vulnerability Management</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Text</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>SOAR VALUE FOR VULNERABILITY MANAGEMENT
+═══════════════════════════════════════════════════════════════════════
+
+AUTOMATION OPPORTUNITIES:
+─────────────────────────────────────────────────────────────────────
+• Vulnerability enrichment (CISA KEV, EPSS, threat intel)
+• Automated ticket creation and assignment
+• Priority calculation based on multiple factors
+• Asset context enrichment from CMDB
+• Notification and escalation workflows
+• Remediation verification triggering
+• Exception request processing
+• Reporting and metrics generation
+
+SOAR PLATFORMS:
+─────────────────────────────────────────────────────────────────────
+• Cortex XSOAR (Palo Alto Networks)
+• Splunk SOAR (formerly Phantom)
+• IBM Security SOAR (Resilient)
+• ServiceNow Security Operations
+• Swimlane
+• Tines
+• Torq
+
+KEY INTEGRATIONS NEEDED:
+─────────────────────────────────────────────────────────────────────
+┌─────────────────────────────────────────────────────────────────────┐
+│                         SOAR PLATFORM                               │
+├─────────────────────────────────────────────────────────────────────┤
+│                              │                                      │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐             │
+│  │   Scanner    │  │    CMDB      │  │   Ticketing  │             │
+│  │  (Tenable,   │  │ (ServiceNow, │  │   (Jira,     │             │
+│  │   Qualys)    │  │    CMDB)     │  │   ServiceNow)│             │
+│  └──────────────┘  └──────────────┘  └──────────────┘             │
+│                                                                     │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐             │
+│  │ Threat Intel │  │    SIEM      │  │    Email     │             │
+│  │ (CISA, EPSS) │  │  (Splunk,    │  │ Notification │             │
+│  │              │  │   Sentinel)  │  │              │             │
+│  └──────────────┘  └──────────────┘  └──────────────┘             │
+└─────────────────────────────────────────────────────────────────────┘</code></pre>
+                </div>
+                
+                <h2>XSOAR Vulnerability Playbook</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">YAML</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code># XSOAR Playbook: Vulnerability Enrichment and Ticketing
+# File: Vuln_Enrichment_Ticketing.yml
+
+id: vuln_enrichment_ticketing
+version: 1
+name: Vulnerability Enrichment and Ticket Creation
+description: Enrich vulnerabilities with threat intel and create prioritized tickets
+
+starttaskid: "0"
+tasks:
+  "0":
+    id: "0"
+    taskid: start
+    type: start
+    nexttasks:
+      '#none#':
+        - "1"
+        
+  "1":
+    id: "1"
+    taskid: get_vuln_details
+    type: regular
+    task:
+      id: get_vuln_details
+      name: Get Vulnerability Details
+      script: Tenable.io|||tenable-io-get-vulnerability
+    nexttasks:
+      '#none#':
+        - "2"
+        
+  "2":
+    id: "2"
+    taskid: check_cisa_kev
+    type: regular
+    task:
+      id: check_cisa_kev
+      name: Check CISA KEV
+      script: CISAKEV|||cisa-kev-check
+    scriptarguments:
+      cve_id:
+        simple: ${incident.cve_id}
+    nexttasks:
+      '#none#':
+        - "3"
+        
+  "3":
+    id: "3"
+    taskid: get_epss_score
+    type: regular
+    task:
+      id: get_epss_score
+      name: Get EPSS Score
+      script: EPSS|||epss-score
+    scriptarguments:
+      cve_id:
+        simple: ${incident.cve_id}
+    nexttasks:
+      '#none#':
+        - "4"
+        
+  "4":
+    id: "4"
+    taskid: get_asset_context
+    type: regular
+    task:
+      id: get_asset_context
+      name: Get Asset from CMDB
+      script: ServiceNow|||servicenow-get-ci
+    scriptarguments:
+      ip_address:
+        simple: ${incident.asset_ip}
+    nexttasks:
+      '#none#':
+        - "5"
+        
+  "5":
+    id: "5"
+    taskid: calculate_priority
+    type: regular
+    task:
+      id: calculate_priority
+      name: Calculate Risk Priority
+      script: CalculateVulnPriority
+    scriptarguments:
+      cvss_score:
+        simple: ${incident.cvss_score}
+      epss_score:
+        simple: ${EPSS.score}
+      cisa_kev:
+        simple: ${CISAKEV.in_catalog}
+      asset_criticality:
+        simple: ${ServiceNow.CI.criticality}
+    nexttasks:
+      '#none#':
+        - "6"
+        
+  "6":
+    id: "6"
+    taskid: create_ticket
+    type: regular
+    task:
+      id: create_ticket
+      name: Create Remediation Ticket
+      script: Jira|||jira-create-issue
+    scriptarguments:
+      summary:
+        simple: "[${CalculatedPriority}] Remediate ${incident.cve_id}"
+      description:
+        simple: |
+          Vulnerability: ${incident.cve_id}
+          CVSS: ${incident.cvss_score}
+          EPSS: ${EPSS.score}
+          CISA KEV: ${CISAKEV.in_catalog}
+          Asset: ${incident.asset_hostname}
+          Owner: ${ServiceNow.CI.owner}
+          Priority: ${CalculatedPriority}
+      priority:
+        simple: ${CalculatedPriority}
+      assignee:
+        simple: ${ServiceNow.CI.owner}
+    nexttasks:
+      '#none#':
+        - "7"
+        
+  "7":
+    id: "7"
+    taskid: notify_owner
+    type: regular
+    task:
+      id: notify_owner
+      name: Notify Asset Owner
+      script: SendEmail
+    scriptarguments:
+      to:
+        simple: ${ServiceNow.CI.owner_email}
+      subject:
+        simple: "New Vulnerability Ticket: ${incident.cve_id}"
+      body:
+        simple: |
+          A new vulnerability remediation ticket has been assigned to you.
+          
+          Ticket: ${Jira.IssueKey}
+          CVE: ${incident.cve_id}
+          Priority: ${CalculatedPriority}
+          SLA: ${CalculatedSLA}
+          
+          Please review and begin remediation.</code></pre>
+                </div>
+                
+                <h2>Custom XSOAR Integration Script</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+XSOAR Integration: Vulnerability Priority Calculator
+Custom script for calculating risk-based priority.
+"""
+
+import demistomock as demisto
+from CommonServerPython import *
+
+
+def calculate_priority(cvss: float, epss: float, cisa_kev: bool,
+                       asset_criticality: int) -> dict:
+    """
+    Calculate vulnerability priority based on multiple factors.
+    
+    Args:
+        cvss: CVSS base score (0-10)
+        epss: EPSS probability (0-1)
+        cisa_kev: Whether in CISA KEV catalog
+        asset_criticality: Asset tier (1-4)
+    
+    Returns:
+        Priority level and SLA
+    """
+    # Base score from CVSS
+    score = (cvss / 10) * 30
+    
+    # EPSS contribution (log scale)
+    if epss > 0:
+        import math
+        epss_contribution = min(30, 15 + (math.log10(epss * 100) * 10))
+    else:
+        epss_contribution = 0
+    score += epss_contribution
+    
+    # CISA KEV boost
+    if cisa_kev:
+        score += 25
+    
+    # Asset criticality multiplier
+    criticality_multiplier = {1: 1.5, 2: 1.2, 3: 1.0, 4: 0.8}
+    score *= criticality_multiplier.get(asset_criticality, 1.0)
+    
+    # Determine priority
+    if score >= 80 or cisa_kev:
+        priority = 'P1'
+        sla_days = 2
+    elif score >= 60:
+        priority = 'P2'
+        sla_days = 7
+    elif score >= 40:
+        priority = 'P3'
+        sla_days = 30
+    else:
+        priority = 'P4'
+        sla_days = 90
+    
+    return {
+        'priority': priority,
+        'score': round(score, 1),
+        'sla_days': sla_days,
+        'factors': {
+            'cvss_contribution': round((cvss / 10) * 30, 1),
+            'epss_contribution': round(epss_contribution, 1),
+            'kev_boost': 25 if cisa_kev else 0,
+            'criticality_multiplier': criticality_multiplier.get(asset_criticality, 1.0)
+        }
+    }
+
+
+def main():
+    args = demisto.args()
+    
+    cvss = float(args.get('cvss_score', 5.0))
+    epss = float(args.get('epss_score', 0.01))
+    cisa_kev = args.get('cisa_kev', 'false').lower() == 'true'
+    criticality = int(args.get('asset_criticality', 3))
+    
+    result = calculate_priority(cvss, epss, cisa_kev, criticality)
+    
+    # Return results to XSOAR
+    return_results(CommandResults(
+        outputs_prefix='CalculatedPriority',
+        outputs_key_field='priority',
+        outputs=result,
+        readable_output=tableToMarkdown(
+            'Vulnerability Priority Calculation',
+            result,
+            headers=['priority', 'score', 'sla_days']
+        )
+    ))
+
+
+if __name__ in ('__main__', '__builtin__', 'builtins'):
+    main()</code></pre>
+                </div>
+                
+                <h2>Splunk SOAR Playbook</h2>
+                
+                <div class="code-block">
+                    <div class="code-block-header">
+                        <span class="code-block-lang">Python</span>
+                        <button class="code-block-copy"><span>📋</span> Copy</button>
+                    </div>
+                    <pre><code>"""
+Splunk SOAR Playbook: Vulnerability Triage
+Automate vulnerability enrichment and ticket creation.
+"""
+
+import phantom.rules as phantom
+import json
+
+
+def on_start(container):
+    """Entry point for playbook execution."""
+    phantom.debug("Starting vulnerability triage playbook")
+    
+    # Get vulnerability data from container
+    get_vulnerability_details(container)
+
+
+def get_vulnerability_details(container):
+    """Retrieve vulnerability details from scanner."""
+    
+    # Get CVE from container artifacts
+    artifacts = phantom.get_artifacts(container_id=container['id'])
+    cve_id = None
+    
+    for artifact in artifacts:
+        if artifact.get('cef', {}).get('cve'):
+            cve_id = artifact['cef']['cve']
+            break
+    
+    if cve_id:
+        phantom.save_run_data(key='cve_id', value=cve_id)
+        check_cisa_kev(container, cve_id)
+    else:
+        phantom.error("No CVE found in container")
+
+
+def check_cisa_kev(container, cve_id):
+    """Check if CVE is in CISA KEV catalog."""
+    
+    parameters = [{'cve': cve_id}]
+    
+    phantom.act(
+        'lookup cve',
+        parameters=parameters,
+        assets=['cisa_kev'],
+        callback=kev_callback,
+        name='check_kev'
+    )
+
+
+def kev_callback(action, success, container, results, handle):
+    """Process CISA KEV lookup results."""
+    
+    if success:
+        result_data = results[0].get('data', {})
+        in_kev = result_data.get('in_catalog', False)
+        phantom.save_run_data(key='in_kev', value=str(in_kev))
+    
+    get_epss_score(container)
+
+
+def get_epss_score(container):
+    """Get EPSS score for the CVE."""
+    
+    cve_id = phantom.get_run_data(key='cve_id')
+    parameters = [{'cve': cve_id}]
+    
+    phantom.act(
+        'get epss score',
+        parameters=parameters,
+        assets=['epss_api'],
+        callback=epss_callback,
+        name='get_epss'
+    )
+
+
+def epss_callback(action, success, container, results, handle):
+    """Process EPSS lookup results."""
+    
+    if success:
+        epss_score = results[0].get('data', {}).get('epss', 0.01)
+        phantom.save_run_data(key='epss_score', value=str(epss_score))
+    
+    calculate_and_create_ticket(container)
+
+
+def calculate_and_create_ticket(container):
+    """Calculate priority and create ticket."""
+    
+    # Retrieve saved data
+    cve_id = phantom.get_run_data(key='cve_id')
+    in_kev = phantom.get_run_data(key='in_kev') == 'True'
+    epss_score = float(phantom.get_run_data(key='epss_score', default='0.01'))
+    
+    # Get CVSS from container
+    cvss = container.get('severity_id', 5) * 2  # Simplified mapping
+    
+    # Calculate priority
+    if in_kev or (cvss >= 9.0 and epss_score >= 0.1):
+        priority = 'Critical'
+    elif cvss >= 7.0 or epss_score >= 0.3:
+        priority = 'High'
+    elif cvss >= 4.0:
+        priority = 'Medium'
+    else:
+        priority = 'Low'
+    
+    # Create ticket
+    ticket_params = [{
+        'summary': f'[{priority}] Remediate {cve_id}',
+        'description': f'CVE: {cve_id}\nCVSS: {cvss}\nEPSS: {epss_score}\nKEV: {in_kev}',
+        'priority': priority
+    }]
+    
+    phantom.act(
+        'create ticket',
+        parameters=ticket_params,
+        assets=['servicenow'],
+        name='create_ticket'
+    )
+    
+    phantom.debug(f"Created {priority} ticket for {cve_id}")</code></pre>
+                </div>
+                
+                <div class="info-box interview" data-label="Interview">
+                    <div class="info-box-title">💡 Interview Question</div>
+                    <p>
+                        <strong>"How have you used SOAR to automate vulnerability management?"</strong><br><br>
+                        Sample answer: "I built XSOAR playbooks to automate the vulnerability triage process. 
+                        When a critical vulnerability is detected, the playbook automatically enriches it with 
+                        CISA KEV status and EPSS scores, pulls asset context from ServiceNow CMDB, calculates 
+                        a risk-based priority, creates a Jira ticket assigned to the asset owner, and sends 
+                        email notification. This reduced our manual triage time from 15 minutes per vulnerability 
+                        to near-instant for routine cases, letting analysts focus on complex situations."
+                    </p>
+                </div>
+                
+                <h2>Summary</h2>
+                
+                <p>
+                    SOAR platforms transform vulnerability management from manual triage to automated 
+                    workflows. Build playbooks for enrichment, prioritization, and ticket creation. 
+                    The key is integrating your scanner, CMDB, ticketing, and threat intel sources 
+                    into cohesive automated workflows.
+                </p>
+                
+                <nav class="page-navigation">
+                    <a href="5-8-metrics.html" class="page-nav-link prev">
+                        <span class="page-nav-label">← Previous</span>
+                        <span class="page-nav-title">Remediation Metrics</span>
+                    </a>
+                    <a href="6-2-ticketing-integration.html" class="page-nav-link next">
+                        <span class="page-nav-label">Next →</span>
+                        <span class="page-nav-title">Ticketing Integration</span>
+                    </a>
+                </nav>
+            </div>
+        </main>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
